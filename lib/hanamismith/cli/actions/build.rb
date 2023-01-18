@@ -31,6 +31,7 @@ module Hanamismith
           Rubysmith::Builders::RSpec::Binstub,
           Rubysmith::Builders::RSpec::Context,
           Builders::RSpec::ApplicationSharedContext,
+          Builders::RSpec::Database,
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack,
