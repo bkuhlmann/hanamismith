@@ -24,7 +24,7 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
 
     it "builds development file" do
       expect(temp_dir.join("test/Procfile.dev").read).to eq(
-        %(web: rerun --pattern="**/*.{css,erb,js,rb}" ) \
+        %(web: rerun --dir app,config,lib,slices --pattern="**/*.{css,erb,js,rb}" ) \
         "-- bundle exec puma --config ./config/puma.rb\n"
       )
     end
