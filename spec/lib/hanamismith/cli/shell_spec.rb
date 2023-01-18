@@ -38,7 +38,6 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
-          "test/.envrc",
           "test/.env.development",
           "test/.env.test",
           "test/.ruby-version",
@@ -110,7 +109,6 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
-          "test/.envrc",
           "test/.env.development",
           "test/.env.test",
           "test/.ruby-version",
@@ -151,7 +149,6 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
-          "test/.envrc",
           "test/.env.development",
           "test/.env.test",
           "test/.circleci/config.yml",
@@ -249,7 +246,6 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
-          "test/.envrc",
           "test/.env.development",
           "test/.env.test",
           "test/.circleci/config.yml",

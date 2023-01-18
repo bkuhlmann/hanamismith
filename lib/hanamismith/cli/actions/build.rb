@@ -45,7 +45,6 @@ module Hanamismith
           Rubysmith::Extensions::Rubocop,
           Builders::Environments::Development,
           Builders::Environments::Test,
-          Builders::Environment,
           Builders::Git::Commit
         ].freeze
 
