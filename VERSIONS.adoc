@@ -1,0 +1,30 @@
+= Versions
+
+== 0.0.0 (2023-01-17)
+
+* Added Bundler builder - Brooke Kuhlmann
+* Added CLI build action - Brooke Kuhlmann
+* Added CLI build option - Brooke Kuhlmann
+* Added Caliber builder - Brooke Kuhlmann
+* Added Git commit builder - Brooke Kuhlmann
+* Added Guard builder - Brooke Kuhlmann
+* Added Puma Procfile builder - Brooke Kuhlmann
+* Added Puma configuration builder - Brooke Kuhlmann
+* Added README documentation builder - Brooke Kuhlmann
+* Added RSpec Hanami helper builder - Brooke Kuhlmann
+* Added RSpec builder shared example - Brooke Kuhlmann
+* Added RSpec helper builder - Brooke Kuhlmann
+* Added Rack builder - Brooke Kuhlmann
+* Added Rake builder - Brooke Kuhlmann
+* Added Rubysmith build parser to CLI parser - Brooke Kuhlmann
+* Added binstub builder - Brooke Kuhlmann
+* Added console builder - Brooke Kuhlmann
+* Added core builder - Brooke Kuhlmann
+* Added dependencies - Brooke Kuhlmann
+* Added documentation - Brooke Kuhlmann
+* Added environment builder - Brooke Kuhlmann
+* Added main slice builder - Brooke Kuhlmann
+* Added project skeleton - Brooke Kuhlmann
+* Updated RSpec parser shared example to refer to Rubysmith configuration - Brooke Kuhlmann
+* Updated Zeitwerk inflector to include custom namespaces - Brooke Kuhlmann
+* Updated configuration loader to inherit from Rubysmith loader - Brooke Kuhlmann
