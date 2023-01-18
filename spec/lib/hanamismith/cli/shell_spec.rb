@@ -40,6 +40,7 @@ RSpec.describe Hanamismith::CLI::Shell do
         [
           "test/.envrc",
           "test/.env.development",
+          "test/.env.test",
           "test/.ruby-version",
           "test/app/action.rb",
           "test/app/repo.rb",
@@ -111,6 +112,7 @@ RSpec.describe Hanamismith::CLI::Shell do
         [
           "test/.envrc",
           "test/.env.development",
+          "test/.env.test",
           "test/.ruby-version",
           "test/bin/hanami",
           "test/app/action.rb",
@@ -151,6 +153,7 @@ RSpec.describe Hanamismith::CLI::Shell do
         [
           "test/.envrc",
           "test/.env.development",
+          "test/.env.test",
           "test/.circleci/config.yml",
           "test/.git/HEAD",
           "test/.github/FUNDING.yml",
@@ -248,6 +251,7 @@ RSpec.describe Hanamismith::CLI::Shell do
         [
           "test/.envrc",
           "test/.env.development",
+          "test/.env.test",
           "test/.circleci/config.yml",
           "test/.git/HEAD",
           "test/.github/FUNDING.yml",
