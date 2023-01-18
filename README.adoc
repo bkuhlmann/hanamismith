@@ -159,7 +159,9 @@ The above is what I use via my {dotfiles_link} project.
 
 === Demonstration
 
-If you'd like a fully working demonstration appliation -- as built by this gem -- then check ouh the link:https://github.com/bkuhlmann/hemo[Hemo] project.
+If you'd like a fully working demonstration application -- as built by this gem -- then check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of demonstration application:
+
+video::https://www.alchemists.io/videos/projects/hemo/demo.mp4[poster=https://www.alchemists.io/images/projects/hemo/demo.png,width=1028,height=854,role=focal_point]
 
 == Development
 
