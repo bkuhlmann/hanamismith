@@ -1,0 +1,22 @@
+require "capybara/cuprite"
+require "capybara/rspec"
+require "rack/test"
+require "spec_helper"
+
+ENV["HANAMI_ENV"] = "test"
+require "hanami/prepare"
+
+Capybara.server = :puma, {Silent: true}
+Capybara.javascript_driver = :cuprite
+Capybara.register_driver :cuprite do |app|
+  Capybara::Cuprite::Driver.new app, window_size: [1200, 800]
+end
+
+RSpec.shared_context "with Hanami application" do
+  let(:app) { Hanami.app }
+end
+
+RSpec.configure do |config|
+  config.include Rack::Test::Methods, type: :request
+  config.include_context "with Hanami application", type: :request
+end
