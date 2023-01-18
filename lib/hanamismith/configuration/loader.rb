@@ -1,35 +1,27 @@
 # frozen_string_literal: true
 
-require "pathname"
-require "refinements/hashes"
-require "refinements/structs"
 require "runcom"
-require "yaml"
 
 module Hanamismith
   module Configuration
     # Represents the fully assembled Command Line Interface (CLI) configuration.
-    class Loader
-      using Refinements::Hashes
-      using Refinements::Structs
-
-      DEFAULTS = (YAML.load_file(Pathname(__dir__).join("defaults.yml")) || {}).freeze
+    class Loader < Rubysmith::Configuration::Loader
+      DEFAULTS = Rubysmith::Configuration::Loader::DEFAULTS
       CLIENT = Runcom::Config.new "hanamismith/configuration.yml", defaults: DEFAULTS
 
-      def self.call = new.call
-
-      def self.with_defaults = new client: DEFAULTS
-
-      def initialize content: Content.new, client: CLIENT
-        @content = content
-        @client = client
+      def self.with_overrides
+        new client: DEFAULTS,
+            enhancers: {template_root: Rubysmith::Configuration::Enhancers::TemplateRoot}
       end
 
-      def call = content.merge(**client.to_h.flatten_keys).freeze
+      def initialize(client: CLIENT, **) = super
 
-      private
+      def call
+        return super unless enhancers.key? :template_root
 
-      attr_reader :content, :client
+        enhancers[:template_root].call(super, overrides: Pathname(__dir__).join("../templates"))
+                                 .freeze
+      end
     end
   end
 end

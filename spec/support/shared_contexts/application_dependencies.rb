@@ -9,7 +9,14 @@ RSpec.shared_context "with application dependencies" do
 
   include_context "with temporary directory"
 
-  let(:configuration) { Hanamismith::Configuration::Loader.with_defaults.call }
+  let :configuration do
+    Hanamismith::Configuration::Loader.with_overrides.call.merge(
+      now: Time.local(2020, 1, 1, 0, 0, 0),
+      project_name: "test",
+      target_root: temp_dir
+    )
+  end
+
   let(:kernel) { class_spy Kernel }
 
   let :logger do

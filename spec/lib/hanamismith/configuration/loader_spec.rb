@@ -3,29 +3,35 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Configuration::Loader do
-  subject(:loader) { described_class.with_defaults }
+  using Refinements::Structs
 
-  let(:content) { Hanamismith::Configuration::Content.new }
+  subject(:loader) { described_class.new }
 
-  describe ".call" do
-    it "answers default configuration" do
-      expect(described_class.call).to be_a(Hanamismith::Configuration::Content)
-    end
-  end
-
-  describe ".with_defaults" do
-    it "answers default configuration" do
-      expect(described_class.with_defaults.call).to eq(content)
+  describe ".with_overrides" do
+    it "answers default overrides" do
+      expect(described_class.with_overrides.call).to have_attributes(
+        target_root: Bundler.root,
+        template_roots: [
+          Bundler.root.join("lib/hanamismith/templates"),
+          kind_of(Pathname)
+        ]
+      )
     end
   end
 
   describe "#call" do
-    it "answers default configuration" do
-      expect(loader.call).to eq(content)
+    it "answers content with defaults" do
+      expect(described_class.with_defaults.call).to have_attributes(
+        target_root: Bundler.root,
+        template_roots: []
+      )
     end
 
-    it "answers frozen configuration" do
-      expect(loader.call).to be_frozen
+    it "answers content with overrides" do
+      expect(loader.call).to have_attributes(
+        target_root: Bundler.root,
+        template_roots: [Bundler.root.join("lib/hanamismith/templates"), kind_of(Pathname)]
+      )
     end
   end
 end
