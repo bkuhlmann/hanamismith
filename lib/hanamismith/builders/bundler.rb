@@ -16,6 +16,7 @@ module Hanamismith
         alter_groups
         append_development_group
         append_test_group
+        insert_development_and_test_group
         remove_zeitwerk
         configuration
       end
@@ -49,10 +50,12 @@ module Hanamismith
 
       def alter_groups
         with_template.insert_after(/group :code_quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
-                     .insert_after(/group :development/, %(  gem "localhost", "~> 1.1"\n))
-                     .insert_after(/group :development/, %(  gem "rerun", "~> 0.14"\n))
+                     .insert_after(/group :development do/, %(  gem "localhost", "~> 1.1"\n))
+                     .insert_after(/group :development do/, %(  gem "rerun", "~> 0.14"\n))
                      .insert_after(/group :test/, %(  gem "capybara", "~> 3.38"\n))
                      .insert_after(/group :test/, %(  gem "cuprite", "~> 0.14"\n))
+                     .insert_after(/group :test/, %(  gem "database_cleaner-sequel", "~> 2.0"\n))
+                     .insert_after(/group :test/, %(  gem "launchy", "~> 2.5"\n))
                      .insert_after(/group :test/, %(  gem "rack-test", "~> 2.0"\n))
                      .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.11"\n))
                      .replace(/gem "rspec.+/, %(gem "hanami-rspec", "~> 2.0"))
@@ -62,7 +65,6 @@ module Hanamismith
         return if configuration.markdown? || configuration.build_rake || configuration.build_yard
 
         with_template.append <<~CONTENT
-
           group :development do
             gem "localhost", "~> 1.1"
             gem "rerun", "~> 0.14"
@@ -78,10 +80,22 @@ module Hanamismith
           group :test do
             gem "capybara", "~> 3.38"
             gem "cuprite", "~> 0.14"
+            gem "database_cleaner-sequel", "~> 2.0"
             gem "hanami-rspec", "~> 2.0"
+            gem "launchy", "~> 2.5"
             gem "rack-test", "~> 2.0"
             gem "rom-factory", "~> 0.11"
           end
+        CONTENT
+      end
+
+      def insert_development_and_test_group
+        with_template.insert_before(/group :development/, <<~CONTENT)
+
+          group :development, :test do
+            gem "dotenv", "~> 2.8"
+          end
+
         CONTENT
       end
 
