@@ -30,6 +30,7 @@ module Hanamismith
           Rubysmith::Builders::Reek,
           Rubysmith::Builders::RSpec::Binstub,
           Rubysmith::Builders::RSpec::Context,
+          Builders::RSpec::ApplicationSharedContext,
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack,

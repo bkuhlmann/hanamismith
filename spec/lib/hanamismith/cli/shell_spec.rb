@@ -192,6 +192,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
           "test/spec/spec_helper.rb",
+          "test/spec/support/shared_contexts/application.rb",
           "test/spec/support/shared_contexts/temp_dir.rb",
           "test/VERSIONS.adoc"
         ].compact
@@ -285,6 +286,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
           "test/spec/spec_helper.rb",
+          "test/spec/support/shared_contexts/application.rb",
           "test/spec/support/shared_contexts/temp_dir.rb",
           "test/VERSIONS.adoc"
         ].compact
