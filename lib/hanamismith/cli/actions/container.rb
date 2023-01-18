@@ -11,6 +11,7 @@ module Hanamismith
 
         merge Hanamismith::Container
 
+        register(:build) { Build.new }
         register(:config) { Config.new }
       end
     end
