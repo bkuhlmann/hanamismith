@@ -12,7 +12,7 @@ module Hanamismith
       CLIENT = OptionParser.new nil, 40, "  "
 
       # Order is important.
-      SECTIONS = [Parsers::Core].freeze
+      SECTIONS = [Parsers::Core, Rubysmith::CLI::Parsers::Build].freeze
 
       def initialize sections: SECTIONS, client: CLIENT, **dependencies
         super(**dependencies)
