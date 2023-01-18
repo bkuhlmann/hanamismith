@@ -1,0 +1,8 @@
+<% namespace do %>
+  # Configures application routes.
+  class Routes < Hanami::Routes
+    slice :main, at: "/" do
+      root to: "home.show"
+    end
+  end
+<% end %>
