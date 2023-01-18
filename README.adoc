@@ -2,13 +2,33 @@
 :toclevels: 5
 :figure-caption!:
 
+:cuprite_link: link:https://cuprite.rubycdp.com[Cuprite]
+:dry_link: link:https://dry-rb.org[Dry RB]
+:dotfiles_link: link:https://www.alchemists.io/projects/dotfiles[Dotfiles]
+:hanami_link: link:https://hanamirb.org[Hanami]
+:htmx_link: link:https://htmx.org[HTMX]
+:rubysmith_link: link:https://www.alchemists.io/projects/rubysmith[Rubysmith]
+
 = Hanamismith
+
+Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect for when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} team:
+____
+If you're looking for new ways to build maintainable, secure, faster and testable Ruby applications, you're in for a treat. *Hanami is built for people like you*.
+
+Whether you're a total beginner or an experienced developer, *this learning process may still be hard*. Over time, we become used to certain things, and it can be painful to change. *But without change, there is no challenge* and without challenge, there is no growth.
+____
+
+Welcome to the modern age of web development! This gem will help you get up and running as quickly as possible. 🚀
 
 toc::[]
 
 == Features
 
-== Screencasts
+* Supports all {rubysmith_link} features.
+* Supports {dry_link} functional programming.
+* Supports {hanami_link} for web application development.
+* Supports {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
+* Supports {cuprite_link} for full, headless, feature testing.
 
 == Requirements
 
@@ -16,14 +36,130 @@ toc::[]
 
 == Setup
 
-To set up the project, run:
+To install, run:
 
 [source,bash]
 ----
-bin/setup
+gem install hanamismith
 ----
 
 == Usage
+
+=== Command Line Interface (CLI)
+
+From the command line, type: `hanamismith --help`
+
+....
+USAGE:
+  -b, --build NAME [options]               Build new project.
+  -c, --config ACTION                      Manage gem configuration: edit or view.
+  -h, --help                               Show this message.
+  -v, --version                            Show gem version.
+
+BUILD OPTIONS:
+      --[no-]amazing_print                 Add Amazing Print gem. Default: true.
+      --[no-]caliber                       Add Caliber gem. Default: true.
+      --[no-]circle_ci                     Add Circle CI configuration and badge. Default: false.
+      --[no-]citation                      Add citation documentation. Default: true.
+      --[no-]community                     Add community documentation. Default: false.
+      --[no-]conduct                       Add code of conduct documentation. Default: true.
+      --[no-]console                       Add console script. Default: true.
+      --[no-]contributions                 Add contributions documentation. Default: true.
+      --[no-]debug                         Add Debug gem. Default: true.
+      --[no-]funding                       Add GitHub funding configuration. Default: false.
+      --[no-]git                           Add Git. Default: true.
+      --[no-]git_hub                       Add GitHub templates. Default: false.
+      --[no-]git_hub_ci                    Add GitHub templates. Default: false.
+      --[no-]git-lint                      Add Git Lint gem. Default: true.
+      --[no-]guard                         Add Guard gem. Default: true.
+      --[no-]license                       Add license documentation. Default: true.
+      --max                                Use maximum/enabled options. Default: false.
+      --min                                Use minimum/disabled options. Default: false.
+      --[no-]rake                          Add Rake gem. Default: true.
+      --[no-]readme                        Add readme documentation. Default: true.
+      --[no-]reek                          Add Reek gem. Default: true.
+      --[no-]refinements                   Add Refinements gem. Default: true.
+      --[no-]rspec                         Add RSpec gem. Default: true.
+      --[no-]security                      Add security. Default: true.
+      --[no-]setup                         Add setup script. Default: true.
+      --[no-]simple_cov                    Add SimpleCov gem. Default: true.
+      --[no-]versions                      Add version history. Default: true.
+      --[no-]yard                          Add Yard gem. Default: false.
+      --[no-]zeitwerk                      Add Zeitwerk gem. Default: true.
+....
+
+The core functionality of this gem centers around the `--build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://www.alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
+
+ℹ️ Use of the `--zeitwerk` or `--no-zeitwerk` flags will have no effect so you can ignore them since {hanami_link} builds in this functionality for you by default. At the moment, this flag is a carry over from the {rubysmith_link} project and will be removed in the future.
+
+=== Configuration
+
+This gem can be configured via a global configuration:
+
+....
+$HOME/.config/hanamismith/configuration.yml
+....
+
+It can also be configured via link:https://www.alchemists.io/projects/xdg[XDG] environment
+variables.
+
+The default configuration is everything provided in the
+link:https://www.alchemists.io/projects/rubysmith/#_configuration[Rubysmith].
+
+Feel free to modify the default and save as your own custom `configuration.yml`. It is recommended that you provide common URLs for your project which would be all keys found in this section:
+
+[source,yaml]
+----
+:project:
+  :url:
+    # Add sub-key values here.
+----
+
+When these values exist, you'll benefit from having this information added to your generated project documentation. Otherwise -- if these values are empty -- they are removed from new project generation entirely.
+
+=== Workflows
+
+When implementing and testing your project locally, a typical workflow might be:
+
+[source,bash]
+----
+# Build new project
+hanamismith --build demo
+
+# Run code quality and test coverage checks
+cd demo
+bundle exec rake
+
+# Develop (red, green, refactor)
+bin/guard
+git commit  # (repeat until finished with implementation)
+
+# Run: With Overmind (recommended)
+overmind start --port-step 10 --procfile Procfile.dev
+
+# Run: Without Overmind
+hanami start
+
+# Deploy
+git push
+----
+
+=== Aliases
+
+For link:https://www.gnu.org/software/bash[Bash] users -- or other shell users -- you might find the following aliases helpful in reducing terminal keystrokes when using this gem:
+
+[source,bash]
+----
+alias hsb="hanamismith --build"
+alias hse="hanamismith --config edit"
+alias hsh="hanamismith --help"
+----
+
+The above is what I use via my {dotfiles_link} project.
+
+=== Demonstration
+
+If you'd like a fully working demonstration appliation -- as built by this gem -- then check ouh the link:https://github.com/bkuhlmann/hemo[Hemo] project.
 
 == Development
 
