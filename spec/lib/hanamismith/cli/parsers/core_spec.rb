@@ -10,6 +10,22 @@ RSpec.describe Hanamismith::CLI::Parsers::Core do
   it_behaves_like "a parser"
 
   describe "#call" do
+    it "answers build (short)" do
+      expect(parser.call(%w[-b test])).to have_attributes(action_build: true, project_name: "test")
+    end
+
+    it "answers build (long)" do
+      expect(parser.call(%w[--build test])).to have_attributes(
+        action_build: true,
+        project_name: "test"
+      )
+    end
+
+    it "fails with missing build name" do
+      expectation = proc { parser.call %w[--build] }
+      expect(&expectation).to raise_error(OptionParser::MissingArgument, /--build/)
+    end
+
     it "answers config edit (short)" do
       expect(parser.call(%w[-c edit])).to have_attributes(action_config: :edit)
     end

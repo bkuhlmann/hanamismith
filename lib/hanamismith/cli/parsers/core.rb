@@ -37,6 +37,12 @@ module Hanamismith
 
         def collate = private_methods.sort.grep(/add_/).each { |method| __send__ method }
 
+        def add_build
+          client.on "-b", "--build NAME [options]", "Build new project." do |name|
+            configuration.merge! action_build: true, project_name: name
+          end
+        end
+
         def add_config
           client.on "-c",
                     "--config ACTION",
