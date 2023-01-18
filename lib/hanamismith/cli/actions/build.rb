@@ -43,6 +43,7 @@ module Hanamismith
           Rubysmith::Extensions::Pragmater,
           Rubysmith::Extensions::Tocer,
           Rubysmith::Extensions::Rubocop,
+          Builders::Environments::Development,
           Builders::Environment,
           Builders::Git::Commit
         ].freeze
