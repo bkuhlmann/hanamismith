@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "rubysmith"
 require "zeitwerk"
 
 Zeitwerk::Loader.for_gem.then do |loader|
