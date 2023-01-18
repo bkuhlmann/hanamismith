@@ -32,6 +32,7 @@ module Hanamismith
           Rubysmith::Builders::RSpec::Context,
           Builders::RSpec::ApplicationSharedContext,
           Builders::RSpec::Database,
+          Builders::RSpec::Factory,
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack,
