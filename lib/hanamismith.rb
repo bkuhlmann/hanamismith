@@ -4,7 +4,7 @@ require "rubysmith"
 require "zeitwerk"
 
 Zeitwerk::Loader.for_gem.then do |loader|
-  loader.inflector.inflect "cli" => "CLI"
+  loader.inflector.inflect "cli" => "CLI", "rspec" => "RSpec"
   loader.setup
 end
 
