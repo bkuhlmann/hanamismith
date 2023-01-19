@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::Core do
   describe "#call" do
     before { builder.call }
 
-    it "adds application action" do
+    it "adds action" do
       expect(temp_dir.join("test/app/action.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -29,22 +29,22 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds application repository" do
-      expect(temp_dir.join("test/app/repo.rb").read).to eq(<<~CONTENT)
+    it "adds repository" do
+      expect(temp_dir.join("test/app/repository.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
         require "rom-repository"
 
         module Test
           # The application repository.
-          class Repo < ROM::Repository::Root
+          class Repository < ROM::Repository::Root
             include Deps[container: "persistence.rom"]
           end
         end
       CONTENT
     end
 
-    it "adds application view" do
+    it "adds view" do
       expect(temp_dir.join("test/app/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 

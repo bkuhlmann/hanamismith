@@ -4,7 +4,7 @@ require "rom-repository"
 
 <% namespace do %>
   # The application repository.
-  class Repo < ROM::Repository::Root
+  class Repository < ROM::Repository::Root
     include Deps[container: "persistence.rom"]
   end
 <% end %>

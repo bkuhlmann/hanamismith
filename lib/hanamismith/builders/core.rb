@@ -24,15 +24,16 @@ module Hanamismith
 
       attr_reader :configuration, :builder
 
-      def add_application_action
+      def add_action
         builder.call(configuration.merge(template_path: "%project_name%/app/action.rb.erb")).render
       end
 
-      def add_application_repository
-        builder.call(configuration.merge(template_path: "%project_name%/app/repo.rb.erb")).render
+      def add_repository
+        builder.call(configuration.merge(template_path: "%project_name%/app/repository.rb.erb"))
+               .render
       end
 
-      def add_application_view
+      def add_view
         builder.call(configuration.merge(template_path: "%project_name%/app/view.rb.erb")).render
       end
 
