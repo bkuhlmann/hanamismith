@@ -28,12 +28,12 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds repository" do
-      expect(temp_dir.join("test/slices/main/repo.rb").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/slices/main/repository.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
         module Main
           # The main repository.
-          class Repo < Test::Repo
+          class Repository < Test::Repository
           end
         end
       CONTENT

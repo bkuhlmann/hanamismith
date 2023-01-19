@@ -31,7 +31,7 @@ module Hanamismith
         end
 
         def add_repository
-          path = "%project_name%/slices/main/repo.rb.erb"
+          path = "%project_name%/slices/main/repository.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
