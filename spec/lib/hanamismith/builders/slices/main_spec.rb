@@ -78,9 +78,9 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
               }
             </style>
 
-            <script src="https://unpkg.com/htmx.org@1.8.4/dist/htmx.min.js"
+            <script src="https://unpkg.com/htmx.org@1.8.5"
                     crossorigin="anonymous"
-                    integrity="sha384-wg5Y/JwF7VxGk4zLsJEcAojRtlVp1FKKdGy1qN+OMtdq72WRvX/EdRdqg/LOhYeV">
+                    integrity="sha384-7aHh9lqPYGYZ7sTHvzP1t3BAfLhYSTy9ArHdP3Xsr9/3TlGurYgcPBoFmXX2TX/w">
             </script>
           </head>
 
