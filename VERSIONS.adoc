@@ -1,5 +1,18 @@
 = Versions
 
+== 0.1.0 (2023-01-19)
+
+* Fixed Profile builder to ignore spec folder - Brooke Kuhlmann
+* Fixed RSpec Hanami builder to Capybara, factories, and Database Cleaner - Brooke Kuhlmann
+* Added Bundler builder gems for database cleaner, launchy, and dotenv - Brooke Kuhlmann
+* Added RSpec application shared context builder - Brooke Kuhlmann
+* Added RSpec database support - Brooke Kuhlmann
+* Added RSpec factory builder - Brooke Kuhlmann
+* Added development environment builder - Brooke Kuhlmann
+* Added test environment builder - Brooke Kuhlmann
+* Updated README with demonstration application screencast - Brooke Kuhlmann
+* Removed environment builder - Brooke Kuhlmann
+
 == 0.0.0 (2023-01-17)
 
 * Added Bundler builder - Brooke Kuhlmann

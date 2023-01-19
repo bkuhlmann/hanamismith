@@ -2,16 +2,21 @@
 :toclevels: 5
 :figure-caption!:
 
+:capybara_link: link:https://github.com/teamcapybara/capybara[Capybara]
 :cuprite_link: link:https://cuprite.rubycdp.com[Cuprite]
 :dry_link: link:https://dry-rb.org[Dry RB]
+:dotenv_link: link:https://github.com/bkeepers/dotenv[Dotenv]
 :dotfiles_link: link:https://www.alchemists.io/projects/dotfiles[Dotfiles]
 :hanami_link: link:https://hanamirb.org[Hanami]
 :htmx_link: link:https://htmx.org[HTMX]
+:pg_link: link:https://github.com/ged/ruby-pg[pg]
+:puma_link: link:https://puma.io[Puma]
+:rom_link: link:https://rom-rb.org[ROM]
 :rubysmith_link: link:https://www.alchemists.io/projects/rubysmith[Rubysmith]
 
 = Hanamismith
 
-Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect for when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} team:
+Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect for when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} teams:
 ____
 If you're looking for new ways to build maintainable, secure, faster and testable Ruby applications, you're in for a treat. *Hanami is built for people like you*.
 
@@ -24,11 +29,14 @@ toc::[]
 
 == Features
 
-* Supports all {rubysmith_link} features.
-* Supports {dry_link} functional programming.
-* Supports {hanami_link} for web application development.
-* Supports {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
-* Supports {cuprite_link} for full, headless, feature testing.
+* Built atop {rubysmith_link} and leverages all features.
+* Uses {dry_link} functional programming.
+* Uses {hanami_link} for web application development.
+* Uses {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
+* Uses {pg_link} coupled with {rom_link} for database management.
+* Uses {puma_link} as the default web server and fully configured for local and production environments.
+* Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
+* Uses {dotenv_link} for managing your environment configurations.
 
 == Requirements
 
@@ -138,7 +146,7 @@ git commit  # (repeat until finished with implementation)
 overmind start --port-step 10 --procfile Procfile.dev
 
 # Run: Without Overmind
-hanami start
+hanami server
 
 # Deploy
 git push
