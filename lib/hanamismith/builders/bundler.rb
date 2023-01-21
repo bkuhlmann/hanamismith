@@ -31,6 +31,7 @@ module Hanamismith
                      .insert_after("source", %(gem "erbse", "~> 0.1"\n))
                      .insert_after("source", %(gem "hanami", "~> 2.0"\n))
                      .insert_after("source", %(gem "hanami-controller", "~> 2.0"\n))
+                     .insert_after("source", %(gem "hanami-helpers", "~> 0.0"\n))
                      .insert_after("source", %(gem "hanami-router", "~> 2.0"\n))
                      .insert_after("source", %(gem "hanami-validations", "~> 2.0"\n))
                      .insert_after(
