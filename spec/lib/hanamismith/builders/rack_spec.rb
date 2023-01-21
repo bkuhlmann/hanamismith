@@ -19,7 +19,9 @@ RSpec.describe Hanamismith::Builders::Rack do
         require "hanami/boot"
         Bundler.require :tools if Hanami.env? :development
 
-        run Hanami.app
+        app = Rack::Builder.app { run Hanami.app }
+
+        run app
       CONTENT
     end
   end

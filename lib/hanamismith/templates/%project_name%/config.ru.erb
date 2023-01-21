@@ -1,4 +1,6 @@
 require "hanami/boot"
 Bundler.require :tools if Hanami.env? :development
 
-run Hanami.app
+app = Rack::Builder.app { run Hanami.app }
+
+run app
