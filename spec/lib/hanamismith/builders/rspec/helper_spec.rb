@@ -23,7 +23,9 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
           Bundler.require :tools
 
 
-          Dir[File.join(__dir__, "support", "shared_contexts", "**/*.rb")].each { |path| require path }
+          SPEC_ROOT = Pathname(__dir__).realpath.freeze
+
+          Dir[File.join(SPEC_ROOT, "support", "shared_contexts", "**/*.rb")].each { |path| require path }
 
           RSpec.configure do |config|
             config.color = true
