@@ -12,6 +12,7 @@ module Hanamismith
           Builders::Core,
           Builders::Refinement,
           Builders::Slices::Main,
+          Builders::Slices::Health,
           Rubysmith::Builders::Version,
           Builders::Documentation::Readme,
           Rubysmith::Builders::Documentation::Citation,

@@ -58,6 +58,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/lib/test/types.rb",
           "test/Procfile",
           "test/Procfile.dev",
+          "test/slices/health/actions/show.rb",
           "test/slices/main/action.rb",
           "test/slices/main/actions/home/show.rb",
           "test/slices/main/repository.rb",
@@ -65,7 +66,8 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/templates/layouts/app.html.erb",
           "test/slices/main/view.rb",
           "test/slices/main/views/home/show.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb"
+          "test/spec/lib/test/refinements/actions/response_spec.rb",
+          "test/spec/slices/health/actions/show_spec.rb"
         ].compact
       end
 
@@ -115,10 +117,10 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/.env.development",
           "test/.env.test",
           "test/.ruby-version",
-          "test/bin/hanami",
           "test/app/action.rb",
           "test/app/repository.rb",
           "test/app/view.rb",
+          "test/bin/hanami",
           "test/config.ru",
           "test/config/app.rb",
           "test/config/providers/persistence.rb",
@@ -132,6 +134,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/lib/test/types.rb",
           "test/Procfile",
           "test/Procfile.dev",
+          "test/slices/health/actions/show.rb",
           "test/slices/main/action.rb",
           "test/slices/main/actions/home/show.rb",
           "test/slices/main/repository.rb",
@@ -139,7 +142,8 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/templates/layouts/app.html.erb",
           "test/slices/main/view.rb",
           "test/slices/main/views/home/show.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb"
+          "test/spec/lib/test/refinements/actions/response_spec.rb",
+          "test/spec/slices/health/actions/show_spec.rb"
         ].compact
       end
 
@@ -155,9 +159,9 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
+          "test/.circleci/config.yml",
           "test/.env.development",
           "test/.env.test",
-          "test/.circleci/config.yml",
           "test/.git/HEAD",
           "test/.github/FUNDING.yml",
           "test/.github/ISSUE_TEMPLATE.md",
@@ -167,7 +171,6 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/.reek.yml",
           "test/.rubocop.yml",
           "test/.ruby-version",
-          "test/config.ru",
           "test/app/action.rb",
           "test/app/repository.rb",
           "test/app/view.rb",
@@ -178,6 +181,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/bin/rubocop",
           "test/bin/setup",
           "test/CITATION.cff",
+          "test/config.ru",
           "test/config/app.rb",
           "test/config/providers/persistence.rb",
           "test/config/providers/rack_attack.rb",
@@ -194,6 +198,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/Procfile.dev",
           "test/Rakefile",
           "test/README.adoc",
+          "test/slices/health/actions/show.rb",
           "test/slices/main/action.rb",
           "test/slices/main/actions/home/show.rb",
           "test/slices/main/repository.rb",
@@ -203,6 +208,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
           "test/spec/lib/test/refinements/actions/response_spec.rb",
+          "test/spec/slices/health/actions/show_spec.rb",
           "test/spec/spec_helper.rb",
           "test/spec/support/database.rb",
           "test/spec/support/factory.rb",
@@ -255,9 +261,9 @@ RSpec.describe Hanamismith::CLI::Shell do
 
       let :files do
         [
+          "test/.circleci/config.yml",
           "test/.env.development",
           "test/.env.test",
-          "test/.circleci/config.yml",
           "test/.git/HEAD",
           "test/.github/FUNDING.yml",
           "test/.github/ISSUE_TEMPLATE.md",
@@ -267,7 +273,6 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/.reek.yml",
           "test/.rubocop.yml",
           "test/.ruby-version",
-          "test/config.ru",
           "test/app/action.rb",
           "test/app/repository.rb",
           "test/app/view.rb",
@@ -278,6 +283,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/bin/rubocop",
           "test/bin/setup",
           "test/CITATION.cff",
+          "test/config.ru",
           "test/config/app.rb",
           "test/config/providers/persistence.rb",
           "test/config/providers/rack_attack.rb",
@@ -294,6 +300,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/Procfile.dev",
           "test/Rakefile",
           "test/README.adoc",
+          "test/slices/health/actions/show.rb",
           "test/slices/main/action.rb",
           "test/slices/main/actions/home/show.rb",
           "test/slices/main/repository.rb",
@@ -303,6 +310,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
           "test/spec/lib/test/refinements/actions/response_spec.rb",
+          "test/spec/slices/health/actions/show_spec.rb",
           "test/spec/spec_helper.rb",
           "test/spec/support/database.rb",
           "test/spec/support/factory.rb",
