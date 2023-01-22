@@ -3,7 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::Core do
-  using Refinements::Pathnames
   using Refinements::Structs
 
   subject(:builder) { described_class.new configuration.minimize }
@@ -100,6 +99,9 @@ RSpec.describe Hanamismith::Builders::Core do
           # Handles HTTP requests.
           class App < Hanami::App
             config.actions.content_security_policy[:script_src] = "https://unpkg.com"
+
+            config.middleware.use Rack::Deflater
+            config.middleware.use Rack::Static, {urls: %w[/stylesheets javascript], root: "public"}
           end
         end
       CONTENT
