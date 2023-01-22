@@ -54,6 +54,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/config/settings.rb",
           "test/Gemfile",
           ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
+          "test/lib/test/refinements/actions/response.rb",
           "test/lib/test/types.rb",
           "test/Procfile",
           "test/Procfile.dev",
@@ -63,7 +64,8 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/templates/home/show.html.erb",
           "test/slices/main/templates/layouts/app.html.erb",
           "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb"
+          "test/slices/main/views/home/show.rb",
+          "test/spec/lib/test/refinements/actions/response_spec.rb"
         ].compact
       end
 
@@ -126,6 +128,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/config/settings.rb",
           "test/Gemfile",
           ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
+          "test/lib/test/refinements/actions/response.rb",
           "test/lib/test/types.rb",
           "test/Procfile",
           "test/Procfile.dev",
@@ -135,7 +138,8 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/templates/home/show.html.erb",
           "test/slices/main/templates/layouts/app.html.erb",
           "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb"
+          "test/slices/main/views/home/show.rb",
+          "test/spec/lib/test/refinements/actions/response_spec.rb"
         ].compact
       end
 
@@ -183,6 +187,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/Gemfile",
           ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
           "test/Guardfile",
+          "test/lib/test/refinements/actions/response.rb",
           "test/lib/test/types.rb",
           "test/LICENSE.adoc",
           "test/Procfile",
@@ -197,6 +202,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/view.rb",
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
+          "test/spec/lib/test/refinements/actions/response_spec.rb",
           "test/spec/spec_helper.rb",
           "test/spec/support/database.rb",
           "test/spec/support/factory.rb",
@@ -281,6 +287,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/Gemfile",
           ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
           "test/Guardfile",
+          "test/lib/test/refinements/actions/response.rb",
           "test/lib/test/types.rb",
           "test/LICENSE.adoc",
           "test/Procfile",
@@ -295,6 +302,7 @@ RSpec.describe Hanamismith::CLI::Shell do
           "test/slices/main/view.rb",
           "test/slices/main/views/home/show.rb",
           "test/spec/hanami_helper.rb",
+          "test/spec/lib/test/refinements/actions/response_spec.rb",
           "test/spec/spec_helper.rb",
           "test/spec/support/database.rb",
           "test/spec/support/factory.rb",

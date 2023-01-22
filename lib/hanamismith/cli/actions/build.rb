@@ -10,6 +10,7 @@ module Hanamismith
         # Order is important.
         BUILDERS = [
           Builders::Core,
+          Builders::Refinement,
           Builders::Slices::Main,
           Rubysmith::Builders::Version,
           Builders::Documentation::Readme,
