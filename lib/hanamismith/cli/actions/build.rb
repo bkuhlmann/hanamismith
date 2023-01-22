@@ -35,7 +35,7 @@ module Hanamismith
           Builders::RSpec::Factory,
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
-          Builders::Rack,
+          Builders::Rack::Config,
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,

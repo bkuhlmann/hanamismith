@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Hanamismith::Builders::Rack do
+RSpec.describe Hanamismith::Builders::Rack::Config do
   using Refinements::Structs
 
   subject(:builder) { described_class.new configuration.minimize }
