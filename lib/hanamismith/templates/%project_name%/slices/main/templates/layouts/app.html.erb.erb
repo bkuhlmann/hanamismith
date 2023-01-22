@@ -4,21 +4,7 @@
     <title><%= configuration.project_label %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <style type="text/css">
-      :root {
-        --site-font-family: Verdana;
-        --site-color-black: hsl(0, 0%, 0%);
-        --site-color-white: hsl(0, 0%, 100%);
-      }
-
-      body {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        font-family: var(--site-font-family);
-        margin: 1rem 5rem;
-      }
-    </style>
+    <link title="<%= configuration.project_label %> - Stylesheet" rel="stylesheet" href="/stylesheets/site.css" type="text/css">
 
     <script src="https://unpkg.com/htmx.org@1.8.5"
             crossorigin="anonymous"
@@ -26,7 +12,7 @@
     </script>
   </head>
 
-  <body>
+  <body class="page">
     <!-- yield -->
   </body>
 </html>
