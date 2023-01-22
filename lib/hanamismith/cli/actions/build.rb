@@ -11,6 +11,7 @@ module Hanamismith
         BUILDERS = [
           Builders::Core,
           Builders::Refinement,
+          Builders::Stylesheet,
           Builders::Slices::Main,
           Builders::Slices::Health,
           Rubysmith::Builders::Version,
