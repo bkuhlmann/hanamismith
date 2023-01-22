@@ -21,7 +21,7 @@ RSpec.describe Hanamismith::Builders::Guard do
 
       it "builds configuration" do
         expect(configuration_path.read).to include(<<~CONTENT)
-          guard :rspec, cmd: "NO_COVERAGE=true bundle exec rspec --format documentation" do
+          guard :rspec, cmd: "NO_COVERAGE=true bin/rspec --format documentation" do
             require "guard/rspec/dsl"
 
             dsl = Guard::RSpec::Dsl.new self
