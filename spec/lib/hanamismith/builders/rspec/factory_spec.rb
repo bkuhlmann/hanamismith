@@ -3,7 +3,6 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::RSpec::Factory do
-  using Refinements::Pathnames
   using Refinements::Structs
 
   subject(:builder) { described_class.new test_configuration }
