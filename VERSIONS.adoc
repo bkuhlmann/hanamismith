@@ -1,5 +1,27 @@
 = Versions
 
+== 0.2.0 (2023-01-22)
+
+* Fixed Guardfile to use RSpec binstub - Brooke Kuhlmann
+* Fixed core builder to spell out repository object - Brooke Kuhlmann
+* Fixed main slice builder to spell out repository object - Brooke Kuhlmann
+* Added Hanami Helpers gem to Bundler builder - Brooke Kuhlmann
+* Added Rack Attack builder - Brooke Kuhlmann
+* Added Rack Attack to Bundler builder - Brooke Kuhlmann
+* Added Rack deflator and static middle ware to core builder - Brooke Kuhlmann
+* Added Rake binstub - Brooke Kuhlmann
+* Added health route to core builder - Brooke Kuhlmann
+* Added health slice builder - Brooke Kuhlmann
+* Added refinement builder - Brooke Kuhlmann
+* Added stylesheet builder - Brooke Kuhlmann
+* Updated Rack builder to ensure middleware is frozen - Brooke Kuhlmann
+* Updated to HTMX 1.8.5 - Brooke Kuhlmann
+* Updated to Rubysmith 4.4.0 - Brooke Kuhlmann
+* Removed unnecessary refinement of pathnames in builder specs - Brooke Kuhlmann
+* Refactored RSpec helper to use spec root constant - Brooke Kuhlmann
+* Refactored Rack builder as config builder - Brooke Kuhlmann
+* Refactored main slice builder to leverage public stylesheet - Brooke Kuhlmann
+
 == 0.1.0 (2023-01-19)
 
 * Fixed Profile builder to ignore spec folder - Brooke Kuhlmann

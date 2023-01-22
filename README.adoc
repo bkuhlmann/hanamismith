@@ -11,6 +11,7 @@
 :htmx_link: link:https://htmx.org[HTMX]
 :pg_link: link:https://github.com/ged/ruby-pg[pg]
 :puma_link: link:https://puma.io[Puma]
+:rack_link: link:https://github.com/rack/rack[Rack]
 :rom_link: link:https://rom-rb.org[ROM]
 :rubysmith_link: link:https://www.alchemists.io/projects/rubysmith[Rubysmith]
 
@@ -34,6 +35,7 @@ toc::[]
 * Uses {hanami_link} for web application development.
 * Uses {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
+* Uses {rack_link}, specifically: `Rack::Deflater`, `Rack::Static`, and link:https://github.com/rack/rack-attack[Rack::Attack].
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
@@ -136,7 +138,10 @@ hanamismith --build demo
 
 # Run code quality and test coverage checks
 cd demo
-bundle exec rake
+bin/setup
+hanami db create
+HANAMI_ENV=test hanami db create
+bin/rake
 
 # Develop (red, green, refactor)
 bin/guard
@@ -151,6 +156,11 @@ hanami server
 # Deploy
 git push
 ----
+
+Once the server is running you can visit (or ping) the following endpoints:
+
+* `/`: The default welcome page.
+* `/status`: The health status of the application. This will be _green_ (200 OK) when the server is up or _red_ (503 Service Unavailable) when the server is down.
 
 === Aliases
 
