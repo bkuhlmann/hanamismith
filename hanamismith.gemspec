@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables << "hanamismith"
   spec.extra_rdoc_files = Dir["README*", "LICENSE*"]
-  spec.files = Dir["*.gemspec", "lib/**/*"]
+  spec.files = Dir.glob ["*.gemspec", "lib/**/*"], File::FNM_DOTMATCH
 end
