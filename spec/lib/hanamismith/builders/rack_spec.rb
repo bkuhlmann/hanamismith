@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Hanamismith::Builders::Rack::Config do
+RSpec.describe Hanamismith::Builders::Rack do
   using Refinements::Structs
 
   subject(:builder) { described_class.new configuration.minimize }
@@ -14,7 +14,7 @@ RSpec.describe Hanamismith::Builders::Rack::Config do
   describe "#call" do
     before { builder.call }
 
-    it "doesn't build Rakefile" do
+    it "builds configuration" do
       expect(temp_dir.join("test/config.ru").read).to eq(<<~CONTENT)
         require "hanami/boot"
         Bundler.require :tools if Hanami.env? :development
