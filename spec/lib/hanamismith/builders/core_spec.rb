@@ -66,6 +66,9 @@ RSpec.describe Hanamismith::Builders::Core do
             require "rom/core"
             require "rom/sql"
 
+            Sequel.database_timezone = :utc
+            Sequel.application_timezone = :local
+
             configuration = ROM::Configuration.new :sql, target["settings"].database_url
 
             configuration.plugin :sql, relations: :instrumentation do |plugin_config|
