@@ -14,6 +14,7 @@ module Hanamismith
           Builders::Providers::RackAttack,
           Builders::Refinement,
           Builders::Stylesheet,
+          Builders::HTMX,
           Builders::Slices::Main,
           Builders::Slices::Health,
           Rubysmith::Builders::Version,
