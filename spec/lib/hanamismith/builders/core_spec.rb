@@ -65,10 +65,10 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # Handles HTTP requests.
           class App < Hanami::App
-            config.actions.content_security_policy[:script_src] = "https://unpkg.com"
+            config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 
             config.middleware.use Rack::Deflater
-            config.middleware.use Rack::Static, {urls: %w[/stylesheets javascript], root: "public"}
+            config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascript], root: "public"}
           end
         end
       CONTENT
