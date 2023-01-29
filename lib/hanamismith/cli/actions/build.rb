@@ -10,6 +10,7 @@ module Hanamismith
         # Order is important.
         BUILDERS = [
           Builders::Core,
+          Builders::Providers::Persistence,
           Builders::Refinement,
           Builders::Stylesheet,
           Builders::Slices::Main,

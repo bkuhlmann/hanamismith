@@ -37,11 +37,6 @@ module Hanamismith
         builder.call(configuration.merge(template_path: "%project_name%/app/view.rb.erb")).render
       end
 
-      def add_persistence_provider
-        path = "%project_name%/config/providers/persistence.rb.erb"
-        builder.call(configuration.merge(template_path: path)).render
-      end
-
       def add_application_configuration
         builder.call(configuration.merge(template_path: "%project_name%/config/app.rb.erb")).render
       end
