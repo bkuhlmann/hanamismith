@@ -1,5 +1,20 @@
 = Versions
 
+== 0.3.0 (2023-01-29)
+
+* Fixed Bundler builder to include Hanami helpers from main branch - Brooke Kuhlmann
+* Fixed application configuration CSP and JavaScript public asset path - Brooke Kuhlmann
+* Added Circle CI builder - Brooke Kuhlmann
+* Added GitHub CI builder - Brooke Kuhlmann
+* Added HTMX builder - Brooke Kuhlmann
+* Added Sequel database and application timezone to persistence provider - Brooke Kuhlmann
+* Updated gem specification to include hidden folders - Brooke Kuhlmann
+* Updated main slice builder to reference local HTMX library - Brooke Kuhlmann
+* Refactored CLI shell act on configuration when pattern matching - Brooke Kuhlmann
+* Refactored Rack Attack as a provider builder - Brooke Kuhlmann
+* Refactored Rack builder to no longer use namespace - Brooke Kuhlmann
+* Refactored persistence provider to seperate builder - Brooke Kuhlmann
+
 == 0.2.0 (2023-01-22)
 
 * Fixed Guardfile to use RSpec binstub - Brooke Kuhlmann
