@@ -28,7 +28,7 @@ module Hanamismith
           Builders::Rake,
           Builders::Binstub,
           Builders::Console,
-          Rubysmith::Builders::CircleCI,
+          Builders::CI::Circle,
           Rubysmith::Builders::Setup,
           Rubysmith::Builders::GitHub,
           Rubysmith::Builders::GitHubCI,
