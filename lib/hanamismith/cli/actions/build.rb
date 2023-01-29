@@ -11,6 +11,7 @@ module Hanamismith
         BUILDERS = [
           Builders::Core,
           Builders::Providers::Persistence,
+          Builders::Providers::RackAttack,
           Builders::Refinement,
           Builders::Stylesheet,
           Builders::Slices::Main,
@@ -40,7 +41,6 @@ module Hanamismith
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack::Config,
-          Builders::Rack::Attack,
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,

@@ -4,9 +4,9 @@ require "refinements/structs"
 
 module Hanamismith
   module Builders
-    module Rack
-      # Builds project skeleton with Rack Attack provider.
-      class Attack
+    module Providers
+      # Builds project skeleton for Rack::Attack provider.
+      class RackAttack
         using Refinements::Structs
 
         def self.call(...) = new(...).call
