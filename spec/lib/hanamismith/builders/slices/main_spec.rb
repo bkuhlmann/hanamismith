@@ -64,10 +64,7 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
 
             <link title="Test - Stylesheet" rel="stylesheet" href="/stylesheets/site.css" type="text/css">
 
-            <script src="https://unpkg.com/htmx.org@1.8.5"
-                    crossorigin="anonymous"
-                    integrity="sha384-7aHh9lqPYGYZ7sTHvzP1t3BAfLhYSTy9ArHdP3Xsr9/3TlGurYgcPBoFmXX2TX/w">
-            </script>
+            <script src="/javascript//htmx.min.js"></script>
           </head>
 
           <body class="page">
