@@ -55,6 +55,10 @@ module Hanamismith
         path = "%project_name%/lib/%project_path%/types.rb.erb"
         builder.call(configuration.merge(template_path: path)).render
       end
+
+      def add_temp_directory
+        builder.call(configuration.merge(template_path: "%project_name%/tmp")).make_path
+      end
     end
   end
 end

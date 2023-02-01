@@ -111,5 +111,9 @@ RSpec.describe Hanamismith::Builders::Core do
         end
       CONTENT
     end
+
+    it "adds temp directory" do
+      expect(temp_dir.join("test/tmp").exist?).to be(true)
+    end
   end
 end
