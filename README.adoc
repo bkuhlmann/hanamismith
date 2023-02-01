@@ -175,11 +175,15 @@ alias hsh="hanamismith --help"
 
 The above is what I use via my {dotfiles_link} project.
 
-=== Demonstration
+=== Demonstrations
 
-If you'd like a fully working demonstration application -- as built by this gem -- then check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of demonstration application:
+If you'd like a fully working demonstration application -- as built by this gem -- then check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
 video::https://www.alchemists.io/videos/projects/hemo/demo.mp4[poster=https://www.alchemists.io/images/projects/hemo/demo.png,width=1400,height=811,role=focal_point]
+
+In case you are not aware of link:https://hanamimastery.com[Hanami Mastery], now might be a good time to introduce you. link:https://hanamimastery.com/about[Seb Wilgosz] -- the creator of Hanami Mastery -- recently published Episode 40 (see below) which features this gem. This'll give you another perspective on usage which you might enjoy:
+
+video::V4QPZi3j7uY[youtube,role=video]
 
 == Development
 
