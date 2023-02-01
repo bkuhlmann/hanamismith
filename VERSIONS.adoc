@@ -1,5 +1,10 @@
 = Versions
 
+== 0.3.1 (2023-01-31)
+
+* Fixed core builder to ensure temp directory is always created - Brooke Kuhlmann
+* Added Hanami Mastery Episode 40 to the README - Brooke Kuhlmann
+
 == 0.3.0 (2023-01-29)
 
 * Fixed Bundler builder to include Hanami helpers from main branch - Brooke Kuhlmann

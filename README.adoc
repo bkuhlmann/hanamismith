@@ -39,6 +39,7 @@ toc::[]
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
+* Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
 
 == Requirements
 
@@ -139,7 +140,7 @@ hanamismith --build demo
 # Run code quality and test coverage checks
 cd demo
 bin/setup
-hanami db create
+bin/hanami db create
 HANAMI_ENV=test hanami db create
 bin/rake
 
@@ -151,10 +152,13 @@ git commit  # (repeat until finished with implementation)
 overmind start --port-step 10 --procfile Procfile.dev
 
 # Run: Without Overmind
-hanami server
+bin/hanami server
 
 # Deploy
 git push
+
+# Help
+bin/hanami --help
 ----
 
 Once the server is running you can visit (or ping) the following endpoints:
