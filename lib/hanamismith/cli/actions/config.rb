@@ -7,9 +7,8 @@ module Hanamismith
       class Config
         include Hanamismith::Import[:kernel, :logger]
 
-        def initialize client: Configuration::Loader::CLIENT, **dependencies
-          super(**dependencies)
-
+        def initialize(client: Configuration::Loader::CLIENT, **)
+          super(**)
           @client = client
         end
 

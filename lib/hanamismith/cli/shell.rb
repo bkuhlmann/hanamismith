@@ -8,8 +8,8 @@ module Hanamismith
     class Shell
       include Actions::Import[:config, :build, :specification, :logger]
 
-      def initialize parser: Parser.new, **dependencies
-        super(**dependencies)
+      def initialize(parser: Parser.new, **)
+        super(**)
         @parser = parser
       end
 
