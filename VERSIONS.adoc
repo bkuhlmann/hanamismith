@@ -1,5 +1,12 @@
 = Versions
 
+== 0.4.0 (2023-02-05)
+
+* Fixed demonstration documentation and embeded video dimensions - Brooke Kuhlmann
+* Updated to Caliber 0.25.0 - Brooke Kuhlmann
+* Updated to Rubysmith 4.5.0 - Brooke Kuhlmann
+* Refactored implementation to forward splatted arguments - Brooke Kuhlmann
+
 == 0.3.1 (2023-01-31)
 
 * Fixed core builder to ensure temp directory is always created - Brooke Kuhlmann
