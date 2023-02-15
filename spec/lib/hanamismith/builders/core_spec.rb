@@ -91,7 +91,7 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # Configures application settings.
           class Settings < Hanami::Settings
-            setting :database_url
+            setting :database_url, constructor: Types::Params::String
           end
         end
       CONTENT

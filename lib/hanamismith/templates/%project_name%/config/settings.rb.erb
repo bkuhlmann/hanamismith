@@ -1,6 +1,6 @@
 <% namespace do %>
   # Configures application settings.
   class Settings < Hanami::Settings
-    setting :database_url
+    setting :database_url, constructor: Types::Params::String
   end
 <% end %>
