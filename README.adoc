@@ -6,14 +6,14 @@
 :cuprite_link: link:https://cuprite.rubycdp.com[Cuprite]
 :dry_link: link:https://dry-rb.org[Dry RB]
 :dotenv_link: link:https://github.com/bkeepers/dotenv[Dotenv]
-:dotfiles_link: link:https://www.alchemists.io/projects/dotfiles[Dotfiles]
+:dotfiles_link: link:https://alchemists.io/projects/dotfiles[Dotfiles]
 :hanami_link: link:https://hanamirb.org[Hanami]
 :htmx_link: link:https://htmx.org[HTMX]
 :pg_link: link:https://github.com/ged/ruby-pg[pg]
 :puma_link: link:https://puma.io[Puma]
 :rack_link: link:https://github.com/rack/rack[Rack]
 :rom_link: link:https://rom-rb.org[ROM]
-:rubysmith_link: link:https://www.alchemists.io/projects/rubysmith[Rubysmith]
+:rubysmith_link: link:https://alchemists.io/projects/rubysmith[Rubysmith]
 
 = Hanamismith
 
@@ -99,7 +99,7 @@ BUILD OPTIONS:
       --[no-]zeitwerk                      Add Zeitwerk gem. Default: true.
 ....
 
-The core functionality of this gem centers around the `--build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://www.alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
+The core functionality of this gem centers around the `--build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
 
 ℹ️ Use of the `--zeitwerk` or `--no-zeitwerk` flags will have no effect so you can ignore them since {hanami_link} builds in this functionality for you by default. At the moment, this flag is a carry over from the {rubysmith_link} project and will be removed in the future.
 
@@ -111,11 +111,11 @@ This gem can be configured via a global configuration:
 $HOME/.config/hanamismith/configuration.yml
 ....
 
-It can also be configured via link:https://www.alchemists.io/projects/xdg[XDG] environment
+It can also be configured via link:https://alchemists.io/projects/xdg[XDG] environment
 variables.
 
 The default configuration is everything provided in the
-link:https://www.alchemists.io/projects/rubysmith/#_configuration[Rubysmith].
+link:https://alchemists.io/projects/rubysmith/#_configuration[Rubysmith].
 
 Feel free to modify the default and save as your own custom `configuration.yml`. It is recommended that you provide common URLs for your project which would be all keys found in this section:
 
@@ -183,7 +183,7 @@ The above is what I use via my {dotfiles_link} project.
 
 For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
-video::https://www.alchemists.io/videos/projects/hemo/demo.mp4[poster=https://www.alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
+video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
 
 In case you are not aware of link:https://hanamimastery.com[Hanami Mastery], now would be a good time to introduce you. link:https://hanamimastery.com/about[Seb Wilgosz] -- the creator of Hanami Mastery -- recently published link:https://hanamimastery.com/episodes/40-hanamismith[Episode 40] (see below) which features this gem. _Please note that multiple advancements have been applied since the original recording of this video_. That said, this'll give you another perspective on usage which you might enjoy:
 
@@ -216,19 +216,19 @@ To test, run:
 bin/rake
 ----
 
-== link:https://www.alchemists.io/policies/license[License]
+== link:https://alchemists.io/policies/license[License]
 
-== link:https://www.alchemists.io/policies/security[Security]
+== link:https://alchemists.io/policies/security[Security]
 
-== link:https://www.alchemists.io/policies/code_of_conduct[Code of Conduct]
+== link:https://alchemists.io/policies/code_of_conduct[Code of Conduct]
 
-== link:https://www.alchemists.io/policies/contributions[Contributions]
+== link:https://alchemists.io/policies/contributions[Contributions]
 
-== link:https://www.alchemists.io/projects/hanamismith/versions[Versions]
+== link:https://alchemists.io/projects/hanamismith/versions[Versions]
 
-== link:https://www.alchemists.io/community[Community]
+== link:https://alchemists.io/community[Community]
 
 == Credits
 
-* Built with link:https://www.alchemists.io/projects/gemsmith[Gemsmith].
-* Engineered by link:https://www.alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].
+* Built with link:https://alchemists.io/projects/gemsmith[Gemsmith].
+* Engineered by link:https://alchemists.io/team/brooke_kuhlmann[Brooke Kuhlmann].

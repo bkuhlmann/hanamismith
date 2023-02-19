@@ -5,14 +5,14 @@ Gem::Specification.new do |spec|
   spec.version = "0.4.0"
   spec.authors = ["Brooke Kuhlmann"]
   spec.email = ["brooke@alchemists.io"]
-  spec.homepage = "https://www.alchemists.io/projects/hanamismith"
+  spec.homepage = "https://alchemists.io/projects/hanamismith"
   spec.summary = "A command line interface for smithing Hanami projects."
   spec.license = "Hippocratic-2.1"
 
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/bkuhlmann/hanamismith/issues",
-    "changelog_uri" => "https://www.alchemists.io/projects/hanamismith/versions",
-    "documentation_uri" => "https://www.alchemists.io/projects/hanamismith",
+    "changelog_uri" => "https://alchemists.io/projects/hanamismith/versions",
+    "documentation_uri" => "https://alchemists.io/projects/hanamismith",
     "funding_uri" => "https://github.com/sponsors/bkuhlmann",
     "label" => "Hanamismith",
     "rubygems_mfa_required" => "true",
