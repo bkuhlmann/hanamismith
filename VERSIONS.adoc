@@ -1,5 +1,13 @@
 = Versions
 
+== 0.5.0 (2023-02-19)
+
+* Fixed application configuration settings to use typed database URL - Brooke Kuhlmann
+* Updated Reek dependency to not be required - Brooke Kuhlmann
+* Updated site URLs to use bare domain - Brooke Kuhlmann
+* Updated to Ruby 3.2.1 - Brooke Kuhlmann
+* Updated to Rubysmith 4.6.0 - Brooke Kuhlmann
+
 == 0.4.0 (2023-02-05)
 
 * Fixed demonstration documentation and embeded video dimensions - Brooke Kuhlmann
