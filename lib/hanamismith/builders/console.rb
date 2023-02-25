@@ -14,8 +14,26 @@ module Hanamismith
         super
         builder.call(configuration.merge(template_path: "%project_name%/bin/console.erb"))
                .replace(/require_relative.+/, %(require "hanami/prepare"))
+        add_irb_autocomplete
 
         configuration
+      end
+
+      private
+
+      def add_irb_autocomplete
+        with_template.insert_before "IRB.start",
+                                    <<~CODE
+                                      unless Hanami.env? :development, :test
+                                        ENV["IRB_USE_AUTOCOMPLETE"] ||= "false"
+                                        puts "IRB autocomplete disabled."
+                                      end
+
+                                    CODE
+      end
+
+      def with_template
+        builder.call configuration.merge(template_path: "%project_name%/bin/console.erb")
       end
     end
   end

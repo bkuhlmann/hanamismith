@@ -40,6 +40,7 @@ toc::[]
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
 * Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
+* Disables link:https://github.com/ruby/irb[IRB] console autocomplete when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
 
 == Requirements
 

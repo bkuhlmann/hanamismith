@@ -29,6 +29,11 @@ RSpec.describe Hanamismith::Builders::Console do
           require "hanami/prepare"
           require "irb"
 
+          unless Hanami.env? :development, :test
+            ENV["IRB_USE_AUTOCOMPLETE"] ||= "false"
+            puts "IRB autocomplete disabled."
+          end
+
           IRB.start __FILE__
         CONTENT
       end
