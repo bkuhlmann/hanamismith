@@ -79,7 +79,7 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # Configures application routes.
           class Routes < Hanami::Routes
-            slice(:health, at: "/status") { root to: "show" }
+            slice(:health, at: "/up") { root to: "show" }
             slice(:main, at: "/") { root to: "home.show" }
           end
         end

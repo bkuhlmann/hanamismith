@@ -30,8 +30,8 @@ toc::[]
 
 == Features
 
-* Built atop {rubysmith_link} and leverages all features.
-* Uses {dry_link} functional programming.
+* Built atop {rubysmith_link} for building project skeleton.
+* Uses {dry_link} for functional programming.
 * Uses {hanami_link} for web application development.
 * Uses {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
@@ -40,6 +40,7 @@ toc::[]
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
 * Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
+* Provides the `/up` health check endpoint via the `Health` slice.
 * Disables link:https://github.com/ruby/irb[IRB] console autocomplete when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
 
 == Requirements
@@ -165,7 +166,7 @@ bin/hanami --help
 Once the server is running you can visit (or ping) the following endpoints:
 
 * `/`: The default welcome page.
-* `/status`: The health status of the application. This will be _green_ (200 OK) when the server is up or _red_ (503 Service Unavailable) when the server is down.
+* `/up`: The health status of the application. This will be _green_ (200 OK) when the server is up or _red_ (503 Service Unavailable) when the server is down.
 
 === Aliases
 
