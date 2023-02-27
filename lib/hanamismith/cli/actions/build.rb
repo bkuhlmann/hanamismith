@@ -24,6 +24,7 @@ module Hanamismith
           Rubysmith::Builders::Documentation::Version,
           Rubysmith::Builders::Git::Setup,
           Rubysmith::Builders::Git::Ignore,
+          Rubysmith::Builders::Git::Safe,
           Builders::Bundler,
           Builders::Rake,
           Builders::Binstub,
