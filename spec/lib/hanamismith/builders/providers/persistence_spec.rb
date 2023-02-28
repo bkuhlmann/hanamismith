@@ -33,12 +33,20 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
 
             configuration.plugin :sql, relations: :auto_restrictions
 
+            database = configuration.gateways[:default].connection
+
             register "config", configuration
-            register "db", configuration.gateways[:default].connection
+            register "db", database
+
+            Sequel::Migrator.is_current? database, Hanami.app.root.join("db/migrate")
+          rescue NoMethodError, Sequel::Migrator::Error => error
+            message = error.message
+            Hanami.logger.error message unless error.is_a?(NoMethodError) && message.include?("migration")
           end
 
           start do
             configuration = target["persistence.config"]
+
             configuration.auto_registration(
               target.root.join("lib/test/persistence"),
               namespace: "Test::Persistence"
