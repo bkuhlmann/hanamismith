@@ -1,5 +1,5 @@
 <% namespace do %>
-  # Configures application routes.
+  # Defines application routes.
   class Routes < Hanami::Routes
     slice(:health, at: "/up") { root to: "show" }
     slice(:main, at: "/") { root to: "home.show" }

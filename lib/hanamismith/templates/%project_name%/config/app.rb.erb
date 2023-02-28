@@ -1,7 +1,7 @@
 require "hanami"
 
 <% namespace do %>
-  # Handles HTTP requests.
+  # Defines global application configuration.
   class App < Hanami::App
     config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 

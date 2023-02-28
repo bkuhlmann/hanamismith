@@ -63,7 +63,7 @@ RSpec.describe Hanamismith::Builders::Core do
         require "hanami"
 
         module Test
-          # Handles HTTP requests.
+          # Defines global application configuration.
           class App < Hanami::App
             config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 
@@ -77,7 +77,7 @@ RSpec.describe Hanamismith::Builders::Core do
     it "adds routes configuration" do
       expect(temp_dir.join("test/config/routes.rb").read).to eq(<<~CONTENT)
         module Test
-          # Configures application routes.
+          # Defines application routes.
           class Routes < Hanami::Routes
             slice(:health, at: "/up") { root to: "show" }
             slice(:main, at: "/") { root to: "home.show" }
@@ -89,7 +89,7 @@ RSpec.describe Hanamismith::Builders::Core do
     it "adds settings configuration" do
       expect(temp_dir.join("test/config/settings.rb").read).to eq(<<~CONTENT)
         module Test
-          # Configures application settings.
+          # Defines application settings.
           class Settings < Hanami::Settings
             setting :database_url, constructor: Types::Params::String
           end
