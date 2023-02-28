@@ -69,6 +69,15 @@ RSpec.describe Hanamismith::Builders::Core do
 
             config.middleware.use Rack::Deflater
             config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascript], root: "public"}
+
+            environment :development do
+              config.logger.options[:colorize] = true
+
+              config.logger = config.logger.instance.add_backend(
+                colorize: false,
+                stream: Hanami.app.root.join("log/development.log")
+              )
+            end
           end
         end
       CONTENT
