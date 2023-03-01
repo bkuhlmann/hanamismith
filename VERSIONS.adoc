@@ -1,5 +1,16 @@
 = Versions
 
+== 0.6.0 (2023-03-01)
+
+* Fixed RuboCop Metrics/CollectionLiteralLength issues - Brooke Kuhlmann
+* Fixed code comments for application configuration templates - Brooke Kuhlmann
+* Fixed health slice to use shorter endpoint path - Brooke Kuhlmann
+* Added Git Safe builder - Brooke Kuhlmann
+* Added IRB autocomplete detection to console script - Brooke Kuhlmann
+* Added application configuration for development logging - Brooke Kuhlmann
+* Added persistence provider prepare check missing migrations - Brooke Kuhlmann
+* Removed Puma production port configuration - Brooke Kuhlmann
+
 == 0.5.0 (2023-02-19)
 
 * Fixed application configuration settings to use typed database URL - Brooke Kuhlmann
