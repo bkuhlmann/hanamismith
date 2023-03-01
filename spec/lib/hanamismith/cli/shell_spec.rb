@@ -15,6 +15,20 @@ RSpec.describe Hanamismith::CLI::Shell do
   after { Hanamismith::CLI::Actions::Import.unstub :configuration, :kernel, :logger }
 
   describe "#call" do
+    let :bom_minimum do
+      SPEC_ROOT.join("support/fixtures/boms/minimum.txt")
+               .readlines(chomp: true)
+               .push(("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"))
+               .compact
+    end
+
+    let :bom_maximum do
+      SPEC_ROOT.join("support/fixtures/boms/maximum.txt")
+               .readlines(chomp: true)
+               .push(("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"))
+               .compact
+    end
+
     let :project_files do
       temp_dir.join("test")
               .files("**/*", flag: File::FNM_DOTMATCH)
@@ -36,304 +50,44 @@ RSpec.describe Hanamismith::CLI::Shell do
     context "with minimum forced build" do
       let(:options) { %w[--build test --min] }
 
-      let :files do
-        [
-          "test/.env.development",
-          "test/.env.test",
-          "test/.ruby-version",
-          "test/app/action.rb",
-          "test/app/repository.rb",
-          "test/app/view.rb",
-          "test/bin/hanami",
-          "test/config.ru",
-          "test/config/app.rb",
-          "test/config/providers/persistence.rb",
-          "test/config/providers/rack_attack.rb",
-          "test/config/puma.rb",
-          "test/config/routes.rb",
-          "test/config/settings.rb",
-          "test/Gemfile",
-          ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
-          "test/lib/test/refinements/actions/response.rb",
-          "test/lib/test/types.rb",
-          "test/Procfile",
-          "test/Procfile.dev",
-          "test/public/javascript/htmx.min.js",
-          "test/public/stylesheets/site.css",
-          "test/slices/health/actions/show.rb",
-          "test/slices/main/action.rb",
-          "test/slices/main/actions/home/show.rb",
-          "test/slices/main/repository.rb",
-          "test/slices/main/templates/home/show.html.erb",
-          "test/slices/main/templates/layouts/app.html.erb",
-          "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb",
-          "test/spec/slices/health/actions/show_spec.rb"
-        ].compact
-      end
-
       it "builds minimum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*files)
+        expect(project_files).to contain_exactly(*bom_minimum)
       end
     end
 
     context "with minimum optional build" do
       let :options do
-        %w[
-          --build
-          test
-          --no-amazing_print
-          --no-caliber
-          --no-circle_ci
-          --no-citation
-          --no-community
-          --no-conduct
-          --no-console
-          --no-contributions
-          --no-debug
-          --no-funding
-          --no-git
-          --no-git_hub
-          --no-git_hub_ci
-          --no-git-lint
-          --no-guard
-          --no-license
-          --no-rake
-          --no-readme
-          --no-reek
-          --no-refinements
-          --no-rspec
-          --no-setup
-          --no-security
-          --no-simple_cov
-          --no-versions
-          --no-zeitwerk
-        ]
-      end
-
-      let :files do
-        [
-          "test/.env.development",
-          "test/.env.test",
-          "test/.ruby-version",
-          "test/app/action.rb",
-          "test/app/repository.rb",
-          "test/app/view.rb",
-          "test/bin/hanami",
-          "test/config.ru",
-          "test/config/app.rb",
-          "test/config/providers/persistence.rb",
-          "test/config/providers/rack_attack.rb",
-          "test/config/puma.rb",
-          "test/config/routes.rb",
-          "test/config/settings.rb",
-          "test/Gemfile",
-          ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
-          "test/lib/test/refinements/actions/response.rb",
-          "test/lib/test/types.rb",
-          "test/Procfile",
-          "test/Procfile.dev",
-          "test/public/javascript/htmx.min.js",
-          "test/public/stylesheets/site.css",
-          "test/slices/health/actions/show.rb",
-          "test/slices/main/action.rb",
-          "test/slices/main/actions/home/show.rb",
-          "test/slices/main/repository.rb",
-          "test/slices/main/templates/home/show.html.erb",
-          "test/slices/main/templates/layouts/app.html.erb",
-          "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb",
-          "test/spec/slices/health/actions/show_spec.rb"
-        ].compact
+        SPEC_ROOT.join("support/fixtures/arguments/minimum.txt").readlines chomp: true
       end
 
       it "builds minimum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*files)
+        expect(project_files).to contain_exactly(*bom_minimum)
       end
     end
 
     context "with maximum forced build" do
       let(:options) { %w[--build test --max] }
 
-      let :files do
-        [
-          "test/.circleci/config.yml",
-          "test/.env.development",
-          "test/.env.test",
-          "test/.git/HEAD",
-          "test/.github/FUNDING.yml",
-          "test/.github/ISSUE_TEMPLATE.md",
-          "test/.github/PULL_REQUEST_TEMPLATE.md",
-          "test/.github/workflows/ci.yml",
-          "test/.gitignore",
-          "test/.reek.yml",
-          "test/.rubocop.yml",
-          "test/.ruby-version",
-          "test/app/action.rb",
-          "test/app/repository.rb",
-          "test/app/view.rb",
-          "test/bin/console",
-          "test/bin/guard",
-          "test/bin/hanami",
-          "test/bin/rake",
-          "test/bin/rspec",
-          "test/bin/rubocop",
-          "test/bin/setup",
-          "test/CITATION.cff",
-          "test/config.ru",
-          "test/config/app.rb",
-          "test/config/providers/persistence.rb",
-          "test/config/providers/rack_attack.rb",
-          "test/config/puma.rb",
-          "test/config/routes.rb",
-          "test/config/settings.rb",
-          "test/Gemfile",
-          ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
-          "test/Guardfile",
-          "test/lib/test/refinements/actions/response.rb",
-          "test/lib/test/types.rb",
-          "test/LICENSE.adoc",
-          "test/Procfile",
-          "test/Procfile.dev",
-          "test/public/javascript/htmx.min.js",
-          "test/public/stylesheets/site.css",
-          "test/Rakefile",
-          "test/README.adoc",
-          "test/slices/health/actions/show.rb",
-          "test/slices/main/action.rb",
-          "test/slices/main/actions/home/show.rb",
-          "test/slices/main/repository.rb",
-          "test/slices/main/templates/home/show.html.erb",
-          "test/slices/main/templates/layouts/app.html.erb",
-          "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb",
-          "test/spec/hanami_helper.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb",
-          "test/spec/slices/health/actions/show_spec.rb",
-          "test/spec/spec_helper.rb",
-          "test/spec/support/database.rb",
-          "test/spec/support/factory.rb",
-          "test/spec/support/shared_contexts/application.rb",
-          "test/spec/support/shared_contexts/temp_dir.rb",
-          "test/VERSIONS.adoc"
-        ].compact
-      end
-
       it "builds maximum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*files)
+        expect(project_files).to contain_exactly(*bom_maximum)
       end
     end
 
     context "with maximum optional build" do
       let :options do
-        %w[
-          --build
-          test
-          --amazing_print
-          --caliber
-          --circle_ci
-          --citation
-          --community
-          --conduct
-          --console
-          --contributions
-          --debug
-          --funding
-          --git
-          --git_hub
-          --git_hub_ci
-          --git-lint
-          --guard
-          --license
-          --rake
-          --readme
-          --reek
-          --refinements
-          --rspec
-          --setup
-          --security
-          --simple_cov
-          --versions
-          --zeitwerk
-        ]
-      end
-
-      let :files do
-        [
-          "test/.circleci/config.yml",
-          "test/.env.development",
-          "test/.env.test",
-          "test/.git/HEAD",
-          "test/.github/FUNDING.yml",
-          "test/.github/ISSUE_TEMPLATE.md",
-          "test/.github/PULL_REQUEST_TEMPLATE.md",
-          "test/.github/workflows/ci.yml",
-          "test/.gitignore",
-          "test/.reek.yml",
-          "test/.rubocop.yml",
-          "test/.ruby-version",
-          "test/app/action.rb",
-          "test/app/repository.rb",
-          "test/app/view.rb",
-          "test/bin/console",
-          "test/bin/guard",
-          "test/bin/hanami",
-          "test/bin/rake",
-          "test/bin/rspec",
-          "test/bin/rubocop",
-          "test/bin/setup",
-          "test/CITATION.cff",
-          "test/config.ru",
-          "test/config/app.rb",
-          "test/config/providers/persistence.rb",
-          "test/config/providers/rack_attack.rb",
-          "test/config/puma.rb",
-          "test/config/routes.rb",
-          "test/config/settings.rb",
-          "test/Gemfile",
-          ("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"),
-          "test/Guardfile",
-          "test/lib/test/refinements/actions/response.rb",
-          "test/lib/test/types.rb",
-          "test/LICENSE.adoc",
-          "test/Procfile",
-          "test/Procfile.dev",
-          "test/public/javascript/htmx.min.js",
-          "test/public/stylesheets/site.css",
-          "test/Rakefile",
-          "test/README.adoc",
-          "test/slices/health/actions/show.rb",
-          "test/slices/main/action.rb",
-          "test/slices/main/actions/home/show.rb",
-          "test/slices/main/repository.rb",
-          "test/slices/main/templates/home/show.html.erb",
-          "test/slices/main/templates/layouts/app.html.erb",
-          "test/slices/main/view.rb",
-          "test/slices/main/views/home/show.rb",
-          "test/spec/hanami_helper.rb",
-          "test/spec/lib/test/refinements/actions/response_spec.rb",
-          "test/spec/slices/health/actions/show_spec.rb",
-          "test/spec/spec_helper.rb",
-          "test/spec/support/database.rb",
-          "test/spec/support/factory.rb",
-          "test/spec/support/shared_contexts/application.rb",
-          "test/spec/support/shared_contexts/temp_dir.rb",
-          "test/VERSIONS.adoc"
-        ].compact
+        SPEC_ROOT.join("support/fixtures/arguments/maximum.txt").readlines chomp: true
       end
 
       it "builds maximum skeleton" do
         temp_dir.change_dir do
           Bundler.with_unbundled_env { shell.call options }
-          expect(project_files).to contain_exactly(*files)
+          expect(project_files).to contain_exactly(*bom_maximum)
         end
       end
     end
