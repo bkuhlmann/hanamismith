@@ -3,6 +3,9 @@ require "hanami"
 <% namespace do %>
   # Defines global application configuration.
   class App < Hanami::App
+    Dry::Schema.load_extensions :monads
+    Dry::Validation.load_extensions :monads
+
     config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 
     config.middleware.use Rack::Deflater
