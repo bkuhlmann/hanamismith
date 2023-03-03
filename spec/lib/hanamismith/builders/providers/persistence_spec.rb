@@ -16,6 +16,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
 
     it "adds configuration" do
       expect(temp_dir.join("test/config/providers/persistence.rb").read).to eq(<<~CONTENT)
+        # rubocop:todo Metrics/BlockLength
         Hanami.app.register_provider :persistence, namespace: true do
           prepare do
             require "rom-changeset"
@@ -55,6 +56,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
             register "rom", ROM.container(configuration)
           end
         end
+        # rubocop:enable Metrics/BlockLength
       CONTENT
     end
   end

@@ -1,3 +1,4 @@
+# rubocop:todo Metrics/BlockLength
 Hanami.app.register_provider :persistence, namespace: true do
   prepare do
     require "rom-changeset"
@@ -37,3 +38,4 @@ Hanami.app.register_provider :persistence, namespace: true do
     register "rom", ROM.container(configuration)
   end
 end
+# rubocop:enable Metrics/BlockLength
