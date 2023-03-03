@@ -56,6 +56,10 @@ module Hanamismith
         builder.call(configuration.merge(template_path: path)).render
       end
 
+      def add_migrate_directory
+        builder.call(configuration.merge(template_path: "%project_name%/db/migrate")).make_path
+      end
+
       def add_temp_directory
         builder.call(configuration.merge(template_path: "%project_name%/tmp")).make_path
       end

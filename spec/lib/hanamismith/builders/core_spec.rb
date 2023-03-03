@@ -129,6 +129,10 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
+    it "adds migrate directory" do
+      expect(temp_dir.join("test/db/migrate").exist?).to be(true)
+    end
+
     it "adds temp directory" do
       expect(temp_dir.join("test/tmp").exist?).to be(true)
     end
