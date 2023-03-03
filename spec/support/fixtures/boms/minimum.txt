@@ -17,7 +17,7 @@ test/lib/test/refinements/actions/response.rb
 test/lib/test/types.rb
 test/Procfile
 test/Procfile.dev
-test/public/javascript/htmx.min.js
+test/public/javascript/htmx.js
 test/public/stylesheets/site.css
 test/slices/health/actions/show.rb
 test/slices/main/action.rb

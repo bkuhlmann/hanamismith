@@ -16,7 +16,7 @@ module Hanamismith
       end
 
       def call
-        path = "%project_name%/public/javascript/htmx.min.js.erb"
+        path = "%project_name%/public/javascript/htmx.js.erb"
         builder.call(configuration.merge(template_path: path)).render
         configuration
       end

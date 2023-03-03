@@ -64,7 +64,7 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
 
             <link title="Test - Stylesheet" rel="stylesheet" href="/stylesheets/site.css" type="text/css">
 
-            <script src="/javascript//htmx.min.js"></script>
+            <script src="/javascript/htmx.js"></script>
           </head>
 
           <body class="page">
