@@ -1,5 +1,15 @@
 = Versions
 
+== 0.7.0 (2023-03-03)
+
+* Fixed JavaScripts folder to be plural - Brooke Kuhlmann
+* Fixed Rack Attack middleware configuration - Brooke Kuhlmann
+* Added RuboCop Metrics/BlockLength comments to persistence provider - Brooke Kuhlmann
+* Added monads to application configuration - Brooke Kuhlmann
+* Updated core builder to add database migrate directory - Brooke Kuhlmann
+* Updated to HTMX 1.8.6 - Brooke Kuhlmann
+* Removed Rack Attack provider - Brooke Kuhlmann
+
 == 0.6.0 (2023-03-01)
 
 * Fixed RuboCop Metrics/CollectionLiteralLength issues - Brooke Kuhlmann
