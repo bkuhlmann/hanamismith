@@ -35,7 +35,7 @@ test/lib/test/types.rb
 test/LICENSE.adoc
 test/Procfile
 test/Procfile.dev
-test/public/javascript/htmx.js
+test/public/javascripts/htmx.js
 test/public/stylesheets/site.css
 test/Rakefile
 test/README.adoc

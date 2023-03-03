@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::HTMX do
     before { builder.call }
 
     it "add library" do
-      expect(temp_dir.join("test/public/javascript/htmx.js").exist?).to be(true)
+      expect(temp_dir.join("test/public/javascripts/htmx.js").exist?).to be(true)
     end
   end
 end

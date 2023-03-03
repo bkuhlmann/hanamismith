@@ -71,7 +71,7 @@ RSpec.describe Hanamismith::Builders::Core do
             config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 
             config.middleware.use Rack::Deflater
-            config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascript], root: "public"}
+            config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascripts], root: "public"}
 
             environment :development do
               config.logger.options[:colorize] = true
