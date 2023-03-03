@@ -24,7 +24,6 @@ test/CITATION.cff
 test/config.ru
 test/config/app.rb
 test/config/providers/persistence.rb
-test/config/providers/rack_attack.rb
 test/config/puma.rb
 test/config/routes.rb
 test/config/settings.rb

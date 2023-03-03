@@ -12,7 +12,6 @@ module Hanamismith
         BUILDERS = [
           Builders::Core,
           Builders::Providers::Persistence,
-          Builders::Providers::RackAttack,
           Builders::Refinement,
           Builders::Stylesheet,
           Builders::HTMX,
