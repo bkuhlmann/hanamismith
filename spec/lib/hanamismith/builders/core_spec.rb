@@ -61,6 +61,7 @@ RSpec.describe Hanamismith::Builders::Core do
     it "adds application configuration" do
       expect(temp_dir.join("test/config/app.rb").read).to eq(<<~CONTENT)
         require "hanami"
+        require "rack/attack"
 
         module Test
           # Defines global application configuration.
@@ -70,6 +71,10 @@ RSpec.describe Hanamismith::Builders::Core do
 
             config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
 
+            Rack::Attack.safelist("allow localhost") { |request| %w[127.0.0.1 ::1].include? request.ip }
+            Rack::Attack.throttle("requests by IP", limit: 100, period: 60, &:ip)
+
+            config.middleware.use Rack::Attack
             config.middleware.use Rack::Deflater
             config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascripts], root: "public"}
 
