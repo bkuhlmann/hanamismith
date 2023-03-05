@@ -23,6 +23,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
             require "rom/core"
             require "rom/sql"
 
+            Sequel::Database.extension :constant_sql_override, :pg_enum
             Sequel.database_timezone = :utc
             Sequel.application_timezone = :local
 
@@ -35,6 +36,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
             configuration.plugin :sql, relations: :auto_restrictions
 
             database = configuration.gateways[:default].connection
+            database.set_constant_sql Sequel::CURRENT_TIMESTAMP, "(CURRENT_TIMESTAMP AT TIME ZONE 'UTC')"
 
             register "config", configuration
             register "db", database
