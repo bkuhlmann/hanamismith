@@ -53,7 +53,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds minimum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*bom_minimum)
+        expect(project_files).to match_array(bom_minimum)
       end
     end
 
@@ -65,7 +65,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds minimum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*bom_minimum)
+        expect(project_files).to match_array(bom_minimum)
       end
     end
 
@@ -75,7 +75,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds maximum skeleton" do
         temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
 
-        expect(project_files).to contain_exactly(*bom_maximum)
+        expect(project_files).to match_array(bom_maximum)
       end
     end
 
@@ -87,7 +87,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds maximum skeleton" do
         temp_dir.change_dir do
           Bundler.with_unbundled_env { shell.call options }
-          expect(project_files).to contain_exactly(*bom_maximum)
+          expect(project_files).to match_array(bom_maximum)
         end
       end
     end
