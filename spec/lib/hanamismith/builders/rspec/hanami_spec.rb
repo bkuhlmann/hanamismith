@@ -43,7 +43,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
           DatabaseCleaner[:sequel].strategy = :transaction
 
-          Pathname.require_tree SPEC_ROOT, "support/factories/**/*.rb"
+          Pathname.require_tree SPEC_ROOT.join("support/factories")
 
           RSpec.configure do |config|
             config.include Capybara::DSL, Capybara::RSpecMatchers, :web
