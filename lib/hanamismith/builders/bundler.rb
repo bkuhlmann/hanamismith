@@ -63,7 +63,6 @@ module Hanamismith
                      .insert_after(/group :test/, %(  gem "launchy", "~> 2.5"\n))
                      .insert_after(/group :test/, %(  gem "rack-test", "~> 2.0"\n))
                      .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.11"\n))
-                     .replace(/gem "rspec.+/, %(gem "hanami-rspec", "~> 2.0"))
       end
 
       def append_development_group

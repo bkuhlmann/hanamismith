@@ -114,7 +114,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "cuprite", "~> 0.14"
             gem "capybara", "~> 3.38"
             gem "guard-rspec", "~> 4.7", require: false
-            gem "hanami-rspec", "~> 2.0"
+            gem "rspec", "~> 3.12"
           end
 
           group :tools do
