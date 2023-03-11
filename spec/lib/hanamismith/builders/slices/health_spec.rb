@@ -20,7 +20,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
           module Actions
             # The show action.
             class Show < Test::Action
-              using Test::Refinements::Actions::Response
+              using Test::Refines::Actions::Response
 
               handle_exception Exception => :down
 

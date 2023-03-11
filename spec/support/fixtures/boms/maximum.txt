@@ -29,7 +29,7 @@ test/config/routes.rb
 test/config/settings.rb
 test/Gemfile
 test/Guardfile
-test/lib/test/refinements/actions/response.rb
+test/lib/test/refines/actions/response.rb
 test/lib/test/types.rb
 test/LICENSE.adoc
 test/Procfile
@@ -47,7 +47,7 @@ test/slices/main/templates/layouts/app.html.erb
 test/slices/main/view.rb
 test/slices/main/views/home/show.rb
 test/spec/hanami_helper.rb
-test/spec/lib/test/refinements/actions/response_spec.rb
+test/spec/lib/test/refines/actions/response_spec.rb
 test/spec/slices/health/actions/show_spec.rb
 test/spec/spec_helper.rb
 test/spec/support/database.rb

@@ -2,7 +2,7 @@ module Health
   module Actions
     # The show action.
     class Show < <%= configuration.project_namespaced_class %>::Action
-      using <%= configuration.project_namespaced_class %>::Refinements::Actions::Response
+      using <%= configuration.project_namespaced_class %>::Refines::Actions::Response
 
       handle_exception Exception => :down
 

@@ -1,6 +1,6 @@
 require "hanami_helper"
 
-RSpec.describe <%= configuration.project_namespaced_class %>::Refinements::Actions::Response do
+RSpec.describe <%= configuration.project_namespaced_class %>::Refines::Actions::Response do
   using described_class
 
   subject(:response) { Hanami::Action::Response.new request:, config: {} }

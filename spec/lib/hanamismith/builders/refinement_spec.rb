@@ -15,9 +15,9 @@ RSpec.describe Hanamismith::Builders::Refinement do
     before { builder.call }
 
     it "builds implementation" do
-      expect(temp_dir.join("test/lib/test/refinements/actions/response.rb").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/lib/test/refines/actions/response.rb").read).to eq(<<~CONTENT)
         module Test
-          module Refinements
+          module Refines
             module Actions
               # Modifies and enhances default Hanami action response behavior.
               module Response
@@ -36,11 +36,11 @@ RSpec.describe Hanamismith::Builders::Refinement do
     end
 
     it "builds specification" do
-      path = "test/spec/lib/test/refinements/actions/response_spec.rb"
+      path = "test/spec/lib/test/refines/actions/response_spec.rb"
       expect(temp_dir.join(path).read).to eq(<<~CONTENT)
         require "hanami_helper"
 
-        RSpec.describe Test::Refinements::Actions::Response do
+        RSpec.describe Test::Refines::Actions::Response do
           using described_class
 
           subject(:response) { Hanami::Action::Response.new request:, config: {} }

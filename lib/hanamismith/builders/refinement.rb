@@ -17,8 +17,8 @@ module Hanamismith
 
       def call
         %w[
-          %project_name%/lib/%project_path%/refinements/actions/response.rb.erb
-          %project_name%/spec/lib/%project_path%/refinements/actions/response_spec.rb.erb
+          %project_name%/lib/%project_path%/refines/actions/response.rb.erb
+          %project_name%/spec/lib/%project_path%/refines/actions/response_spec.rb.erb
         ].each do |path|
           builder.call(configuration.merge(template_path: path)).render
         end

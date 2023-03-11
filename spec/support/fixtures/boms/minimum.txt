@@ -12,7 +12,7 @@ test/config/puma.rb
 test/config/routes.rb
 test/config/settings.rb
 test/Gemfile
-test/lib/test/refinements/actions/response.rb
+test/lib/test/refines/actions/response.rb
 test/lib/test/types.rb
 test/Procfile
 test/Procfile.dev
@@ -26,5 +26,5 @@ test/slices/main/templates/home/show.html.erb
 test/slices/main/templates/layouts/app.html.erb
 test/slices/main/view.rb
 test/slices/main/views/home/show.rb
-test/spec/lib/test/refinements/actions/response_spec.rb
+test/spec/lib/test/refines/actions/response_spec.rb
 test/spec/slices/health/actions/show_spec.rb
