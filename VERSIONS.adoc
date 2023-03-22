@@ -1,5 +1,13 @@
 = Versions
 
+== 0.8.0 (2023-03-22)
+
+* Fixed RuboCop RSpec/ContainExactly issues - Brooke Kuhlmann
+* Fixed persistence provider current timezone to respect UTC - Brooke Kuhlmann
+* Removed Hanami RSpec gem - Brooke Kuhlmann
+* Refactored Pathname require tree refinement to pass single argument - Brooke Kuhlmann
+* Refactored skeleton refinements to lessen conflict with gem - Brooke Kuhlmann
+
 == 0.7.0 (2023-03-03)
 
 * Fixed JavaScripts folder to be plural - Brooke Kuhlmann
