@@ -1,5 +1,11 @@
 = Versions
 
+== 0.9.0 (2023-04-10)
+
+* Updated setup instructions to secure and insecure installs - Brooke Kuhlmann
+* Updated to Ruby 3.2.2 - Brooke Kuhlmann
+* Updated to Rubysmith 4.7.0 - Brooke Kuhlmann
+
 == 0.8.0 (2023-03-22)
 
 * Fixed RuboCop RSpec/ContainExactly issues - Brooke Kuhlmann
