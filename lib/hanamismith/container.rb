@@ -12,6 +12,6 @@ module Hanamismith
     register(:configuration) { Configuration::Loader.call }
     register(:specification) { Spek::Loader.call "#{__dir__}/../../hanamismith.gemspec" }
     register(:kernel) { Kernel }
-    register(:logger) { Cogger::Client.new }
+    register(:logger) { Cogger.new formatter: :emoji }
   end
 end
