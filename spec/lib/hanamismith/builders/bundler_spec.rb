@@ -87,7 +87,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           group :code_quality do
             gem "rubocop-sequel", "~> 0.3"
-            gem "caliber", "~> 0.25"
+            gem "caliber", "~> 0.30"
             gem "git-lint", "~> 5.0"
             gem "reek", "~> 6.1", require: false
             gem "simplecov", "~> 0.22", require: false
