@@ -8,7 +8,7 @@
 :dotenv_link: link:https://github.com/bkeepers/dotenv[Dotenv]
 :dotfiles_link: link:https://alchemists.io/projects/dotfiles[Dotfiles]
 :hanami_link: link:https://hanamirb.org[Hanami]
-:htmx_link: link:https://htmx.org[HTMX]
+:htmx_link: link:https://alchemists.io/projects/htmx[HTMX]
 :pg_link: link:https://github.com/ged/ruby-pg[pg]
 :puma_link: link:https://puma.io[Puma]
 :rack_link: link:https://github.com/rack/rack[Rack]
@@ -33,7 +33,7 @@ toc::[]
 * Built atop {rubysmith_link} for building project skeleton.
 * Uses {dry_link} for functional programming.
 * Uses {hanami_link} for web application development.
-* Uses {htmx_link} for proper REST (hypermedia) architectures (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
+* Uses {htmx_link} for proper Hypermedia REST APIs (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
 * Uses {rack_link}, specifically: `Rack::Deflater`, `Rack::Static`, and link:https://github.com/rack/rack-attack[Rack::Attack].
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
