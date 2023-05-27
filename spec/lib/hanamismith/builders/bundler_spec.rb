@@ -33,10 +33,8 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-view", github: "hanami/view", branch: "main"
           gem "hanami-validations", "~> 2.0"
           gem "hanami-router", "~> 2.0"
-          gem "hanami-helpers", github: "hanami/helpers", branch: "main"
           gem "hanami-controller", "~> 2.0"
           gem "hanami", "~> 2.0"
-          gem "erbse", "~> 0.1"
           gem "dry-types", "~> 1.7"
 
           group :development, :test do
@@ -80,10 +78,8 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-view", github: "hanami/view", branch: "main"
           gem "hanami-validations", "~> 2.0"
           gem "hanami-router", "~> 2.0"
-          gem "hanami-helpers", github: "hanami/helpers", branch: "main"
           gem "hanami-controller", "~> 2.0"
           gem "hanami", "~> 2.0"
-          gem "erbse", "~> 0.1"
           gem "dry-types", "~> 1.7"
           gem "refinements", "~> 10.0"
 

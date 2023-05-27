@@ -47,7 +47,6 @@ RSpec.describe Hanamismith::Builders::Core do
       expect(temp_dir.join("test/app/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
-        require "erbse"
         require "hanami/view"
 
         module Test
