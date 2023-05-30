@@ -49,7 +49,7 @@ module Hanamismith
                        %(gem "hanami-view", github: "hanami/view", branch: "main"\n)
                      )
                      .insert_after("source", %(gem "htmx", "~> 0.1"\n))
-                     .insert_after("source", %(gem "puma", "~> 6.0"\n))
+                     .insert_after("source", %(gem "puma", "~> 6.2"\n))
                      .insert_after("source", %(gem "rack-attack", "~> 6.6"\n))
       end
       # rubocop:enable Metrics/MethodLength
