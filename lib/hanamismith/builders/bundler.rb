@@ -55,7 +55,7 @@ module Hanamismith
       # rubocop:enable Metrics/MethodLength
 
       def insert_persistence_dependencies
-        with_template.insert_after("source", %(gem "pg", "~> 1.4"\n))
+        with_template.insert_after("source", %(gem "pg", "~> 1.5"\n))
                      .insert_after("source", %(gem "rom", "~> 5.3"\n))
                      .insert_after("source", %(gem "rom-sql", "~> 3.6"\n))
                      .insert_after("source", %(\ngem "sequel", "~> 5.64"\n))
