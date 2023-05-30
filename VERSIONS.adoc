@@ -1,5 +1,17 @@
 = Versions
 
+== 0.12.0 (2023-05-30)
+
+* Updated Hanami dependencies to use main branch - Brooke Kuhlmann
+* Updated to Capybara 3.39.0 - Brooke Kuhlmann
+* Updated to HTMX 0.1.0 - Brooke Kuhlmann
+* Updated to PG 1.5.0 - Brooke Kuhlmann
+* Updated to Puma 6.2.0 - Brooke Kuhlmann
+* Updated to Rack Test 2.1.0 - Brooke Kuhlmann
+* Updated to Sequel 5.68.0 - Brooke Kuhlmann
+* Removed Erbse and Hanami Helper dependencies - Brooke Kuhlmann
+* Removed main slice layout spacing - Brooke Kuhlmann
+
 == 0.11.0 (2023-05-20)
 
 * Added HTMX gem - Brooke Kuhlmann
