@@ -58,7 +58,7 @@ module Hanamismith
         with_template.insert_after("source", %(gem "pg", "~> 1.5"\n))
                      .insert_after("source", %(gem "rom", "~> 5.3"\n))
                      .insert_after("source", %(gem "rom-sql", "~> 3.6"\n))
-                     .insert_after("source", %(\ngem "sequel", "~> 5.64"\n))
+                     .insert_after("source", %(\ngem "sequel", "~> 5.68"\n))
       end
 
       def alter_groups
