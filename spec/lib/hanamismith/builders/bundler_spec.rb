@@ -47,7 +47,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           end
 
           group :test do
-            gem "capybara", "~> 3.38"
+            gem "capybara", "~> 3.39"
             gem "cuprite", "~> 0.14"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "hanami-rspec", "~> 2.0"
@@ -110,7 +110,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "launchy", "~> 2.5"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "cuprite", "~> 0.14"
-            gem "capybara", "~> 3.38"
+            gem "capybara", "~> 3.39"
             gem "guard-rspec", "~> 4.7", require: false
             gem "rspec", "~> 3.12"
           end

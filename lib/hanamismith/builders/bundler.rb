@@ -65,7 +65,7 @@ module Hanamismith
         with_template.insert_after(/group :code_quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
                      .insert_after(/group :development do/, %(  gem "localhost", "~> 1.1"\n))
                      .insert_after(/group :development do/, %(  gem "rerun", "~> 0.14"\n))
-                     .insert_after(/group :test/, %(  gem "capybara", "~> 3.38"\n))
+                     .insert_after(/group :test/, %(  gem "capybara", "~> 3.39"\n))
                      .insert_after(/group :test/, %(  gem "cuprite", "~> 0.14"\n))
                      .insert_after(/group :test/, %(  gem "database_cleaner-sequel", "~> 2.0"\n))
                      .insert_after(/group :test/, %(  gem "launchy", "~> 2.5"\n))
@@ -90,7 +90,7 @@ module Hanamismith
 
         with_template.append <<~CONTENT
           group :test do
-            gem "capybara", "~> 3.38"
+            gem "capybara", "~> 3.39"
             gem "cuprite", "~> 0.14"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "hanami-rspec", "~> 2.0"
