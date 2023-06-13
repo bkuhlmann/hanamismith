@@ -81,7 +81,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-controller", github: "hanami/controller", branch: "main"
           gem "hanami", github: "hanami/hanami", branch: "main"
           gem "dry-types", "~> 1.7"
-          gem "refinements", "~> 10.0"
+          gem "refinements", "~> 11.0"
 
           group :code_quality do
             gem "rubocop-sequel", "~> 0.3"
