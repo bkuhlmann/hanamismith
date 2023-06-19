@@ -24,7 +24,7 @@ If you're looking for new ways to build maintainable, secure, faster and testabl
 Whether you're a total beginner or an experienced developer, *this learning process may still be hard*. Over time, we become used to certain things, and it can be painful to change. *But without change, there is no challenge* and without challenge, there is no growth.
 ____
 
-Welcome to the modern age of web development! This gem will help you get up and running as quickly as possible. 🚀
+Welcome to the modern age of web development. This gem will help you get up and running as quickly as possible. 🚀
 
 toc::[]
 
@@ -72,47 +72,21 @@ gem install hanamismith
 From the command line, type: `hanamismith --help`
 
 ....
-USAGE:
-  -b, --build NAME [options]               Build new project.
-  -c, --config ACTION                      Manage gem configuration: edit or view.
-  -h, --help                               Show this message.
-  -v, --version                            Show gem version.
+USAGE
+  hanamismith [OPTIONS]
+  hanamismith COMMAND [OPTIONS]
 
-BUILD OPTIONS:
-      --[no-]amazing_print                 Add Amazing Print gem. Default: true.
-      --[no-]caliber                       Add Caliber gem. Default: true.
-      --[no-]circle_ci                     Add Circle CI configuration and badge. Default: false.
-      --[no-]citation                      Add citation documentation. Default: true.
-      --[no-]community                     Add community documentation. Default: false.
-      --[no-]conduct                       Add code of conduct documentation. Default: true.
-      --[no-]console                       Add console script. Default: true.
-      --[no-]contributions                 Add contributions documentation. Default: true.
-      --[no-]debug                         Add Debug gem. Default: true.
-      --[no-]funding                       Add GitHub funding configuration. Default: false.
-      --[no-]git                           Add Git. Default: true.
-      --[no-]git_hub                       Add GitHub templates. Default: false.
-      --[no-]git_hub_ci                    Add GitHub templates. Default: false.
-      --[no-]git-lint                      Add Git Lint gem. Default: true.
-      --[no-]guard                         Add Guard gem. Default: true.
-      --[no-]license                       Add license documentation. Default: true.
-      --max                                Use maximum/enabled options. Default: false.
-      --min                                Use minimum/disabled options. Default: false.
-      --[no-]rake                          Add Rake gem. Default: true.
-      --[no-]readme                        Add readme documentation. Default: true.
-      --[no-]reek                          Add Reek gem. Default: true.
-      --[no-]refinements                   Add Refinements gem. Default: true.
-      --[no-]rspec                         Add RSpec gem. Default: true.
-      --[no-]security                      Add security. Default: true.
-      --[no-]setup                         Add setup script. Default: true.
-      --[no-]simple_cov                    Add SimpleCov gem. Default: true.
-      --[no-]versions                      Add version history. Default: true.
-      --[no-]yard                          Add Yard gem. Default: false.
-      --[no-]zeitwerk                      Add Zeitwerk gem. Default: true.
+OPTIONS
+  -v, --version            Show version.
+  -h, --help [COMMAND]     Show this message.
+
+COMMANDS
+  config                   Manage configuration.
+                           Path is dynamic per current directory.
+  build                    Build new project.
 ....
 
-The core functionality of this gem centers around the `--build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
-
-ℹ️ Use of the `--zeitwerk` or `--no-zeitwerk` flags will have no effect so you can ignore them since {hanami_link} builds in this functionality for you by default. At the moment, this flag is a carry over from the {rubysmith_link} project and will be removed in the future.
+The core functionality of this gem centers around the `build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
 
 === Configuration
 
@@ -126,9 +100,7 @@ It can also be configured via link:https://alchemists.io/projects/xdg[XDG] envir
 variables.
 
 The default configuration is everything provided in the
-link:https://alchemists.io/projects/rubysmith/#_configuration[Rubysmith].
-
-Feel free to modify the default and save as your own custom `configuration.yml`. It is recommended that you provide common URLs for your project which would be all keys found in this section:
+link:https://alchemists.io/projects/rubysmith/#_configuration[Rubysmith]. It is recommended that you provide common URLs for your project which would be all keys found in this section:
 
 [source,yaml]
 ----
@@ -146,7 +118,7 @@ When implementing and testing your project locally, a typical workflow might be:
 [source,bash]
 ----
 # Build new project
-hanamismith --build demo
+hanamismith build --name demo
 
 # Run code quality and test coverage checks
 cd demo
@@ -183,8 +155,8 @@ For link:https://www.gnu.org/software/bash[Bash] users -- or other shell users -
 
 [source,bash]
 ----
-alias hsb="hanamismith --build"
-alias hse="hanamismith --config edit"
+alias hsb="hanamismith build --name"
+alias hse="hanamismith config --edit"
 alias hsh="hanamismith --help"
 ----
 
@@ -195,10 +167,6 @@ The above is what I use via my {dotfiles_link} project.
 For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
 video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
-
-In case you are not aware of link:https://hanamimastery.com[Hanami Mastery], now would be a good time to introduce you. link:https://hanamimastery.com/about[Seb Wilgosz] -- the creator of Hanami Mastery -- recently published link:https://hanamimastery.com/episodes/40-hanamismith[Episode 40] (see below) which features this gem. _Please note that multiple advancements have been applied since the original recording of this video_. That said, this'll give you another perspective on usage which you might enjoy:
-
-video::V4QPZi3j7uY[youtube,role=video]
 
 == Development
 
