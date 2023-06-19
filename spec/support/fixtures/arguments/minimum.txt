@@ -1,4 +1,5 @@
---build
+build
+--name
 test
 --no-amazing_print
 --no-caliber
@@ -25,4 +26,3 @@ test
 --no-security
 --no-simple_cov
 --no-versions
---no-zeitwerk

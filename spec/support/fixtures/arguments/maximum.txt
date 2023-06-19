@@ -1,4 +1,5 @@
---build
+build
+--name
 test
 --amazing_print
 --caliber
@@ -25,4 +26,3 @@ test
 --security
 --simple_cov
 --versions
---zeitwerk
