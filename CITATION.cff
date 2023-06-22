@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: Please use the following metadata when citing this project in your work.
 title: Hanamismith
 abstract: A command line interface for smithing Hanami projects.
-version: 0.13.0
+version: 0.14.0
 license: Hippocratic-2.1
-date-released: 2023-06-19
+date-released: 2023-06-22
 authors:
   - family-names: Kuhlmann
     given-names: Brooke
