@@ -34,11 +34,19 @@ module Hanamismith
                      )
                      .insert_after(
                        "source",
+                       %(gem "hanami-cli", github: "hanami/cli", branch: "main"\n)
+                     )
+                     .insert_after(
+                       "source",
                        %(gem "hanami-controller", github: "hanami/controller", branch: "main"\n)
                      )
                      .insert_after(
                        "source",
                        %(gem "hanami-router", github: "hanami/router", branch: "main"\n)
+                     )
+                     .insert_after(
+                       "source",
+                       %(gem "hanami-utils", github: "hanami/utils", branch: "main"\n)
                      )
                      .insert_after(
                        "source",
