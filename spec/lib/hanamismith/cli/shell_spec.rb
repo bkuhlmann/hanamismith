@@ -17,17 +17,11 @@ RSpec.describe Hanamismith::CLI::Shell do
 
   describe "#call" do
     let :bom_minimum do
-      SPEC_ROOT.join("support/fixtures/boms/minimum.txt")
-               .readlines(chomp: true)
-               .push(("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"))
-               .compact
+      SPEC_ROOT.join("support/fixtures/boms/minimum.txt").each_line(chomp: true).compact
     end
 
     let :bom_maximum do
-      SPEC_ROOT.join("support/fixtures/boms/maximum.txt")
-               .readlines(chomp: true)
-               .push(("test/Gemfile.lock" unless ENV.fetch("CI", false) == "true"))
-               .compact
+      SPEC_ROOT.join("support/fixtures/boms/maximum.txt").each_line(chomp: true).compact
     end
 
     let :project_files do
@@ -49,7 +43,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds minimum skeleton" do
         pending "Requires additional Rubysmith support. Workaround: Run in isolation."
 
-        temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
+        temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_minimum)
       end
     end
@@ -62,7 +56,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds minimum skeleton" do
         pending "Requires additional Rubysmith support. Workaround: Run in isolation."
 
-        temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
+        temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_minimum)
       end
     end
@@ -73,7 +67,7 @@ RSpec.describe Hanamismith::CLI::Shell do
       it "builds maximum skeleton" do
         pending "Requires additional Rubysmith support. Workaround: Run in isolation."
 
-        temp_dir.change_dir { Bundler.with_unbundled_env { shell.call options } }
+        temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_maximum)
       end
     end
@@ -87,7 +81,7 @@ RSpec.describe Hanamismith::CLI::Shell do
         pending "Requires additional Rubysmith support. Workaround: Run in isolation."
 
         temp_dir.change_dir do
-          Bundler.with_unbundled_env { shell.call options }
+          shell.call options
           expect(project_files).to match_array(bom_maximum)
         end
       end
