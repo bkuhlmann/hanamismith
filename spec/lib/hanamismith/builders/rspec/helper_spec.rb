@@ -19,7 +19,6 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
 
       it "adds helper" do
         expect(temp_dir.join("test/spec/spec_helper.rb").read).to eq(<<~CONTENT)
-          require "bundler/setup"
           Bundler.require :tools
 
 
