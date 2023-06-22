@@ -20,7 +20,6 @@ module Hanamismith
 
       attr_reader :context, :dsl
 
-      # :reek:TooManyStatements
       def cli
         context = build_context
 
