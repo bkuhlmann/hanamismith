@@ -10,7 +10,6 @@ module Hanamismith
         include Hanamismith::Import[:input, :logger]
 
         # Order is important.
-        # rubocop:todo Metrics/CollectionLiteralLength
         BUILDERS = [
           Rubysmith::Builders::Init,
           Builders::Core,
@@ -57,7 +56,6 @@ module Hanamismith
           Builders::Environments::Test,
           Builders::Git::Commit
         ].freeze
-        # rubocop:enable Metrics/CollectionLiteralLength
 
         handle "build"
 
