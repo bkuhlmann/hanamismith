@@ -3,4 +3,4 @@
 
 require "hanamismith"
 
-Hanamismith::CLI::Shell.new.call ARGV
+Hanamismith::CLI::Shell.new.call
