@@ -93,6 +93,7 @@ module Hanamismith
         CONTENT
       end
 
+      # rubocop:todo Metrics/MethodLength
       def append_test_group
         return if configuration.build_guard || configuration.build_rspec
 
@@ -108,6 +109,7 @@ module Hanamismith
           end
         CONTENT
       end
+      # rubocop:enable Metrics/MethodLength
 
       def insert_development_and_test_group
         with_template.insert_before(/group :development/, <<~CONTENT)
