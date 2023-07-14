@@ -1,5 +1,11 @@
 = Versions
 
+== 0.14.1 (2023-07-14)
+
+* Added RuboCop Metrics/MethodLength comment - Brooke Kuhlmann
+* Updated to HTMX 1.9.3 - Brooke Kuhlmann
+* Removed ARGV argument from CLI executable - Brooke Kuhlmann
+
 == 0.14.0 (2023-06-22)
 
 * Fixed RuboCop Packaging/BundlerSetupInTests issues - Brooke Kuhlmann
