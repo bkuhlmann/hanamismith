@@ -11,12 +11,12 @@ module Hanamismith
   module Container
     extend Dry::Container::Mixin
 
-    register :configuration do
+    register :configuration, memoize: true do
       self[:defaults].add_loader(Etcher::Loaders::YAML.new(self[:xdg_config].active))
                      .then { |registry| Etcher.call registry }
     end
 
-    register :defaults do
+    register :defaults, memoize: true do
       registry = Etcher::Registry.new contract: Rubysmith::Configuration::Contract,
                                       model: Rubysmith::Configuration::Model
 
@@ -34,11 +34,14 @@ module Hanamismith
               .add_transformer(Rubysmith::Configuration::Transformers::TargetRoot)
     end
 
+    register :specification, memoize: true do
+      Spek::Loader.call "#{__dir__}/../../hanamismith.gemspec"
+    end
+
     register(:input, memoize: true) { self[:configuration].dup }
     register(:defaults_path) { Rubysmith::Container[:defaults_path] }
-    register(:xdg_config) { Runcom::Config.new "hanamismith/configuration.yml" }
-    register(:specification) { Spek::Loader.call "#{__dir__}/../../hanamismith.gemspec" }
-    register(:kernel) { Kernel }
-    register(:logger) { Cogger.new formatter: :emoji }
+    register(:xdg_config, memoize: true) { Runcom::Config.new "hanamismith/configuration.yml" }
+    register(:logger, memoize: true) { Cogger.new formatter: :emoji }
+    register :kernel, Kernel
   end
 end
