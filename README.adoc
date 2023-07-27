@@ -71,20 +71,7 @@ gem install hanamismith
 
 From the command line, type: `hanamismith --help`
 
-....
-USAGE
-  hanamismith [OPTIONS]
-  hanamismith COMMAND [OPTIONS]
-
-OPTIONS
-  -v, --version            Show version.
-  -h, --help [COMMAND]     Show this message.
-
-COMMANDS
-  config                   Manage configuration.
-                           Path is dynamic per current directory.
-  build                    Build new project.
-....
+image:https://alchemists.io/images/projects/hanamismith/screenshots/usage.png[Usage,width=586,height=333,role=focal_point]
 
 The core functionality of this gem centers around the `build` command and associated flags. The build options allow you to further customize the kind of gem you want to build. Most build options are enabled by default. For detailed documentation on all supported flags, see the link:https://alchemists.io/projects/rubysmith/#_build[Rubysmith] documentation.
 
