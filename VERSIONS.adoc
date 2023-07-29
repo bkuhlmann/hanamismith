@@ -1,5 +1,11 @@
 = Versions
 
+== 0.15.0 (2023-07-29)
+
+* Added container memoization - Brooke Kuhlmann
+* Added usage screenshot - Brooke Kuhlmann
+* Updated to Rubysmith 5.5.0 - Brooke Kuhlmann
+
 == 0.14.1 (2023-07-14)
 
 * Added RuboCop Metrics/MethodLength comment - Brooke Kuhlmann
