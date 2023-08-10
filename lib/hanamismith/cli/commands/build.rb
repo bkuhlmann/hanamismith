@@ -15,6 +15,7 @@ module Hanamismith
           Builders::Core,
           Builders::Providers::Persistence,
           Builders::Refinement,
+          Builders::Icon,
           Builders::Stylesheet,
           Builders::HTMX,
           Builders::PWA,
