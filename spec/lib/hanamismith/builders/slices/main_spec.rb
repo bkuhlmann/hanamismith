@@ -54,22 +54,9 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
 
     it "adds layout template" do
       path = "test/slices/main/templates/layouts/app.html.erb"
+      proof = SPEC_ROOT.join("support/fixtures/layout.html").read
 
-      expect(temp_dir.join(path).read).to eq(<<~CONTENT)
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <title>Test</title>
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            <link title="Test - Stylesheet" rel="stylesheet" href="/stylesheets/site.css" type="text/css">
-            <script src="/javascripts/htmx.js"></script>
-          </head>
-
-          <body class="page">
-            <%= yield %>
-          </body>
-        </html>
-      CONTENT
+      expect(temp_dir.join(path).read).to eq(proof)
     end
 
     it "adds show template" do
