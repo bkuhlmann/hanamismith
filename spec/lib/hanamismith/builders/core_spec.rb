@@ -68,14 +68,21 @@ RSpec.describe Hanamismith::Builders::Core do
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
 
-            config.actions.content_security_policy[:script_src] = "'self' 'unsafe-eval'"
+            config.actions.content_security_policy.then do |csp|
+              csp[:manifest_src] = "'self'"
+              csp[:script_src] += " 'unsafe-eval'"
+            end
 
             Rack::Attack.safelist("allow localhost") { |request| %w[127.0.0.1 ::1].include? request.ip }
             Rack::Attack.throttle("requests by IP", limit: 100, period: 60, &:ip)
 
             config.middleware.use Rack::Attack
             config.middleware.use Rack::Deflater
-            config.middleware.use Rack::Static, {urls: %w[/stylesheets /javascripts], root: "public"}
+            config.middleware.use Rack::Static,
+                                  {
+                                    urls: %w[/icon.svg /manifest.webmanifest /stylesheets /javascripts],
+                                    root: "public"
+                                  }
 
             environment :development do
               config.logger.options[:colorize] = true
