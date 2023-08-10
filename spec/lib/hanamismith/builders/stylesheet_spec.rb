@@ -16,11 +16,9 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
 
     it "builds stylesheet" do
       expect(temp_dir.join("test/public/stylesheets/site.css").read).to eq(<<~CONTENT)
-        :root {
+        .site {
           --site-font-family: Verdana;
-        }
 
-        .page {
           align-items: center;
           display: flex;
           flex-direction: column;
