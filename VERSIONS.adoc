@@ -1,5 +1,14 @@
 = Versions
 
+== 0.16.0 (2023-08-10)
+
+* Fixed core builder application configuration for CSP and assets - Brooke Kuhlmann
+* Fixed stylesheet class variable scope - Brooke Kuhlmann
+* Added Progressive Web Application (PWA) builder - Brooke Kuhlmann
+* Added icon builder - Brooke Kuhlmann
+* Added icons to main slice application layout - Brooke Kuhlmann
+* Updated to HTMX 0.3.0 - Brooke Kuhlmann
+
 == 0.15.0 (2023-07-29)
 
 * Added container memoization - Brooke Kuhlmann
