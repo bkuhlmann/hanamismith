@@ -19,7 +19,7 @@ module Hanamismith
           Builders::Stylesheet,
           Builders::HTMX,
           Builders::PWA,
-          Builders::Slices::Main,
+          Builders::Slices::Home,
           Builders::Slices::Health,
           Rubysmith::Builders::Version,
           Builders::Documentation::Readme,

@@ -5,8 +5,8 @@ require "refinements/structs"
 module Hanamismith
   module Builders
     module Slices
-      # Builds project skeleton foundation.
-      class Main
+      # Builds home slice skeleton.
+      class Home
         using Refinements::Structs
 
         def self.call(...) = new(...).call
@@ -26,39 +26,39 @@ module Hanamismith
         attr_reader :configuration, :builder
 
         def add_action
-          path = "%project_name%/slices/main/action.rb.erb"
+          path = "%project_name%/slices/home/action.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
         def add_repository
-          path = "%project_name%/slices/main/repository.rb.erb"
+          path = "%project_name%/slices/home/repository.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
         def add_view
-          path = "%project_name%/slices/main/view.rb.erb"
+          path = "%project_name%/slices/home/view.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
         def add_layout_template
-          path = "%project_name%/slices/main/templates/layouts/app.html.erb.erb"
+          path = "%project_name%/slices/home/templates/layouts/app.html.erb.erb"
           builder.call(configuration.merge(template_path: path))
                  .render
                  .replace("<!-- yield -->", "<%= yield %>")
         end
 
         def add_show_template
-          path = "%project_name%/slices/main/templates/home/show.html.erb.erb"
+          path = "%project_name%/slices/home/templates/show.html.erb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
         def add_show_view
-          path = "%project_name%/slices/main/views/home/show.rb.erb"
+          path = "%project_name%/slices/home/views/show.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
 
         def add_show_action
-          path = "%project_name%/slices/main/actions/home/show.rb.erb"
+          path = "%project_name%/slices/home/actions/show.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
       end

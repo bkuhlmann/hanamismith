@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Hanamismith::Builders::Slices::Main do
+RSpec.describe Hanamismith::Builders::Slices::Home do
   using Refinements::Pathnames
   using Refinements::Structs
 
@@ -16,11 +16,11 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     before { builder.call }
 
     it "adds action" do
-      expect(temp_dir.join("test/slices/main/action.rb").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/slices/home/action.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
-        module Main
-          # The main action.
+        module Home
+          # The home action.
           class Action < Test::Action
           end
         end
@@ -28,11 +28,11 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds repository" do
-      expect(temp_dir.join("test/slices/main/repository.rb").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/slices/home/repository.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
-        module Main
-          # The main repository.
+        module Home
+          # The home repository.
           class Repository < Test::Repository
           end
         end
@@ -40,11 +40,11 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds view" do
-      expect(temp_dir.join("test/slices/main/view.rb").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/slices/home/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
-        module Main
-          # The main view.
+        module Home
+          # The home view.
           class View < Test::View
             config.paths = [Pathname(__dir__).join("templates").expand_path]
           end
@@ -53,14 +53,14 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds layout template" do
-      path = "test/slices/main/templates/layouts/app.html.erb"
+      path = "test/slices/home/templates/layouts/app.html.erb"
       proof = SPEC_ROOT.join("support/fixtures/layout.html").read
 
       expect(temp_dir.join(path).read).to eq(proof)
     end
 
     it "adds show template" do
-      path = "test/slices/main/templates/home/show.html.erb"
+      path = "test/slices/home/templates/show.html.erb"
 
       expect(temp_dir.join(path).read).to eq(<<~CONTENT)
         <h1>Home</h1>
@@ -70,13 +70,11 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds show view" do
-      expect(temp_dir.join("test/slices/main/views/home/show.rb").read).to eq(<<~CONTENT)
-        module Main
+      expect(temp_dir.join("test/slices/home/views/show.rb").read).to eq(<<~CONTENT)
+        module Home
           module Views
-            module Home
-              # Renders show view.
-              class Show < Main::View
-              end
+            # Renders show view.
+            class Show < Home::View
             end
           end
         end
@@ -84,14 +82,12 @@ RSpec.describe Hanamismith::Builders::Slices::Main do
     end
 
     it "adds show action" do
-      expect(temp_dir.join("test/slices/main/actions/home/show.rb").read).to eq(<<~CONTENT)
-        module Main
+      expect(temp_dir.join("test/slices/home/actions/show.rb").read).to eq(<<~CONTENT)
+        module Home
           module Actions
-            module Home
-              # Processes show action.
-              class Show < Main::Action
-                def handle(*, response) = response.render view
-              end
+            # Processes show action.
+            class Show < Home::Action
+              def handle(*, response) = response.render view
             end
           end
         end
