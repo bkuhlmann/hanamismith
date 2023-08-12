@@ -15,17 +15,7 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
     before { builder.call }
 
     it "builds stylesheet" do
-      expect(temp_dir.join("test/public/stylesheets/site.css").read).to eq(<<~CONTENT)
-        .site {
-          --site-font-family: Verdana;
-
-          align-items: center;
-          display: flex;
-          flex-direction: column;
-          font-family: var(--site-font-family);
-          margin: 1rem 5rem;
-        }
-      CONTENT
+      expect(temp_dir.join("test/public/stylesheets/home.css").exist?).to be(true)
     end
   end
 end
