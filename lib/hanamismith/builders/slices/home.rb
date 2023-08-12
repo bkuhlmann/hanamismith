@@ -44,12 +44,21 @@ module Hanamismith
           path = "%project_name%/slices/home/templates/layouts/app.html.erb.erb"
           builder.call(configuration.merge(template_path: path))
                  .render
+                 .replace("<!-- title -->", "<%= content_for :title %>")
                  .replace("<!-- yield -->", "<%= yield %>")
         end
 
         def add_show_template
           path = "%project_name%/slices/home/templates/show.html.erb.erb"
-          builder.call(configuration.merge(template_path: path)).render
+
+          builder.call(configuration.merge(template_path: path))
+                 .render
+                 .replace(
+                   "<!-- title -->",
+                   %(<% content_for :title, "#{configuration.project_label}" %>)
+                 )
+                 .replace("<!-- ruby_version -->", "<%= ruby_version %>")
+                 .replace("<!-- hanami_version -->", "<%= hanami_version %>")
         end
 
         def add_show_view

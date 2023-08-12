@@ -1,4 +1,4 @@
-<!-- title -->
+<% content_for :title, "Test" %>
 
 <header class="header">
   <nav>
@@ -15,7 +15,7 @@
        width="192"
        height="192">
 
-  <h1 class="label"><%= configuration.project_label %></h1>
+  <h1 class="label">Test</h1>
 </main>
 
 <footer class="footer">
@@ -35,7 +35,7 @@
   </ul>
 
   <ul class="group">
-    <li>Ruby <!-- ruby_version --></li>
-    <li>Hanami <!-- hanami_version --></li>
+    <li>Ruby <%= ruby_version %></li>
+    <li>Hanami <%= hanami_version %></li>
   </ul>
 </footer>

@@ -52,20 +52,17 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
     end
 
     it "adds layout template" do
-      path = "test/slices/home/templates/layouts/app.html.erb"
-      proof = SPEC_ROOT.join("support/fixtures/layout.html").read
+      template = temp_dir.join("test/slices/home/templates/layouts/app.html.erb").read
+      proof = SPEC_ROOT.join("support/fixtures/proofs/layout.html").read
 
-      expect(temp_dir.join(path).read).to eq(proof)
+      expect(template).to eq(proof)
     end
 
     it "adds show template" do
-      path = "test/slices/home/templates/show.html.erb"
+      template = temp_dir.join("test/slices/home/templates/show.html.erb").read
+      proof = SPEC_ROOT.join("support/fixtures/proofs/show.html").read
 
-      expect(temp_dir.join(path).read).to eq(<<~CONTENT)
-        <h1>Home</h1>
-
-        <p>Welcome!</p>
-      CONTENT
+      expect(template).to eq(proof)
     end
 
     it "adds show view" do
@@ -74,6 +71,8 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
           module Views
             # Renders show view.
             class Show < Home::View
+              expose :ruby_version, default: RUBY_VERSION
+              expose :hanami_version, default: Hanami::VERSION
             end
           end
         end
