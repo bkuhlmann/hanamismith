@@ -46,7 +46,6 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
         module Home
           # The home view.
           class View < Test::View
-            config.paths = [Pathname(__dir__).join("templates").expand_path]
           end
         end
       CONTENT
