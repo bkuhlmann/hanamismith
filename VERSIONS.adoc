@@ -1,5 +1,18 @@
 = Versions
 
+== 0.17.0 (2023-08-13)
+
+* Fixed RSpec helper builder to temporarily ignore SimpleCov eval - Brooke Kuhlmann
+* Fixed application configuration code coverage - Brooke Kuhlmann
+* Fixed readme builder to provide project specific setup - Brooke Kuhlmann
+* Added title, icon, label, and info to home show template - Brooke Kuhlmann
+* Added version release notes - Brooke Kuhlmann
+* Updated health slice description to match home slice description - Brooke Kuhlmann
+* Updated stylesheet to use a radial background and centered layout - Brooke Kuhlmann
+* Removed HTMX from home slice layout - Brooke Kuhlmann
+* Removed home slice view configuration - Brooke Kuhlmann
+* Refactored main slice as home slice - Brooke Kuhlmann
+
 == 0.16.0 (2023-08-10)
 
 * Fixed core builder application configuration for CSP and assets - Brooke Kuhlmann

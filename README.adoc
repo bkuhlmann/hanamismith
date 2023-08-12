@@ -17,11 +17,9 @@
 
 = Hanamismith
 
-Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect for when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} teams:
+Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} teams:
 ____
 If you're looking for new ways to build maintainable, secure, faster and testable Ruby applications, you're in for a treat. *Hanami is built for people like you*.
-
-Whether you're a total beginner or an experienced developer, *this learning process may still be hard*. Over time, we become used to certain things, and it can be painful to change. *But without change, there is no challenge* and without challenge, there is no growth.
 ____
 
 Welcome to the modern age of web development. This gem will help you get up and running as quickly as possible. 🚀
@@ -33,7 +31,7 @@ toc::[]
 * Built atop {rubysmith_link} for building project skeleton.
 * Uses {dry_link} for functional programming.
 * Uses {hanami_link} for web application development.
-* Uses {htmx_link} for proper Hypermedia REST APIs (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
+* Uses {htmx_link} for Hypermedia REST APIs (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
 * Uses {rack_link}, specifically: `Rack::Deflater`, `Rack::Static`, and link:https://github.com/rack/rack-attack[Rack::Attack].
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
@@ -42,6 +40,14 @@ toc::[]
 * Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
 * Provides the `/up` health check endpoint via the `Health` slice.
 * Disables link:https://github.com/ruby/irb[IRB] console autocomplete when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
+
+== Screenshots/Screencasts
+
+image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=802,height=813,role=focal_point]
+
+The above is a screenshot of a _Demo_ project that was generated and run locally. For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
+
+video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
 
 == Requirements
 
@@ -93,7 +99,7 @@ link:https://alchemists.io/projects/rubysmith/#_configuration[Rubysmith]. It is 
 ----
 :project:
   :url:
-    # Add sub-key values here.
+    # Add key/value pairs here.
 ----
 
 When these values exist, you'll benefit from having this information added to your generated project documentation. Otherwise -- if these values are empty -- they are removed from new project generation entirely.
@@ -133,12 +139,12 @@ bin/hanami --help
 
 Once the server is running you can visit (or ping) the following endpoints:
 
-* `/`: The default welcome page.
+* `/`: The home page.
 * `/up`: The health status of the application. This will be _green_ (200 OK) when the server is up or _red_ (503 Service Unavailable) when the server is down.
 
 === Aliases
 
-For link:https://www.gnu.org/software/bash[Bash] users -- or other shell users -- you might find the following aliases helpful in reducing terminal keystrokes when using this gem:
+For link:https://www.gnu.org/software/bash[Bash] users -- or other shell users -- you might find these suggested aliases helpful in reducing keystrokes when using this gem:
 
 [source,bash]
 ----
@@ -148,12 +154,6 @@ alias hsh="hanamismith --help"
 ----
 
 The above is what I use via my {dotfiles_link} project.
-
-=== Demonstrations
-
-For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
-
-video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
 
 == Development
 
