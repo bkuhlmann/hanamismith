@@ -5,7 +5,7 @@ require "refinements/structs"
 module Hanamismith
   module Builders
     module Slices
-      # Builds project health slice skeleton.
+      # Builds health slice skeleton.
       class Health
         using Refinements::Structs
 
