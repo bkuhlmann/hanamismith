@@ -1,0 +1,59 @@
+:toc: macro
+:toclevels: 5
+:figure-caption!:
+
+= Test
+
+toc::[]
+
+== Features
+
+== Screencasts
+
+== Requirements
+
+. link:https://www.ruby-lang.org[Ruby].
+
+== Setup
+
+To set up the project, run:
+
+[source,bash]
+----
+git clone 
+cd test
+bin/setup
+
+bin/hanami db create
+bin/hanami db migrate
+bin/hanami db seed
+
+HANAMI_ENV=test bin/hanami db create
+HANAMI_ENV=test bin/hanami db migrate
+----
+
+== Usage
+
+== Development
+
+To contribute, run:
+
+[source,bash]
+----
+git clone 
+cd test
+----
+
+== Tests
+
+To test, run:
+
+[source,bash]
+----
+bin/rake
+----
+
+== Credits
+
+* Built with link:https://alchemists.io/projects/hanamismith[Hanamismith].
+* Engineered by link:[Jill Smith].

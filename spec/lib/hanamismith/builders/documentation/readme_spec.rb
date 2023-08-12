@@ -20,8 +20,8 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
       end
 
       it "builds README" do
-        expect(temp_dir.join("test", "README.md").read).to include(
-          "[Hanamismith](https://alchemists.io/projects/hanamismith)"
+        expect(temp_dir.join("test", "README.md").read).to eq(
+          SPEC_ROOT.join("support/fixtures/proofs/readme.md").read
         )
       end
     end
@@ -32,8 +32,8 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
       end
 
       it "builds README" do
-        expect(temp_dir.join("test", "README.adoc").read).to include(
-          "link:https://alchemists.io/projects/hanamismith[Hanamismith]"
+        expect(temp_dir.join("test", "README.adoc").read).to eq(
+          SPEC_ROOT.join("support/fixtures/proofs/readme.adoc").read
         )
       end
     end
