@@ -85,6 +85,7 @@ RSpec.describe Hanamismith::Builders::Core do
                                   }
 
             environment :development do
+              # :nocov:
               config.logger.options[:colorize] = true
 
               config.logger = config.logger.instance.add_backend(

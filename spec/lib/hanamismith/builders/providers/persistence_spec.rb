@@ -44,6 +44,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
             Sequel::Migrator.is_current? database, Hanami.app.root.join("db/migrate")
           rescue NoMethodError, Sequel::Migrator::Error => error
             message = error.message
+            # :nocov:
             Hanami.logger.error message unless error.is_a?(NoMethodError) && message.include?("migration")
           end
 
