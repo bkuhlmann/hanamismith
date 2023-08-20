@@ -38,7 +38,9 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
           Capybara.javascript_driver = :cuprite
           Capybara.save_path = Hanami.app.root.join "tmp/capybara"
           Capybara.register_driver :cuprite do |app|
-            Capybara::Cuprite::Driver.new app, window_size: [1200, 800]
+            Capybara::Cuprite::Driver.new app,
+                                          browser_options: {"no-sandbox" => nil},
+                                          window_size: [1200, 800]
           end
 
           DatabaseCleaner[:sequel].strategy = :transaction
