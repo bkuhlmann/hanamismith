@@ -16,6 +16,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
 
     it "adds configuration" do
       expect(temp_dir.join("test/config/providers/persistence.rb").read).to eq(<<~CONTENT)
+        # :nocov:
         # rubocop:todo Metrics/BlockLength
         Hanami.app.register_provider :persistence, namespace: true do
           prepare do
@@ -44,7 +45,6 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
             Sequel::Migrator.is_current? database, Hanami.app.root.join("db/migrate")
           rescue NoMethodError, Sequel::Migrator::Error => error
             message = error.message
-            # :nocov:
             Hanami.logger.error message unless error.is_a?(NoMethodError) && message.include?("migration")
           end
 
