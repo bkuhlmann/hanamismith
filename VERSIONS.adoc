@@ -1,5 +1,13 @@
 = Versions
 
+== 0.17.1 (2023-08-20)
+
+* Fixed Puma Procfile builder to include public folder - Brooke Kuhlmann
+* Fixed RSpec Hanami helper to disable Cuprite sandbox - Brooke Kuhlmann
+* Fixed home slice stylesheet CSS nesting and colors - Brooke Kuhlmann
+* Fixed persistence provider code coverage - Brooke Kuhlmann
+* Updated GitHub workflow to use next version of chrome driver setup - Brooke Kuhlmann
+
 == 0.17.0 (2023-08-13)
 
 * Fixed RSpec helper builder to temporarily ignore SimpleCov eval - Brooke Kuhlmann

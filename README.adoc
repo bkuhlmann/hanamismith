@@ -125,7 +125,7 @@ bin/guard
 git commit  # (repeat until finished with implementation)
 
 # Run: With Overmind (recommended)
-overmind start --port-step 10 --procfile Procfile.dev
+overmind start --procfile Procfile.dev
 
 # Run: Without Overmind
 bin/hanami server
