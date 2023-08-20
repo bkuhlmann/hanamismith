@@ -44,7 +44,7 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
 
               steps:
                 - name: Setup Chrome Driver
-                  uses: nanasess/setup-chromedriver@v1
+                  uses: nanasess/setup-chromedriver@v2
 
                 - name: Start Chrome Driver
                   run: |
@@ -103,7 +103,7 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
 
               steps:
                 - name: Setup Chrome Driver
-                  uses: nanasess/setup-chromedriver@v1
+                  uses: nanasess/setup-chromedriver@v2
 
                 - name: Start Chrome Driver
                   run: |
