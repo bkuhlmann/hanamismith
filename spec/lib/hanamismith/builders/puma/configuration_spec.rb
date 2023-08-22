@@ -22,7 +22,9 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
 
         require "concurrent"
         require "localhost" if development
+
         Bundler.require :tools if development
+        Bundler.root.join("tmp").then { |path| path.mkdir unless path.exist? }
 
         max_threads_count = ENV.fetch "HANAMI_MAX_THREADS", 5
         min_threads_count = ENV.fetch "HANAMI_MIN_THREADS", max_threads_count
