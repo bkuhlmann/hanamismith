@@ -36,7 +36,7 @@ RSpec.describe Hanamismith::Builders::CI::Circle do
               steps:
                 - run:
                     name: Install Chromium
-                    command: apk add chromium chromium-chromedriver
+                    command: apk add gcompat glib nss libxcb libgcc chromium
 
                 - run:
                     name: Start Chromium
@@ -101,7 +101,7 @@ RSpec.describe Hanamismith::Builders::CI::Circle do
               steps:
                 - run:
                     name: Install Chromium
-                    command: apk add chromium chromium-chromedriver
+                    command: apk add gcompat glib nss libxcb libgcc chromium
 
                 - run:
                     name: Start Chromium
