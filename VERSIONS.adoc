@@ -1,5 +1,16 @@
 = Versions
 
+== 0.18.0 (2023-08-26)
+
+* Fixed missing Puma temporary directory - Brooke Kuhlmann
+* Fixed readme spec to use author and project source URLs - Brooke Kuhlmann
+* Added Cuprite driver browser options for GPU and shim - Brooke Kuhlmann
+* Added RuboCop Sequel gem - Brooke Kuhlmann
+* Updated Circle CI builder Chromium install - Brooke Kuhlmann
+* Updated PWA builder to improve standalone behavior - Brooke Kuhlmann
+* Updated home slice layout to improve the iOS PWA experience - Brooke Kuhlmann
+* Updated to htmx 1.9.5 - Brooke Kuhlmann
+
 == 0.17.1 (2023-08-20)
 
 * Fixed Puma Procfile builder to include public folder - Brooke Kuhlmann
