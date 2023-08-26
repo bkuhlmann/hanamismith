@@ -14,9 +14,11 @@ RSpec.shared_context "with application dependencies" do
             author_family_name: "Smith",
             author_given_name: "Jill",
             author_email: "jill@example.com",
+            author_url: "https://example.com/team/jill",
             git_hub_user: "hubber",
             now: Time.local(2020, 1, 1, 0, 0, 0),
             project_name: "test",
+            project_url_source: "https://www.example.com/%project_name%/source",
             target_root: temp_dir
           )
           .bind(&:dup)

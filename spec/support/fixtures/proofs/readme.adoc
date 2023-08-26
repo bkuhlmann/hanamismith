@@ -20,7 +20,7 @@ To set up the project, run:
 
 [source,bash]
 ----
-git clone 
+git clone https://www.example.com/test/source
 cd test
 bin/setup
 
@@ -40,7 +40,7 @@ To contribute, run:
 
 [source,bash]
 ----
-git clone 
+git clone https://www.example.com/test/source
 cd test
 ----
 
@@ -56,4 +56,4 @@ bin/rake
 == Credits
 
 * Built with link:https://alchemists.io/projects/hanamismith[Hanamismith].
-* Engineered by link:[Jill Smith].
+* Engineered by link:https://example.com/team/jill[Jill Smith].

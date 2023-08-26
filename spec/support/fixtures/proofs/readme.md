@@ -16,7 +16,7 @@
 To set up the project, run:
 
 ``` bash
-git clone 
+git clone https://www.example.com/test/source
 cd test
 bin/setup
 
@@ -34,7 +34,7 @@ HANAMI_ENV=test bin/hanami db migrate
 
 To contribute, run:
 
-    git clone 
+    git clone https://www.example.com/test/source
     cd test
 
 ## Tests
@@ -46,4 +46,4 @@ To test, run:
 ## Credits
 
 - Built with [Hanamismith](https://alchemists.io/projects/hanamismith).
-- Engineered by [Jill Smith]().
+- Engineered by [Jill Smith](https://example.com/team/jill).
