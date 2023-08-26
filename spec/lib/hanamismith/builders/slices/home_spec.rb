@@ -85,7 +85,6 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
           module Actions
             # Processes show action.
             class Show < Home::Action
-              def handle(*, response) = response.render view
             end
           end
         end
