@@ -20,6 +20,7 @@ end
 group :test do
   gem "guard-rspec", "~> 4.7", require: false
   gem "rspec", "~> 3.12"
+  gem "rubocop-sequel", "~> 0.3"
 end
 
 group :tools do
