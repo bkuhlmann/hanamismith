@@ -18,6 +18,8 @@ RSpec.describe Hanamismith::Builders::PWA do
       expect(temp_dir.join("test/public/manifest.webmanifest").read).to eq(<<~CONTENT)
         {
           "name": "Test",
+          "short_name": "Test",
+          "description": "A Hanamismith skeleton application.",
           "icons": [
             {
               "src": "https://alchemists.io/images/projects/hanamismith/icons/small.png",
@@ -29,7 +31,11 @@ RSpec.describe Hanamismith::Builders::PWA do
               "type": "image/png",
               "sizes": "512x512"
             }
-          ]
+          ],
+          "display": "standalone",
+          "start_url": "/",
+          "scope": "/",
+          "theme_color": "#E39184"
         }
       CONTENT
     end
