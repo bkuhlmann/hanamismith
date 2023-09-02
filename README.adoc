@@ -43,11 +43,11 @@ toc::[]
 
 == Screenshots/Screencasts
 
-image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=802,height=813,role=focal_point]
+image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=664,height=693,role=focal_point]
 
 The above is a screenshot of a _Demo_ project that was generated and run locally. For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
-video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=800,height=450,role=focal_point]
+video::https://alchemists.io/videos/projects/hemo/demo.mp4[poster=https://alchemists.io/images/projects/hemo/demo.png,width=1280,height=720,role=focal_point]
 
 == Requirements
 
@@ -116,8 +116,6 @@ hanamismith build --name demo
 # Run code quality and test coverage checks
 cd demo
 bin/setup
-bin/hanami db create
-HANAMI_ENV=test hanami db create
 bin/rake
 
 # Develop (red, green, refactor)
