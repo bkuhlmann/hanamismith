@@ -27,21 +27,21 @@ html {
   justify-content: space-between;
   min-height: 97vh;
 
+  .link {
+    color: var(--color-white);
+  }
+
   .navigation {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    font-weight: 600;
     gap: 1rem;
+    justify-content: center;
     list-style: none;
     padding: 0;
-
-    .link {
-      color: var(--color-white);
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
   }
 
   @media only screen and (min-width: 350px) {
