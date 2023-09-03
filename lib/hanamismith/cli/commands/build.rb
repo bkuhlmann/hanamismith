@@ -35,7 +35,7 @@ module Hanamismith
           Builders::Console,
           Builders::CI::Circle,
           Builders::CI::GitHub,
-          Rubysmith::Builders::Setup,
+          Builders::Setup,
           Rubysmith::Builders::GitHub,
           Builders::Guard,
           Rubysmith::Builders::Reek,
