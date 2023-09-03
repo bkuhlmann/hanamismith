@@ -41,13 +41,6 @@ module Hanamismith
             git clone #{configuration.computed_project_url_source}
             cd #{configuration.project_name}
             bin/setup
-
-            bin/hanami db create
-            bin/hanami db migrate
-            bin/hanami db seed
-
-            HANAMI_ENV=test bin/hanami db create
-            HANAMI_ENV=test bin/hanami db migrate
             ----
 
             == Usage
@@ -64,13 +57,6 @@ module Hanamismith
             git clone #{configuration.computed_project_url_source}
             cd #{configuration.project_name}
             bin/setup
-
-            bin/hanami db create
-            bin/hanami db migrate
-            bin/hanami db seed
-
-            HANAMI_ENV=test bin/hanami db create
-            HANAMI_ENV=test bin/hanami db migrate
             ```
 
             ## Usage

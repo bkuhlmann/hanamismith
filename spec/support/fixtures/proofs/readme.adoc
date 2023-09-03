@@ -23,13 +23,6 @@ To set up the project, run:
 git clone https://www.example.com/test/source
 cd test
 bin/setup
-
-bin/hanami db create
-bin/hanami db migrate
-bin/hanami db seed
-
-HANAMI_ENV=test bin/hanami db create
-HANAMI_ENV=test bin/hanami db migrate
 ----
 
 == Usage
