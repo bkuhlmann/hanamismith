@@ -17,7 +17,6 @@ module Hanamismith
           Builders::Refinement,
           Builders::Icon,
           Builders::Stylesheet,
-          Builders::HTMX,
           Builders::PWA,
           Builders::Slices::Home,
           Builders::Slices::Health,
