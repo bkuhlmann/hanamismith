@@ -34,7 +34,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
           using Refinements::Pathnames
 
           Capybara.app = Hanami.app
-          Capybara.server = :puma, {Silent: true}
+          Capybara.server = :puma, {Silent: true, Threads: "0:1"}
           Capybara.javascript_driver = :cuprite
           Capybara.save_path = Hanami.app.root.join "tmp/capybara"
           Capybara.register_driver :cuprite do |app|
