@@ -70,7 +70,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
             config.actions.content_security_policy.then do |csp|
               csp[:manifest_src] = "'self'"
-              csp[:script_src] += " 'unsafe-eval'"
+              csp[:script_src] += " 'unsafe-eval' 'unsafe-inline' https://unpkg.com/"
             end
 
             Rack::Attack.safelist("allow localhost") { |request| %w[127.0.0.1 ::1].include? request.ip }
@@ -79,10 +79,7 @@ RSpec.describe Hanamismith::Builders::Core do
             config.middleware.use Rack::Attack
             config.middleware.use Rack::Deflater
             config.middleware.use Rack::Static,
-                                  {
-                                    urls: %w[/icon.svg /manifest.webmanifest /stylesheets /javascripts],
-                                    root: "public"
-                                  }
+                                  {root: "public", urls: %w[/icon.svg /manifest.webmanifest /stylesheets]}
 
             environment :development do
               # :nocov:
