@@ -13,7 +13,8 @@ module Hanamismith
 
         super
         builder.call(configuration.merge(template_path: "%project_name%/bin/console.erb"))
-               .replace(/require.+#{configuration.project_path}"/, %(require "hanami/prepare"))
+               .replace(/require Bundler.root.+/, %(require "hanami/prepare"))
+
         add_irb_autocomplete
 
         configuration
