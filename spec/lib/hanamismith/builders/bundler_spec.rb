@@ -19,7 +19,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
       it "updates Gemfile" do
         expect(temp_dir.join("test", "Gemfile").read).to eq(<<~CONTENT)
-          ruby File.read(".ruby-version").strip
+          ruby file: ".ruby-version"
 
           source "https://rubygems.org"
 
@@ -66,7 +66,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
       let :proof do
         <<~CONTENT
-          ruby File.read(".ruby-version").strip
+          ruby file: ".ruby-version"
 
           source "https://rubygems.org"
 
