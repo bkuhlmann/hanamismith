@@ -27,7 +27,7 @@ RSpec.shared_context "with application dependencies" do
   let(:input) { configuration.dup }
   let(:xdg_config) { Runcom::Config.new Hanamismith::Container[:defaults_path] }
   let(:kernel) { class_spy Kernel }
-  let(:logger) { Cogger.new io: StringIO.new, level: :debug, formatter: :emoji }
+  let(:logger) { Cogger.new id: :hanamismith, io: StringIO.new, level: :debug }
 
   before { Hanamismith::Import.stub configuration:, input:, xdg_config:, kernel:, logger: }
 

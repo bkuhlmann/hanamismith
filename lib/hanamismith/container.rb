@@ -41,7 +41,7 @@ module Hanamismith
     register(:input, memoize: true) { self[:configuration].dup }
     register(:defaults_path) { Rubysmith::Container[:defaults_path] }
     register(:xdg_config, memoize: true) { Runcom::Config.new "hanamismith/configuration.yml" }
-    register(:logger, memoize: true) { Cogger.new formatter: :emoji }
+    register(:logger, memoize: true) { Cogger.new id: :hanamismith }
     register :kernel, Kernel
   end
 end
