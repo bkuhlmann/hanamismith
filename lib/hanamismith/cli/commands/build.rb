@@ -26,7 +26,7 @@ module Hanamismith
           Rubysmith::Builders::Documentation::License,
           Rubysmith::Builders::Documentation::Version,
           Rubysmith::Builders::Git::Setup,
-          Rubysmith::Builders::Git::Ignore,
+          Builders::Git::Ignore,
           Rubysmith::Builders::Git::Safe,
           Builders::Bundler,
           Builders::Rake,
