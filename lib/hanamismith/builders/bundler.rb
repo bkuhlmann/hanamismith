@@ -5,6 +5,7 @@ require "refinements/structs"
 module Hanamismith
   module Builders
     # Builds project skeleton with Gemfile configuration.
+    # rubocop:todo Metrics/ClassLength
     class Bundler < Rubysmith::Builders::Bundler
       using Refinements::Structs
 
@@ -31,6 +32,10 @@ module Hanamismith
                      .insert_after(
                        "source",
                        %(gem "hanami", github: "hanami/hanami", branch: "main"\n)
+                     )
+                     .insert_after(
+                       "source",
+                       %(gem "hanami-assets", github: "hanami/assets", branch: "main"\n)
                      )
                      .insert_after(
                        "source",
@@ -128,4 +133,5 @@ module Hanamismith
       end
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end

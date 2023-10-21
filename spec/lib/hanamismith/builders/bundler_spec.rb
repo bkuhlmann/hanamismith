@@ -36,6 +36,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-router", github: "hanami/router", branch: "main"
           gem "hanami-controller", github: "hanami/controller", branch: "main"
           gem "hanami-cli", github: "hanami/cli", branch: "main"
+          gem "hanami-assets", github: "hanami/assets", branch: "main"
           gem "hanami", github: "hanami/hanami", branch: "main"
           gem "dry-types", "~> 1.7"
 
@@ -83,6 +84,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-router", github: "hanami/router", branch: "main"
           gem "hanami-controller", github: "hanami/controller", branch: "main"
           gem "hanami-cli", github: "hanami/cli", branch: "main"
+          gem "hanami-assets", github: "hanami/assets", branch: "main"
           gem "hanami", github: "hanami/hanami", branch: "main"
           gem "dry-types", "~> 1.7"
           gem "refinements", "~> 11.0"
