@@ -29,6 +29,7 @@ module Hanamismith
           Builders::Git::Ignore,
           Rubysmith::Builders::Git::Safe,
           Builders::Bundler,
+          Builders::Node,
           Builders::Rake,
           Builders::Binstub,
           Builders::Console,
