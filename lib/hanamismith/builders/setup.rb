@@ -21,6 +21,7 @@ module Hanamismith
       def append
         builder.call(configuration.merge(template_path: "%project_name%/bin/setup.erb"))
                .append(<<~CONTENT)
+                 npm install
 
                  hanami db create
                  hanami db migrate

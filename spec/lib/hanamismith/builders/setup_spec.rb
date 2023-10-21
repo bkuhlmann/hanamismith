@@ -31,6 +31,7 @@ RSpec.describe Hanamismith::Builders::Setup do
           IFS=$'\\n\\t'
 
           bundle install
+          npm install
 
           hanami db create
           hanami db migrate
