@@ -10,26 +10,29 @@ html {
   --font-family: Verdana;
 
   background-color: var(--color-white);
-  background-image:
-    radial-gradient(at 17% 25%, var(--color-rose) 0px, transparent 50%),
-    radial-gradient(at 17% 68%, var(--color-rose) 0px, transparent 50%),
-    radial-gradient(at 50% 45%, var(--color-pink) 0px, transparent 50%),
-    radial-gradient(at 81% 25%, var(--color-rose) 0px, transparent 50%),
-    radial-gradient(at 81% 68%, var(--color-rose) 0px, transparent 50%),
-    radial-gradient(at 9% 7%, var(--color-red) 0px, transparent 50%),
-    radial-gradient(at 9% 93%, var(--color-red) 0px, transparent 50%),
-    radial-gradient(at 91% 7%, var(--color-red) 0px, transparent 50%),
-    radial-gradient(at 91% 93%, var(--color-red) 0px, transparent 50%);
-  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    0deg,
+    hsl(351deg 100% 95%) 0%,
+    hsl(352deg 100% 96%) 16%,
+    hsl(352deg 100% 98%) 24%,
+    hsl(352deg 100% 99%) 30%,
+    hsl(300deg 100% 100%) 35%,
+    hsl(300deg 100% 100%) 40%,
+    hsl(300deg 100% 100%) 45%,
+    hsl(0deg 0% 100%) 50%,
+    hsl(300deg 100% 100%) 55%,
+    hsl(300deg 100% 100%) 60%,
+    hsl(300deg 100% 100%) 65%,
+    hsl(300deg 100% 100%) 70%,
+    hsl(300deg 100% 100%) 76%,
+    hsl(300deg 100% 100%) 84%,
+    hsl(0deg 0% 100%) 100%
+  );
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
   justify-content: space-between;
   min-height: 97vh;
-
-  .link {
-    color: var(--color-white);
-  }
 
   .navigation {
     align-items: center;
