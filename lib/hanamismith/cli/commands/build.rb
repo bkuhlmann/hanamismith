@@ -30,6 +30,7 @@ module Hanamismith
           Rubysmith::Builders::Git::Safe,
           Builders::Bundler,
           Builders::Node,
+          Builders::Asset,
           Builders::Rake,
           Builders::Binstub,
           Builders::Console,
