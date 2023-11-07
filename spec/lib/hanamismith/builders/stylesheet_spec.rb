@@ -14,8 +14,8 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
   describe "#call" do
     before { builder.call }
 
-    it "builds stylesheet" do
-      expect(temp_dir.join("test/public/stylesheets/home.css").exist?).to be(true)
+    it "builds home slice application stylesheet" do
+      expect(temp_dir.join("test/slices/home/assets/css/app.css").exist?).to be(true)
     end
   end
 end
