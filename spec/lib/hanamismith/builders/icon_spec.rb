@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::Icon do
     before { builder.call }
 
     it "builds stylesheet" do
-      expect(temp_dir.join("test/public/icon.svg").exist?).to be(true)
+      expect(temp_dir.join("test/app/assets/images/icon.svg").exist?).to be(true)
     end
   end
 end

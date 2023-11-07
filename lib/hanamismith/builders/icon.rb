@@ -16,7 +16,7 @@ module Hanamismith
       end
 
       def call
-        path = "%project_name%/public/icon.svg.erb"
+        path = "%project_name%/app/assets/images/icon.svg.erb"
         builder.call(configuration.merge(template_path: path)).render
         configuration
       end
