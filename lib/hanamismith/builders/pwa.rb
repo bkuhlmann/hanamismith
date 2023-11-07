@@ -16,7 +16,7 @@ module Hanamismith
       end
 
       def call
-        path = "%project_name%/public/manifest.webmanifest.erb"
+        path = "%project_name%/app/assets/pwa/manifest.webmanifest.erb"
         builder.call(configuration.merge(template_path: path)).render
         configuration
       end

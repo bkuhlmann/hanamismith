@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::PWA do
     before { builder.call }
 
     it "builds stylesheet" do
-      expect(temp_dir.join("test/public/manifest.webmanifest").read).to eq(<<~CONTENT)
+      expect(temp_dir.join("test/app/assets/pwa/manifest.webmanifest").read).to eq(<<~CONTENT)
         {
           "name": "Test",
           "short_name": "Test",
@@ -35,7 +35,7 @@ RSpec.describe Hanamismith::Builders::PWA do
           "display": "standalone",
           "start_url": "/",
           "scope": "/",
-          "theme_color": "#E39184"
+          "theme_color": "#000000"
         }
       CONTENT
     end
