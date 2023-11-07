@@ -16,13 +16,13 @@
           rel="icon"
           href="https://alchemists.io/images/projects/hanamismith/icons/favicon.ico"
           sizes="32x32">
-    <link title="Test: Icon" rel="icon" href="/icon.svg" type="image/svg+xml">
+    <%= favicon_tag "icon.svg", title: "Test: Icon", rel: :icon, type: "image/svg+xml" %>
     <link title="Test: Apple Icon"
           rel="apple-touch-icon"
           href="https://alchemists.io/images/projects/hanamismith/icons/apple.png"
           type="image/png">
-    <link title="Test: Manifest" rel="manifest" href="/manifest.webmanifest">
-    <link title="Test: Stylesheet" rel="stylesheet" href="/stylesheets/home.css" type="text/css">
+    <%= tag.link title: "Test: Manifest", rel: :manifest, href: asset_url("manifest.webmanifest") %>
+    <%= stylesheet_tag "home/app", title: "Test: Stylesheet" %>
   </head>
 
   <body class="home-page">

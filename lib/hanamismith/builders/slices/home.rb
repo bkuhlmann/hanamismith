@@ -45,7 +45,24 @@ module Hanamismith
           builder.call(configuration.merge(template_path: path))
                  .render
                  .replace("<!-- title -->", "<%= content_for :title %>")
+                 .replace("<!-- favicon -->", favicon)
+                 .replace("<!-- manifest -->", manifest)
+                 .replace("<!-- stylesheet -->", stylesheet)
                  .replace("<!-- yield -->", "<%= yield %>")
+        end
+
+        def favicon
+          %(<%= favicon_tag "icon.svg", title: "#{configuration.project_label}: Icon", rel: ) +
+            %(:icon, type: "image/svg+xml" %>)
+        end
+
+        def manifest
+          %(<%= tag.link title: "#{configuration.project_label}: Manifest", rel: ) +
+            %(:manifest, href: asset_url("manifest.webmanifest") %>)
+        end
+
+        def stylesheet
+          %(<%= stylesheet_tag "home/app", title: "#{configuration.project_label}: Stylesheet" %>)
         end
 
         def add_show_template
