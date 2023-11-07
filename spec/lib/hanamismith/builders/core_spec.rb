@@ -78,8 +78,6 @@ RSpec.describe Hanamismith::Builders::Core do
 
             config.middleware.use Rack::Attack
             config.middleware.use Rack::Deflater
-            config.middleware.use Rack::Static,
-                                  {root: "public", urls: %w[/icon.svg /manifest.webmanifest /stylesheets]}
 
             environment :development do
               # :nocov:
