@@ -58,6 +58,7 @@ module Hanamismith
           Rubysmith::Extensions::Pragmater,
           Rubysmith::Extensions::Tocer,
           Rubysmith::Extensions::Rubocop,
+          Extensions::NPM,
           Builders::Environments::Development,
           Builders::Environments::Test,
           Builders::Git::Commit

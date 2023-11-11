@@ -7,6 +7,7 @@ Zeitwerk::Loader.new.then do |loader|
   loader.inflector.inflect "cli" => "CLI",
                            "ci" => "CI",
                            "htmx" => "HTMX",
+                           "npm" => "NPM",
                            "pwa" => "PWA",
                            "rspec" => "RSpec"
   loader.tag = File.basename __FILE__, ".rb"
