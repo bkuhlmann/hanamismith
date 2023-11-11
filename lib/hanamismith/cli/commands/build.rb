@@ -50,6 +50,7 @@ module Hanamismith
           Builders::RSpec::Hanami,
           Builders::Rack::Configuration,
           Builders::Rack::Attack,
+          Builders::Rack::Deflater,
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,
