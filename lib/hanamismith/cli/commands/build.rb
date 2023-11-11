@@ -9,7 +9,7 @@ module Hanamismith
       class Build < Sod::Command
         include Hanamismith::Import[:input, :logger]
 
-        # Order is important.
+        # Order matters.
         BUILDERS = [
           Rubysmith::Builders::Init,
           Builders::Core,
@@ -49,6 +49,7 @@ module Hanamismith
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack::Configuration,
+          Builders::Rack::Attack,
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,
