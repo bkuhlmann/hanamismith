@@ -74,8 +74,13 @@ module Hanamismith
                      .insert_after("source", %(\ngem "sequel", "~> 5.68"\n))
       end
 
+      # rubocop:todo Metrics/MethodLength
       def alter_groups
         with_template.insert_after(/group :code_quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
+                     .insert_after(
+                       /group :development do/,
+                       %(  gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"\n)
+                     )
                      .insert_after(/group :development do/, %(  gem "localhost", "~> 1.1"\n))
                      .insert_after(/group :development do/, %(  gem "rerun", "~> 0.14"\n))
                      .insert_after(/group :test/, %(  gem "capybara", "~> 3.39"\n))
@@ -85,12 +90,14 @@ module Hanamismith
                      .insert_after(/group :test/, %(  gem "rack-test", "~> 2.1"\n))
                      .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.11"\n))
       end
+      # rubocop:enable Metrics/MethodLength
 
       def append_development_group
         return if configuration.markdown? || configuration.build_rake || configuration.build_yard
 
         with_template.append <<~CONTENT
           group :development do
+            gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"
             gem "localhost", "~> 1.1"
             gem "rerun", "~> 0.14"
           end
