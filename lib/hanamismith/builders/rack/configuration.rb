@@ -5,7 +5,7 @@ require "refinements/structs"
 module Hanamismith
   module Builders
     module Rack
-      # Builds Rack configuration project skeleton.
+      # Builds project skeleton.
       class Configuration
         using Refinements::Structs
 
