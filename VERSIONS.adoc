@@ -1,5 +1,29 @@
 = Versions
 
+== 0.23.0 (2023-12-02)
+
+* Added Asset builder - Brooke Kuhlmann
+* Added Git ignore builder - Brooke Kuhlmann
+* Added Hanami Assets gem to Bundler builder - Brooke Kuhlmann
+* Added Hanami Webconsole gem to Bundler builder - Brooke Kuhlmann
+* Added Javascript builder - Brooke Kuhlmann
+* Added NPM extension - Brooke Kuhlmann
+* Added NPM install to setup script - Brooke Kuhlmann
+* Added Node builder - Brooke Kuhlmann
+* Added Rack Attack builder - Brooke Kuhlmann
+* Added Rack Deflater builder - Brooke Kuhlmann
+* Updated PWA builder to use assets folder - Brooke Kuhlmann
+* Updated Puma Procfile builder to include assets - Brooke Kuhlmann
+* Updated Puma configuration builder to use pre-forking and new port - Brooke Kuhlmann
+* Updated home slice application layout to use asset paths - Brooke Kuhlmann
+* Updated home stylesheet to use linear gradient - Brooke Kuhlmann
+* Updated icon builder to use app assets folder - Brooke Kuhlmann
+* Updated stylesheet builder to use assets folder - Brooke Kuhlmann
+* Removed Hanami gem - Brooke Kuhlmann
+* Removed Rack Static middleware - Brooke Kuhlmann
+* Removed Rack middleware from core builder - Brooke Kuhlmann
+* Refactored Rack builder as Rack configuration builder - Brooke Kuhlmann
+
 == 0.22.1 (2023-11-16)
 
 * Fixed gem loader to find by tag and cache instance - Brooke Kuhlmann

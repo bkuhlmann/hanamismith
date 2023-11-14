@@ -33,7 +33,7 @@ toc::[]
 * Uses {hanami_link} for web application development.
 * Uses {htmx_link} for Hypermedia REST APIs (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
-* Uses {rack_link}, specifically: `Rack::Deflater`, `Rack::Static`, and link:https://github.com/rack/rack-attack[Rack::Attack].
+* Uses {rack_link}, specifically: `Rack::Deflater` and link:https://github.com/rack/rack-attack[Rack::Attack].
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
@@ -43,7 +43,7 @@ toc::[]
 
 == Screenshots/Screencasts
 
-image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=664,height=693,role=focal_point]
+image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=695,height=706,role=focal_point]
 
 The above is a screenshot of a _Demo_ project that was generated and run locally. For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
