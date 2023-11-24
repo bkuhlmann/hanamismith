@@ -76,7 +76,7 @@ module Hanamismith
 
       # rubocop:todo Metrics/MethodLength
       def alter_groups
-        with_template.insert_after(/group :code_quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
+        with_template.insert_after(/group :quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
                      .insert_after(
                        /group :development do/,
                        %(  gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"\n)

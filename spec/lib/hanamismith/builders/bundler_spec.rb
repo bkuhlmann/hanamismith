@@ -90,7 +90,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "dry-types", "~> 1.7"
           gem "refinements", "~> 11.0"
 
-          group :code_quality do
+          group :quality do
             gem "rubocop-sequel", "~> 0.3"
             gem "caliber", "~> 0.42"
             gem "git-lint", "~> 6.0"
