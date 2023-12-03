@@ -28,6 +28,9 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
             build:
               name: Build
               runs-on: ubuntu-latest
+              env:
+                HANAMI_ENV: test
+                DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
 
               services:
                 postgres:
@@ -43,10 +46,10 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     --health-retries 5
 
               steps:
-                - name: Setup Chrome Driver
+                - name: Chromium Setup
                   uses: nanasess/setup-chromedriver@v2
 
-                - name: Start Chrome Driver
+                - name: Chromium Start
                   run: |
                     export DISPLAY=:99
                     chromedriver --url-base=/wd/hub &
@@ -54,18 +57,27 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                 - name: Checkout
                   uses: actions/checkout@v3
 
-                - name: Setup Ruby
+                - name: Ruby Setup
                   uses: ruby/setup-ruby@v1
                   with:
                     bundler-cache: true
 
-                - name: Rake
-                  env:
-                    HANAMI_ENV: test
-                    DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+                - name: Node Setup
+                  uses: actions/setup-node@v2
+                  with:
+                    cache: npm
+
+                - name: Packages Install
+                  run: npm install
+
+                - name: Database Setup
                   run: |
                     bin/hanami db create
                     bin/hanami db migrate
+
+                - name: Build
+                  run: |
+                    bin/hanami assets compile
                     bundle exec rake
         CONTENT
       end
@@ -87,6 +99,9 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
             build:
               name: Build
               runs-on: ubuntu-latest
+              env:
+                HANAMI_ENV: test
+                DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
 
               services:
                 postgres:
@@ -102,10 +117,10 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     --health-retries 5
 
               steps:
-                - name: Setup Chrome Driver
+                - name: Chromium Setup
                   uses: nanasess/setup-chromedriver@v2
 
-                - name: Start Chrome Driver
+                - name: Chromium Start
                   run: |
                     export DISPLAY=:99
                     chromedriver --url-base=/wd/hub &
@@ -113,21 +128,30 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                 - name: Checkout
                   uses: actions/checkout@v3
 
-                - name: Setup Ruby
+                - name: Ruby Setup
                   uses: ruby/setup-ruby@v1
                   with:
                     bundler-cache: true
 
-                - name: Rake
-                  env:
-                    HANAMI_ENV: test
-                    DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+                - name: Node Setup
+                  uses: actions/setup-node@v2
+                  with:
+                    cache: npm
+
+                - name: Packages Install
+                  run: npm install
+
+                - name: Database Setup
                   run: |
                     bin/hanami db create
                     bin/hanami db migrate
+
+                - name: Build
+                  run: |
+                    bin/hanami assets compile
                     bundle exec rake
 
-                - name: Archive SimpleCov Report
+                - name: SimpleCov Archive
                   uses: actions/upload-artifact@v3
                   with:
                     name: coverage
