@@ -1,5 +1,12 @@
 = Versions
 
+== 0.24.0 (2023-12-03)
+
+* Fixed Circle CI builder JavaScript assets - Brooke Kuhlmann
+* Fixed GitHub Actions builder JavaScript assets - Brooke Kuhlmann
+* Updated Circle CI step names - Brooke Kuhlmann
+* Updated to Rubysmith 5.9.0 - Brooke Kuhlmann
+
 == 0.23.0 (2023-12-02)
 
 * Added Asset builder - Brooke Kuhlmann
