@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module RSpec
       # Builds project skeleton RSpec helper.
       class Hanami
-        using Refinements::Structs
+        using Refinements::Struct
 
         def self.call(...) = new(...).call
 

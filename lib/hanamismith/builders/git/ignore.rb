@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module Git
       # Builds project skeleton Git ignore.
       class Ignore < Rubysmith::Builders::Git::Ignore
-        using Refinements::Structs
+        using Refinements::Struct
 
         def call
           return configuration unless configuration.build_git

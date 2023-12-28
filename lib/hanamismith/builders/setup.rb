@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     # Builds project skeleton setup script.
     class Setup < Rubysmith::Builders::Setup
-      using Refinements::Structs
+      using Refinements::Struct
 
       def call
         return configuration unless configuration.build_setup

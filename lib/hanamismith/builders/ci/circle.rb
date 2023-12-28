@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module CI
       # Builds project skeleton Circle CI configuration.
       class Circle
-        using Refinements::Structs
+        using Refinements::Struct
 
         def self.call(...) = new(...).call
 

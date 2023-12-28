@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     # Builds project skeleton with Gemfile configuration.
     # rubocop:todo Metrics/ClassLength
     class Bundler < Rubysmith::Builders::Bundler
-      using Refinements::Structs
+      using Refinements::Struct
 
       # :reek:TooManyStatements
       def call
@@ -61,9 +61,9 @@ module Hanamismith
                        "source",
                        %(gem "hanami-view", github: "hanami/view", branch: "main"\n)
                      )
-                     .insert_after("source", %(gem "htmx", "~> 0.3"\n))
-                     .insert_after("source", %(gem "puma", "~> 6.3"\n))
-                     .insert_after("source", %(gem "rack-attack", "~> 6.6"\n))
+                     .insert_after("source", %(gem "htmx", "~> 1.0"\n))
+                     .insert_after("source", %(gem "puma", "~> 6.4"\n))
+                     .insert_after("source", %(gem "rack-attack", "~> 6.7"\n))
       end
       # rubocop:enable Metrics/MethodLength
 
@@ -71,7 +71,7 @@ module Hanamismith
         with_template.insert_after("source", %(gem "pg", "~> 1.5"\n))
                      .insert_after("source", %(gem "rom", "~> 5.3"\n))
                      .insert_after("source", %(gem "rom-sql", "~> 3.6"\n))
-                     .insert_after("source", %(\ngem "sequel", "~> 5.68"\n))
+                     .insert_after("source", %(\ngem "sequel", "~> 5.76"\n))
       end
 
       # rubocop:todo Metrics/MethodLength
@@ -93,7 +93,7 @@ module Hanamismith
       # rubocop:enable Metrics/MethodLength
 
       def append_development_group
-        return if configuration.markdown? || configuration.build_rake || configuration.build_yard
+        return if configuration.markdown? || configuration.build_rake
 
         with_template.append <<~CONTENT
           group :development do

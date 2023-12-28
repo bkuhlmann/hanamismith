@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module Slices
       # Builds home slice skeleton.
       class Home
-        using Refinements::Structs
+        using Refinements::Struct
 
         def self.call(...) = new(...).call
 

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     # Builds project skeleton for Node.
     class Node
-      using Refinements::Structs
+      using Refinements::Struct
 
       def self.call(...) = new(...).call
 

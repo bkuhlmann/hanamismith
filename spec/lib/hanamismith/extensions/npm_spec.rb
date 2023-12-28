@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Extensions::NPM do
-  using Refinements::Pathnames
+  using Refinements::Pathname
 
   subject(:extension) { described_class.new configuration }
 

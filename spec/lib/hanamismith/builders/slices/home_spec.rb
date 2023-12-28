@@ -3,8 +3,8 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::Slices::Home do
-  using Refinements::Pathnames
-  using Refinements::Structs
+  using Refinements::Pathname
+  using Refinements::Struct
 
   subject(:builder) { described_class.new configuration.minimize }
 

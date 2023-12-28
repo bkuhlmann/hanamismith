@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "refinements/ios"
-require "refinements/pathnames"
+require "refinements/io"
+require "refinements/pathname"
 require "rubocop"
 
 module Hanamismith
@@ -10,8 +10,8 @@ module Hanamismith
     class NPM
       include Import[:kernel, :logger]
 
-      using Refinements::IOs
-      using Refinements::Pathnames
+      using Refinements::IO
+      using Refinements::Pathname
 
       def self.call(...) = new(...).call
 

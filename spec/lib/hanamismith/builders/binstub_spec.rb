@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::Binstub do
-  using Refinements::Structs
+  using Refinements::Struct
 
   subject(:builder) { described_class.new configuration.minimize }
 

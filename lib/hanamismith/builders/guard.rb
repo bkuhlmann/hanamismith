@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     # Builds project skeleton Guard support for a red, green, refactor loop.
     class Guard < Rubysmith::Builders::Guard
-      using Refinements::Structs
+      using Refinements::Struct
 
       def call
         return configuration unless configuration.build_guard

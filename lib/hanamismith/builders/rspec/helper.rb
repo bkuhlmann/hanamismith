@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module RSpec
       # Builds project skeleton RSpec helper.
       class Helper < Rubysmith::Builders::RSpec::Helper
-        using Refinements::Structs
+        using Refinements::Struct
 
         def initialize(...)
           super

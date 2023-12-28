@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module Rack
       # Builds project skeleton.
       class Configuration
-        using Refinements::Structs
+        using Refinements::Struct
 
         def self.call(...) = new(...).call
 

@@ -10,7 +10,7 @@ require "hanami/prepare"
 require_relative "support/database"
 require_relative "support/factory"
 
-using Refinements::Pathnames
+using Refinements::Pathname
 
 Capybara.app = Hanami.app
 Capybara.server = :puma, {Silent: true, Threads: "0:1"}

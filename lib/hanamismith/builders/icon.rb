@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     # Builds project skeleton SVG icon.
     class Icon
-      using Refinements::Structs
+      using Refinements::Struct
 
       def self.call(...) = new(...).call
 

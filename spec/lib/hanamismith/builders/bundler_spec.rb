@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::Bundler do
-  using Refinements::Structs
+  using Refinements::Struct
 
   subject(:builder) { described_class.new test_configuration }
 
@@ -23,13 +23,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "sequel", "~> 5.68"
+          gem "sequel", "~> 5.76"
           gem "rom-sql", "~> 3.6"
           gem "rom", "~> 5.3"
           gem "pg", "~> 1.5"
-          gem "rack-attack", "~> 6.6"
-          gem "puma", "~> 6.3"
-          gem "htmx", "~> 0.3"
+          gem "rack-attack", "~> 6.7"
+          gem "puma", "~> 6.4"
+          gem "htmx", "~> 1.0"
           gem "hanami-view", github: "hanami/view", branch: "main"
           gem "hanami-validations", github: "hanami/validations", branch: "main"
           gem "hanami-utils", github: "hanami/utils", branch: "main"
@@ -72,13 +72,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "sequel", "~> 5.68"
+          gem "sequel", "~> 5.76"
           gem "rom-sql", "~> 3.6"
           gem "rom", "~> 5.3"
           gem "pg", "~> 1.5"
-          gem "rack-attack", "~> 6.6"
-          gem "puma", "~> 6.3"
-          gem "htmx", "~> 0.3"
+          gem "rack-attack", "~> 6.7"
+          gem "puma", "~> 6.4"
+          gem "htmx", "~> 1.0"
           gem "hanami-view", github: "hanami/view", branch: "main"
           gem "hanami-validations", github: "hanami/validations", branch: "main"
           gem "hanami-utils", github: "hanami/utils", branch: "main"
@@ -88,13 +88,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-assets", github: "hanami/assets", branch: "main"
           gem "hanami", github: "hanami/hanami", branch: "main"
           gem "dry-types", "~> 1.7"
-          gem "refinements", "~> 11.0"
+          gem "refinements", "~> 12.0"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.3"
-            gem "caliber", "~> 0.42"
-            gem "git-lint", "~> 6.0"
-            gem "reek", "~> 6.1", require: false
+            gem "caliber", "~> 0.47"
+            gem "git-lint", "~> 7.0"
+            gem "reek", "~> 6.2", require: false
             gem "simplecov", "~> 0.22", require: false
           end
 
@@ -107,9 +107,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "rerun", "~> 0.14"
             gem "localhost", "~> 1.1"
             gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"
-            gem "asciidoctor", "~> 2.0"
-            gem "rake", "~> 13.0"
-            gem "yard", "~> 0.9"
+            gem "rake", "~> 13.1"
           end
 
           group :test do
@@ -124,7 +122,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           end
 
           group :tools do
-            gem "amazing_print", "~> 1.4"
+            gem "amazing_print", "~> 1.5"
             gem "debug", "~> 1.8"
           end
         CONTENT

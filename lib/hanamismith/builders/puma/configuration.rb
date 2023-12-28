@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "refinements/structs"
+require "refinements/struct"
 
 module Hanamismith
   module Builders
     module Puma
       # Builds project skeleton Puma configuration.
       class Configuration
-        using Refinements::Structs
+        using Refinements::Struct
 
         def self.call(...) = new(...).call
 

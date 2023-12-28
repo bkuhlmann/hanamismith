@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Builders::RSpec::Hanami do
-  using Refinements::Structs
+  using Refinements::Struct
 
   subject(:builder) { described_class.new test_configuration }
 
@@ -31,7 +31,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
           require_relative "support/database"
           require_relative "support/factory"
 
-          using Refinements::Pathnames
+          using Refinements::Pathname
 
           Capybara.app = Hanami.app
           Capybara.server = :puma, {Silent: true, Threads: "0:1"}
