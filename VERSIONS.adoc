@@ -1,5 +1,13 @@
 = Versions
 
+== 0.25.0 (2024-01-06)
+
+🔼 Updated Circle CI Rake step name - Brooke Kuhlmann
+🔼 Updated gem dependencies - Brooke Kuhlmann
+🔼 Updated to Ruby 3.3.0 - Brooke Kuhlmann
+⛔️ Removed Gemfile code prefix from quality group - Brooke Kuhlmann
+⛔️ Removed Rakefile code prefix from quality task - Brooke Kuhlmann
+
 == 0.24.0 (2023-12-03)
 
 * Fixed Circle CI builder JavaScript assets - Brooke Kuhlmann
