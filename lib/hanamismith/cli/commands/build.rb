@@ -14,6 +14,7 @@ module Hanamismith
           Rubysmith::Builders::Init,
           Builders::Core,
           Builders::Providers::Persistence,
+          Builders::Providers::YJIT,
           Builders::Refinement,
           Builders::Icon,
           Builders::Stylesheet,

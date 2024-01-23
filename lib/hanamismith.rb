@@ -9,7 +9,8 @@ Zeitwerk::Loader.new.then do |loader|
                            "htmx" => "HTMX",
                            "npm" => "NPM",
                            "pwa" => "PWA",
-                           "rspec" => "RSpec"
+                           "rspec" => "RSpec",
+                           "yjit" => "YJIT"
   loader.tag = File.basename __FILE__, ".rb"
   loader.push_dir __dir__
   loader.setup
