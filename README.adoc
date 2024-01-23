@@ -39,6 +39,7 @@ toc::[]
 * Uses {dotenv_link} for managing your environment configurations.
 * Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
 * Provides the `/up` health check endpoint via the `Health` slice.
+* Uses link:https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md[YJIT] as a provider so you can deploy with YJIT disabled (i.e. `RUBYOPT=--yjit-disable --yjit-exec-mem-size=192`) and let the application enable upon boot.
 * Disables link:https://github.com/ruby/irb[IRB] console autocomplete when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
 
 == Screenshots/Screencasts

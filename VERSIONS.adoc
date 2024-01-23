@@ -1,5 +1,13 @@
 = Versions
 
+== 0.26.0 (2024-01-22)
+
+* ✅ Fixed RSpec bill of materials fixtures - Brooke Kuhlmann
+* ✅ Fixed version bullets - Brooke Kuhlmann
+* 🟢 Added YJIT provider builder - Brooke Kuhlmann
+* 🟢 Added repl_type_completor gem - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 6.1.0 - Brooke Kuhlmann
+
 == 0.25.0 (2024-01-06)
 
 * 🔼 Updated Circle CI Rake step name - Brooke Kuhlmann
