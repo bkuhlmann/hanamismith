@@ -59,6 +59,10 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.11"
           end
+
+          group :tools do
+            gem "repl_type_completor", "~> 0.1"
+          end
         CONTENT
       end
     end
@@ -124,6 +128,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :tools do
             gem "amazing_print", "~> 1.5"
             gem "debug", "~> 1.8"
+            gem "repl_type_completor", "~> 0.1"
           end
         CONTENT
       end

@@ -15,8 +15,8 @@ module Hanamismith
         insert_main_dependencies
         insert_persistence_dependencies
         alter_groups
-        append_development_group
-        append_test_group
+        insert_development_group
+        insert_test_group
         insert_development_and_test_group
         remove_zeitwerk
         configuration
@@ -92,10 +92,10 @@ module Hanamismith
       end
       # rubocop:enable Metrics/MethodLength
 
-      def append_development_group
+      def insert_development_group
         return if configuration.markdown? || configuration.build_rake
 
-        with_template.append <<~CONTENT
+        with_template.insert_before(/group :tools do/, <<~CONTENT)
           group :development do
             gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"
             gem "localhost", "~> 1.1"
@@ -106,10 +106,10 @@ module Hanamismith
       end
 
       # rubocop:todo Metrics/MethodLength
-      def append_test_group
+      def insert_test_group
         return if configuration.build_guard || configuration.build_rspec
 
-        with_template.append <<~CONTENT
+        with_template.insert_before(/group :tools do/, <<~CONTENT)
           group :test do
             gem "capybara", "~> 3.39"
             gem "cuprite", "~> 0.14"
@@ -119,6 +119,7 @@ module Hanamismith
             gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.11"
           end
+
         CONTENT
       end
       # rubocop:enable Metrics/MethodLength
