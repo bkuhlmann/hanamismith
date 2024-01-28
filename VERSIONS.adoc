@@ -1,5 +1,11 @@
 = Versions
 
+== 0.27.0 (2024-01-28)
+
+* 🔼 Updated to Caliber 0.50.0 - Brooke Kuhlmann
+* 🔼 Updated to Reek 6.3.0 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 6.2.0 - Brooke Kuhlmann
+
 == 0.26.0 (2024-01-22)
 
 * ✅ Fixed RSpec bill of materials fixtures - Brooke Kuhlmann
