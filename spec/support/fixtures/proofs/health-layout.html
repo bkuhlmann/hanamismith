@@ -16,7 +16,10 @@
           rel="icon"
           href="https://alchemists.io/images/projects/hanamismith/icons/favicon.ico"
           sizes="32x32">
-    <%= favicon_tag "icon.svg", title: "Test: Icon", rel: :icon, type: "image/svg+xml" %>
+    <%= favicon_tag app_assets["icon.svg"],
+                    title: "Test: Icon",
+                    rel: :icon,
+                    type: "image/svg+xml" %>
     <link title="Test: Apple Icon"
           rel="apple-touch-icon"
           href="https://alchemists.io/images/projects/hanamismith/icons/apple.png"

@@ -50,8 +50,10 @@ module Hanamismith
         end
 
         def favicon
-          %(<%= favicon_tag "icon.svg", title: "#{configuration.project_label}: Icon", rel: ) +
-            %(:icon, type: "image/svg+xml" %>)
+          %(<%= favicon_tag app_assets["icon.svg"],\n) +
+            %(                    title: "#{configuration.project_label}: Icon",\n) +
+            %(                    rel: :icon,\n) +
+            %(                    type: "image/svg+xml" %>)
         end
 
         def add_show_template
