@@ -1,5 +1,13 @@
 = Versions
 
+== 0.28.0 (2024-02-16)
+
+* 🟢 Added home slice configuration - Brooke Kuhlmann
+* 🟢 Added home slice view context - Brooke Kuhlmann
+* 🔼 Updated Hanami Assets package to point to main branch - Brooke Kuhlmann
+* 🔼 Updated health slice to use config, views, layouts, and templates - Brooke Kuhlmann
+* 🔼 Updated home slice to use shared assets - Brooke Kuhlmann
+
 == 0.27.0 (2024-01-28)
 
 * 🔼 Updated to Caliber 0.50.0 - Brooke Kuhlmann
