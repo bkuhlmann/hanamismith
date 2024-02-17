@@ -1,0 +1,10 @@
+# auto_register: false
+
+module Home
+  module Views
+    # Defines custom context.
+    class Context < Hanami::View::Context
+      include Deps[app_assets: "app.assets"]
+    end
+  end
+end

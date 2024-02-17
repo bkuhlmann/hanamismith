@@ -62,6 +62,21 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
+    it "adds context" do
+      expect(temp_dir.join("test/slices/home/views/context.rb").read).to eq(<<~CONTENT)
+        # auto_register: false
+
+        module Home
+          module Views
+            # Defines custom context.
+            class Context < Hanami::View::Context
+              include Deps[app_assets: "app.assets"]
+            end
+          end
+        end
+      CONTENT
+    end
+
     it "adds layout template" do
       template = temp_dir.join("test/slices/home/templates/layouts/app.html.erb").read
       proof = SPEC_ROOT.join("support/fixtures/proofs/layout.html").read

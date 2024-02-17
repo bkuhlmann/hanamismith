@@ -70,6 +70,11 @@ module Hanamismith
           %(<%= stylesheet_tag "home/app", title: "#{configuration.project_label}: Stylesheet" %>)
         end
 
+        def add_context
+          path = "%project_name%/slices/home/views/context.rb.erb"
+          builder.call(configuration.merge(template_path: path)).render
+        end
+
         def add_show_template
           path = "%project_name%/slices/home/templates/show.html.erb.erb"
 
