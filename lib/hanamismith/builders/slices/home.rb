@@ -57,17 +57,20 @@ module Hanamismith
         end
 
         def favicon
-          %(<%= favicon_tag "icon.svg", title: "#{configuration.project_label}: Icon", rel: ) +
-            %(:icon, type: "image/svg+xml" %>)
+          %(<%= favicon_tag app_assets["icon.svg"],\n) +
+            %(                    title: "#{configuration.project_label}: Icon",\n) +
+            %(                    rel: :icon,\n) +
+            %(                    type: "image/svg+xml" %>)
         end
 
         def manifest
-          %(<%= tag.link title: "#{configuration.project_label}: Manifest", rel: ) +
-            %(:manifest, href: asset_url("manifest.webmanifest") %>)
+          %(<%= tag.link title: "#{configuration.project_label}: Manifest",\n) +
+            %(                 rel: :manifest,\n) +
+            %(                 href: app_assets["manifest.webmanifest"] %>)
         end
 
         def stylesheet
-          %(<%= stylesheet_tag "home/app", title: "#{configuration.project_label}: Stylesheet" %>)
+          %(<%= stylesheet_tag "app", title: "#{configuration.project_label}: Stylesheet" %>)
         end
 
         def add_context
