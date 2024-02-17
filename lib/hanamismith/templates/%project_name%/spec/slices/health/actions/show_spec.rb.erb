@@ -4,10 +4,9 @@ RSpec.describe Health::Actions::Show do
   subject(:action) { described_class.new }
 
   describe "#call" do
-    it "answers 200 OK status with green background" do
-      expect(action.call({})).to have_attributes(
-        body: [%(<html><body style="background-color: green"></body></html>)],
-        status: 200
+    it "answers green background" do
+      expect(action.call({}).body.first).to include(
+        %(<main style="background-color: green; height: 100vh;">\n</main>)
       )
     end
   end

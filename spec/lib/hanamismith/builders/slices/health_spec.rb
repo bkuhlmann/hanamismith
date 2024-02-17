@@ -14,23 +14,98 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
   describe "#call" do
     before { builder.call }
 
+    it "adds configuration" do
+      expect(temp_dir.join("test/config/slices/health.rb").read).to eq(<<~CONTENT)
+        module Health
+          # The health slice configuration.
+          class Slice < Hanami::Slice
+            import keys: ["assets"], from: Hanami.app.container, as: :app
+          end
+        end
+      CONTENT
+    end
+
     it "adds action" do
+      expect(temp_dir.join("test/slices/health/action.rb").read).to eq(<<~CONTENT)
+        # auto_register: false
+
+        module Health
+          # The health action.
+          class Action < Test::Action
+          end
+        end
+      CONTENT
+    end
+
+    it "adds view" do
+      expect(temp_dir.join("test/slices/health/view.rb").read).to eq(<<~CONTENT)
+        # auto_register: false
+
+        module Heath
+          # The health view.
+          class View < Test::View
+          end
+        end
+      CONTENT
+    end
+
+    it "adds layout template" do
+      template = temp_dir.join("test/slices/health/templates/layouts/app.html.erb").read
+      proof = SPEC_ROOT.join("support/fixtures/proofs/health-layout.html").read
+
+      expect(template).to eq(proof)
+    end
+
+    it "adds show template" do
+      expect(temp_dir.join("test/slices/health/templates/show.html.erb").read).to eq(<<~CONTENT)
+        <% content_for :title, "Health | Test" %>
+
+        <main style="background-color: <%= color %>; height: 100vh;">
+        </main>
+      CONTENT
+    end
+
+    it "adds context" do
+      expect(temp_dir.join("test/slices/health/views/context.rb").read).to eq(<<~CONTENT)
+        # auto_register: false
+
+        module Health
+          module Views
+            # Defines custom context.
+            class Context < Hanami::View::Context
+              include Deps[app_assets: "app.assets"]
+            end
+          end
+        end
+      CONTENT
+    end
+
+    it "adds show view" do
+      expect(temp_dir.join("test/slices/health/views/show.rb").read).to eq(<<~CONTENT)
+        module Health
+          module Views
+            # Renders show view.
+            class Show < Health::View
+              expose :color
+            end
+          end
+        end
+      CONTENT
+    end
+
+    it "adds show action" do
       expect(temp_dir.join("test/slices/health/actions/show.rb").read).to eq(<<~CONTENT)
         module Health
           module Actions
             # The show action.
-            class Show < Test::Action
-              using Test::Refines::Actions::Response
-
+            class Show < Health::Action
               handle_exception Exception => :down
 
-              def handle(*, response) = response.with body: body(:green), status: 200
+              def handle(*, response) = response.render view, color: :green
 
               private
 
-              def down(*, response, _exception) = response.with body: body(:red), status: 503
-
-              def body(color) = %(<html><body style="background-color: \#{color}"></body></html>)
+              def down(*, response, _exception) = response.render view, color: :red, status: 503
             end
           end
         end
@@ -45,10 +120,9 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
           subject(:action) { described_class.new }
 
           describe "#call" do
-            it "answers 200 OK status with green background" do
-              expect(action.call({})).to have_attributes(
-                body: [%(<html><body style="background-color: green"></body></html>)],
-                status: 200
+            it "answers green background" do
+              expect(action.call({}).body.first).to include(
+                %(<main style="background-color: green; height: 100vh;">\\n</main>)
               )
             end
           end
