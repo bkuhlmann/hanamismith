@@ -25,6 +25,11 @@ module Hanamismith
 
         attr_reader :configuration, :builder
 
+        def add_configuration
+          path = "%project_name%/config/slices/home.rb.erb"
+          builder.call(configuration.merge(template_path: path)).render
+        end
+
         def add_action
           path = "%project_name%/slices/home/action.rb.erb"
           builder.call(configuration.merge(template_path: path)).render

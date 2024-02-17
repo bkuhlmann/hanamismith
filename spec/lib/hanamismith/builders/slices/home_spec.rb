@@ -15,6 +15,17 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
   describe "#call" do
     before { builder.call }
 
+    it "adds configuration" do
+      expect(temp_dir.join("test/config/slices/home.rb").read).to eq(<<~CONTENT)
+        module Home
+          # The home slice configuration.
+          class Slice < Hanami::Slice
+            import keys: ["assets"], from: Hanami.app.container, as: :app
+          end
+        end
+      CONTENT
+    end
+
     it "adds action" do
       expect(temp_dir.join("test/slices/home/action.rb").read).to eq(<<~CONTENT)
         # auto_register: false
