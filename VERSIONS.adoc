@@ -1,5 +1,11 @@
 = Versions
 
+== 0.28.1 (2024-02-16)
+
+* ✅ Fixed favion in health slice layout - Brooke Kuhlmann
+* ✅ Fixed health slice view constant typo - Brooke Kuhlmann
+* 🔁 Refactored home layout proof - Brooke Kuhlmann
+
 == 0.28.0 (2024-02-16)
 
 * 🟢 Added home slice configuration - Brooke Kuhlmann
