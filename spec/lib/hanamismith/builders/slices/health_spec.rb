@@ -41,7 +41,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       expect(temp_dir.join("test/slices/health/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
-        module Heath
+        module Health
           # The health view.
           class View < Test::View
           end
