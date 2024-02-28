@@ -1,5 +1,13 @@
 = Versions
 
+== 0.29.0 (2024-02-27)
+
+* ✅ Fixed setup script to include bin path - Brooke Kuhlmann
+* 🟢 Added asset extension - Brooke Kuhlmann
+* 🟢 Added home slice feature spec - Brooke Kuhlmann
+* 🔼 Updated to Hanami 2.1.0 - Brooke Kuhlmann
+* ⛔️ Removed RuboCop requirement from NPM extension - Brooke Kuhlmann
+
 == 0.28.1 (2024-02-16)
 
 * ✅ Fixed favion in health slice layout - Brooke Kuhlmann
