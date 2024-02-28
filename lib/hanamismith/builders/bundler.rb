@@ -5,7 +5,6 @@ require "refinements/struct"
 module Hanamismith
   module Builders
     # Builds project skeleton with Gemfile configuration.
-    # rubocop:todo Metrics/ClassLength
     class Bundler < Rubysmith::Builders::Bundler
       using Refinements::Struct
 
@@ -29,38 +28,14 @@ module Hanamismith
       # rubocop:todo Metrics/MethodLength
       def insert_main_dependencies
         with_template.insert_after("source", %(gem "dry-types", "~> 1.7"))
-                     .insert_after(
-                       "source",
-                       %(gem "hanami", github: "hanami/hanami", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-assets", github: "hanami/assets", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-cli", github: "hanami/cli", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-controller", github: "hanami/controller", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-router", github: "hanami/router", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-utils", github: "hanami/utils", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-validations", github: "hanami/validations", branch: "main"\n)
-                     )
-                     .insert_after(
-                       "source",
-                       %(gem "hanami-view", github: "hanami/view", branch: "main"\n)
-                     )
+                     .insert_after("source", %(gem "hanami", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-assets", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-cli", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-controller", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-router", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-utils", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-validations", "~> 2.1"\n))
+                     .insert_after("source", %(gem "hanami-view", "~> 2.1"\n))
                      .insert_after("source", %(gem "htmx", "~> 1.0"\n))
                      .insert_after("source", %(gem "puma", "~> 6.4"\n))
                      .insert_after("source", %(gem "rack-attack", "~> 6.7"\n))
@@ -71,7 +46,7 @@ module Hanamismith
         with_template.insert_after("source", %(gem "pg", "~> 1.5"\n))
                      .insert_after("source", %(gem "rom", "~> 5.3"\n))
                      .insert_after("source", %(gem "rom-sql", "~> 3.6"\n))
-                     .insert_after("source", %(\ngem "sequel", "~> 5.76"\n))
+                     .insert_after("source", %(\ngem "sequel", "~> 5.77"\n))
       end
 
       # rubocop:todo Metrics/MethodLength
@@ -79,16 +54,16 @@ module Hanamismith
         with_template.insert_after(/group :quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
                      .insert_after(
                        /group :development do/,
-                       %(  gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"\n)
+                       %(  gem "hanami-webconsole", "~> 2.1"\n)
                      )
-                     .insert_after(/group :development do/, %(  gem "localhost", "~> 1.1"\n))
+                     .insert_after(/group :development do/, %(  gem "localhost", "~> 1.2"\n))
                      .insert_after(/group :development do/, %(  gem "rerun", "~> 0.14"\n))
-                     .insert_after(/group :test/, %(  gem "capybara", "~> 3.39"\n))
-                     .insert_after(/group :test/, %(  gem "cuprite", "~> 0.14"\n))
+                     .insert_after(/group :test/, %(  gem "capybara", "~> 3.40"\n))
+                     .insert_after(/group :test/, %(  gem "cuprite", "~> 0.15"\n))
                      .insert_after(/group :test/, %(  gem "database_cleaner-sequel", "~> 2.0"\n))
                      .insert_after(/group :test/, %(  gem "launchy", "~> 2.5"\n))
                      .insert_after(/group :test/, %(  gem "rack-test", "~> 2.1"\n))
-                     .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.11"\n))
+                     .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.12"\n))
       end
       # rubocop:enable Metrics/MethodLength
 
@@ -97,8 +72,8 @@ module Hanamismith
 
         with_template.insert_before(/group :tools do/, <<~CONTENT)
           group :development do
-            gem "hanami-webconsole", github: "hanami/webconsole", branch: "main"
-            gem "localhost", "~> 1.1"
+            gem "hanami-webconsole", "~> 2.1"
+            gem "localhost", "~> 1.2"
             gem "rerun", "~> 0.14"
           end
 
@@ -111,13 +86,13 @@ module Hanamismith
 
         with_template.insert_before(/group :tools do/, <<~CONTENT)
           group :test do
-            gem "capybara", "~> 3.39"
-            gem "cuprite", "~> 0.14"
+            gem "capybara", "~> 3.40"
+            gem "cuprite", "~> 0.15"
             gem "database_cleaner-sequel", "~> 2.0"
-            gem "hanami-rspec", "~> 2.0"
+            gem "hanami-rspec", "~> 2.1"
             gem "launchy", "~> 2.5"
             gem "rack-test", "~> 2.1"
-            gem "rom-factory", "~> 0.11"
+            gem "rom-factory", "~> 0.12"
           end
 
         CONTENT
@@ -128,7 +103,7 @@ module Hanamismith
         with_template.insert_before(/group :development/, <<~CONTENT)
 
           group :development, :test do
-            gem "dotenv", "~> 2.8"
+            gem "dotenv", "~> 3.0"
           end
 
         CONTENT
@@ -141,5 +116,4 @@ module Hanamismith
       end
     end
   end
-  # rubocop:enable Metrics/ClassLength
 end

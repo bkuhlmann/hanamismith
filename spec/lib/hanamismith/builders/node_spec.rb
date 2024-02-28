@@ -25,11 +25,8 @@ RSpec.describe Hanamismith::Builders::Node do
           "private": true,
           "type": "module",
           "keywords": ["ruby", "hanami"],
-          "scripts": {
-            "assets": "node config/assets.js"
-          },
           "dependencies": {
-            "hanami-assets": "github:hanami/assets-js#main"
+            "hanami-assets": "^2.1.0"
           }
         }
       CONTENT
