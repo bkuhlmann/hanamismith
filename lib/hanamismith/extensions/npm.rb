@@ -2,7 +2,6 @@
 
 require "refinements/io"
 require "refinements/pathname"
-require "rubocop"
 
 module Hanamismith
   module Extensions
