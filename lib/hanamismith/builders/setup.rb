@@ -23,12 +23,11 @@ module Hanamismith
                .append(<<~CONTENT)
                  npm install
 
-                 hanami db create
-                 hanami db migrate
-                 hanami db seed
+                 bin/hanami db create
+                 bin/hanami db migrate
 
-                 HANAMI_ENV=test hanami db create
-                 HANAMI_ENV=test hanami db migrate
+                 HANAMI_ENV=test bin/hanami db create
+                 HANAMI_ENV=test bin/hanami db migrate
                CONTENT
       end
     end
