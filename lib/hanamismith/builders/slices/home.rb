@@ -100,6 +100,11 @@ module Hanamismith
           path = "%project_name%/slices/home/actions/show.rb.erb"
           builder.call(configuration.merge(template_path: path)).render
         end
+
+        def add_request_spec
+          path = "%project_name%/spec/features/home_spec.rb.erb"
+          builder.call(configuration.merge(template_path: path)).render
+        end
       end
     end
   end

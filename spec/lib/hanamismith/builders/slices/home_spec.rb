@@ -116,5 +116,16 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
         end
       CONTENT
     end
+
+    it "adds feature spec" do
+      expect(temp_dir.join("test/spec/features/home_spec.rb").read).to eq(<<~CONTENT)
+        RSpec.describe "Home", :web do
+          it "renders home page" do
+            visit "/"
+            expect(page).to have_content("Test")
+          end
+        end
+      CONTENT
+    end
   end
 end
