@@ -1,5 +1,17 @@
 = Versions
 
+== 0.30.0 (2024-03-03)
+
+* ✅ Fixed RuboCop Style/RedundantLineContinuation false positive - Brooke Kuhlmann
+* 🔼 Updated Caliber builder to use local XDG path - Brooke Kuhlmann
+* 🔼 Updated RuboCop to use XDG local configuration - Brooke Kuhlmann
+* 🔼 Updated to Caliber 0.51.0 - Brooke Kuhlmann
+* 🔼 Updated to Debug 1.9.0 - Brooke Kuhlmann
+* 🔼 Updated to Git Lint 7.1.0 - Brooke Kuhlmann
+* 🔼 Updated to RSpec 3.13.0 - Brooke Kuhlmann
+* 🔼 Updated to Refinements 12.1.0 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 6.3.0 - Brooke Kuhlmann
+
 == 0.29.0 (2024-02-27)
 
 * ✅ Fixed setup script to include bin path - Brooke Kuhlmann
