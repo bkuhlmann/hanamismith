@@ -12,7 +12,8 @@ module Hanamismith
         return configuration unless configuration.build_caliber
 
         super
-        builder.call(configuration.merge(template_path: "%project_name%/.rubocop.yml.erb"))
+        path = "%project_name%/.config/rubocop/config.yml.erb"
+        builder.call(configuration.merge(template_path: path))
                .append("\nrequire: rubocop-sequel\n")
 
         configuration

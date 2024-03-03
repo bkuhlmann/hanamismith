@@ -18,7 +18,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
       let(:test_configuration) { configuration.minimize.merge build_caliber: true }
 
       it "updates RuboCop configuration" do
-        expect(temp_dir.join("test/.rubocop.yml").read).to eq(<<~CONTENT)
+        expect(temp_dir.join("test/.config/rubocop/config.yml").read).to eq(<<~CONTENT)
           inherit_gem:
             caliber: config/all.yml
 
