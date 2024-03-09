@@ -61,7 +61,7 @@ module Hanamismith
                      .insert_after(/group :test/, %(  gem "capybara", "~> 3.40"\n))
                      .insert_after(/group :test/, %(  gem "cuprite", "~> 0.15"\n))
                      .insert_after(/group :test/, %(  gem "database_cleaner-sequel", "~> 2.0"\n))
-                     .insert_after(/group :test/, %(  gem "launchy", "~> 2.5"\n))
+                     .insert_after(/group :test/, %(  gem "launchy", "~> 3.0"\n))
                      .insert_after(/group :test/, %(  gem "rack-test", "~> 2.1"\n))
                      .insert_after(/group :test/, %(  gem "rom-factory", "~> 0.12"\n))
       end
@@ -90,7 +90,7 @@ module Hanamismith
             gem "cuprite", "~> 0.15"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "hanami-rspec", "~> 2.1"
-            gem "launchy", "~> 2.5"
+            gem "launchy", "~> 3.0"
             gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.12"
           end

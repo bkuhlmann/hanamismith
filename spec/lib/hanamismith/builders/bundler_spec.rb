@@ -55,7 +55,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "cuprite", "~> 0.15"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "hanami-rspec", "~> 2.1"
-            gem "launchy", "~> 2.5"
+            gem "launchy", "~> 3.0"
             gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.12"
           end
@@ -117,7 +117,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :test do
             gem "rom-factory", "~> 0.12"
             gem "rack-test", "~> 2.1"
-            gem "launchy", "~> 2.5"
+            gem "launchy", "~> 3.0"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "cuprite", "~> 0.15"
             gem "capybara", "~> 3.40"
