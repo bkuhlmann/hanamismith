@@ -55,7 +55,7 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     chromedriver --url-base=/wd/hub &
 
                 - name: Checkout
-                  uses: actions/checkout@v3
+                  uses: actions/checkout@v4
 
                 - name: Ruby Setup
                   uses: ruby/setup-ruby@v1
@@ -126,7 +126,7 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     chromedriver --url-base=/wd/hub &
 
                 - name: Checkout
-                  uses: actions/checkout@v3
+                  uses: actions/checkout@v4
 
                 - name: Ruby Setup
                   uses: ruby/setup-ruby@v1
@@ -152,7 +152,7 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     bundle exec rake
 
                 - name: SimpleCov Archive
-                  uses: actions/upload-artifact@v3
+                  uses: actions/upload-artifact@v4
                   with:
                     name: coverage
                     path: coverage
