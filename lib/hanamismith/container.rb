@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "cogger"
-require "dry-container"
+require "containable"
 require "etcher"
 require "runcom"
 require "spek"
@@ -9,14 +9,14 @@ require "spek"
 module Hanamismith
   # Provides a global gem container for injection into other objects.
   module Container
-    extend Dry::Container::Mixin
+    extend Containable
 
-    register :configuration, memoize: true do
+    register :configuration do
       self[:defaults].add_loader(Etcher::Loaders::YAML.new(self[:xdg_config].active))
                      .then { |registry| Etcher.call registry }
     end
 
-    register :defaults, memoize: true do
+    register :defaults do
       registry = Etcher::Registry.new contract: Rubysmith::Configuration::Contract,
                                       model: Rubysmith::Configuration::Model
 
@@ -34,14 +34,11 @@ module Hanamismith
               .add_transformer(Rubysmith::Configuration::Transformers::TargetRoot)
     end
 
-    register :specification, memoize: true do
-      Spek::Loader.call "#{__dir__}/../../hanamismith.gemspec"
-    end
-
-    register(:input, memoize: true) { self[:configuration].dup }
+    register(:specification) { Spek::Loader.call "#{__dir__}/../../hanamismith.gemspec" }
+    register(:input) { self[:configuration].dup }
     register(:defaults_path) { Rubysmith::Container[:defaults_path] }
-    register(:xdg_config, memoize: true) { Runcom::Config.new "hanamismith/configuration.yml" }
-    register(:logger, memoize: true) { Cogger.new id: :hanamismith }
+    register(:xdg_config) { Runcom::Config.new "hanamismith/configuration.yml" }
+    register(:logger) { Cogger.new id: :hanamismith }
     register :kernel, Kernel
   end
 end

@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
-require "dry/container/stub"
-require "infusible/stub"
-
 RSpec.shared_context "with application dependencies" do
-  using Infusible::Stub
-
   include_context "with temporary directory"
 
   let :configuration do
@@ -29,7 +24,7 @@ RSpec.shared_context "with application dependencies" do
   let(:kernel) { class_spy Kernel }
   let(:logger) { Cogger.new id: :hanamismith, io: StringIO.new, level: :debug }
 
-  before { Hanamismith::Import.stub configuration:, input:, xdg_config:, kernel:, logger: }
+  before { Hanamismith::Container.stub! configuration:, input:, xdg_config:, kernel:, logger: }
 
-  after { Hanamismith::Import.unstub :configuration, :input, :xdg_config, :kernel, :logger }
+  after { Hanamismith::Container.restore }
 end
