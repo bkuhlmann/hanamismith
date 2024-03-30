@@ -20,14 +20,16 @@ module Hanamismith
 
       def append
         builder.call(configuration.merge(template_path: "%project_name%/bin/setup.erb"))
-               .append(<<~CONTENT)
-                 npm install
+               .insert_after(%(Runner.call "bundle install"\n), <<~CONTENT.gsub(/^(?=\w)/, "  "))
 
-                 bin/hanami db create
-                 bin/hanami db migrate
+                 puts "Installing packages..."
+                 Runner.call "npm install"
 
-                 HANAMI_ENV=test bin/hanami db create
-                 HANAMI_ENV=test bin/hanami db migrate
+                 puts "Configurating databases..."
+                 Runner.call "bin/hanami db create"
+                 Runner.call "bin/hanami db migrate"
+                 Runner.call "HANAMI_ENV=test bin/hanami db create"
+                 Runner.call "HANAMI_ENV=test bin/hanami db migrate"
                CONTENT
       end
     end
