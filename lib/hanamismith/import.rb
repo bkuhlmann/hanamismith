@@ -3,5 +3,5 @@
 require "infusible"
 
 module Hanamismith
-  Import = Infusible.with Container
+  Import = Infusible[Container]
 end
