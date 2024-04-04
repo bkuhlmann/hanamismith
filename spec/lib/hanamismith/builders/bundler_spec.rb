@@ -32,13 +32,15 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "htmx", "~> 1.0"
           gem "hanami-view", "~> 2.1"
           gem "hanami-validations", "~> 2.1"
-          gem "hanami-utils", "~> 2.1"
           gem "hanami-router", "~> 2.1"
           gem "hanami-controller", "~> 2.1"
           gem "hanami-cli", "~> 2.1"
           gem "hanami-assets", "~> 2.1"
           gem "hanami", "~> 2.1"
+          gem "dry-validation", "~> 1.10"
           gem "dry-types", "~> 1.7"
+          gem "dry-schema", "~> 1.13"
+          gem "dry-monads", "~> 1.6"
 
           group :development, :test do
             gem "dotenv", "~> 3.0"
@@ -85,13 +87,15 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "htmx", "~> 1.0"
           gem "hanami-view", "~> 2.1"
           gem "hanami-validations", "~> 2.1"
-          gem "hanami-utils", "~> 2.1"
           gem "hanami-router", "~> 2.1"
           gem "hanami-controller", "~> 2.1"
           gem "hanami-cli", "~> 2.1"
           gem "hanami-assets", "~> 2.1"
           gem "hanami", "~> 2.1"
+          gem "dry-validation", "~> 1.10"
           gem "dry-types", "~> 1.7"
+          gem "dry-schema", "~> 1.13"
+          gem "dry-monads", "~> 1.6"
           gem "refinements", "~> 12.1"
 
           group :quality do

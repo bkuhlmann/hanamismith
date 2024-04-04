@@ -27,13 +27,15 @@ module Hanamismith
 
       # rubocop:todo Metrics/MethodLength
       def insert_main_dependencies
-        with_template.insert_after("source", %(gem "dry-types", "~> 1.7"))
+        with_template.insert_after("source", %(gem "dry-monads", "~> 1.6"))
+                     .insert_after("source", %(gem "dry-schema", "~> 1.13"\n))
+                     .insert_after("source", %(gem "dry-types", "~> 1.7"\n))
+                     .insert_after("source", %(gem "dry-validation", "~> 1.10"\n))
                      .insert_after("source", %(gem "hanami", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-assets", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-cli", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-controller", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-router", "~> 2.1"\n))
-                     .insert_after("source", %(gem "hanami-utils", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-validations", "~> 2.1"\n))
                      .insert_after("source", %(gem "hanami-view", "~> 2.1"\n))
                      .insert_after("source", %(gem "htmx", "~> 1.0"\n))
