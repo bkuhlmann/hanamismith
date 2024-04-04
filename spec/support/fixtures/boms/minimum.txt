@@ -1,5 +1,6 @@
 test/.env.development
 test/.env.test
+test/.node-version
 test/.ruby-version
 test/Gemfile
 test/Procfile

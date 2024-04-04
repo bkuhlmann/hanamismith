@@ -16,8 +16,8 @@ module Hanamismith
       end
 
       def call
-        path = "%project_name%/package.json.erb"
-        builder.call(configuration.merge(template_path: path)).render
+        builder.call(configuration.merge(template_path: "%project_name%/package.json.erb")).render
+        builder.call(configuration.merge(template_path: "%project_name%/.node-version.erb")).render
         configuration
       end
 

@@ -14,7 +14,7 @@ RSpec.describe Hanamismith::Builders::Node do
   describe "#call" do
     before { builder.call }
 
-    it "builds stylesheet" do
+    it "builds package" do
       expect(temp_dir.join("test/package.json").read).to eq(<<~CONTENT)
         {
           "name": "test",
@@ -30,6 +30,10 @@ RSpec.describe Hanamismith::Builders::Node do
           }
         }
       CONTENT
+    end
+
+    it "builds node version" do
+      expect(temp_dir.join("test/.node-version").read).to match(/\d+\.\d+\.\d+/)
     end
   end
 end
