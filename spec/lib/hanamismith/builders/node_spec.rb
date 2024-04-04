@@ -26,7 +26,7 @@ RSpec.describe Hanamismith::Builders::Node do
           "type": "module",
           "keywords": ["ruby", "hanami"],
           "dependencies": {
-            "hanami-assets": "^2.1.0"
+            "hanami-assets": "^2.1.1"
           }
         }
       CONTENT
