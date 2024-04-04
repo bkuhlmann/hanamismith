@@ -22,7 +22,8 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
         expect(temp_dir.join("test/.gitignore").read).to eq(<<~CONTENT)
           .bundle
           node_modules
-          public
+          public/assets
+          public/assets.json
           tmp
         CONTENT
       end
