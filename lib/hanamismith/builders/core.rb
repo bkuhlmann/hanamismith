@@ -60,6 +60,13 @@ module Hanamismith
         builder.call(configuration.merge(template_path: "%project_name%/db/migrate")).make_path
       end
 
+      def add_public_http_errors
+        %w[404 500].each do |code|
+          path = "%project_name%/public/#{code}.html.erb"
+          builder.call(configuration.merge(template_path: path)).render
+        end
+      end
+
       def add_temp_directory
         builder.call(configuration.merge(template_path: "%project_name%/tmp")).make_path
       end

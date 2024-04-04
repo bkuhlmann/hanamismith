@@ -128,6 +128,14 @@ RSpec.describe Hanamismith::Builders::Core do
       expect(temp_dir.join("test/db/migrate").exist?).to be(true)
     end
 
+    it "adds public HTTP 404 error page" do
+      expect(temp_dir.join("test/public/404.html").exist?).to be(true)
+    end
+
+    it "adds public HTTP 500 error page" do
+      expect(temp_dir.join("test/public/500.html").exist?).to be(true)
+    end
+
     it "adds temp directory" do
       expect(temp_dir.join("test/tmp").exist?).to be(true)
     end
