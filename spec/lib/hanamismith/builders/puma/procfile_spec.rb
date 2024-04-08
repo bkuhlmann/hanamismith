@@ -23,7 +23,6 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
       )
     end
 
-    # rubocop:todo Style/RedundantLineContinuation
     it "builds development file" do
       expect(temp_dir.join("test/Procfile.dev").read).to eq(
         %(web: rerun --dir app,config,lib,slices --pattern="**/*.{erb,rb}" ) \
@@ -31,6 +30,5 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
         "assets: bundle exec hanami assets watch\n"
       )
     end
-    # rubocop:enable Style/RedundantLineContinuation
   end
 end
