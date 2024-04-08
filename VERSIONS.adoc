@@ -1,5 +1,15 @@
 = Versions
 
+== 0.33.0 (2024-04-08)
+
+* ✅ Fixed Git ignore to ignore public assets - Brooke Kuhlmann
+* ✅ Fixed RuboCop Lint/RedundantCopDisableDirective issue - Brooke Kuhlmann
+* 🟢 Added Dry Monads, Schema, and Validation gems - Brooke Kuhlmann
+* 🟢 Added node version - Brooke Kuhlmann
+* 🟢 Added public HTTP error pages to core builder - Brooke Kuhlmann
+* 🔼 Updated RSpec bill of materials - Brooke Kuhlmann
+* 🔼 Updated to Hanami Assets 2.1.1 (JavaScript) - Brooke Kuhlmann
+
 == 0.32.0 (2024-04-03)
 
 * 🟢 Added Containable gem - Brooke Kuhlmann
