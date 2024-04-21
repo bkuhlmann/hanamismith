@@ -1,5 +1,11 @@
 = Versions
 
+== 0.34.0 (2024-04-21)
+
+* 🔼 Updated to Git Lint 7.3.0 - Brooke Kuhlmann
+* 🔼 Updated to Rake 13.2.0 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 6.6.0 - Brooke Kuhlmann
+
 == 0.33.0 (2024-04-08)
 
 * ✅ Fixed Git ignore to ignore public assets - Brooke Kuhlmann
