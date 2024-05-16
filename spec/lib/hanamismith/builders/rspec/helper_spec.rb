@@ -35,6 +35,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
             config.filter_run_when_matching :focus
             config.formatter = ENV.fetch("CI", false) == "true" ? :progress : :documentation
             config.order = :random
+            config.pending_failure_output = :no_backtrace
             config.shared_context_metadata_behavior = :apply_to_host_groups
             config.warnings = true
 
@@ -85,6 +86,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
             config.filter_run_when_matching :focus
             config.formatter = ENV.fetch("CI", false) == "true" ? :progress : :documentation
             config.order = :random
+            config.pending_failure_output = :no_backtrace
             config.shared_context_metadata_behavior = :apply_to_host_groups
             config.warnings = true
 
