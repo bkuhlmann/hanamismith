@@ -6,15 +6,8 @@ module Hanamismith
   module Builders
     module Slices
       # Builds health slice skeleton.
-      class Health
+      class Health < Rubysmith::Builders::Abstract
         using Refinements::Struct
-
-        def self.call(...) = new(...).call
-
-        def initialize configuration, builder: Rubysmith::Builder
-          @configuration = configuration
-          @builder = builder
-        end
 
         def call
           private_methods.grep(/\Aadd_/).sort.each { |method| __send__ method }
@@ -22,8 +15,6 @@ module Hanamismith
         end
 
         private
-
-        attr_reader :configuration, :builder
 
         def add_configuration
           path = "%project_name%/config/slices/health.rb.erb"

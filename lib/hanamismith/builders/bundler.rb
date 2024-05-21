@@ -13,17 +13,14 @@ module Hanamismith
         super
         insert_main_dependencies
         insert_persistence_dependencies
+        insert_groups
         alter_groups
-        insert_development_group
-        insert_test_group
         insert_development_and_test_group
         remove_zeitwerk
         configuration
       end
 
       private
-
-      attr_reader :configuration, :builder
 
       # rubocop:todo Metrics/MethodLength
       def insert_main_dependencies
@@ -69,41 +66,21 @@ module Hanamismith
       end
       # rubocop:enable Metrics/MethodLength
 
-      def insert_development_group
-        return if configuration.markdown? || configuration.build_rake
+      def insert_groups
+        return unless configuration.build_minimum
 
-        with_template.insert_before(/group :tools do/, <<~CONTENT)
+        with_template.append <<~CONTENT
+
           group :development do
-            gem "hanami-webconsole", "~> 2.1"
-            gem "localhost", "~> 1.2"
-            gem "rerun", "~> 0.14"
           end
 
-        CONTENT
-      end
-
-      # rubocop:todo Metrics/MethodLength
-      def insert_test_group
-        return if configuration.build_guard || configuration.build_rspec
-
-        with_template.insert_before(/group :tools do/, <<~CONTENT)
           group :test do
-            gem "capybara", "~> 3.40"
-            gem "cuprite", "~> 0.15"
-            gem "database_cleaner-sequel", "~> 2.0"
-            gem "hanami-rspec", "~> 2.1"
-            gem "launchy", "~> 3.0"
-            gem "rack-test", "~> 2.1"
-            gem "rom-factory", "~> 0.12"
           end
-
         CONTENT
       end
-      # rubocop:enable Metrics/MethodLength
 
       def insert_development_and_test_group
         with_template.insert_before(/group :development/, <<~CONTENT)
-
           group :development, :test do
             gem "dotenv", "~> 3.0"
           end

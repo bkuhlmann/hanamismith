@@ -5,15 +5,8 @@ require "refinements/struct"
 module Hanamismith
   module Builders
     # Builds project skeleton foundation.
-    class Core
+    class Core < Rubysmith::Builders::Abstract
       using Refinements::Struct
-
-      def self.call(...) = new(...).call
-
-      def initialize configuration, builder: Rubysmith::Builder
-        @configuration = configuration
-        @builder = builder
-      end
 
       def call
         private_methods.grep(/\Aadd_/).sort.each { |method| __send__ method }
@@ -21,8 +14,6 @@ module Hanamismith
       end
 
       private
-
-      attr_reader :configuration, :builder
 
       def add_action
         builder.call(configuration.merge(template_path: "%project_name%/app/action.rb.erb")).render

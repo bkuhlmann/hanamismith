@@ -6,15 +6,8 @@ module Hanamismith
   module Builders
     module Rack
       # Builds project skeleton.
-      class Attack
+      class Attack < Rubysmith::Builders::Abstract
         using Refinements::Struct
-
-        def self.call(...) = new(...).call
-
-        def initialize configuration, builder: Rubysmith::Builder
-          @configuration = configuration
-          @builder = builder
-        end
 
         def call
           add_configuration
@@ -23,8 +16,6 @@ module Hanamismith
         end
 
         private
-
-        attr_reader :configuration, :builder
 
         def add_configuration
           template_path = "%project_name%/config/initializers/rack_attack.rb.erb"

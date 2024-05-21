@@ -5,15 +5,8 @@ require "refinements/struct"
 module Hanamismith
   module Builders
     # Builds project skeleton binstub.
-    class Binstub
+    class Binstub < Rubysmith::Builders::Abstract
       using Refinements::Struct
-
-      def self.call(...) = new(...).call
-
-      def initialize configuration, builder: Rubysmith::Builder
-        @configuration = configuration
-        @builder = builder
-      end
 
       def call
         builder.call(configuration.merge(template_path: "%project_name%/bin/hanami.erb"))
@@ -22,10 +15,6 @@ module Hanamismith
 
         configuration
       end
-
-      private
-
-      attr_reader :configuration, :builder
     end
   end
 end

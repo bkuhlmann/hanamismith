@@ -5,15 +5,8 @@ require "refinements/struct"
 module Hanamismith
   module Builders
     # Builds project skeleton foundation.
-    class Refinement
+    class Refinement < Rubysmith::Builders::Abstract
       using Refinements::Struct
-
-      def self.call(...) = new(...).call
-
-      def initialize configuration, builder: Rubysmith::Builder
-        @configuration = configuration
-        @builder = builder
-      end
 
       def call
         %w[
@@ -25,10 +18,6 @@ module Hanamismith
 
         configuration
       end
-
-      private
-
-      attr_reader :configuration, :builder
     end
   end
 end

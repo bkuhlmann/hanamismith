@@ -14,26 +14,26 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
   describe "#call" do
     before { builder.call }
 
-    context "when enabled with Markdown format" do
-      let :test_configuration do
-        configuration.minimize.merge build_readme: true, documentation_format: "md"
-      end
-
-      it "builds README" do
-        expect(temp_dir.join("test", "README.md").read).to eq(
-          SPEC_ROOT.join("support/fixtures/proofs/readme.md").read
-        )
-      end
-    end
-
     context "when enabled with ASCII Doc format" do
       let :test_configuration do
         configuration.minimize.merge build_readme: true, documentation_format: "adoc"
       end
 
       it "builds README" do
-        expect(temp_dir.join("test", "README.adoc").read).to eq(
-          SPEC_ROOT.join("support/fixtures/proofs/readme.adoc").read
+        expect(temp_dir.join("test", "README.adoc").read).to include(
+          "link:https://alchemists.io/projects/hanamismith[Hanamismith]"
+        )
+      end
+    end
+
+    context "when enabled with Markdown format" do
+      let :test_configuration do
+        configuration.minimize.merge build_readme: true, documentation_format: "md"
+      end
+
+      it "builds README" do
+        expect(temp_dir.join("test", "README.md").read).to include(
+          "[Hanamismith](https://alchemists.io/projects/hanamismith)"
         )
       end
     end

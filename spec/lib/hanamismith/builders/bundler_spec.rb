@@ -47,23 +47,18 @@ RSpec.describe Hanamismith::Builders::Bundler do
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.1"
-            gem "localhost", "~> 1.2"
             gem "rerun", "~> 0.14"
+            gem "localhost", "~> 1.2"
+            gem "hanami-webconsole", "~> 2.1"
           end
 
           group :test do
-            gem "capybara", "~> 3.40"
-            gem "cuprite", "~> 0.15"
-            gem "database_cleaner-sequel", "~> 2.0"
-            gem "hanami-rspec", "~> 2.1"
-            gem "launchy", "~> 3.0"
-            gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.12"
-          end
-
-          group :tools do
-            gem "repl_type_completor", "~> 0.1"
+            gem "rack-test", "~> 2.1"
+            gem "launchy", "~> 3.0"
+            gem "database_cleaner-sequel", "~> 2.0"
+            gem "cuprite", "~> 0.15"
+            gem "capybara", "~> 3.40"
           end
         CONTENT
       end
@@ -106,7 +101,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "simplecov", "~> 0.22", require: false
           end
 
-
           group :development, :test do
             gem "dotenv", "~> 3.0"
           end
@@ -132,6 +126,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :tools do
             gem "amazing_print", "~> 1.6"
             gem "debug", "~> 1.9"
+            gem "irb-kit", "~> 0.0"
             gem "repl_type_completor", "~> 0.1"
           end
         CONTENT

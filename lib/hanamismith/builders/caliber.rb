@@ -18,10 +18,6 @@ module Hanamismith
 
         configuration
       end
-
-      private
-
-      attr_reader :configuration, :builder
     end
   end
 end
