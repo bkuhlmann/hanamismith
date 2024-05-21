@@ -14,9 +14,11 @@ module Hanamismith
 
           super
           builder.call(configuration.merge(template_path: "%project_name%/.gitignore.erb"))
-                 .insert_before("tmp\n", "node_modules\n")
-                 .insert_before("tmp\n", "public/assets\n")
-                 .insert_before("tmp\n", "public/assets.json\n")
+                 .insert_before "tmp\n", <<~CONTENT
+                   node_modules
+                   public/assets
+                   public/assets.json
+                 CONTENT
 
           configuration
         end

@@ -23,14 +23,13 @@ module Hanamismith
       private
 
       def add_irb_autocomplete
-        with_template.insert_before "IRB.start",
-                                    <<~CODE
-                                      unless Hanami.env? :development, :test
-                                        ENV["IRB_USE_AUTOCOMPLETE"] ||= "false"
-                                        puts "IRB autocomplete disabled."
-                                      end
+        with_template.insert_before "IRB.start", <<~CODE
+          unless Hanami.env? :development, :test
+            ENV["IRB_USE_AUTOCOMPLETE"] ||= "false"
+            puts "IRB autocomplete disabled."
+          end
 
-                                    CODE
+        CODE
       end
 
       def with_template
