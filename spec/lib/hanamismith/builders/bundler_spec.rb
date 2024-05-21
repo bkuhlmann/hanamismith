@@ -23,42 +23,42 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "sequel", "~> 5.77"
-          gem "rom-sql", "~> 3.6"
-          gem "rom", "~> 5.3"
           gem "pg", "~> 1.5"
-          gem "rack-attack", "~> 6.7"
-          gem "puma", "~> 6.4"
-          gem "htmx", "~> 1.0"
-          gem "hanami-view", "~> 2.1"
-          gem "hanami-validations", "~> 2.1"
-          gem "hanami-router", "~> 2.1"
-          gem "hanami-controller", "~> 2.1"
-          gem "hanami-cli", "~> 2.1"
-          gem "hanami-assets", "~> 2.1"
-          gem "hanami", "~> 2.1"
-          gem "dry-validation", "~> 1.10"
-          gem "dry-types", "~> 1.7"
-          gem "dry-schema", "~> 1.13"
+          gem "rom", "~> 5.3"
+          gem "rom-sql", "~> 3.6"
+          gem "sequel", "~> 5.77"
           gem "dry-monads", "~> 1.6"
+          gem "dry-schema", "~> 1.13"
+          gem "dry-types", "~> 1.7"
+          gem "dry-validation", "~> 1.10"
+          gem "htmx", "~> 1.0"
+          gem "puma", "~> 6.4"
+          gem "rack-attack", "~> 6.7"
+          gem "hanami", "~> 2.1"
+          gem "hanami-assets", "~> 2.1"
+          gem "hanami-cli", "~> 2.1"
+          gem "hanami-controller", "~> 2.1"
+          gem "hanami-router", "~> 2.1"
+          gem "hanami-validations", "~> 2.1"
+          gem "hanami-view", "~> 2.1"
 
           group :development, :test do
             gem "dotenv", "~> 3.0"
           end
 
           group :development do
-            gem "rerun", "~> 0.14"
-            gem "localhost", "~> 1.2"
             gem "hanami-webconsole", "~> 2.1"
+            gem "localhost", "~> 1.2"
+            gem "rerun", "~> 0.14"
           end
 
           group :test do
-            gem "rom-factory", "~> 0.12"
-            gem "rack-test", "~> 2.1"
-            gem "launchy", "~> 3.0"
-            gem "database_cleaner-sequel", "~> 2.0"
-            gem "cuprite", "~> 0.15"
             gem "capybara", "~> 3.40"
+            gem "cuprite", "~> 0.15"
+            gem "database_cleaner-sequel", "~> 2.0"
+            gem "launchy", "~> 3.0"
+            gem "rack-test", "~> 2.1"
+            gem "rom-factory", "~> 0.12"
           end
         CONTENT
       end
@@ -73,24 +73,24 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "sequel", "~> 5.77"
-          gem "rom-sql", "~> 3.6"
-          gem "rom", "~> 5.3"
           gem "pg", "~> 1.5"
-          gem "rack-attack", "~> 6.7"
-          gem "puma", "~> 6.4"
-          gem "htmx", "~> 1.0"
-          gem "hanami-view", "~> 2.1"
-          gem "hanami-validations", "~> 2.1"
-          gem "hanami-router", "~> 2.1"
-          gem "hanami-controller", "~> 2.1"
-          gem "hanami-cli", "~> 2.1"
-          gem "hanami-assets", "~> 2.1"
-          gem "hanami", "~> 2.1"
-          gem "dry-validation", "~> 1.10"
-          gem "dry-types", "~> 1.7"
-          gem "dry-schema", "~> 1.13"
+          gem "rom", "~> 5.3"
+          gem "rom-sql", "~> 3.6"
+          gem "sequel", "~> 5.77"
           gem "dry-monads", "~> 1.6"
+          gem "dry-schema", "~> 1.13"
+          gem "dry-types", "~> 1.7"
+          gem "dry-validation", "~> 1.10"
+          gem "htmx", "~> 1.0"
+          gem "puma", "~> 6.4"
+          gem "rack-attack", "~> 6.7"
+          gem "hanami", "~> 2.1"
+          gem "hanami-assets", "~> 2.1"
+          gem "hanami-cli", "~> 2.1"
+          gem "hanami-controller", "~> 2.1"
+          gem "hanami-router", "~> 2.1"
+          gem "hanami-validations", "~> 2.1"
+          gem "hanami-view", "~> 2.1"
           gem "refinements", "~> 12.1"
 
           group :quality do
@@ -101,24 +101,25 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "simplecov", "~> 0.22", require: false
           end
 
+
           group :development, :test do
             gem "dotenv", "~> 3.0"
           end
 
           group :development do
-            gem "rerun", "~> 0.14"
-            gem "localhost", "~> 1.2"
             gem "hanami-webconsole", "~> 2.1"
+            gem "localhost", "~> 1.2"
+            gem "rerun", "~> 0.14"
             gem "rake", "~> 13.2"
           end
 
           group :test do
-            gem "rom-factory", "~> 0.12"
-            gem "rack-test", "~> 2.1"
-            gem "launchy", "~> 3.0"
-            gem "database_cleaner-sequel", "~> 2.0"
-            gem "cuprite", "~> 0.15"
             gem "capybara", "~> 3.40"
+            gem "cuprite", "~> 0.15"
+            gem "database_cleaner-sequel", "~> 2.0"
+            gem "launchy", "~> 3.0"
+            gem "rack-test", "~> 2.1"
+            gem "rom-factory", "~> 0.12"
             gem "guard-rspec", "~> 4.7", require: false
             gem "rspec", "~> 3.13"
           end
