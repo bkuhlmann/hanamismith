@@ -51,7 +51,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
 
     it "adds layout template" do
       template = temp_dir.join("test/slices/health/templates/layouts/app.html.erb").read
-      proof = SPEC_ROOT.join("support/fixtures/proofs/health-layout.html").read
+      proof = SPEC_ROOT.join("support/fixtures/views/health-layout.html").read
 
       expect(template).to eq(proof)
     end

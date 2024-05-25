@@ -79,14 +79,14 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
 
     it "adds layout template" do
       template = temp_dir.join("test/slices/home/templates/layouts/app.html.erb").read
-      proof = SPEC_ROOT.join("support/fixtures/proofs/home-layout.html").read
+      proof = SPEC_ROOT.join("support/fixtures/views/home-layout.html").read
 
       expect(template).to eq(proof)
     end
 
     it "adds show template" do
       template = temp_dir.join("test/slices/home/templates/show.html.erb").read
-      proof = SPEC_ROOT.join("support/fixtures/proofs/show.html").read
+      proof = SPEC_ROOT.join("support/fixtures/views/show.html").read
 
       expect(template).to eq(proof)
     end
