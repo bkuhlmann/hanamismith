@@ -1,5 +1,14 @@
 = Versions
 
+== 0.36.0 (2024-05-25)
+
+* 🟢 Added IRB Kit gem - Brooke Kuhlmann
+* 🔼 Updated to Etcher 1.5.0 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 6.8.0 - Brooke Kuhlmann
+* 🔁 Refactored Bundler builder to simplify dependency insertions - Brooke Kuhlmann
+* 🔁 Refactored RSpec proof fixtures as view fixtures - Brooke Kuhlmann
+* 🔁 Refactored builder insertions - Brooke Kuhlmann
+
 == 0.35.0 (2024-05-16)
 
 * 🔼 Updated RSpec configuration to ignore backtraces in pending specs - Brooke Kuhlmann
