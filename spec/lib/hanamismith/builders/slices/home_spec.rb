@@ -6,11 +6,9 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
   using Refinements::Pathname
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
-
-  it_behaves_like "a builder"
 
   describe "#call" do
     before { builder.call }
@@ -126,6 +124,10 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
           end
         end
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

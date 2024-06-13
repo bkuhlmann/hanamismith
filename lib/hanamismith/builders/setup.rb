@@ -9,17 +9,17 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        return configuration unless configuration.build_setup
+        return false unless settings.build_setup
 
         super
         append
-        configuration
+        true
       end
 
       private
 
       def append
-        builder.call(configuration.merge(template_path: "%project_name%/bin/setup.erb"))
+        builder.call(settings.merge(template_path: "%project_name%/bin/setup.erb"))
                .insert_after(%(Runner.call "bundle install"\n), <<~CONTENT.gsub(/^(?=\w)/, "  "))
 
                  puts "Installing packages..."

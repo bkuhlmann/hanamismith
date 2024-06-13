@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Providers::Persistence do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "adds configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config/providers/persistence.rb").read).to eq(<<~CONTENT)
         # :nocov:
         # rubocop:todo Metrics/BlockLength
@@ -62,5 +60,9 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
         # rubocop:enable Metrics/BlockLength
       CONTENT
     end
+  end
+
+  it "answers true" do
+    expect(builder.call).to be(true)
   end
 end

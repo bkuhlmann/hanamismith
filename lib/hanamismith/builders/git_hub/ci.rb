@@ -4,17 +4,17 @@ require "refinements/struct"
 
 module Hanamismith
   module Builders
-    module CI
+    module GitHub
       # Builds project skeleton GitHub CI configuration.
-      class GitHub < Rubysmith::Builders::Abstract
+      class CI < Rubysmith::Builders::Abstract
         using Refinements::Struct
 
         def call
-          return configuration unless configuration.build_git_hub_ci
+          return false unless settings.build_git_hub_ci
 
           path = "%project_name%/.github/workflows/ci.yml.erb"
-          builder.call(configuration.merge(template_path: path)).render.replace(/\n\n\Z/, "\n")
-          configuration
+          builder.call(settings.merge(template_path: path)).render.replace(/\n\n\Z/, "\n")
+          true
         end
       end
     end

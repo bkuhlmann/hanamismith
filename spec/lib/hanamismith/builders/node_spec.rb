@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Node do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "builds package" do
+      builder.call
+
       expect(temp_dir.join("test/package.json").read).to eq(<<~CONTENT)
         {
           "name": "test",
@@ -33,7 +31,12 @@ RSpec.describe Hanamismith::Builders::Node do
     end
 
     it "builds node version" do
+      builder.call
       expect(temp_dir.join("test/.node-version").read).to match(/\d+\.\d+\.\d+/)
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

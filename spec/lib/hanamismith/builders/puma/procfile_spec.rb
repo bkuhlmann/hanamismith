@@ -5,16 +5,15 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Puma::Procfile do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    let(:test_configuration) { configuration.minimize }
-
-    before { builder.call }
+    before do
+      settings.merge! settings.minimize
+      builder.call
+    end
 
     it "builds production file" do
       expect(temp_dir.join("test/Procfile").read).to eq(
@@ -29,6 +28,10 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
         "-- bundle exec puma --config ./config/puma.rb\n" \
         "assets: bundle exec hanami assets watch\n"
       )
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

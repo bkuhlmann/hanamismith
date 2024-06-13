@@ -5,23 +5,20 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Rack::Deflater do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  let(:test_configuration) { configuration.minimize }
-
-  before do
-    Hanamismith::Builders::Core.call test_configuration
-    Hanamismith::Builders::Rack::Attack.call test_configuration
-  end
-
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
+    before do
+      settings.merge! settings.minimize
+      Hanamismith::Builders::Core.new(settings:).call
+      Hanamismith::Builders::Rack::Attack.new(settings:).call
+    end
 
     it "adds middleware to application configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config/app.rb").read).to eq(<<~CONTENT)
         require "hanami"
 
@@ -53,6 +50,10 @@ RSpec.describe Hanamismith::Builders::Rack::Deflater do
           end
         end
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

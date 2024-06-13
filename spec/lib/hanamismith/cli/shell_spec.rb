@@ -40,8 +40,6 @@ RSpec.describe Hanamismith::CLI::Shell do
       let(:options) { %w[build --name test --min] }
 
       it "builds minimum skeleton" do
-        pending "Requires additional Rubysmith support. Workaround: Run in isolation."
-
         temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_minimum)
       end
@@ -53,8 +51,6 @@ RSpec.describe Hanamismith::CLI::Shell do
       end
 
       it "builds minimum skeleton" do
-        pending "Requires additional Rubysmith support. Workaround: Run in isolation."
-
         temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_minimum)
       end
@@ -64,8 +60,6 @@ RSpec.describe Hanamismith::CLI::Shell do
       let(:options) { %w[build --name test --max] }
 
       it "builds maximum skeleton" do
-        pending "Requires additional Rubysmith support. Workaround: Run in isolation."
-
         temp_dir.change_dir { shell.call options }
         expect(project_files).to match_array(bom_maximum)
       end
@@ -77,8 +71,6 @@ RSpec.describe Hanamismith::CLI::Shell do
       end
 
       it "builds maximum skeleton" do
-        pending "Requires additional Rubysmith support. Workaround: Run in isolation."
-
         temp_dir.change_dir do
           shell.call options
           expect(project_files).to match_array(bom_maximum)

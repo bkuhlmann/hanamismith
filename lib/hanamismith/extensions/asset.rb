@@ -6,29 +6,20 @@ module Hanamismith
   module Extensions
     # Ensures assets are compiled.
     class Asset
-      include Import[:kernel, :logger]
+      include Import[:settings, :kernel, :logger]
 
       using Refinements::Pathname
 
-      def self.call(...) = new(...).call
-
-      def initialize(configuration, **)
-        super(**)
-        @configuration = configuration
-      end
-
       def call
         logger.error { "Unable to compile assets. Try: `hanami assets compile`." } unless run
-        configuration
+        true
       end
 
       private
 
-      attr_reader :configuration
-
       def run
         success = false
-        configuration.project_root.change_dir { success = compile_app && compile_home }
+        settings.project_root.change_dir { success = compile_app && compile_home }
         success
       end
 

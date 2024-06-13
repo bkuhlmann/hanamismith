@@ -9,11 +9,11 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        return configuration unless configuration.build_guard
+        return false unless settings.build_guard
 
         super
-        builder.call(configuration.merge(template_path: "%project_name%/Guardfile.erb")).render
-        configuration
+        builder.call(settings.merge(template_path: "%project_name%/Guardfile.erb")).render
+        true
       end
     end
   end

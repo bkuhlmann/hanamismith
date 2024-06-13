@@ -10,8 +10,8 @@ module Hanamismith
 
       def call
         path = "%project_name%/slices/home/assets/css/app.css.erb"
-        builder.call(configuration.merge(template_path: path)).render
-        configuration
+        builder.call(settings.merge(template_path: path)).render
+        true
       end
     end
   end

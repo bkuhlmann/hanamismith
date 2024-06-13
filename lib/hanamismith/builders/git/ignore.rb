@@ -10,17 +10,17 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          return configuration unless configuration.build_git
+          return false unless settings.build_git
 
           super
-          builder.call(configuration.merge(template_path: "%project_name%/.gitignore.erb"))
+          builder.call(settings.merge(template_path: "%project_name%/.gitignore.erb"))
                  .insert_before "tmp\n", <<~CONTENT
                    node_modules
                    public/assets
                    public/assets.json
                  CONTENT
 
-          configuration
+          true
         end
       end
     end

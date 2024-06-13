@@ -10,10 +10,10 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          builder.call(configuration.merge(template_path: "%project_name%/config/app.rb.erb"))
+          builder.call(settings.merge(template_path: "%project_name%/config/app.rb.erb"))
                  .insert_after(/Rack::Attack/, "    config.middleware.use Rack::Deflater\n")
 
-          configuration
+          true
         end
       end
     end

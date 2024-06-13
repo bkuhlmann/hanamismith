@@ -11,18 +11,18 @@ module Hanamismith
 
         def initialize(...)
           super
-          @template = builder.call configuration.merge(
+          @template = builder.call settings.merge(
             template_path: "%project_name%/spec/spec_helper.rb.erb"
           )
         end
 
         def call
-          return configuration unless configuration.build_rspec
+          return false unless settings.build_rspec
 
           super
           remove_project_requirement
           disable_simple_cov_eval
-          configuration
+          true
         end
 
         private
@@ -30,7 +30,7 @@ module Hanamismith
         attr_reader :template
 
         def remove_project_requirement
-          template.replace(/require.+#{configuration.project_name}.+\n/, "")
+          template.replace(/require.+#{settings.project_name}.+\n/, "")
         end
 
         def disable_simple_cov_eval

@@ -9,11 +9,11 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        builder.call(configuration.merge(template_path: "%project_name%/bin/hanami.erb"))
+        builder.call(settings.merge(template_path: "%project_name%/bin/hanami.erb"))
                .render
                .permit 0o755
 
-        configuration
+        true
       end
     end
   end

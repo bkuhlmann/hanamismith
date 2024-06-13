@@ -6,7 +6,6 @@ RSpec.shared_context "with application dependencies" do
   include_context "with temporary directory"
 
   let(:settings) { Hanamismith::Container[:settings] }
-  let(:xdg_config) { Runcom::Config.new Hanamismith::Container[:defaults_path] }
   let(:kernel) { class_spy Kernel }
   let(:logger) { Cogger.new id: :hanamismith, io: StringIO.new, level: :debug }
 
@@ -15,11 +14,13 @@ RSpec.shared_context "with application dependencies" do
       Hanamismith::Container[:registry].remove_loader(1),
       author_family_name: "Smith",
       author_given_name: "Jill",
-      project_name: "test",
-      target_root: temp_dir
+      author_email: "jill@acme.io",
+      loaded_at: Time.utc(2020, 1, 1, 0, 0, 0),
+      target_root: temp_dir,
+      project_name: "test"
     )
 
-    Hanamismith::Container.stub! xdg_config:, kernel:, logger:
+    Hanamismith::Container.stub! kernel:, logger:
   end
 
   after { Hanamismith::Container.restore }

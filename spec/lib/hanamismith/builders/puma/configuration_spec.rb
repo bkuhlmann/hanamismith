@@ -5,18 +5,15 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Puma::Configuration do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    let(:test_configuration) { configuration.minimize }
-
-    before { builder.call }
-
     it "builds configuration" do
+      settings.merge! settings.minimize
+      builder.call
+
       expect(temp_dir.join("test/config/puma.rb").read).to eq(<<~CONTENT)
         development = ENV.fetch("HANAMI_ENV", "development") == "development"
 
@@ -41,6 +38,10 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
 
         preload_app! && before_fork { Hanami.shutdown } if concurrency.to_i.positive?
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

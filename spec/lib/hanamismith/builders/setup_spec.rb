@@ -5,19 +5,15 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Setup do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  let(:build_path) { temp_dir.join "test/bin/setup" }
-
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
+    let(:build_path) { temp_dir.join "test/bin/setup" }
 
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_setup: true }
+      before { settings.merge! settings.minimize.merge build_setup: true }
 
       it "appends script" do
         builder.call
@@ -49,10 +45,14 @@ RSpec.describe Hanamismith::Builders::Setup do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when enabled with debug" do
-      let(:test_configuration) { configuration.minimize.merge build_setup: true, build_debug: true }
+      before { settings.merge! settings.minimize.merge build_setup: true, build_debug: true }
 
       it "appends script" do
         builder.call
@@ -85,14 +85,22 @@ RSpec.describe Hanamismith::Builders::Setup do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "does not build setup script" do
         builder.call
         expect(build_path.exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

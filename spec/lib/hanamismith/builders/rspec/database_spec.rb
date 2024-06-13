@@ -5,21 +5,19 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::RSpec::Database do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
-
-  it_behaves_like "a builder"
 
   describe "#call" do
     let(:path) { temp_dir.join "test/spec/support/database.rb" }
 
-    before { builder.call }
-
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_rspec: true }
+      before { settings.merge! settings.minimize.merge build_rspec: true }
 
       it "adds database configuration" do
+        builder.call
+
         expect(path.read).to eq(<<~CONTENT)
           module Test
             # Provides convenience methods for testing purposes.
@@ -33,13 +31,22 @@ RSpec.describe Hanamismith::Builders::RSpec::Database do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "doesn't add database configuration" do
+        builder.call
         expect(temp_dir.join(path).exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

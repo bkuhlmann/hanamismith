@@ -5,19 +5,21 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Environments::Test do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "builds environment configuration" do
+      builder.call
+
       expect(temp_dir.join("test/.env.test").read).to eq(<<~CONTENT)
         DATABASE_URL=postgres://localhost/test_test
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

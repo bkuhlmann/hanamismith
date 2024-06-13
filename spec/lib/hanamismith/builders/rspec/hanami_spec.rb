@@ -5,19 +5,17 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::RSpec::Hanami do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_rspec: true }
+      before { settings.merge! settings.minimize.merge build_rspec: true }
 
       it "adds helper" do
+        builder.call
+
         expect(temp_dir.join("test/spec/hanami_helper.rb").read).to eq(<<~CONTENT)
           require "capybara/cuprite"
           require "capybara/rspec"
@@ -66,13 +64,22 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "doesn't add helper" do
+        builder.call
         expect(temp_dir.join("test/spec/hanami_helper.rb").exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

@@ -10,8 +10,8 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          builder.call(configuration.merge(template_path: "%project_name%/config.ru.erb")).render
-          configuration
+          builder.call(settings.merge(template_path: "%project_name%/config.ru.erb")).render
+          true
         end
       end
     end

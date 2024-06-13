@@ -6,6 +6,7 @@ require "zeitwerk"
 Zeitwerk::Loader.new.then do |loader|
   loader.inflector.inflect "cli" => "CLI",
                            "ci" => "CI",
+                           "circle_ci" => "CircleCI",
                            "htmx" => "HTMX",
                            "npm" => "NPM",
                            "pwa" => "PWA",

@@ -34,8 +34,8 @@ Hanami.app.register_provider :persistence, namespace: true do
     configuration = target["persistence.config"]
 
     configuration.auto_registration(
-      target.root.join("lib/<%= configuration.project_path %>/persistence"),
-      namespace: "<%= configuration.project_namespaced_class %>::Persistence"
+      target.root.join("lib/<%= settings.project_path %>/persistence"),
+      namespace: "<%= settings.project_namespaced_class %>::Persistence"
     )
 
     register "rom", ROM.container(configuration)

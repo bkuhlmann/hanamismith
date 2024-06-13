@@ -5,21 +5,19 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::RSpec::Helper do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
-
-  it_behaves_like "a builder"
 
   describe "#call" do
     let(:spec_helper_path) { temp_dir.join "test/spec/spec_helper.rb" }
 
-    before { builder.call }
-
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_rspec: true }
+      before { settings.merge! settings.minimize.merge build_rspec: true }
 
       it "adds helper" do
+        builder.call
+
         expect(spec_helper_path.read).to eq(<<~CONTENT)
           Bundler.require :tools
 
@@ -51,11 +49,15 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when enabled with SimpleCov only" do
-      let :test_configuration do
-        configuration.minimize.merge build_rspec: true, build_simple_cov: true
+      before do
+        settings.merge! settings.minimize.merge build_rspec: true, build_simple_cov: true
       end
 
       let :proof do
@@ -102,15 +104,25 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
       end
 
       it "builds spec helper" do
+        builder.call
         expect(spec_helper_path.read).to eq(proof)
+      end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
       end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "doesn't add helper" do
+        builder.call
         expect(temp_dir.join("test/spec/spec_helper.rb").exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

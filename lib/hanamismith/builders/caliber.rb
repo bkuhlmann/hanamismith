@@ -9,14 +9,14 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        return configuration unless configuration.build_caliber
+        return false unless settings.build_caliber
 
         super
         path = "%project_name%/.config/rubocop/config.yml.erb"
-        builder.call(configuration.merge(template_path: path))
+        builder.call(settings.merge(template_path: path))
                .append("\nrequire: rubocop-sequel\n")
 
-        configuration
+        true
       end
     end
   end

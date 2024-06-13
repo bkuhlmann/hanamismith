@@ -10,11 +10,11 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          builder.call(configuration.merge(template_path: "%project_name%/env.test.erb"))
+          builder.call(settings.merge(template_path: "%project_name%/env.test.erb"))
                  .render
                  .rename(".env.test")
 
-          configuration
+          true
         end
       end
     end

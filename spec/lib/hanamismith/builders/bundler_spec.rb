@@ -5,19 +5,17 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Bundler do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     context "with minimum flags" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "updates Gemfile" do
+        builder.call
+
         expect(temp_dir.join("test", "Gemfile").read).to eq(<<~CONTENT)
           ruby file: ".ruby-version"
 
@@ -65,7 +63,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
     end
 
     context "with maximum flags" do
-      let(:test_configuration) { configuration.maximize }
+      before { settings.merge! settings.maximize }
 
       let :proof do
         <<~CONTENT
@@ -134,8 +132,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
       end
 
       it "updates Gemfile" do
+        builder.call
         expect(temp_dir.join("test", "Gemfile").read).to eq(proof)
       end
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

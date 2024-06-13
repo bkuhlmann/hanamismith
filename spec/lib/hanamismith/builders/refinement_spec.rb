@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Refinement do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "builds implementation" do
+      builder.call
+
       expect(temp_dir.join("test/lib/test/refines/actions/response.rb").read).to eq(<<~CONTENT)
         module Test
           module Refines
@@ -37,6 +35,8 @@ RSpec.describe Hanamismith::Builders::Refinement do
 
     it "builds specification" do
       path = "test/spec/lib/test/refines/actions/response_spec.rb"
+      builder.call
+
       expect(temp_dir.join(path).read).to eq(<<~CONTENT)
         require "hanami_helper"
 
@@ -63,6 +63,10 @@ RSpec.describe Hanamismith::Builders::Refinement do
           end
         end
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

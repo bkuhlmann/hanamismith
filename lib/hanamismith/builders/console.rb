@@ -9,15 +9,15 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        return configuration unless configuration.build_console
+        return false unless settings.build_console
 
         super
-        builder.call(configuration.merge(template_path: "%project_name%/bin/console.erb"))
+        builder.call(settings.merge(template_path: "%project_name%/bin/console.erb"))
                .replace(/require Bundler.root.+/, %(require "hanami/prepare"))
 
         add_irb_autocomplete
 
-        configuration
+        true
       end
 
       private
@@ -33,7 +33,7 @@ module Hanamismith
       end
 
       def with_template
-        builder.call configuration.merge(template_path: "%project_name%/bin/console.erb")
+        builder.call settings.merge(template_path: "%project_name%/bin/console.erb")
       end
     end
   end

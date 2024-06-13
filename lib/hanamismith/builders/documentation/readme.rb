@@ -10,14 +10,14 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          return configuration unless configuration.build_readme
+          return false unless settings.build_readme
 
           super
-          builder.call(configuration.merge(template_path: "%project_name%/README.#{kind}.erb"))
+          builder.call(settings.merge(template_path: "%project_name%/README.#{kind}.erb"))
                  .replace("Rubysmith", "Hanamismith")
                  .replace("rubysmith", "hanamismith")
 
-          configuration
+          true
         end
       end
     end

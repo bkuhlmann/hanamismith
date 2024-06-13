@@ -5,21 +5,19 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Guard do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
   let(:configuration_path) { temp_dir.join "test", "Guardfile" }
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_guard: true }
+      before { settings.merge! settings.minimize.merge build_guard: true }
 
       it "builds configuration" do
+        builder.call
+
         expect(configuration_path.read).to include(<<~CONTENT)
           guard :rspec, cmd: "NO_COVERAGE=true bin/rspec --format documentation" do
             require "guard/rspec/dsl"
@@ -39,13 +37,22 @@ RSpec.describe Hanamismith::Builders::Guard do
             watch(%r(^spec/hanami_helper.rb$)) { rspec.spec_dir }
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "doesn't build configuration" do
+        builder.call
         expect(configuration_path.exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

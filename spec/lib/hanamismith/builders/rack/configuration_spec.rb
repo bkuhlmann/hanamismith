@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Rack::Configuration do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "builds configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config.ru").read).to eq(<<~CONTENT)
         require "hanami/boot"
         Bundler.require :tools if Hanami.env? :development
@@ -23,6 +21,10 @@ RSpec.describe Hanamismith::Builders::Rack::Configuration do
 
         run app
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

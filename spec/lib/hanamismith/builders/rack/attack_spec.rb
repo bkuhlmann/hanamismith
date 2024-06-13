@@ -5,18 +5,16 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Rack::Attack do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  let(:test_configuration) { configuration.minimize }
-
-  before { Hanamismith::Builders::Core.call test_configuration }
-
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
+    before do
+      settings.merge! settings.minimize
+      Hanamismith::Builders::Core.new(settings:).call
+      builder.call
+    end
 
     it "adds configuration" do
       expect(temp_dir.join("test/config/initializers/rack_attack.rb").exist?).to be(true)
@@ -53,6 +51,10 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
           end
         end
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

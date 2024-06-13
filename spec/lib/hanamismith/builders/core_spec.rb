@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Core do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "adds action" do
+      builder.call
+
       expect(temp_dir.join("test/app/action.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -29,6 +27,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds repository" do
+      builder.call
+
       expect(temp_dir.join("test/app/repository.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -44,6 +44,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds view" do
+      builder.call
+
       expect(temp_dir.join("test/app/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -58,6 +60,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds application configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config/app.rb").read).to eq(<<~CONTENT)
         require "hanami"
 
@@ -87,6 +91,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds routes configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config/routes.rb").read).to eq(<<~CONTENT)
         module Test
           # Defines application routes.
@@ -99,6 +105,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds settings configuration" do
+      builder.call
+
       expect(temp_dir.join("test/config/settings.rb").read).to eq(<<~CONTENT)
         module Test
           # Defines application settings.
@@ -110,6 +118,8 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds types" do
+      builder.call
+
       expect(temp_dir.join("test/lib/test/types.rb").read).to eq(<<~CONTENT)
         require "dry/types"
 
@@ -125,19 +135,27 @@ RSpec.describe Hanamismith::Builders::Core do
     end
 
     it "adds migrate directory" do
+      builder.call
       expect(temp_dir.join("test/db/migrate").exist?).to be(true)
     end
 
     it "adds public HTTP 404 error page" do
+      builder.call
       expect(temp_dir.join("test/public/404.html").exist?).to be(true)
     end
 
     it "adds public HTTP 500 error page" do
+      builder.call
       expect(temp_dir.join("test/public/500.html").exist?).to be(true)
     end
 
     it "adds temp directory" do
+      builder.call
       expect(temp_dir.join("test/tmp").exist?).to be(true)
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

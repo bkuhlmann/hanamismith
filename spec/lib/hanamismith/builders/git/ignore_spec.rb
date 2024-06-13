@@ -6,15 +6,13 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
   using Refinements::Pathname
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
     context "with enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_git: true }
+      before { settings.merge! settings.minimize.merge build_git: true }
 
       it "builds Git ignore" do
         builder.call
@@ -27,14 +25,22 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
           tmp
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "with disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "does not build file" do
         builder.call
         expect(temp_dir.join("test/.gitignore").exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

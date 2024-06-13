@@ -16,13 +16,13 @@ module Hanamismith
         end
 
         remove_zeitwerk
-        configuration
+        true
       end
 
       private
 
       def insert_groups
-        return unless configuration.build_minimum
+        return unless settings.build_minimum
 
         with_template.append <<~CONTENT
           group :development do
@@ -103,7 +103,7 @@ module Hanamismith
       def remove_zeitwerk = with_template.replace(/.+zeitwerk.+\n\n/, "\n")
 
       def with_template
-        builder.call configuration.merge(template_path: "%project_name%/Gemfile.erb")
+        builder.call settings.merge(template_path: "%project_name%/Gemfile.erb")
       end
     end
   end

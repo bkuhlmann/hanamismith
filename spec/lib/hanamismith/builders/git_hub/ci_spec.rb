@@ -2,23 +2,22 @@
 
 require "spec_helper"
 
-RSpec.describe Hanamismith::Builders::CI::GitHub do
+RSpec.describe Hanamismith::Builders::GitHub::CI do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   let(:yaml_path) { temp_dir.join "test/.github/workflows/ci.yml" }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
     context "when enabled" do
-      let(:test_configuration) { configuration.minimize.merge build_git_hub_ci: true }
+      before { settings.merge! settings.minimize.merge build_git_hub_ci: true }
 
       it "does not build YAML template" do
         builder.call
+
         expect(yaml_path.read).to eq(<<~CONTENT)
           name: Continuous Integration
 
@@ -81,15 +80,20 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     bundle exec rake
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when enabled with SimpleCov" do
-      let :test_configuration do
-        configuration.minimize.merge build_git_hub_ci: true, build_simple_cov: true
+      before do
+        settings.merge! settings.minimize.merge build_git_hub_ci: true, build_simple_cov: true
       end
 
       it "does not build YAML template" do
         builder.call
+
         expect(yaml_path.read).to eq(<<~CONTENT)
           name: Continuous Integration
 
@@ -158,14 +162,22 @@ RSpec.describe Hanamismith::Builders::CI::GitHub do
                     path: coverage
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "does not build YAML template" do
         builder.call
         expect(yaml_path.exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

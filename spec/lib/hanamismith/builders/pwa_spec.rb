@@ -5,16 +5,14 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::PWA do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     it "builds stylesheet" do
+      builder.call
+
       expect(temp_dir.join("test/app/assets/pwa/manifest.webmanifest").read).to eq(<<~CONTENT)
         {
           "name": "Test",
@@ -38,6 +36,10 @@ RSpec.describe Hanamismith::Builders::PWA do
           "theme_color": "#000000"
         }
       CONTENT
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

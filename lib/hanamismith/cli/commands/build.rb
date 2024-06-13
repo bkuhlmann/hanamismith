@@ -7,7 +7,7 @@ module Hanamismith
     module Commands
       # Handles the build command.
       class Build < Sod::Command
-        include Hanamismith::Import[:input, :logger]
+        include Hanamismith::Import[:settings, :logger]
 
         # Order matters.
         BUILDERS = [
@@ -33,13 +33,15 @@ module Hanamismith
           Builders::Bundler,
           Builders::Node,
           Builders::Asset,
-          Builders::Rake,
+          Rubysmith::Builders::Rake::Binstub,
+          Builders::Rake::Configuration,
           Builders::Binstub,
           Builders::Console,
-          Builders::CI::Circle,
-          Builders::CI::GitHub,
+          Builders::CircleCI,
+          Rubysmith::Builders::GitHub::Template,
+          Rubysmith::Builders::GitHub::Funding,
+          Builders::GitHub::CI,
           Builders::Setup,
-          Rubysmith::Builders::GitHub,
           Builders::Guard,
           Rubysmith::Builders::Reek,
           Rubysmith::Builders::RSpec::Binstub,
@@ -70,34 +72,34 @@ module Hanamismith
 
         description "Build new project."
 
-        on Rubysmith::CLI::Actions::Name, input: Container[:input]
-        on Rubysmith::CLI::Actions::AmazingPrint, input: Container[:input]
-        on Rubysmith::CLI::Actions::Caliber, input: Container[:input]
-        on Rubysmith::CLI::Actions::CircleCI, input: Container[:input]
-        on Rubysmith::CLI::Actions::Citation, input: Container[:input]
-        on Rubysmith::CLI::Actions::Community, input: Container[:input]
-        on Rubysmith::CLI::Actions::Conduct, input: Container[:input]
-        on Rubysmith::CLI::Actions::Console, input: Container[:input]
-        on Rubysmith::CLI::Actions::Contributions, input: Container[:input]
-        on Rubysmith::CLI::Actions::Debug, input: Container[:input]
-        on Rubysmith::CLI::Actions::Funding, input: Container[:input]
-        on Rubysmith::CLI::Actions::Git, input: Container[:input]
-        on Rubysmith::CLI::Actions::GitHub, input: Container[:input]
-        on Rubysmith::CLI::Actions::GitHubCI, input: Container[:input]
-        on Rubysmith::CLI::Actions::GitLint, input: Container[:input]
-        on Rubysmith::CLI::Actions::Guard, input: Container[:input]
-        on Rubysmith::CLI::Actions::License, input: Container[:input]
-        on Rubysmith::CLI::Actions::Maximum, input: Container[:input]
-        on Rubysmith::CLI::Actions::Minimum, input: Container[:input]
-        on Rubysmith::CLI::Actions::Rake, input: Container[:input]
-        on Rubysmith::CLI::Actions::Readme, input: Container[:input]
-        on Rubysmith::CLI::Actions::Reek, input: Container[:input]
-        on Rubysmith::CLI::Actions::Refinements, input: Container[:input]
-        on Rubysmith::CLI::Actions::RSpec, input: Container[:input]
-        on Rubysmith::CLI::Actions::Security, input: Container[:input]
-        on Rubysmith::CLI::Actions::Setup, input: Container[:input]
-        on Rubysmith::CLI::Actions::SimpleCov, input: Container[:input]
-        on Rubysmith::CLI::Actions::Versions, input: Container[:input]
+        on Rubysmith::CLI::Actions::Name, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::AmazingPrint, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Caliber, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::CircleCI, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Citation, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Community, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Conduct, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Console, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Contributions, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Debug, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Funding, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Git, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::GitHub, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::GitHubCI, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::GitLint, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Guard, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::License, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Maximum, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Minimum, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Rake, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Readme, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Reek, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Refinements, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::RSpec, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Security, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Setup, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::SimpleCov, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Versions, settings: Container[:settings]
 
         def initialize(builders: BUILDERS, **)
           super(**)
@@ -105,8 +107,8 @@ module Hanamismith
         end
 
         def call
-          log_info "Building project skeleton: #{input.project_name}..."
-          builders.each { |builder| builder.call input }
+          log_info "Building project skeleton: #{settings.project_name}..."
+          builders.each { |constant| constant.new(settings:).call }
           log_info "Project skeleton complete!"
         end
 

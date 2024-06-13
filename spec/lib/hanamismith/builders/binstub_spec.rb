@@ -5,18 +5,16 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Binstub do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new configuration.minimize }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
-
-  it_behaves_like "a builder"
 
   describe "#call" do
     let(:binstub_path) { temp_dir.join "test/bin/hanami" }
 
-    before { builder.call }
-
     it "builds binstub" do
+      builder.call
+
       expect(binstub_path.read).to eq(<<~CONTENT)
         #! /usr/bin/env ruby
 
@@ -44,6 +42,10 @@ RSpec.describe Hanamismith::Builders::Binstub do
     it "updates file permissions" do
       builder.call
       expect(binstub_path.stat.mode).to eq(33261)
+    end
+
+    it "answers true" do
+      expect(builder.call).to be(true)
     end
   end
 end

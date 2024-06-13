@@ -10,12 +10,12 @@ module Hanamismith
         using Refinements::Struct
 
         def call
-          return configuration unless configuration.build_rspec
+          return false unless settings.build_rspec
 
           path = "%project_name%/spec/hanami_helper.rb.erb"
-          builder.call(configuration.merge(template_path: path)).render
+          builder.call(settings.merge(template_path: path)).render
 
-          configuration
+          true
         end
       end
     end

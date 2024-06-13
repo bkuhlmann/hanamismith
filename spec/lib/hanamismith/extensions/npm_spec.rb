@@ -5,17 +5,11 @@ require "spec_helper"
 RSpec.describe Hanamismith::Extensions::NPM do
   using Refinements::Pathname
 
-  subject(:extension) { described_class.new configuration }
+  subject(:extension) { described_class.new settings: }
 
   include_context "with application dependencies"
 
   before { temp_dir.join("test").make_path }
-
-  describe ".call" do
-    it "answers configuration" do
-      expect(described_class.call(configuration)).to be_a(Rubysmith::Configuration::Model)
-    end
-  end
 
   describe "#call" do
     it "install packages" do
@@ -30,6 +24,10 @@ RSpec.describe Hanamismith::Extensions::NPM do
       expect(logger.reread).to match(
         /🛑.+Unable to detect NPM. Install NPM and run: `npm install`./
       )
+    end
+
+    it "answers true" do
+      expect(extension.call).to be(true)
     end
   end
 end

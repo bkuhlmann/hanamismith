@@ -5,44 +5,57 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Documentation::Readme do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new test_configuration }
+  subject(:builder) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  it_behaves_like "a builder"
-
   describe "#call" do
-    before { builder.call }
-
     context "when enabled with ASCII Doc format" do
-      let :test_configuration do
-        configuration.minimize.merge build_readme: true, documentation_format: "adoc"
+      before do
+        settings.merge! settings.minimize.merge build_readme: true, documentation_format: "adoc"
       end
 
       it "builds README" do
+        builder.call
+
         expect(temp_dir.join("test", "README.adoc").read).to include(
           "link:https://alchemists.io/projects/hanamismith[Hanamismith]"
         )
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when enabled with Markdown format" do
-      let :test_configuration do
-        configuration.minimize.merge build_readme: true, documentation_format: "md"
+      before do
+        settings.merge! settings.minimize.merge build_readme: true, documentation_format: "md"
       end
 
       it "builds README" do
+        builder.call
+
         expect(temp_dir.join("test", "README.md").read).to include(
           "[Hanamismith](https://alchemists.io/projects/hanamismith)"
         )
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
-      let(:test_configuration) { configuration.minimize }
+      before { settings.merge! settings.minimize }
 
       it "doesn't build README" do
+        builder.call
         expect(temp_dir.join("test", "README.adoc").exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end
