@@ -34,12 +34,7 @@ module Hanamismith
         end
 
         def disable_simple_cov_eval
-          template.replace(
-            /enable_coverage_for_eval\n/,
-            "# TODO: Enable once this issue is fixed: " \
-            "https://bugs.ruby-lang.org/issues/19363.\n    " \
-            "# enable_coverage_for_eval\n"
-          )
+          template.replace(/\s{4}enable_coverage_for_eval\n/, "")
         end
       end
     end
