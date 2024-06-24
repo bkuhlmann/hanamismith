@@ -49,5 +49,6 @@ module Hanamismith
     register(:xdg_config) { Runcom::Config.new "hanamismith/configuration.yml" }
     register(:logger) { Cogger.new id: :hanamismith }
     register :kernel, Kernel
+    register :io, STDOUT
   end
 end
