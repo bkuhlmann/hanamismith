@@ -98,8 +98,8 @@ link:https://alchemists.io/projects/rubysmith/#_configuration[Rubysmith]. It is 
 
 [source,yaml]
 ----
-:project:
-  :url:
+project:
+  url:
     # Add key/value pairs here.
 ----
 
