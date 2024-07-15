@@ -89,7 +89,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-router", "~> 2.1"
           gem "hanami-validations", "~> 2.1"
           gem "hanami-view", "~> 2.1"
-          gem "refinements", "~> 12.5"
+          gem "refinements", "~> 12.7"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.3"
