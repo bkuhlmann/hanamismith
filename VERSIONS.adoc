@@ -1,5 +1,11 @@
 = Versions
 
+== 0.40.0 (2024-07-23)
+
+* 🔼 Updated to Refinements 12.7.0 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 7.1.0 - Brooke Kuhlmann
+* ⛔️ Removed Guard - Brooke Kuhlmann
+
 == 0.39.0 (2024-07-10)
 
 * 🟢 Added version release notes - Brooke Kuhlmann
