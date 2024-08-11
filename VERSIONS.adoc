@@ -1,5 +1,10 @@
 = Versions
 
+== 0.41.0 (2024-08-11)
+
+* 🔼 Updated to Rubysmith 7.2.0 - Brooke Kuhlmann
+* 🔼 Updated to Sod 0.14.0 - Brooke Kuhlmann
+
 == 0.40.0 (2024-07-23)
 
 * 🔼 Updated to Refinements 12.7.0 - Brooke Kuhlmann
