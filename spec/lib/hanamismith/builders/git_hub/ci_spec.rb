@@ -45,6 +45,11 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                     --health-retries 5
 
               steps:
+                - name: System Update
+                  run: |
+                    sudo apt-get update
+                    sudo apt-get install --no-install-recommends -y curl libjemalloc2
+
                 - name: Chromium Setup
                   uses: nanasess/setup-chromedriver@v2
 
@@ -62,7 +67,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                     bundler-cache: true
 
                 - name: Node Setup
-                  uses: actions/setup-node@v2
+                  uses: actions/setup-node@v4
                   with:
                     cache: npm
 
@@ -121,6 +126,11 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                     --health-retries 5
 
               steps:
+                - name: System Update
+                  run: |
+                    sudo apt-get update
+                    sudo apt-get install --no-install-recommends -y curl libjemalloc2
+
                 - name: Chromium Setup
                   uses: nanasess/setup-chromedriver@v2
 
@@ -138,7 +148,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                     bundler-cache: true
 
                 - name: Node Setup
-                  uses: actions/setup-node@v2
+                  uses: actions/setup-node@v4
                   with:
                     cache: npm
 
