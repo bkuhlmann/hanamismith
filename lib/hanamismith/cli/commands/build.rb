@@ -57,6 +57,14 @@ module Hanamismith
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,
+          Rubysmith::Builders::DevContainer::Dockerfile,
+          Rubysmith::Builders::DevContainer::Compose,
+          Rubysmith::Builders::DevContainer::Configuration,
+          Rubysmith::Builders::Docker::Build,
+          Rubysmith::Builders::Docker::Console,
+          Rubysmith::Builders::Docker::Entrypoint,
+          Rubysmith::Builders::Docker::File,
+          Rubysmith::Builders::Docker::Ignore,
           Rubysmith::Extensions::Bundler,
           Rubysmith::Extensions::Pragmater,
           Rubysmith::Extensions::Tocer,
@@ -74,6 +82,7 @@ module Hanamismith
 
         on Rubysmith::CLI::Actions::Name, settings: Container[:settings]
         on Rubysmith::CLI::Actions::AmazingPrint, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Bootsnap, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Caliber, settings: Container[:settings]
         on Rubysmith::CLI::Actions::CircleCI, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Citation, settings: Container[:settings]
@@ -81,13 +90,17 @@ module Hanamismith
         on Rubysmith::CLI::Actions::Conduct, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Console, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Contributions, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::DCOO, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Debug, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::DevContainer, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Docker, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Funding, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Git, settings: Container[:settings]
         on Rubysmith::CLI::Actions::GitHub, settings: Container[:settings]
         on Rubysmith::CLI::Actions::GitHubCI, settings: Container[:settings]
         on Rubysmith::CLI::Actions::GitLint, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Guard, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::IRBKit, settings: Container[:settings]
         on Rubysmith::CLI::Actions::License, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Maximum, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Minimum, settings: Container[:settings]
@@ -96,10 +109,12 @@ module Hanamismith
         on Rubysmith::CLI::Actions::Reek, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Refinements, settings: Container[:settings]
         on Rubysmith::CLI::Actions::RSpec, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::RTC, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Security, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Setup, settings: Container[:settings]
         on Rubysmith::CLI::Actions::SimpleCov, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Versions, settings: Container[:settings]
+        on Rubysmith::CLI::Actions::Zeitwerk, settings: Container[:settings]
 
         def initialize(builders: BUILDERS, **)
           super(**)
