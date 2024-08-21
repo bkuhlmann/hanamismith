@@ -5,15 +5,15 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::Rack::Deflater do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new settings: }
+  subject(:builder) { described_class.new settings:, logger: }
 
   include_context "with application dependencies"
 
   describe "#call" do
     before do
       settings.merge! settings.minimize
-      Hanamismith::Builders::Core.new(settings:).call
-      Hanamismith::Builders::Rack::Attack.new(settings:).call
+      Hanamismith::Builders::Core.new(settings:, logger:).call
+      Hanamismith::Builders::Rack::Attack.new(settings:, logger:).call
     end
 
     it "adds middleware to application configuration" do

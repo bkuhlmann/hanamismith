@@ -6,7 +6,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
   using Refinements::Pathname
   using Refinements::Struct
 
-  subject(:builder) { described_class.new settings: }
+  subject(:builder) { described_class.new settings:, logger: }
 
   include_context "with application dependencies"
 

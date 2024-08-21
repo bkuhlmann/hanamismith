@@ -123,7 +123,7 @@ module Hanamismith
 
         def call
           log_info "Building project skeleton: #{settings.project_name}..."
-          builders.each { |constant| constant.new(settings:).call }
+          builders.each { |constant| constant.new(settings:, logger:).call }
           log_info "Project skeleton complete!"
         end
 

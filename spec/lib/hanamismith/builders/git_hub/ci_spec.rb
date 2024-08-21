@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::GitHub::CI do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new settings: }
+  subject(:builder) { described_class.new settings:, logger: }
 
   let(:yaml_path) { temp_dir.join "test/.github/workflows/ci.yml" }
 
