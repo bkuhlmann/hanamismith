@@ -31,6 +31,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
           using Refinements::Pathname
 
+          ENV["LD_PRELOAD"] = nil
           Capybara.app = Hanami.app
           Capybara.server = :puma, {Silent: true, Threads: "0:1"}
           Capybara.javascript_driver = :cuprite
