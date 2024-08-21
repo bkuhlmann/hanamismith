@@ -16,7 +16,7 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
       builder.call
     end
 
-    it "adds configuration" do
+    it "builds initializer" do
       expect(temp_dir.join("test/config/initializers/rack_attack.rb").exist?).to be(true)
     end
 

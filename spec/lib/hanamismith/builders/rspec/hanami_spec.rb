@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_rspec: true }
 
-      it "adds helper" do
+      it "builds file" do
         builder.call
 
         expect(temp_dir.join("test/spec/hanami_helper.rb").read).to eq(<<~CONTENT)
@@ -74,7 +74,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't add helper" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test/spec/hanami_helper.rb").exist?).to be(false)
       end

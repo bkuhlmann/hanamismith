@@ -10,15 +10,15 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
   include_context "with application dependencies"
 
   describe "#call" do
-    let(:spec_helper_path) { temp_dir.join "test/spec/spec_helper.rb" }
+    let(:path) { temp_dir.join "test/spec/spec_helper.rb" }
 
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_rspec: true }
 
-      it "adds helper" do
+      it "builds file" do
         builder.call
 
-        expect(spec_helper_path.read).to eq(<<~CONTENT)
+        expect(path.read).to eq(<<~CONTENT)
           Bundler.require :tools
 
 
@@ -103,9 +103,9 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
         BODY
       end
 
-      it "builds spec helper" do
+      it "builds file" do
         builder.call
-        expect(spec_helper_path.read).to eq(proof)
+        expect(path.read).to eq(proof)
       end
 
       it "answers true" do
@@ -116,7 +116,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't add helper" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test/spec/spec_helper.rb").exist?).to be(false)
       end

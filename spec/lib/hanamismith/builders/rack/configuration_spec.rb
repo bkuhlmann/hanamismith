@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Rack::Configuration do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds configuration" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/config.ru").read).to eq(<<~CONTENT)

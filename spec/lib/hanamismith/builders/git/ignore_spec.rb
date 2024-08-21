@@ -14,7 +14,7 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
     context "with enabled" do
       before { settings.merge! settings.minimize.merge build_git: true }
 
-      it "builds Git ignore" do
+      it "builds file" do
         builder.call
 
         expect(temp_dir.join("test/.gitignore").read).to eq(<<~CONTENT)
@@ -34,7 +34,7 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
     context "with disabled" do
       before { settings.merge! settings.minimize }
 
-      it "does not build file" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test/.gitignore").exist?).to be(false)
       end

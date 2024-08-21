@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Node do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds package" do
+    it "builds configuration" do
       builder.call
 
       expect(temp_dir.join("test/package.json").read).to eq(<<~CONTENT)

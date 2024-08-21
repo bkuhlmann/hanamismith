@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Core do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "adds action" do
+    it "builds action" do
       builder.call
 
       expect(temp_dir.join("test/app/action.rb").read).to eq(<<~CONTENT)
@@ -26,7 +26,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds repository" do
+    it "builds repository" do
       builder.call
 
       expect(temp_dir.join("test/app/repository.rb").read).to eq(<<~CONTENT)
@@ -43,7 +43,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds view" do
+    it "builds view" do
       builder.call
 
       expect(temp_dir.join("test/app/view.rb").read).to eq(<<~CONTENT)
@@ -59,7 +59,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds application configuration" do
+    it "builds application configuration" do
       builder.call
 
       expect(temp_dir.join("test/config/app.rb").read).to eq(<<~CONTENT)
@@ -90,7 +90,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds routes configuration" do
+    it "builds routes configuration" do
       builder.call
 
       expect(temp_dir.join("test/config/routes.rb").read).to eq(<<~CONTENT)
@@ -104,7 +104,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds settings configuration" do
+    it "builds settings configuration" do
       builder.call
 
       expect(temp_dir.join("test/config/settings.rb").read).to eq(<<~CONTENT)
@@ -117,7 +117,7 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds types" do
+    it "builds types" do
       builder.call
 
       expect(temp_dir.join("test/lib/test/types.rb").read).to eq(<<~CONTENT)
@@ -134,22 +134,22 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
-    it "adds migrate directory" do
+    it "builds migrate directory" do
       builder.call
       expect(temp_dir.join("test/db/migrate").exist?).to be(true)
     end
 
-    it "adds public HTTP 404 error page" do
+    it "builds public HTTP 404 error page" do
       builder.call
       expect(temp_dir.join("test/public/404.html").exist?).to be(true)
     end
 
-    it "adds public HTTP 500 error page" do
+    it "builds public HTTP 500 error page" do
       builder.call
       expect(temp_dir.join("test/public/500.html").exist?).to be(true)
     end
 
-    it "adds temp directory" do
+    it "builds temp directory" do
       builder.call
       expect(temp_dir.join("test/tmp").exist?).to be(true)
     end

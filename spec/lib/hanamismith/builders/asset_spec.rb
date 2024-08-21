@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Asset do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds stylesheet" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/config/assets.js").read).to eq(<<~CONTENT)

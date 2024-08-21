@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Environments::Development do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds environment configuration" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/.env.development").read).to eq(<<~CONTENT)

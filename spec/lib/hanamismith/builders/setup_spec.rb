@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_setup: true }
 
-      it "appends script" do
+      it "appends file" do
         builder.call
 
         expect(build_path.read).to eq(<<~CONTENT)
@@ -54,7 +54,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     context "when enabled with debug" do
       before { settings.merge! settings.minimize.merge build_setup: true, build_debug: true }
 
-      it "appends script" do
+      it "appends file" do
         builder.call
 
         expect(build_path.read).to eq(<<~CONTENT)
@@ -94,7 +94,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "does not build setup script" do
+      it "doesn't build file" do
         builder.call
         expect(build_path.exist?).to be(false)
       end

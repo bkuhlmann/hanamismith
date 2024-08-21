@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
     context "with maximum flags" do
       before { settings.merge! settings.maximize }
 
-      it "updates Rakefile" do
+      it "updates file" do
         builder.call
 
         result = temp_dir.join("test/Rakefile").read.start_with? <<~CONTENT
@@ -32,7 +32,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
     context "with minimum flags" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't build Rakefile" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test/Rakefile").exist?).to be(false)
       end

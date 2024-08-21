@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_caliber: true }
 
-      it "updates RuboCop configuration" do
+      it "updates configuration" do
         builder.call
 
         expect(temp_dir.join("test/.config/rubocop/config.yml").read).to eq(<<~CONTENT)
@@ -32,7 +32,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't create RuboCop configuration" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test/.rubocop.yml").exist?).to be(false)
       end

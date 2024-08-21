@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "adds configuration" do
+    it "builds configuration" do
       builder.call
 
       expect(temp_dir.join("test/config/slices/health.rb").read).to eq(<<~CONTENT)
@@ -23,7 +23,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds action" do
+    it "builds action" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/action.rb").read).to eq(<<~CONTENT)
@@ -37,7 +37,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds view" do
+    it "builds view" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/view.rb").read).to eq(<<~CONTENT)
@@ -51,7 +51,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds layout template" do
+    it "builds layout template" do
       builder.call
 
       template = temp_dir.join("test/slices/health/templates/layouts/app.html.erb").read
@@ -60,7 +60,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       expect(template).to eq(proof)
     end
 
-    it "adds show template" do
+    it "builds show template" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/templates/show.html.erb").read).to eq(<<~CONTENT)
@@ -71,7 +71,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds context" do
+    it "builds context" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/views/context.rb").read).to eq(<<~CONTENT)
@@ -88,7 +88,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds show view" do
+    it "builds show view" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/views/show.rb").read).to eq(<<~CONTENT)
@@ -103,7 +103,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds show action" do
+    it "builds show action" do
       builder.call
 
       expect(temp_dir.join("test/slices/health/actions/show.rb").read).to eq(<<~CONTENT)
@@ -124,7 +124,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       CONTENT
     end
 
-    it "adds action spec" do
+    it "builds action spec" do
       builder.call
 
       expect(temp_dir.join("test/spec/slices/health/actions/show_spec.rb").read).to eq(<<~CONTENT)

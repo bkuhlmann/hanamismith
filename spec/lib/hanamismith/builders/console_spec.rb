@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::Console do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_console: true }
 
-      it "builds console script" do
+      it "builds file" do
         builder.call
 
         expect(build_path.read).to eq(<<~CONTENT)
@@ -44,7 +44,7 @@ RSpec.describe Hanamismith::Builders::Console do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "does not build console script" do
+      it "doesn't build file" do
         builder.call
         expect(build_path.exist?).to be(false)
       end

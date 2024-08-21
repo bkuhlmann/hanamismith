@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
   describe "#call" do
     before { builder.call }
 
-    it "adds configuration" do
+    it "builds configuration" do
       expect(temp_dir.join("test/config/slices/home.rb").read).to eq(<<~CONTENT)
         module Home
           # The home slice configuration.
@@ -24,7 +24,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds action" do
+    it "builds action" do
       expect(temp_dir.join("test/slices/home/action.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -36,7 +36,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds repository" do
+    it "builds repository" do
       expect(temp_dir.join("test/slices/home/repository.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -48,7 +48,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds view" do
+    it "builds view" do
       expect(temp_dir.join("test/slices/home/view.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -60,7 +60,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds context" do
+    it "builds context" do
       expect(temp_dir.join("test/slices/home/views/context.rb").read).to eq(<<~CONTENT)
         # auto_register: false
 
@@ -75,21 +75,21 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds layout template" do
+    it "builds layout template" do
       template = temp_dir.join("test/slices/home/templates/layouts/app.html.erb").read
       proof = SPEC_ROOT.join("support/fixtures/views/home-layout.html").read
 
       expect(template).to eq(proof)
     end
 
-    it "adds show template" do
+    it "builds show template" do
       template = temp_dir.join("test/slices/home/templates/show.html.erb").read
       proof = SPEC_ROOT.join("support/fixtures/views/show.html").read
 
       expect(template).to eq(proof)
     end
 
-    it "adds show view" do
+    it "builds show view" do
       expect(temp_dir.join("test/slices/home/views/show.rb").read).to eq(<<~CONTENT)
         module Home
           module Views
@@ -103,7 +103,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds show action" do
+    it "builds show action" do
       expect(temp_dir.join("test/slices/home/actions/show.rb").read).to eq(<<~CONTENT)
         module Home
           module Actions
@@ -115,7 +115,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       CONTENT
     end
 
-    it "adds feature spec" do
+    it "builds feature spec" do
       expect(temp_dir.join("test/spec/features/home_spec.rb").read).to eq(<<~CONTENT)
         RSpec.describe "Home", :web do
           it "renders home page" do

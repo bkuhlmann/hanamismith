@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Providers::YJIT do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "adds configuration" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/config/providers/yjit.rb").read).to eq(<<~CONTENT)

@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Factory do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_rspec: true }
 
-      it "adds factory configuration" do
+      it "builds file" do
         builder.call
 
         expect(path.read).to eq(<<~CONTENT)
@@ -36,7 +36,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Factory do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't add factory configuration" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join(path).exist?).to be(false)
       end

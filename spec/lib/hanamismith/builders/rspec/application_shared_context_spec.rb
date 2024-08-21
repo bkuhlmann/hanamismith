@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_rspec: true }
 
-      it "adds shared context" do
+      it "builds file" do
         builder.call
 
         expect(path.read).to eq(<<~CONTENT)
@@ -24,14 +24,22 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
           end
         CONTENT
       end
+
+      it "answers true" do
+        expect(builder.call).to be(true)
+      end
     end
 
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't add shared context" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join(path).exist?).to be(false)
+      end
+
+      it "answers false" do
+        expect(builder.call).to be(false)
       end
     end
   end

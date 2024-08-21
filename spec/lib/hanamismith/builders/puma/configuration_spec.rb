@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds configuration" do
+    it "builds file" do
       settings.merge! settings.minimize
       builder.call
 

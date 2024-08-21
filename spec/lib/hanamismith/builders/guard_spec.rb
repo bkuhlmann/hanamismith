@@ -9,16 +9,16 @@ RSpec.describe Hanamismith::Builders::Guard do
 
   include_context "with application dependencies"
 
-  let(:configuration_path) { temp_dir.join "test", "Guardfile" }
-
   describe "#call" do
+    let(:path) { temp_dir.join "test", "Guardfile" }
+
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_guard: true }
 
-      it "builds configuration" do
+      it "builds file" do
         builder.call
 
-        expect(configuration_path.read).to include(<<~CONTENT)
+        expect(path.read).to include(<<~CONTENT)
           guard :rspec, cmd: "NO_COVERAGE=true bin/rspec --format documentation" do
             require "guard/rspec/dsl"
 
@@ -46,9 +46,9 @@ RSpec.describe Hanamismith::Builders::Guard do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't build configuration" do
+      it "doesn't build file" do
         builder.call
-        expect(configuration_path.exist?).to be(false)
+        expect(path.exist?).to be(false)
       end
 
       it "answers false" do

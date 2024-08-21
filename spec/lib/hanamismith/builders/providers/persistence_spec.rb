@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Providers::Persistence do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "adds configuration" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/config/providers/persistence.rb").read).to eq(<<~CONTENT)

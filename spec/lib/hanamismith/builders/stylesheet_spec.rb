@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds home slice application stylesheet" do
+    it "builds home slice file" do
       builder.call
       expect(temp_dir.join("test/slices/home/assets/css/app.css").exist?).to be(true)
     end

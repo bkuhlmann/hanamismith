@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
         settings.merge! settings.minimize.merge build_readme: true, documentation_format: "adoc"
       end
 
-      it "builds README" do
+      it "builds file" do
         builder.call
 
         expect(temp_dir.join("test", "README.adoc").read).to include(
@@ -33,7 +33,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
         settings.merge! settings.minimize.merge build_readme: true, documentation_format: "md"
       end
 
-      it "builds README" do
+      it "builds file" do
         builder.call
 
         expect(temp_dir.join("test", "README.md").read).to include(
@@ -49,7 +49,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "doesn't build README" do
+      it "doesn't build file" do
         builder.call
         expect(temp_dir.join("test", "README.adoc").exist?).to be(false)
       end

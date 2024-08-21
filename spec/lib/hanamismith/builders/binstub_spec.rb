@@ -10,12 +10,12 @@ RSpec.describe Hanamismith::Builders::Binstub do
   include_context "with application dependencies"
 
   describe "#call" do
-    let(:binstub_path) { temp_dir.join "test/bin/hanami" }
+    let(:path) { temp_dir.join "test/bin/hanami" }
 
-    it "builds binstub" do
+    it "builds file" do
       builder.call
 
-      expect(binstub_path.read).to eq(<<~CONTENT)
+      expect(path.read).to eq(<<~CONTENT)
         #! /usr/bin/env ruby
 
         require "bundler/setup"
@@ -41,7 +41,7 @@ RSpec.describe Hanamismith::Builders::Binstub do
 
     it "updates file permissions" do
       builder.call
-      expect(binstub_path.stat.mode).to eq(33261)
+      expect(path.stat.mode).to eq(33261)
     end
 
     it "answers true" do

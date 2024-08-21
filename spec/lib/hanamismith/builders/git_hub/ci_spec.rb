@@ -15,7 +15,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
     context "when enabled" do
       before { settings.merge! settings.minimize.merge build_git_hub_ci: true }
 
-      it "does not build YAML template" do
+      it "builds file" do
         builder.call
 
         expect(yaml_path.read).to eq(<<~CONTENT)
@@ -96,7 +96,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
         settings.merge! settings.minimize.merge build_git_hub_ci: true, build_simple_cov: true
       end
 
-      it "does not build YAML template" do
+      it "builds file" do
         builder.call
 
         expect(yaml_path.read).to eq(<<~CONTENT)
@@ -181,7 +181,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
     context "when disabled" do
       before { settings.merge! settings.minimize }
 
-      it "does not build YAML template" do
+      it "doesn't build file" do
         builder.call
         expect(yaml_path.exist?).to be(false)
       end

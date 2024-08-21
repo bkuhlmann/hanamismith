@@ -10,7 +10,7 @@ RSpec.describe Hanamismith::Builders::Javascript do
   include_context "with application dependencies"
 
   describe "#call" do
-    it "builds home slice application JavaScript" do
+    it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/slices/home/assets/js/app.js").read).to eq(
