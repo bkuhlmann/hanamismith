@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/bkuhlmann/hanamismith/issues",
     "changelog_uri" => "https://alchemists.io/projects/hanamismith/versions",
-    "documentation_uri" => "https://alchemists.io/projects/hanamismith",
+    "homepage_uri" => "https://alchemists.io/projects/hanamismith",
     "funding_uri" => "https://github.com/sponsors/bkuhlmann",
     "label" => "Hanamismith",
     "rubygems_mfa_required" => "true",
