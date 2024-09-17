@@ -19,7 +19,7 @@ RSpec.describe Hanamismith::Builders::Core do
         require "hanami/action"
 
         module Test
-          # The application action.
+          # The application base action.
           class Action < Hanami::Action
           end
         end
@@ -52,7 +52,7 @@ RSpec.describe Hanamismith::Builders::Core do
         require "hanami/view"
 
         module Test
-          # The application view.
+          # The application base view.
           class View < Hanami::View
           end
         end
@@ -66,7 +66,7 @@ RSpec.describe Hanamismith::Builders::Core do
         require "hanami"
 
         module Test
-          # Defines global application configuration.
+          # The application base configuration.
           class App < Hanami::App
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
@@ -95,7 +95,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
       expect(temp_dir.join("test/config/routes.rb").read).to eq(<<~CONTENT)
         module Test
-          # Defines application routes.
+          # The application base routes.
           class Routes < Hanami::Routes
             slice(:health, at: "/up") { root to: "show" }
             slice(:home, at: "/") { root to: "show" }
@@ -109,7 +109,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
       expect(temp_dir.join("test/config/settings.rb").read).to eq(<<~CONTENT)
         module Test
-          # Defines application settings.
+          # The application base settings.
           class Settings < Hanami::Settings
             setting :database_url, constructor: Types::Params::String
           end

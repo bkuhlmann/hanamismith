@@ -29,7 +29,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
         # auto_register: false
 
         module Home
-          # The home action.
+          # The slice base action.
           class Action < Test::Action
           end
         end
@@ -53,7 +53,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
         # auto_register: false
 
         module Home
-          # The home view.
+          # The slice base view.
           class View < Test::View
           end
         end
@@ -66,7 +66,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
 
         module Home
           module Views
-            # Defines custom context.
+            # The slice view context.
             class Context < Hanami::View::Context
               include Deps[app_assets: "app.assets"]
             end
@@ -93,7 +93,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       expect(temp_dir.join("test/slices/home/views/show.rb").read).to eq(<<~CONTENT)
         module Home
           module Views
-            # Renders show view.
+            # The show view.
             class Show < Home::View
               expose :ruby_version, default: RUBY_VERSION
               expose :hanami_version, default: Hanami::VERSION
@@ -107,7 +107,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
       expect(temp_dir.join("test/slices/home/actions/show.rb").read).to eq(<<~CONTENT)
         module Home
           module Actions
-            # Processes show action.
+            # The show action.
             class Show < Home::Action
             end
           end

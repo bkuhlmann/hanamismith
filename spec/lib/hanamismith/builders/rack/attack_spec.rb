@@ -27,7 +27,7 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
         require_relative "initializers/rack_attack"
 
         module Test
-          # Defines global application configuration.
+          # The application base configuration.
           class App < Hanami::App
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads

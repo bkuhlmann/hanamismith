@@ -30,7 +30,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
         # auto_register: false
 
         module Health
-          # The health action.
+          # The slice base action.
           class Action < Test::Action
           end
         end
@@ -44,7 +44,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
         # auto_register: false
 
         module Health
-          # The health view.
+          # The slice base view.
           class View < Test::View
           end
         end
@@ -79,7 +79,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
 
         module Health
           module Views
-            # Defines custom context.
+            # The slice view context.
             class Context < Hanami::View::Context
               include Deps[app_assets: "app.assets"]
             end
@@ -94,7 +94,7 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
       expect(temp_dir.join("test/slices/health/views/show.rb").read).to eq(<<~CONTENT)
         module Health
           module Views
-            # Renders show view.
+            # The show view.
             class Show < Health::View
               expose :color
             end

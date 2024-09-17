@@ -1,7 +1,7 @@
 require "hanami"
 
 <% namespace do %>
-  # Defines global application configuration.
+  # The application base configuration.
   class App < Hanami::App
     Dry::Schema.load_extensions :monads
     Dry::Validation.load_extensions :monads
