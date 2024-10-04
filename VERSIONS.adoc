@@ -1,5 +1,13 @@
 = Versions
 
+== 0.46.0 (2024-10-04)
+
+* ✅ Fixed PWA mobile web app capable meta tag - Brooke Kuhlmann
+* ✅ Fixed missing container transforms - Brooke Kuhlmann
+* 🔼 Updated application and slice base object descriptions - Brooke Kuhlmann
+* 🔼 Updated to Node 22.9.0 - Brooke Kuhlmann
+* 🔼 Updated to Refinements 12.9.0 - Brooke Kuhlmann
+
 == 0.45.0 (2024-09-07)
 
 * 🔼 Updated to Ruby 3.3.5 - Brooke Kuhlmann
