@@ -75,9 +75,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                   run: npm install
 
                 - name: Database Setup
-                  run: |
-                    bin/hanami db create
-                    bin/hanami db migrate
+                  run: bin/hanami db prepare
 
                 - name: Build
                   run: |
@@ -156,9 +154,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
                   run: npm install
 
                 - name: Database Setup
-                  run: |
-                    bin/hanami db create
-                    bin/hanami db migrate
+                  run: bin/hanami db prepare
 
                 - name: Build
                   run: |

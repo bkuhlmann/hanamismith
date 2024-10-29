@@ -28,7 +28,9 @@ test/VERSIONS.adoc
 test/app/action.rb
 test/app/assets/images/icon.svg
 test/app/assets/pwa/manifest.webmanifest
-test/app/repository.rb
+test/app/db/relation.rb
+test/app/db/repository.rb
+test/app/db/struct.rb
 test/app/view.rb
 test/bin/console
 test/bin/docker/build
@@ -43,7 +45,6 @@ test/bin/setup
 test/config/app.rb
 test/config/assets.js
 test/config/initializers/rack_attack.rb
-test/config/providers/persistence.rb
 test/config/providers/yjit.rb
 test/config/puma.rb
 test/config/routes.rb
@@ -78,7 +79,5 @@ test/spec/hanami_helper.rb
 test/spec/lib/test/refines/actions/response_spec.rb
 test/spec/slices/health/actions/show_spec.rb
 test/spec/spec_helper.rb
-test/spec/support/database.rb
-test/spec/support/factory.rb
 test/spec/support/shared_contexts/application.rb
 test/spec/support/shared_contexts/temp_dir.rb

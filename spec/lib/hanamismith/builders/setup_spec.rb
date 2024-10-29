@@ -38,10 +38,7 @@ RSpec.describe Hanamismith::Builders::Setup do
             Runner.call "npm install"
 
             puts "Configurating databases..."
-            Runner.call "bin/hanami db create"
-            Runner.call "bin/hanami db migrate"
-            Runner.call "HANAMI_ENV=test bin/hanami db create"
-            Runner.call "HANAMI_ENV=test bin/hanami db migrate"
+            Runner.call "bin/hanami db prepare"
           end
         CONTENT
       end
@@ -78,10 +75,7 @@ RSpec.describe Hanamismith::Builders::Setup do
             Runner.call "npm install"
 
             puts "Configurating databases..."
-            Runner.call "bin/hanami db create"
-            Runner.call "bin/hanami db migrate"
-            Runner.call "HANAMI_ENV=test bin/hanami db create"
-            Runner.call "HANAMI_ENV=test bin/hanami db migrate"
+            Runner.call "bin/hanami db prepare"
           end
         CONTENT
       end

@@ -13,7 +13,6 @@ module Hanamismith
         BUILDERS = [
           Rubysmith::Builders::Init,
           Builders::Core,
-          Builders::Providers::Persistence,
           Builders::Providers::YJIT,
           Builders::Refinement,
           Builders::Icon,
@@ -47,8 +46,6 @@ module Hanamismith
           Rubysmith::Builders::RSpec::Binstub,
           Rubysmith::Builders::RSpec::Context,
           Builders::RSpec::ApplicationSharedContext,
-          Builders::RSpec::Database,
-          Builders::RSpec::Factory,
           Builders::RSpec::Helper,
           Builders::RSpec::Hanami,
           Builders::Rack::Configuration,

@@ -15,12 +15,21 @@ module Hanamismith
 
       private
 
-      def add_action
-        builder.call(settings.merge(template_path: "%project_name%/app/action.rb.erb")).render
+      def add_db_relation
+        builder.call(settings.merge(template_path: "%project_name%/app/db/relation.rb.erb")).render
       end
 
-      def add_repository
-        builder.call(settings.merge(template_path: "%project_name%/app/repository.rb.erb")).render
+      def add_db_repository
+        builder.call(settings.merge(template_path: "%project_name%/app/db/repository.rb.erb"))
+               .render
+      end
+
+      def add_db_struct
+        builder.call(settings.merge(template_path: "%project_name%/app/db/struct.rb.erb")).render
+      end
+
+      def add_action
+        builder.call(settings.merge(template_path: "%project_name%/app/action.rb.erb")).render
       end
 
       def add_view

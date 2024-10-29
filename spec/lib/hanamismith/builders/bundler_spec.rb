@@ -32,20 +32,20 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "htmx", "~> 1.0"
           gem "puma", "~> 6.4"
           gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.1"
-          gem "hanami-assets", "~> 2.1"
-          gem "hanami-cli", "~> 2.1"
-          gem "hanami-controller", "~> 2.1"
-          gem "hanami-router", "~> 2.1"
-          gem "hanami-validations", "~> 2.1"
-          gem "hanami-view", "~> 2.1"
+          gem "hanami", "~> 2.2.0"
+          gem "hanami-assets", "~> 2.2.0"
+          gem "hanami-controller", "~> 2.2.0"
+          gem "hanami-db", "~> 2.2.0"
+          gem "hanami-router", "~> 2.2.0"
+          gem "hanami-validations", "~> 2.2.0"
+          gem "hanami-view", "~> 2.2.0"
 
           group :development, :test do
             gem "dotenv", "~> 3.0"
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.1"
+            gem "hanami-webconsole", "~> 2.2.0"
             gem "localhost", "~> 1.2"
             gem "rerun", "~> 0.14"
           end
@@ -82,13 +82,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "htmx", "~> 1.0"
           gem "puma", "~> 6.4"
           gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.1"
-          gem "hanami-assets", "~> 2.1"
-          gem "hanami-cli", "~> 2.1"
-          gem "hanami-controller", "~> 2.1"
-          gem "hanami-router", "~> 2.1"
-          gem "hanami-validations", "~> 2.1"
-          gem "hanami-view", "~> 2.1"
+          gem "hanami", "~> 2.2.0"
+          gem "hanami-assets", "~> 2.2.0"
+          gem "hanami-controller", "~> 2.2.0"
+          gem "hanami-db", "~> 2.2.0"
+          gem "hanami-router", "~> 2.2.0"
+          gem "hanami-validations", "~> 2.2.0"
+          gem "hanami-view", "~> 2.2.0"
           gem "bootsnap", "~> 1.18"
           gem "refinements", "~> 12.10"
 
@@ -106,7 +106,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.1"
+            gem "hanami-webconsole", "~> 2.2.0"
             gem "localhost", "~> 1.2"
             gem "rerun", "~> 0.14"
             gem "rake", "~> 13.2"

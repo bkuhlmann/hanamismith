@@ -10,6 +10,54 @@ RSpec.describe Hanamismith::Builders::Core do
   include_context "with application dependencies"
 
   describe "#call" do
+    it "builds database relation" do
+      builder.call
+
+      expect(temp_dir.join("test/app/db/relation.rb").read).to eq(<<~CONTENT)
+        require "hanami/db/relation"
+
+        module Test
+          module DB
+            # The application database base relation.
+            class Relation < Hanami::DB::Relation
+            end
+          end
+        end
+      CONTENT
+    end
+
+    it "builds database repository" do
+      builder.call
+
+      expect(temp_dir.join("test/app/db/repository.rb").read).to eq(<<~CONTENT)
+        require "hanami/db/repo"
+
+        module Test
+          module DB
+            # The application database base repository.
+            class Repository < Hanami::DB::Repo
+            end
+          end
+        end
+      CONTENT
+    end
+
+    it "builds database struct" do
+      builder.call
+
+      expect(temp_dir.join("test/app/db/struct.rb").read).to eq(<<~CONTENT)
+        require "hanami/db/struct"
+
+        module Test
+          module DB
+            # The application database base struct.
+            class Struct < Hanami::DB::Struct
+            end
+          end
+        end
+      CONTENT
+    end
+
     it "builds action" do
       builder.call
 
@@ -21,23 +69,6 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base action.
           class Action < Hanami::Action
-          end
-        end
-      CONTENT
-    end
-
-    it "builds repository" do
-      builder.call
-
-      expect(temp_dir.join("test/app/repository.rb").read).to eq(<<~CONTENT)
-        # auto_register: false
-
-        require "rom-repository"
-
-        module Test
-          # The application repository.
-          class Repository < ROM::Repository::Root
-            include Deps[container: "persistence.rom"]
           end
         end
       CONTENT
@@ -111,7 +142,6 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base settings.
           class Settings < Hanami::Settings
-            setting :database_url, constructor: Types::Params::String
           end
         end
       CONTENT
@@ -126,9 +156,8 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           Types = Dry.Types
 
-          # Defines custom types.
+          # The custom types.
           module Types
-            # Add custom types here.
           end
         end
       CONTENT

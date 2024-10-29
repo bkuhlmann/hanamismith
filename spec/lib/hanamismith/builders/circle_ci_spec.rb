@@ -85,9 +85,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
 
                 - run:
                     name: Database Setup
-                    command: |
-                      bin/hanami db create
-                      bin/hanami db migrate
+                    command: bin/hanami db prepare
 
                 - run:
                     name: Build
@@ -177,9 +175,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
 
                 - run:
                     name: Database Setup
-                    command: |
-                      bin/hanami db create
-                      bin/hanami db migrate
+                    command: bin/hanami db prepare
 
                 - run:
                     name: Build

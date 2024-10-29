@@ -20,14 +20,14 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
           require "capybara/cuprite"
           require "capybara/rspec"
           require "database_cleaner/sequel"
+          require "dry/monads"
           require "rack/test"
+          require "rom-factory"
           require "spec_helper"
 
           ENV["HANAMI_ENV"] = "test"
 
           require "hanami/prepare"
-          require_relative "support/database"
-          require_relative "support/factory"
 
           using Refinements::Pathname
 
@@ -41,27 +41,39 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
             Capybara::Cuprite::Driver.new app, browser_options:, window_size: [1920, 1080]
           end
 
-          DatabaseCleaner[:sequel].strategy = :transaction
-
           Pathname.require_tree SPEC_ROOT.join("support/factories")
 
           RSpec.configure do |config|
             config.include Capybara::DSL, Capybara::RSpecMatchers, :web
+            config.include Dry::Monads[:result]
             config.include Rack::Test::Methods, type: :request
-            config.include Test::Database, :db
+
             config.include_context "with Hanami application", type: :request
 
+            databases = proc do
+              Hanami.app.slices.with_nested.prepend(Hanami.app).each.with_object Set.new do |slice, dbs|
+                next unless slice.key? "db.rom"
+
+                dbs.merge slice["db.rom"].gateways.values.map(&:connection).to_enum
+              end
+            end
+
             config.before :suite do
-              Hanami.app.start :persistence
-              DatabaseCleaner[:sequel].clean_with :truncation
+              databases.call.each do |db|
+                DatabaseCleaner[:sequel, db:].clean_with :truncation, except: ["schema_migrations"]
+              end
             end
 
             config.prepend_before :each, :db do |example|
-              DatabaseCleaner[:sequel].strategy = example.metadata[:js] ? :truncation : :transaction
-              DatabaseCleaner[:sequel].start
+              databases.call.each do |db|
+                DatabaseCleaner[:sequel, db:].strategy = example.metadata[:js] ? :truncation : :transaction
+                DatabaseCleaner[:sequel, db:].start
+              end
             end
 
-            config.append_after(:each, :db) { DatabaseCleaner[:sequel].clean }
+            config.append_after :each, :db do
+              databases.call.each { |db| DatabaseCleaner[:sequel, db:].clean }
+            end
           end
         CONTENT
       end
