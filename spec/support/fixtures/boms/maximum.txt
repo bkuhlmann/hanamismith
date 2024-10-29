@@ -55,6 +55,7 @@ test/config.ru
 test/lib/test/refines/actions/response.rb
 test/lib/test/types.rb
 test/package.json
+test/public/.well-known/security.txt
 test/public/404.html
 test/public/500.html
 test/slices/health/action.rb

@@ -3,5 +3,9 @@
   class Routes < Hanami::Routes
     slice(:health, at: "/up") { root to: "show" }
     slice(:home, at: "/") { root to: "show" }
+
+    <% if settings.build_security %>
+    use Rack::Static, root: "public", urls: ["/.well-known/security.txt"]
+    <% end %>
   end
 <% end %>

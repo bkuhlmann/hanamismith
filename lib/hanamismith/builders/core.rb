@@ -57,6 +57,13 @@ module Hanamismith
         builder.call(settings.merge(template_path: "%project_name%/db/migrate")).make_path
       end
 
+      def add_well_known_security_text
+        return unless settings.build_security
+
+        path = "%project_name%/public/.well-known/security.txt.erb"
+        builder.call(settings.merge(template_path: path)).render
+      end
+
       def add_public_http_errors
         %w[404 500].each do |code|
           path = "%project_name%/public/#{code}.html.erb"

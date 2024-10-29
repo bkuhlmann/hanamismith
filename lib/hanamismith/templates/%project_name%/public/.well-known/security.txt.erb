@@ -1,0 +1,7 @@
+Contact: <%= settings.project_uri_security %>
+Encryption: <%= settings.organization_uri %>/keybase.txt
+Policy: <%= settings.project_uri_security %>
+Preferred-Languages: en
+Canonical: <%= settings.organization_uri %>/.well-known/security.txt
+Permission: none
+Expires: <%= (Time.new.utc + (60 * 60 * 24 * 183)).iso8601 %>

@@ -130,6 +130,27 @@ RSpec.describe Hanamismith::Builders::Core do
           class Routes < Hanami::Routes
             slice(:health, at: "/up") { root to: "show" }
             slice(:home, at: "/") { root to: "show" }
+
+
+            use Rack::Static, root: "public", urls: ["/.well-known/security.txt"]
+
+          end
+        end
+      CONTENT
+    end
+
+    it "ignores well known routes when security is disabled" do
+      settings.build_security = false
+      builder.call
+
+      expect(temp_dir.join("test/config/routes.rb").read).to eq(<<~CONTENT)
+        module Test
+          # The application base routes.
+          class Routes < Hanami::Routes
+            slice(:health, at: "/up") { root to: "show" }
+            slice(:home, at: "/") { root to: "show" }
+
+
           end
         end
       CONTENT
@@ -176,6 +197,27 @@ RSpec.describe Hanamismith::Builders::Core do
     it "builds public HTTP 500 error page" do
       builder.call
       expect(temp_dir.join("test/public/500.html").exist?).to be(true)
+    end
+
+    it "builds well known security text when security is enabled" do
+      builder.call
+
+      expect(temp_dir.join("test/public/.well-known/security.txt").read).to match(<<~CONTENT)
+        Contact: https://undefined.io/policies/security
+        Encryption: https://undefined.io/keybase.txt
+        Policy: https://undefined.io/policies/security
+        Preferred-Languages: en
+        Canonical: https://undefined.io/.well-known/security.txt
+        Permission: none
+        Expires: #{/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/}
+      CONTENT
+    end
+
+    it "doesn't build well known security text when security is disabled" do
+      settings.build_security = false
+      builder.call
+
+      expect(temp_dir.join("test/public/.well-known/security.txt").exist?).to be(false)
     end
 
     it "builds temp directory" do
