@@ -1,5 +1,17 @@
 = Versions
 
+== 0.48.0 (2024-11-05)
+
+* 🟢 Added well known security text resource - Brooke Kuhlmann
+* 🔼 Updated to Cogger 0.30.0 - Brooke Kuhlmann
+* 🔼 Updated to Hanami 2.2.0 - Brooke Kuhlmann
+* 🔼 Updated to Node 23.0.0 - Brooke Kuhlmann
+* 🔼 Updated to Node 23.1.0 - Brooke Kuhlmann
+* 🔼 Updated to Refinements 12.10.0 - Brooke Kuhlmann
+* 🔼 Updated to Ruby 3.3.6 - Brooke Kuhlmann
+* 🔼 Updated to Rubysmith 7.8.0 - Brooke Kuhlmann
+* 🔼 Updated to Sod 0.18.0 - Brooke Kuhlmann
+
 == 0.47.0 (2024-10-13)
 
 * 🔼 Updated to Infusible 3.11.0 - Brooke Kuhlmann

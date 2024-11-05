@@ -4,7 +4,6 @@
 
 :capybara_link: link:https://github.com/teamcapybara/capybara[Capybara]
 :cuprite_link: link:https://cuprite.rubycdp.com[Cuprite]
-:dry_link: link:https://dry-rb.org[Dry RB]
 :dotenv_link: link:https://github.com/bkeepers/dotenv[Dotenv]
 :dotfiles_link: link:https://alchemists.io/projects/dotfiles[Dotfiles]
 :hanami_link: link:https://hanamirb.org[Hanami]
@@ -17,23 +16,17 @@
 
 = Hanamismith
 
-Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect when you need a professional and robust tool for building new project skeletons. To quote from the {dry_link} and {hanami_link} teams:
-____
-If you're looking for new ways to build maintainable, secure, faster and testable Ruby applications, you're in for a treat. *Hanami is built for people like you*.
-____
-
-Welcome to the modern age of web development. This gem will help you get up and running as quickly as possible. 🚀
+Hanamismith is a Command Line Interface (CLI) for smithing Hanami projects. Perfect when you need a professional, configurable, and robust tool for building new project skeletons.
 
 toc::[]
 
 == Features
 
 * Built atop {rubysmith_link} for building project skeleton.
-* Uses {dry_link} for functional programming.
 * Uses {hanami_link} for web application development.
-* Uses {htmx_link} for Hypermedia REST APIs (i.e. HTML over the wire) so you can write less code and avoid bloated JavaScript stacks.
+* Uses {htmx_link} for Hypermedia REST so you can write less code and avoid bloated JavaScript stacks.
 * Uses {pg_link} coupled with {rom_link} for database management.
-* Uses {rack_link}, specifically: `Rack::Deflater` and link:https://github.com/rack/rack-attack[Rack::Attack].
+* Uses {rack_link}, specifically: link:https://github.com/rack/rack-attack[Rack::Attack], `Rack::Deflater`, and `Rack::Static`.
 * Uses {puma_link} as the default web server and fully configured for local and production environments.
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
@@ -44,7 +37,7 @@ toc::[]
 
 == Screenshots/Screencasts
 
-image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=695,height=706,role=focal_point]
+image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=702,height=694,role=focal_point]
 
 The above is a screenshot of a _Demo_ project that was generated and run locally. For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project. Here's a quick screencast overview of this demonstration application in action:
 
@@ -120,7 +113,7 @@ bin/setup
 bin/rake
 
 # Develop (red, green, refactor)
-bin/guard
+NO_COVERAGE=true retest
 git commit  # (repeat until finished with implementation)
 
 # Run: With Overmind (recommended)
