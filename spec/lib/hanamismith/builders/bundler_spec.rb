@@ -119,7 +119,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "launchy", "~> 3.0"
             gem "rack-test", "~> 2.1"
             gem "rom-factory", "~> 0.12"
-            gem "guard-rspec", "~> 4.7", require: false
             gem "rspec", "~> 3.13"
           end
 

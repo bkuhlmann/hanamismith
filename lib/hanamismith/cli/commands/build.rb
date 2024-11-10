@@ -40,7 +40,6 @@ module Hanamismith
           Rubysmith::Builders::GitHub::Funding,
           Builders::GitHub::CI,
           Builders::Setup,
-          Builders::Guard,
           Rubysmith::Builders::Reek,
           Rubysmith::Builders::RSpec::Binstub,
           Rubysmith::Builders::RSpec::Context,
@@ -95,7 +94,6 @@ module Hanamismith
         on Rubysmith::CLI::Actions::GitHub, settings: Container[:settings]
         on Rubysmith::CLI::Actions::GitHubCI, settings: Container[:settings]
         on Rubysmith::CLI::Actions::GitLint, settings: Container[:settings]
-        on Rubysmith::CLI::Actions::Guard, settings: Container[:settings]
         on Rubysmith::CLI::Actions::IRBKit, settings: Container[:settings]
         on Rubysmith::CLI::Actions::License, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Maximum, settings: Container[:settings]
