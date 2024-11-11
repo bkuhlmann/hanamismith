@@ -6,7 +6,7 @@ module Hanamismith
   module Extensions
     # Ensures assets are compiled.
     class Asset
-      include Import[:settings, :kernel, :logger]
+      include Dependencies[:settings, :kernel, :logger]
 
       using Refinements::Pathname
 

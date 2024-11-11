@@ -7,7 +7,7 @@ module Hanamismith
     module Commands
       # Handles the build command.
       class Build < Sod::Command
-        include Hanamismith::Import[:settings, :logger]
+        include Dependencies[:settings, :logger]
 
         # Order matters.
         BUILDERS = [

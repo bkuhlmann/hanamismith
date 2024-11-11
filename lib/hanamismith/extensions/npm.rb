@@ -7,7 +7,7 @@ module Hanamismith
   module Extensions
     # Ensures NPM packages are installed if NPM is available.
     class NPM
-      include Import[:settings, :kernel, :logger]
+      include Dependencies[:settings, :kernel, :logger]
 
       using Refinements::IO
       using Refinements::Pathname
