@@ -26,7 +26,7 @@ module Hanamismith
                  Runner.call "npm install"
 
                  puts "Configurating databases..."
-                 Runner.call "bin/hanami db prepare"
+                 Runner.call "hanami db prepare"
                CONTENT
       end
     end

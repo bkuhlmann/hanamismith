@@ -38,7 +38,7 @@ RSpec.describe Hanamismith::Builders::Setup do
             Runner.call "npm install"
 
             puts "Configurating databases..."
-            Runner.call "bin/hanami db prepare"
+            Runner.call "hanami db prepare"
           end
         CONTENT
       end
@@ -75,7 +75,7 @@ RSpec.describe Hanamismith::Builders::Setup do
             Runner.call "npm install"
 
             puts "Configurating databases..."
-            Runner.call "bin/hanami db prepare"
+            Runner.call "hanami db prepare"
           end
         CONTENT
       end
