@@ -25,8 +25,11 @@ module Hanamismith
                  puts "Installing packages..."
                  Runner.call "npm install"
 
-                 puts "Configurating databases..."
+                 puts "Configuring databases..."
                  Runner.call "hanami db prepare"
+
+                 puts "Compiling assets..."
+                 Runner.call "hanami assets compile"
                CONTENT
       end
     end

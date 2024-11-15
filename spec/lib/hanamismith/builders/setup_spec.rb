@@ -37,8 +37,11 @@ RSpec.describe Hanamismith::Builders::Setup do
             puts "Installing packages..."
             Runner.call "npm install"
 
-            puts "Configurating databases..."
+            puts "Configuring databases..."
             Runner.call "hanami db prepare"
+
+            puts "Compiling assets..."
+            Runner.call "hanami assets compile"
           end
         CONTENT
       end
@@ -74,8 +77,11 @@ RSpec.describe Hanamismith::Builders::Setup do
             puts "Installing packages..."
             Runner.call "npm install"
 
-            puts "Configurating databases..."
+            puts "Configuring databases..."
             Runner.call "hanami db prepare"
+
+            puts "Compiling assets..."
+            Runner.call "hanami assets compile"
           end
         CONTENT
       end
