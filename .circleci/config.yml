@@ -14,6 +14,10 @@ jobs:
             - gem-cache-
 
       - run:
+          name: Node Install
+          command: apk add nodejs npm
+
+      - run:
           name: Gems Install
           command: |
             gem update --system
