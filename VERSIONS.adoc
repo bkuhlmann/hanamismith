@@ -1,5 +1,12 @@
 = Versions
 
+== 0.49.1 (2024-11-15)
+
+* ✅ Fixed Node builder to dynamically acquire version - Brooke Kuhlmann
+* ✅ Fixed setup script to compile assets - Brooke Kuhlmann
+* ✅ Fixed setup script to not use binstub - Brooke Kuhlmann
+* 🟢 Added Circle CI Node setup - Brooke Kuhlmann
+
 == 0.49.0 (2024-11-09)
 
 * 🔼 Updated to Caliber 0.64.0 - Brooke Kuhlmann
