@@ -16,7 +16,6 @@ test/bin/hanami
 test/config/app.rb
 test/config/assets.js
 test/config/initializers/rack_attack.rb
-test/config/providers/yjit.rb
 test/config/puma.rb
 test/config/routes.rb
 test/config/settings.rb
