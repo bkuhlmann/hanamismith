@@ -1,5 +1,12 @@
 = Versions
 
+== 0.50.0 (2024-11-21)
+
+* ✅ Fixed Rack builders to only check if included - Brooke Kuhlmann
+* 🟢 Added YJIT configuration to core builder - Brooke Kuhlmann
+* 🟢 Added version release notes - Brooke Kuhlmann
+* ⛔️ Removed YJIT provider - Brooke Kuhlmann
+
 == 0.49.1 (2024-11-15)
 
 * ✅ Fixed Node builder to dynamically acquire version - Brooke Kuhlmann
