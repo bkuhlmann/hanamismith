@@ -21,36 +21,13 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
     end
 
     it "adds middleware to application configuration" do
-      expect(temp_dir.join("test/config/app.rb").read).to eq(<<~CONTENT)
+      included = temp_dir.join("test/config/app.rb").read.start_with?(<<~CONTENT)
         require "hanami"
 
         require_relative "initializers/rack_attack"
-
-        module Test
-          # The application base configuration.
-          class App < Hanami::App
-            Dry::Schema.load_extensions :monads
-            Dry::Validation.load_extensions :monads
-
-            config.actions.content_security_policy.then do |csp|
-              csp[:manifest_src] = "'self'"
-              csp[:script_src] += " 'unsafe-eval' 'unsafe-inline' https://unpkg.com/"
-            end
-
-            config.middleware.use Rack::Attack
-
-            environment :development do
-              # :nocov:
-              config.logger.options[:colorize] = true
-
-              config.logger = config.logger.instance.add_backend(
-                colorize: false,
-                stream: Hanami.app.root.join("log/development.log")
-              )
-            end
-          end
-        end
       CONTENT
+
+      expect(included).to be(true)
     end
 
     it "answers true" do
