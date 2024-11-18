@@ -99,6 +99,7 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base configuration.
           class App < Hanami::App
+            RubyVM::YJIT.enable
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
 
