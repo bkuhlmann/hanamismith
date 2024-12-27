@@ -3,13 +3,11 @@
 require "spec_helper"
 
 RSpec.describe Hanamismith::Extensions::Asset do
-  using Refinements::Pathname
-
   subject(:extension) { described_class.new settings: }
 
   include_context "with application dependencies"
 
-  before { temp_dir.join("test").make_path }
+  before { temp_dir.join("test").mkpath }
 
   describe "#call" do
     it "compiles application assets" do

@@ -90,7 +90,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-validations", "~> 2.2.0"
           gem "hanami-view", "~> 2.2.0"
           gem "bootsnap", "~> 1.18"
-          gem "refinements", "~> 12.10"
+          gem "refinements", "~> 13.0"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.3"
