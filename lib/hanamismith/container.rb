@@ -11,7 +11,7 @@ module Hanamismith
   module Container
     extend Containable
 
-    register :registry do
+    register :registry, as: :fresh do
       contract = Rubysmith::Configuration::Contract
       model = Rubysmith::Configuration::Model
 
