@@ -52,7 +52,7 @@ module Hanamismith
           gem "dry-types", "~> 1.7"
           gem "dry-validation", "~> 1.10"
           gem "htmx", "~> 1.0"
-          gem "puma", "~> 6.5"
+          gem "puma", "~> 6.6"
           gem "rack-attack", "~> 6.7"
         CONTENT
       end
