@@ -84,7 +84,7 @@ module Hanamismith
       def insert_development
         with_template.insert_after(/group :development do/, <<~CONTENT.gsub("gem", "  gem"))
           gem "hanami-webconsole", "~> 2.2.0"
-          gem "localhost", "~> 1.2"
+          gem "localhost", "~> 1.3"
           gem "rerun", "~> 0.14"
         CONTENT
       end
