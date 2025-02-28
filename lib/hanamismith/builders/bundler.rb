@@ -75,7 +75,7 @@ module Hanamismith
         with_template.insert_before(/group :development/, <<~CONTENT)
 
           group :development, :test do
-            gem "dotenv", "~> 3.0"
+            gem "dotenv", "~> 3.1"
           end
 
         CONTENT

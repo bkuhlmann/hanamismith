@@ -41,7 +41,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-view", "~> 2.2.0"
 
           group :development, :test do
-            gem "dotenv", "~> 3.0"
+            gem "dotenv", "~> 3.1"
           end
 
           group :development do
@@ -102,7 +102,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
 
           group :development, :test do
-            gem "dotenv", "~> 3.0"
+            gem "dotenv", "~> 3.1"
           end
 
           group :development do
