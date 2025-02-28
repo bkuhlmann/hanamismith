@@ -61,7 +61,7 @@ module Hanamismith
         with_template.insert_after "source", <<~CONTENT
 
           gem "pg", "~> 1.5"
-          gem "rom", "~> 5.3"
+          gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.6"
           gem "sequel", "~> 5.77"
         CONTENT

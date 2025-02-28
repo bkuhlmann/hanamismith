@@ -22,7 +22,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           source "https://rubygems.org"
 
           gem "pg", "~> 1.5"
-          gem "rom", "~> 5.3"
+          gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.6"
           gem "sequel", "~> 5.77"
           gem "dry-monads", "~> 1.6"
@@ -72,7 +72,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           source "https://rubygems.org"
 
           gem "pg", "~> 1.5"
-          gem "rom", "~> 5.3"
+          gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.6"
           gem "sequel", "~> 5.77"
           gem "dry-monads", "~> 1.6"
