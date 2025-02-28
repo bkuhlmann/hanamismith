@@ -63,7 +63,7 @@ module Hanamismith
           gem "pg", "~> 1.5"
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
-          gem "sequel", "~> 5.77"
+          gem "sequel", "~> 5.89"
         CONTENT
       end
 
