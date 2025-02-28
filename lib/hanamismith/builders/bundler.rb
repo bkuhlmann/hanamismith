@@ -95,7 +95,7 @@ module Hanamismith
           gem "cuprite", "~> 0.15"
           gem "database_cleaner-sequel", "~> 2.0"
           gem "launchy", "~> 3.1"
-          gem "rack-test", "~> 2.1"
+          gem "rack-test", "~> 2.2"
           gem "rom-factory", "~> 0.12"
         CONTENT
       end
