@@ -56,7 +56,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "database_cleaner-sequel", "~> 2.0"
             gem "launchy", "~> 3.1"
             gem "rack-test", "~> 2.2"
-            gem "rom-factory", "~> 0.12"
+            gem "rom-factory", "~> 0.13"
           end
         CONTENT
       end
@@ -118,7 +118,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "database_cleaner-sequel", "~> 2.0"
             gem "launchy", "~> 3.1"
             gem "rack-test", "~> 2.2"
-            gem "rom-factory", "~> 0.12"
+            gem "rom-factory", "~> 0.13"
             gem "rspec", "~> 3.13"
           end
 
