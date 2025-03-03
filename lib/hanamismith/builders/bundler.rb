@@ -68,7 +68,7 @@ module Hanamismith
       end
 
       def insert_quality
-        with_template.insert_after(/group :quality/, %(  gem "rubocop-sequel", "~> 0.3"\n))
+        with_template.insert_after(/group :quality/, %(  gem "rubocop-sequel", "~> 0.4"\n))
       end
 
       def insert_devtest

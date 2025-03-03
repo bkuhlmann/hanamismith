@@ -93,7 +93,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "refinements", "~> 13.0"
 
           group :quality do
-            gem "rubocop-sequel", "~> 0.3"
+            gem "rubocop-sequel", "~> 0.4"
             gem "caliber", "~> 0.74"
             gem "git-lint", "~> 9.0"
             gem "reek", "~> 6.4", require: false

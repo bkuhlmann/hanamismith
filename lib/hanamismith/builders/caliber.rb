@@ -14,7 +14,7 @@ module Hanamismith
         super
         path = "%project_name%/.config/rubocop/config.yml.erb"
         builder.call(settings.merge(template_path: path))
-               .append("\nrequire: rubocop-sequel\n")
+               .append("\nplugins: rubocop-sequel\n")
 
         true
       end

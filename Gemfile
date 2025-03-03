@@ -19,7 +19,7 @@ end
 
 group :test do
   gem "rspec", "~> 3.13"
-  gem "rubocop-sequel", "~> 0.3"
+  gem "rubocop-sequel", "~> 0.4"
 end
 
 group :tools do

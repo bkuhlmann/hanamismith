@@ -20,7 +20,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
           inherit_gem:
             caliber: config/all.yml
 
-          require: rubocop-sequel
+          plugins: rubocop-sequel
         CONTENT
       end
 
