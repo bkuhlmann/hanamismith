@@ -9,7 +9,7 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        path = "%project_name%/slices/home/assets/js/app.js.erb"
+        path = "%project_name%/app/assets/js/app.js.erb"
         builder.call(settings.merge(template_path: path)).render
         true
       end

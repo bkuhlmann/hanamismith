@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Javascript do
     it "builds file" do
       builder.call
 
-      expect(temp_dir.join("test/slices/home/assets/js/app.js").read).to eq(
+      expect(temp_dir.join("test/app/assets/js/app.js").read).to eq(
         %(import "../css/app.css";\n)
       )
     end
