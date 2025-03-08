@@ -18,6 +18,7 @@ module Hanamismith
           Builders::Stylesheet,
           Builders::Javascript,
           Builders::PWA,
+          Builders::Layout,
           Builders::Slices::Home,
           Builders::Slices::Health,
           Rubysmith::Builders::Version,
