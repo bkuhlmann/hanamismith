@@ -36,34 +36,6 @@ module Hanamismith
           builder.call(settings.merge(template_path: path)).render
         end
 
-        def add_layout_template
-          path = "%project_name%/slices/home/templates/layouts/app.html.erb.erb"
-          builder.call(settings.merge(template_path: path))
-                 .render
-                 .replace("<!-- title -->", "<%= content_for :title %>")
-                 .replace("<!-- favicon -->", favicon)
-                 .replace("<!-- manifest -->", manifest)
-                 .replace("<!-- stylesheet -->", stylesheet)
-                 .replace("<!-- yield -->", "<%= yield %>")
-        end
-
-        def favicon
-          %(<%= favicon_tag app_assets["icon.svg"],\n) +
-            %(                    title: "#{settings.project_label}: Icon",\n) +
-            %(                    rel: :icon,\n) +
-            %(                    type: "image/svg+xml" %>)
-        end
-
-        def manifest
-          %(<%= tag.link title: "#{settings.project_label}: Manifest",\n) +
-            %(                 rel: :manifest,\n) +
-            %(                 href: app_assets["manifest.webmanifest"] %>)
-        end
-
-        def stylesheet
-          %(<%= stylesheet_tag "app", title: "#{settings.project_label}: Stylesheet" %>)
-        end
-
         def add_context
           path = "%project_name%/slices/home/views/context.rb.erb"
           builder.call(settings.merge(template_path: path)).render

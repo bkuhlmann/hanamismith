@@ -55,6 +55,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
         module Home
           # The slice base view.
           class View < Test::View
+            config.layouts_dir = Hanami.app.root.join "app/templates/layouts"
           end
         end
       CONTENT
@@ -73,13 +74,6 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
           end
         end
       CONTENT
-    end
-
-    it "builds layout template" do
-      template = temp_dir.join("test/slices/home/templates/layouts/app.html.erb").read
-      proof = SPEC_ROOT.join("support/fixtures/views/home-layout.html").read
-
-      expect(template).to eq(proof)
     end
 
     it "builds show template" do
