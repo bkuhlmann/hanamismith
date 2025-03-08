@@ -12,7 +12,7 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
   describe "#call" do
     it "builds home slice file" do
       builder.call
-      expect(temp_dir.join("test/slices/home/assets/css/app.css").exist?).to be(true)
+      expect(temp_dir.join("test/app/assets/css/app.css").exist?).to be(true)
     end
 
     it "answers true" do
