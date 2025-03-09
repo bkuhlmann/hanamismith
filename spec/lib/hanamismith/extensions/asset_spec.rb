@@ -14,15 +14,8 @@ RSpec.describe Hanamismith::Extensions::Asset do
       extension.call
 
       expect(kernel).to have_received(:system).with(
-        "node config/assets.js -- --path=app --dest=public/assets > /dev/null 2>&1"
-      )
-    end
-
-    it "compiles home assets" do
-      extension.call
-
-      expect(kernel).to have_received(:system).with(
-        "node config/assets.js -- --path=slices/home --dest=public/assets/_home > /dev/null 2>&1"
+        "node config/assets.js -- --path=app --dest=public/assets > /dev/null 2>&1",
+        chdir: settings.project_root
       )
     end
 
