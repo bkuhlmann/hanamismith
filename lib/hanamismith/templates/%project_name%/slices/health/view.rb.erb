@@ -3,5 +3,6 @@
 module Health
   # The slice base view.
   class View < <%= settings.project_namespaced_class %>::View
+    config.layouts_dir = Hanami.app.root.join "app/templates/layouts"
   end
 end

@@ -46,18 +46,10 @@ RSpec.describe Hanamismith::Builders::Slices::Health do
         module Health
           # The slice base view.
           class View < Test::View
+            config.layouts_dir = Hanami.app.root.join "app/templates/layouts"
           end
         end
       CONTENT
-    end
-
-    it "builds layout template" do
-      builder.call
-
-      template = temp_dir.join("test/slices/health/templates/layouts/app.html.erb").read
-      proof = SPEC_ROOT.join("support/fixtures/views/health-layout.html").read
-
-      expect(template).to eq(proof)
     end
 
     it "builds show template" do

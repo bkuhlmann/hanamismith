@@ -31,22 +31,6 @@ module Hanamismith
           builder.call(settings.merge(template_path: path)).render
         end
 
-        def add_layout
-          path = "%project_name%/slices/health/templates/layouts/app.html.erb.erb"
-          builder.call(settings.merge(template_path: path))
-                 .render
-                 .replace("<!-- title -->", "<%= content_for :title %>")
-                 .replace("<!-- favicon -->", favicon)
-                 .replace("<!-- yield -->", "<%= yield %>")
-        end
-
-        def favicon
-          %(<%= favicon_tag app_assets["icon.svg"],\n) +
-            %(                    title: "#{settings.project_label}: Icon",\n) +
-            %(                    rel: :icon,\n) +
-            %(                    type: "image/svg+xml" %>)
-        end
-
         def add_show_template
           path = "%project_name%/slices/health/templates/show.html.erb.erb"
 
