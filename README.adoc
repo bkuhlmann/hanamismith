@@ -37,7 +37,7 @@ toc::[]
 
 == Screenshots/Screencasts
 
-image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=702,height=694,role=focal_point]
+image:https://alchemists.io/images/projects/hanamismith/screenshots/home.png[Home,width=1060,height=725,role=focal_point]
 
 The above is a screenshot of a _Demo_ project that was generated locally. For a fully working demonstration application -- as built by this gem -- check out the link:https://github.com/bkuhlmann/hemo[Hemo] project as shown in this screencast:
 
