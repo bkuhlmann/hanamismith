@@ -47,7 +47,7 @@ module Hanamismith
 
       def insert_main
         with_template.insert_after "source", <<~CONTENT
-          gem "dry-monads", "~> 1.6"
+          gem "dry-monads", "~> 1.8"
           gem "dry-schema", "~> 1.13"
           gem "dry-types", "~> 1.7"
           gem "dry-validation", "~> 1.10"
