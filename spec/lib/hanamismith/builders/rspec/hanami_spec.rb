@@ -45,7 +45,6 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
           RSpec.configure do |config|
             config.include Capybara::DSL, Capybara::RSpecMatchers, :web
-            config.include Dry::Monads[:result]
             config.include Rack::Test::Methods, type: :request
 
             config.include_context "with Hanami application", type: :request

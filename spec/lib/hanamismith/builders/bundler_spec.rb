@@ -25,7 +25,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
           gem "sequel", "~> 5.89"
-          gem "dry-monads", "~> 1.8"
           gem "dry-schema", "~> 1.13"
           gem "dry-types", "~> 1.7"
           gem "dry-validation", "~> 1.10"
@@ -75,7 +74,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
           gem "sequel", "~> 5.89"
-          gem "dry-monads", "~> 1.8"
           gem "dry-schema", "~> 1.13"
           gem "dry-types", "~> 1.7"
           gem "dry-validation", "~> 1.10"
@@ -90,6 +88,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-validations", "~> 2.2.0"
           gem "hanami-view", "~> 2.2.0"
           gem "bootsnap", "~> 1.18"
+          gem "dry-monads", "~> 1.8"
           gem "refinements", "~> 13.0"
 
           group :quality do

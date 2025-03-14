@@ -46,6 +46,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_doubled_constant_names = true
               mocks.verify_partial_doubles = true
             end
+
           end
         CONTENT
       end
@@ -99,6 +100,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_doubled_constant_names = true
               mocks.verify_partial_doubles = true
             end
+
           end
         BODY
       end
