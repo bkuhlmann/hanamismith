@@ -20,8 +20,7 @@ module Hanamismith
           return false unless settings.build_rspec
 
           super
-          remove_project_requirement
-          disable_simple_cov_eval
+          private_methods.grep(/\Aadd_/).sort.each { |method| __send__ method }
           true
         end
 
@@ -29,12 +28,22 @@ module Hanamismith
 
         attr_reader :template
 
-        def remove_project_requirement
-          template.replace(/require.+#{settings.project_name}.+\n/, "")
+        def add_monad_requirement
+          template.replace(/require.+#{settings.project_name}.+\n/, %(require "dry/monads"\n))
         end
 
-        def disable_simple_cov_eval
+        def add_simple_cov_eval_adjustment
           template.replace(/\s{4}enable_coverage_for_eval\n/, "")
+        end
+
+        def add_monad_configuration
+          template.append <<~CONTENT
+            # insert
+              config.before(:suite) { Dry::Monads.load_extensions :rspec }
+            end
+          CONTENT
+
+          template.replace "end\n# insert", ""
         end
       end
     end

@@ -21,6 +21,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
         expect(path.read).to eq(<<~CONTENT)
           Bundler.require :tools
 
+          require "dry/monads"
 
           SPEC_ROOT = Pathname(__dir__).realpath.freeze
 
@@ -46,6 +47,8 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_doubled_constant_names = true
               mocks.verify_partial_doubles = true
             end
+
+            config.before(:suite) { Dry::Monads.load_extensions :rspec }
           end
         CONTENT
       end
@@ -74,6 +77,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
 
           Bundler.require :tools
 
+          require "dry/monads"
 
           SPEC_ROOT = Pathname(__dir__).realpath.freeze
 
@@ -99,6 +103,8 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_doubled_constant_names = true
               mocks.verify_partial_doubles = true
             end
+
+            config.before(:suite) { Dry::Monads.load_extensions :rspec }
           end
         BODY
       end
