@@ -103,6 +103,12 @@ RSpec.describe Hanamismith::Builders::Core do
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
 
+            prepare_container do |container|
+              container.config.component_dirs.dir "app" do |dir|
+                dir.memoize = -> component { component.key.start_with? "repositories." }
+              end
+            end
+
             config.actions.content_security_policy.then do |csp|
               csp[:manifest_src] = "'self'"
               csp[:script_src] += " 'unsafe-eval' 'unsafe-inline' https://unpkg.com/"
@@ -114,7 +120,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
               config.logger = config.logger.instance.add_backend(
                 colorize: false,
-                stream: Hanami.app.root.join("log/development.log")
+                stream: root.join("log/development.log")
               )
             end
           end
