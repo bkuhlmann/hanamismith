@@ -6,16 +6,13 @@ module Hanamismith
   module Builders
     module Docker
       # Builds Dockerfile configuration.
-      class File < Rubysmith::Builders::Docker::File
+      class File < Rubysmith::Builders::Abstract
         using Refinements::Struct
 
         def call
           return false unless settings.build_docker
 
-          super
-          builder.call(settings.merge(template_path: "%project_name%/Dockerfile.erb"))
-                 .render
-                 .insert_after(/RACK_ENV/, "ENV HANAMI_ENV=production\n")
+          builder.call(settings.merge(template_path: "%project_name%/Dockerfile.erb")).render
           true
         end
       end
