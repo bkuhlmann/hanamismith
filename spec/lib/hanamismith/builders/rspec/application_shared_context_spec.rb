@@ -19,7 +19,7 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
         builder.call
 
         expect(path.read).to eq(<<~CONTENT)
-          RSpec.shared_context "with Hanami application" do
+          RSpec.shared_context "with application" do
             let(:app) { Hanami.app }
           end
         CONTENT
