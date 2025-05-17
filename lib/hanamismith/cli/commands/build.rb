@@ -67,6 +67,7 @@ module Hanamismith
           Rubysmith::Extensions::Rubocop,
           Extensions::NPM,
           Extensions::Asset,
+          Builders::Environments::All,
           Builders::Environments::Development,
           Builders::Environments::Test,
           Builders::Git::Commit

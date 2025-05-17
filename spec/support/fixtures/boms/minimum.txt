@@ -1,3 +1,4 @@
+test/.env
 test/.env.development
 test/.env.test
 test/.node-version

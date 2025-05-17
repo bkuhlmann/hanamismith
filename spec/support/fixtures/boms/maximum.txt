@@ -4,6 +4,7 @@ test/.devcontainer/compose.yaml
 test/.devcontainer/devcontainer.json
 test/.devcontainer/Dockerfile
 test/.dockerignore
+test/.env
 test/.env.development
 test/.env.test
 test/.git/HEAD
