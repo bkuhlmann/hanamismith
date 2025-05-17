@@ -18,7 +18,8 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
     it "builds production file" do
       expect(temp_dir.join("test/Procfile").read).to eq(
         "web: bundle exec puma --config ./config/puma.rb\n" \
-        "assets: bundle exec hanami assets compile\n"
+        "assets: bundle exec hanami assets compile\n" \
+        "migrate: bundle exec hanami db migrate\n"
       )
     end
 
