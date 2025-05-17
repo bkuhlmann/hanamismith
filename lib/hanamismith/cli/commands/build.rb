@@ -59,6 +59,7 @@ module Hanamismith
           Rubysmith::Builders::Docker::Build,
           Rubysmith::Builders::Docker::Console,
           Rubysmith::Builders::Docker::Entrypoint,
+          Builders::Docker::Compose,
           Builders::Docker::File,
           Rubysmith::Builders::Docker::Ignore,
           Rubysmith::Extensions::Bundler,

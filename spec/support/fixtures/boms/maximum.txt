@@ -17,6 +17,7 @@ test/.node-version
 test/.reek.yml
 test/.ruby-version
 test/CITATION.cff
+test/compose.yml
 test/Dockerfile
 test/Gemfile
 test/LICENSE.adoc
