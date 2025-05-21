@@ -92,6 +92,7 @@ module Hanamismith
       def insert_test
         with_template.insert_after(/group :test/, <<~CONTENT.gsub("gem", "  gem"))
           gem "capybara", "~> 3.40"
+          gem "capybara-validate_html5", "~> 2.1"
           gem "cuprite", "~> 0.15"
           gem "database_cleaner-sequel", "~> 2.0"
           gem "launchy", "~> 3.1"

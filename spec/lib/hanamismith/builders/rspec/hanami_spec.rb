@@ -19,6 +19,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
         expect(temp_dir.join("test/spec/hanami_helper.rb").read).to eq(<<~CONTENT)
           require "capybara/cuprite"
           require "capybara/rspec"
+          require "capybara-validate_html5"
           require "database_cleaner/sequel"
           require "dry/monads"
           require "rack/test"
