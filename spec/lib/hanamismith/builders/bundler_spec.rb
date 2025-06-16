@@ -111,7 +111,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
             gem "hanami-webconsole", "~> 2.2.0"
             gem "localhost", "~> 1.3"
             gem "rerun", "~> 0.14"
-            gem "rake", "~> 13.2"
+            gem "rake", "~> 13.3"
           end
 
           group :test do
