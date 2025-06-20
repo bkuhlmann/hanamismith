@@ -92,7 +92,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-view", "~> 2.2.0"
           gem "bootsnap", "~> 1.18"
           gem "dry-monads", "~> 1.8"
-          gem "refinements", "~> 13.0"
+          gem "refinements", "~> 13.3"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.4"
