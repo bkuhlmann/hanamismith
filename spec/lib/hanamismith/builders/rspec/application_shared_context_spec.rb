@@ -21,6 +21,9 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
         expect(path.read).to eq(<<~CONTENT)
           RSpec.shared_context "with application" do
             let(:app) { Hanami.app }
+            let(:json_payload) { JSON last_response.body, symbolize_names: true }
+            let(:routes) { app[:routes] }
+            let(:settings) { app[:settings] }
           end
         CONTENT
       end
