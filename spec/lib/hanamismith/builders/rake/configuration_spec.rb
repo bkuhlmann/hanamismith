@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     context "with maximum flags" do

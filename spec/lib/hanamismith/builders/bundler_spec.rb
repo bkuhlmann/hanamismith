@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     context "with minimum flags" do

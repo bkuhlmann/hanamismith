@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     context "when enabled" do
@@ -19,7 +19,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
         expect(temp_dir.join("test/spec/hanami_helper.rb").read).to eq(<<~CONTENT)
           require "capybara/cuprite"
           require "capybara/rspec"
-          require "capybara-validate_html5"
+          require "capybara/validate_html5"
           require "database_cleaner/sequel"
           require "dry/monads"
           require "rack/test"

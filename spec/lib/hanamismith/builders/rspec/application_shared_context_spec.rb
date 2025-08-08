@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     let(:path) { temp_dir.join "test/spec/support/shared_contexts/application.rb" }

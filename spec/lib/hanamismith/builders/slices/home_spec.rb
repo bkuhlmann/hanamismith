@@ -8,7 +8,7 @@ RSpec.describe Hanamismith::Builders::Slices::Home do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     before { builder.call }

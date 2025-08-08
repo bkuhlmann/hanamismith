@@ -9,7 +9,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
 
   let(:yaml_path) { temp_dir.join "test/.github/workflows/ci.yml" }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     context "when enabled" do

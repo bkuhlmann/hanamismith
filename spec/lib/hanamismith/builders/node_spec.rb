@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Node do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application dependencies"
+  include_context "with application"
 
   describe "#call" do
     let(:version_path) { temp_dir.join "test/.node-version" }

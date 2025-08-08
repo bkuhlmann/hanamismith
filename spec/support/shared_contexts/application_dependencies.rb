@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "with application dependencies" do
+RSpec.shared_context "with application" do
   using Refinements::Struct
 
   include_context "with temporary directory"
