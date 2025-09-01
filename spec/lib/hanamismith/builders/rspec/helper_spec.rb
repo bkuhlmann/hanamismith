@@ -47,6 +47,8 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_partial_doubles = true
             end
 
+
+            Kernel.srand config.seed
           end
         CONTENT
       end
@@ -101,6 +103,8 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
               mocks.verify_partial_doubles = true
             end
 
+
+            Kernel.srand config.seed
           end
         BODY
       end
