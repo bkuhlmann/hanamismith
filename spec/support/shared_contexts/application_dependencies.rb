@@ -11,7 +11,7 @@ RSpec.shared_context "with application" do
   let(:io) { StringIO.new }
 
   before do
-    settings.merge! Etcher.call(
+    settings.with! Etcher.call(
       Hanamismith::Container[:registry].remove_loader(1),
       author_family_name: "Smith",
       author_given_name: "Jill",

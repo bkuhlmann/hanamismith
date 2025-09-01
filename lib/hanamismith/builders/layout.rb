@@ -10,7 +10,7 @@ module Hanamismith
 
       def call
         path = "%project_name%/app/templates/layouts/app.html.erb.erb"
-        builder.call(settings.merge(template_path: path))
+        builder.call(settings.with(template_path: path))
                .render
                .replace("<!-- title -->", "<%= content_for :title %>")
                .replace("<!-- icon -->", icon)

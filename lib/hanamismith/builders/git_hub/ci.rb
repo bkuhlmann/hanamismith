@@ -13,7 +13,7 @@ module Hanamismith
           return false unless settings.build_git_hub_ci
 
           path = "%project_name%/.github/workflows/ci.yml.erb"
-          builder.call(settings.merge(template_path: path)).render.replace(/\n\n\Z/, "\n")
+          builder.call(settings.with(template_path: path)).render.replace(/\n\n\Z/, "\n")
           true
         end
       end

@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Console do
 
   describe "#call" do
     context "when enabled" do
-      before { settings.merge! settings.minimize.merge build_console: true }
+      before { settings.with! settings.minimize.with build_console: true }
 
       it "builds file" do
         builder.call
@@ -42,7 +42,7 @@ RSpec.describe Hanamismith::Builders::Console do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

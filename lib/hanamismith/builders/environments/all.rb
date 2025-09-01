@@ -16,7 +16,7 @@ module Hanamismith
         end
 
         def call
-          builder.call(settings.merge(template_path: "%project_name%/env.erb"))
+          builder.call(settings.with(template_path: "%project_name%/env.erb"))
                  .render
                  .replace("<password>", generator.hex(15))
                  .rename(".env")

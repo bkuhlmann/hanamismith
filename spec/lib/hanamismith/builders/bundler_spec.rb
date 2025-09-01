@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
   describe "#call" do
     context "with minimum flags" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "updates Gemfile" do
         builder.call
@@ -64,7 +64,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
     end
 
     context "with maximum flags" do
-      before { settings.merge! settings.maximize }
+      before { settings.with! settings.maximize }
 
       let :proof do
         <<~CONTENT
@@ -92,7 +92,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-view", "~> 2.2.0"
           gem "bootsnap", "~> 1.18"
           gem "dry-monads", "~> 1.9"
-          gem "refinements", "~> 13.3"
+          gem "refinements", "~> 13.5"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.4"

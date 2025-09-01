@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Rack::Deflater do
 
   describe "#call" do
     before do
-      settings.merge! settings.minimize
+      settings.with! settings.minimize
       Hanamismith::Builders::Core.new(settings:, logger:).call
       Hanamismith::Builders::Rack::Attack.new(settings:, logger:).call
     end

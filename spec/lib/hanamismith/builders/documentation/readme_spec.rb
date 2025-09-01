@@ -12,7 +12,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
   describe "#call" do
     context "when enabled with ASCII Doc format" do
       before do
-        settings.merge! settings.minimize.merge build_readme: true, documentation_format: "adoc"
+        settings.with! settings.minimize.with build_readme: true, documentation_format: "adoc"
       end
 
       it "builds file" do
@@ -30,7 +30,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
 
     context "when enabled with Markdown format" do
       before do
-        settings.merge! settings.minimize.merge build_readme: true, documentation_format: "md"
+        settings.with! settings.minimize.with build_readme: true, documentation_format: "md"
       end
 
       it "builds file" do
@@ -47,7 +47,7 @@ RSpec.describe Hanamismith::Builders::Documentation::Readme do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

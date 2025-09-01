@@ -104,7 +104,7 @@ module Hanamismith
       def remove_zeitwerk = with_template.replace(/.+zeitwerk.+\n\n/, "\n")
 
       def with_template
-        builder.call settings.merge(template_path: "%project_name%/Gemfile.erb")
+        builder.call settings.with(template_path: "%project_name%/Gemfile.erb")
       end
     end
   end

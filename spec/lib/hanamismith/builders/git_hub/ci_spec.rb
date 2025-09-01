@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
 
   describe "#call" do
     context "when enabled" do
-      before { settings.merge! settings.minimize.merge build_git_hub_ci: true }
+      before { settings.with! settings.minimize.with build_git_hub_ci: true }
 
       it "builds file" do
         builder.call
@@ -91,7 +91,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
 
     context "when enabled with SimpleCov" do
       before do
-        settings.merge! settings.minimize.merge build_git_hub_ci: true, build_simple_cov: true
+        settings.with! settings.minimize.with build_git_hub_ci: true, build_simple_cov: true
       end
 
       it "builds file" do
@@ -175,7 +175,7 @@ RSpec.describe Hanamismith::Builders::GitHub::CI do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

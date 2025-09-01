@@ -84,7 +84,7 @@ RSpec.describe Hanamismith::Builders::Docker::File do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

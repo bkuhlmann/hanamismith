@@ -19,7 +19,7 @@ module Hanamismith
       private
 
       def append
-        builder.call(settings.merge(template_path: "%project_name%/bin/setup.erb"))
+        builder.call(settings.with(template_path: "%project_name%/bin/setup.erb"))
                .insert_after(%(Runner.call "bundle install"\n), <<~CONTENT.gsub(/^(?=\w)/, "  "))
 
                  puts "Installing packages..."

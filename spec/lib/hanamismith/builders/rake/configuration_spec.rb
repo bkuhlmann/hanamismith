@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
 
   describe "#call" do
     context "with maximum flags" do
-      before { settings.merge! settings.maximize }
+      before { settings.with! settings.maximize }
 
       it "updates file" do
         builder.call
@@ -30,7 +30,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
     end
 
     context "with minimum flags" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

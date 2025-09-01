@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
 
   describe "#call" do
     context "when enabled" do
-      before { settings.merge! settings.minimize.merge build_caliber: true }
+      before { settings.with! settings.minimize.with build_caliber: true }
 
       it "updates configuration" do
         builder.call
@@ -30,7 +30,7 @@ RSpec.describe Hanamismith::Builders::Caliber do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

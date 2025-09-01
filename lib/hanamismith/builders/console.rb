@@ -12,7 +12,7 @@ module Hanamismith
         return false unless settings.build_console
 
         super
-        builder.call(settings.merge(template_path: "%project_name%/bin/console.erb"))
+        builder.call(settings.with(template_path: "%project_name%/bin/console.erb"))
                .replace(/require Bundler.root.+/, %(require "hanami/prepare"))
 
         add_irb_autocomplete
@@ -33,7 +33,7 @@ module Hanamismith
       end
 
       def with_template
-        builder.call settings.merge(template_path: "%project_name%/bin/console.erb")
+        builder.call settings.with(template_path: "%project_name%/bin/console.erb")
       end
     end
   end

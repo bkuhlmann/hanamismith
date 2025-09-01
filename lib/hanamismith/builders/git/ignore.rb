@@ -13,7 +13,7 @@ module Hanamismith
           return false unless settings.build_git
 
           super
-          builder.call(settings.merge(template_path: "%project_name%/.gitignore.erb"))
+          builder.call(settings.with(template_path: "%project_name%/.gitignore.erb"))
                  .insert_before "tmp\n", <<~CONTENT
                    node_modules
                    public/assets

@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
 
   describe "#call" do
     it "builds file" do
-      settings.merge! settings.minimize
+      settings.with! settings.minimize
       builder.call
 
       expect(temp_dir.join("test/config/puma.rb").read).to eq(<<~CONTENT)

@@ -13,7 +13,7 @@ module Hanamismith
           return false unless settings.build_rspec
 
           path = "%project_name%/spec/hanami_helper.rb.erb"
-          builder.call(settings.merge(template_path: path)).render
+          builder.call(settings.with(template_path: path)).render
 
           true
         end

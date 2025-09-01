@@ -11,7 +11,7 @@ module Hanamismith
 
         def initialize(...)
           super
-          @template = builder.call settings.merge(
+          @template = builder.call settings.with(
             template_path: "%project_name%/spec/spec_helper.rb.erb"
           )
         end

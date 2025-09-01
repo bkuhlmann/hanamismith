@@ -12,7 +12,7 @@ module Hanamismith
         return false unless settings.build_circle_ci
 
         path = "%project_name%/.circleci/config.yml.erb"
-        builder.call(settings.merge(template_path: path)).render.replace(/\n\n\Z/, "\n")
+        builder.call(settings.with(template_path: path)).render.replace(/\n\n\Z/, "\n")
         true
       end
     end

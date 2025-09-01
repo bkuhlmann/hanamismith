@@ -13,7 +13,7 @@ module Hanamismith
           return false unless settings.build_rake
 
           super
-          builder.call(settings.merge(template_path: "%project_name%/Rakefile.erb"))
+          builder.call(settings.with(template_path: "%project_name%/Rakefile.erb"))
                  .render
                  .insert_after(%r(bundler/setup), %(require "hanami/rake_tasks"))
 

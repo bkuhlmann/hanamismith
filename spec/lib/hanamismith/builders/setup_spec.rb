@@ -13,7 +13,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     let(:build_path) { temp_dir.join "test/bin/setup" }
 
     context "when enabled" do
-      before { settings.merge! settings.minimize.merge build_setup: true }
+      before { settings.with! settings.minimize.with build_setup: true }
 
       it "appends file" do
         builder.call
@@ -52,7 +52,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     end
 
     context "when enabled with debug" do
-      before { settings.merge! settings.minimize.merge build_setup: true, build_debug: true }
+      before { settings.with! settings.minimize.with build_setup: true, build_debug: true }
 
       it "appends file" do
         builder.call
@@ -92,7 +92,7 @@ RSpec.describe Hanamismith::Builders::Setup do
     end
 
     context "when disabled" do
-      before { settings.merge! settings.minimize }
+      before { settings.with! settings.minimize }
 
       it "doesn't build file" do
         builder.call

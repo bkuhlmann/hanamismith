@@ -20,7 +20,7 @@ module Hanamismith
 
       def call
         build_version
-        builder.call(settings.merge(template_path: "%project_name%/package.json.erb")).render
+        builder.call(settings.with(template_path: "%project_name%/package.json.erb")).render
         true
       end
 

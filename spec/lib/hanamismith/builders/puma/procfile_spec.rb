@@ -11,7 +11,7 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
 
   describe "#call" do
     before do
-      settings.merge! settings.minimize
+      settings.with! settings.minimize
       builder.call
     end
 
