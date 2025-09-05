@@ -52,7 +52,7 @@ module Hanamismith
           gem "dry-validation", "~> 1.10"
           gem "htmx", "~> 2.1"
           gem "overmind", "~> 2.5"
-          gem "puma", "~> 6.6"
+          gem "puma", "~> 7.0"
           gem "rack-attack", "~> 6.7"
         CONTENT
       end
