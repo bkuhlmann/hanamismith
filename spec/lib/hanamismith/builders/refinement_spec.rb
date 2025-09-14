@@ -20,9 +20,11 @@ RSpec.describe Hanamismith::Builders::Refinement do
               # Modifies and enhances default Hanami action response behavior.
               module Response
                 refine Hanami::Action::Response do
-                  def with body:, status:
+                  def with body:, format: nil, status: 200
                     @body = [body]
                     @status = status
+
+                    self.format = format if format
                     self
                   end
                 end
@@ -43,16 +45,28 @@ RSpec.describe Hanamismith::Builders::Refinement do
         RSpec.describe Test::Refines::Actions::Response do
           using described_class
 
-          subject(:response) { Hanami::Action::Response.new request:, config: {} }
+          subject :response do
+            config = Class.new(Hanami::Action).config.tap { it.format :json }
+            Hanami::Action::Response.new request:, config:
+          end
 
           let :request do
             Rack::MockRequest.env_for("/").then { |env| Hanami::Action::Request.new env:, params: {} }
           end
 
           describe "#with" do
-            it "answers response with given body and status" do
-              expect(response.with(body: "Danger!", status: 400)).to have_attributes(
+            it "answers response with required body and status" do
+              expect(response.with(body: "A test.")).to have_attributes(
+                body: ["A test."],
+                format: nil,
+                status: 200
+              )
+            end
+
+            it "answers response with body, format, and status" do
+              expect(response.with(body: "Danger!", format: :json, status: 400)).to have_attributes(
                 body: ["Danger!"],
+                format: :json,
                 status: 400
               )
             end
