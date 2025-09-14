@@ -13,26 +13,43 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="view-transition" content="same-origin">
 
-    <link title="Test: Favicon"
-          rel="icon"
-          href="https://alchemists.io/images/projects/hanamismith/icons/favicon.ico"
-          sizes="32x32">
+    <%= tag.link title: "Test: Favicon",
+                 rel: :icon,
+                 href: "https://alchemists.io/images/projects/hanamismith/icons/favicon.ico",
+                 sizes: "32x32" %>
+
     <%= tag.link title: "Test: Icon",
                  rel: :icon,
                  href: app_assets["icon.svg"],
                  type: "image/svg+xml" %>
-    <link title="Test: Apple Icon"
-          rel="apple-touch-icon"
-          href="https://alchemists.io/images/projects/hanamismith/icons/apple.png"
-          type="image/png">
+
+    <%= tag.link title: "Test: Apple Icon",
+                 rel: "apple-touch-icon",
+                 href: "https://alchemists.io/images/projects/hanamismith/icons/apple.png",
+                 type: "image/png" %>
+
     <%= tag.link title: "Test: Manifest",
                  rel: :manifest,
                  href: app_assets["manifest.webmanifest"] %>
 
     <%= tag.link title: "Test: Stylesheet", rel: :stylesheet, href: app_assets["app.css"] %>
+
+    <%= tag.script src: app_assets["app.js"], type: "text/javascript" %>
   </head>
 
   <body class="site-page">
+    <% if flash[:alert] %>
+      <div class="site-alert">
+        <p><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="site-notice">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

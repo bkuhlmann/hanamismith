@@ -1,6 +1,9 @@
 inherit_gem:
   caliber: config/all.yml
 
+Metrics/AbcSize:
+  Exclude:
+    - "lib/hanamismith/builders/layout.rb"
 Metrics/BlockLength:
   Exclude:
     - "lib/hanamismith/container.rb"
@@ -10,3 +13,6 @@ Metrics/ClassLength:
 Metrics/CollectionLiteralLength:
   Exclude:
     - "lib/hanamismith/cli/commands/build.rb"
+Metrics/MethodLength:
+  Exclude:
+    - "lib/hanamismith/builders/layout.rb"
