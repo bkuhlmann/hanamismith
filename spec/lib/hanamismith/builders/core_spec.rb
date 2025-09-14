@@ -99,7 +99,10 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base configuration.
           class App < Hanami::App
+            # :nocov:
             RubyVM::YJIT.enable
+            # :nocov:
+
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
 
@@ -111,8 +114,17 @@ RSpec.describe Hanamismith::Builders::Core do
 
             config.actions.content_security_policy.then do |csp|
               csp[:manifest_src] = "'self'"
-              csp[:script_src] += " 'unsafe-eval' 'unsafe-inline' https://unpkg.com/"
+              csp[:script_src] += " 'unsafe-eval' 'unsafe-inline'"
             end
+
+            # rubocop:todo Layout/FirstArrayElementLineBreak
+            config.actions.sessions = :cookie,
+                                      {
+                                        key: "test.session",
+                                        secret: settings.app_secret,
+                                        expire_after: 3_600 # 1 hour.
+                                      }
+            # rubocop:enable Layout/FirstArrayElementLineBreak
 
             environment :development do
               # :nocov:
