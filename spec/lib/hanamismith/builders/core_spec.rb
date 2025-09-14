@@ -170,6 +170,7 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base settings.
           class Settings < Hanami::Settings
+            setting :app_secret, constructor: Types::String.constrained(filled: true)
           end
         end
       CONTENT
