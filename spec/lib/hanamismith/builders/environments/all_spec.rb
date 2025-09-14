@@ -9,15 +9,20 @@ RSpec.describe Hanamismith::Builders::Environments::All do
 
   include_context "with application"
 
-  let(:generator) { class_double SecureRandom, hex: "51de75280317d90c0fe901757ecd68" }
+  let(:generator) { class_double SecureRandom }
 
   describe "#call" do
+    before { allow(generator).to receive(:hex).and_return("abc", "def") }
+
     it "builds file" do
       builder.call
 
       expect(temp_dir.join("test/.env").read).to eq(<<~CONTENT)
+        APP_SECRET=abc
+
         PG_DATABASE=test
-        PG_PASSWORD=51de75280317d90c0fe901757ecd68
+        PG_PASSWORD=def
+        PG_PORT=5432
         PG_USER=test
       CONTENT
     end

@@ -18,7 +18,8 @@ module Hanamismith
         def call
           builder.call(settings.with(template_path: "%project_name%/env.erb"))
                  .render
-                 .replace("<password>", generator.hex(15))
+                 .replace("<app_secret>", generator.hex(40))
+                 .replace("<pg_password>", generator.hex(15))
                  .rename(".env")
 
           true
