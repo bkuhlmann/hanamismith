@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: bkuhlmann/alpine-ruby:latest
         environment:
+          APP_SECRET: <app_secret>
           HANAMI_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
       - image: postgres:latest

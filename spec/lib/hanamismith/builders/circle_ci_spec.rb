@@ -5,9 +5,11 @@ require "spec_helper"
 RSpec.describe Hanamismith::Builders::CircleCI do
   using Refinements::Struct
 
-  subject(:builder) { described_class.new settings:, logger: }
+  subject(:builder) { described_class.new generator:, settings:, logger: }
 
   include_context "with application"
+
+  let(:generator) { class_double SecureRandom, hex: "abc" }
 
   describe "#call" do
     let(:path) { temp_dir.join "test/.circleci/config.yml" }
@@ -26,6 +28,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
               docker:
                 - image: bkuhlmann/alpine-ruby:latest
                   environment:
+                    APP_SECRET: abc
                     HANAMI_ENV: test
                     DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
                 - image: postgres:latest
@@ -116,6 +119,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
               docker:
                 - image: bkuhlmann/alpine-ruby:latest
                   environment:
+                    APP_SECRET: abc
                     HANAMI_ENV: test
                     DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
                 - image: postgres:latest
