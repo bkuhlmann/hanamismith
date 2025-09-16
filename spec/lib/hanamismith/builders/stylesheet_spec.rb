@@ -10,9 +10,29 @@ RSpec.describe Hanamismith::Builders::Stylesheet do
   include_context "with application"
 
   describe "#call" do
-    it "builds home slice file" do
+    it "builds settings file" do
       builder.call
-      expect(temp_dir.join("test/app/assets/css/app.css").exist?).to be(true)
+      expect(temp_dir.join("test/app/assets/css/settings.css").exist?).to be(true)
+    end
+
+    it "builds colors file" do
+      builder.call
+      expect(temp_dir.join("test/app/assets/css/colors.css").exist?).to be(true)
+    end
+
+    it "builds view transitions file" do
+      builder.call
+      expect(temp_dir.join("test/app/assets/css/view_transitions.css").exist?).to be(true)
+    end
+
+    it "builds defaults file" do
+      builder.call
+      expect(temp_dir.join("test/app/assets/css/defaults.css").exist?).to be(true)
+    end
+
+    it "builds layout file" do
+      builder.call
+      expect(temp_dir.join("test/app/assets/css/layout.css").exist?).to be(true)
     end
 
     it "answers true" do

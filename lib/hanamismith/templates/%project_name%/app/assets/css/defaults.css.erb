@@ -1,0 +1,120 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
+    interpolate-size: allow-keywords;
+  }
+}
+
+:where(html) {
+  accent-color: var(--color-white);
+  background-color: var(--color-black);
+  font-family: var(--site-font-family);
+  height: 100%;
+  line-height: 1.5;
+  overscroll-behavior: none;
+  scrollbar-color: var(--color-white) var(--site-red);
+  scrollbar-gutter: stable;
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+
+  ::selection {
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+}
+
+:where(audio, iframe, img, svg, video) {
+  max-block-size: 100%;
+  max-inline-size: 100%;
+}
+
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(a) {
+  color: var(--color-white);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}
+
+:where(abbr[title]) {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+:where(code) {
+  background-color: var(--color-black);
+  border-radius: 0.3rem;
+  color: var(--color-white);
+  font-size: 0.95rem;
+  padding: 0.1rem 0.3rem;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p) {
+  overflow-wrap: break-word;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(h1, h2) {
+  font-weight: 400;
+  font-size: 2.75em;
+}
+
+:where(img) {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+:where(kbd) {
+  background-color: var(--color-white);
+  border-radius: 0.2rem;
+  border: 0.1rem solid var(--color-white);
+  color: var(--color-black);
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1rem;
+  padding: 0.1rem 0.3rem;
+  white-space: nowrap;
+}
+
+:where(label):has(+:where(textarea, input, select)) {
+  display: block;
+}
+
+:where(p) {
+  text-wrap: pretty;
+}
+
+:where(pre:not([class^=language])) {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+:where(pre) {
+  border-radius: 0.5rem;
+  font-weight: 400;
+  padding: 0.5rem;
+}
+
+:where(textarea:not([rows])) {
+  min-block-size: 6em;
+}

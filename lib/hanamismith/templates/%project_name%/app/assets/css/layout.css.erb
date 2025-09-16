@@ -1,21 +1,4 @@
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
-  }
-}
-
-html {
-  height: 100%;
-}
-
 .site-page {
-  --color-pink: hsl(306, 81%, 77%);
-  --color-red: hsl(11, 86%, 46%);
-  --color-rose: hsl(338, 27%, 88%);
-  --color-white: hsl(0, 0%, 100%);
-  --color-black: hsl(0, 0%, 0%);
-  --font-family: Verdana;
-
   background-color: var(--color-black);
   background-image: linear-gradient(
     0deg,
@@ -98,4 +81,20 @@ html {
       text-align: center;
     }
   }
+}
+
+.site-alert, .site-notice {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.site-alert {
+  background-color: var(--site-red);
+  color: var(--site-white);
+}
+
+.site-notice {
+  background-color: var(--site-blue);
+  color: var(--site-white);
 }

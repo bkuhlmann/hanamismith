@@ -28,7 +28,11 @@ test/README.adoc
 test/Rakefile
 test/VERSIONS.adoc
 test/app/action.rb
-test/app/assets/css/app.css
+test/app/assets/css/colors.css
+test/app/assets/css/defaults.css
+test/app/assets/css/layout.css
+test/app/assets/css/settings.css
+test/app/assets/css/view_transitions.css
 test/app/assets/images/icon.svg
 test/app/assets/js/app.js
 test/app/assets/pwa/manifest.webmanifest

@@ -9,8 +9,16 @@ module Hanamismith
       using Refinements::Struct
 
       def call
-        path = "%project_name%/app/assets/css/app.css.erb"
-        builder.call(settings.with(template_path: path)).render
+        %w[
+          %project_name%/app/assets/css/settings.css.erb
+          %project_name%/app/assets/css/colors.css.erb
+          %project_name%/app/assets/css/view_transitions.css.erb
+          %project_name%/app/assets/css/defaults.css.erb
+          %project_name%/app/assets/css/layout.css.erb
+        ].each do |path|
+          builder.call(settings.with(template_path: path)).render
+        end
+
         true
       end
     end
