@@ -13,9 +13,13 @@ RSpec.describe Hanamismith::Builders::Javascript do
     it "builds file" do
       builder.call
 
-      expect(temp_dir.join("test/app/assets/js/app.js").read).to eq(
-        %(import "../css/app.css";\n)
-      )
+      expect(temp_dir.join("test/app/assets/js/app.js").read).to eq(<<~CONTENT)
+        import "../css/settings.css";
+        import "../css/colors.css";
+        import "../css/view_transitions.css";
+        import "../css/defaults.css";
+        import "../css/layout.css";
+      CONTENT
     end
 
     it "answers true" do
