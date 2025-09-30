@@ -19,6 +19,9 @@ RSpec.describe Hanamismith::Builders::Javascript do
         import "../css/view_transitions.css";
         import "../css/defaults.css";
         import "../css/layout.css";
+
+        import htmx from "htmx.org";
+        window.htmx = htmx;
       CONTENT
     end
 
