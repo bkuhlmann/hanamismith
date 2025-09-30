@@ -13,6 +13,7 @@ module Hanamismith
         BUILDERS = [
           Rubysmith::Builders::Init,
           Builders::Core,
+          Builders::Providers::HTMX,
           Builders::Refinement,
           Builders::Icon,
           Builders::Stylesheet,
