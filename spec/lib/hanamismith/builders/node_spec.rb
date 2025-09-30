@@ -24,9 +24,10 @@ RSpec.describe Hanamismith::Builders::Node do
           "license": "Hippocratic-2.1",
           "private": true,
           "type": "module",
-          "keywords": ["ruby", "hanami"],
+          "keywords": ["hanami", "htmx", "ruby"],
           "dependencies": {
-            "hanami-assets": "^2.2.0"
+            "hanami-assets": "^2.2.0",
+            "htmx.org": "^2.0.7"
           }
         }
       CONTENT
