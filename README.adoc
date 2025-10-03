@@ -7,8 +7,10 @@
 :dotenv_link: link:https://github.com/bkeepers/dotenv[Dotenv]
 :dotfiles_link: link:https://alchemists.io/projects/dotfiles[Dotfiles]
 :hanami_link: link:https://hanamirb.org[Hanami]
-:htmx_link: link:https://alchemists.io/projects/htmx[HTMX]
+:htmx_gem_link: link:https://alchemists.io/projects/htmx[HTMX]
+:htmx_link: link:https://htmx.org[htmx]
 :pg_link: link:https://github.com/ged/ruby-pg[pg]
+:postgresql_link: link:https://www.postgresql.org[PostgreSQL]
 :puma_link: link:https://puma.io[Puma]
 :rack_link: link:https://github.com/rack/rack[Rack]
 :rom_link: link:https://rom-rb.org[ROM]
@@ -22,18 +24,18 @@ toc::[]
 
 == Features
 
-* Built atop {rubysmith_link} for building project skeleton.
+* Built atop {rubysmith_link} for building project skeletons.
 * Uses {hanami_link} for web application development.
-* Uses {htmx_link} for Hypermedia REST so you can write less code and avoid bloated JavaScript stacks.
-* Uses {pg_link} coupled with {rom_link} for database management.
+* Uses {htmx_link} (along with the {htmx_gem_link} gem) for Hypermedia REST so you can write less code and avoid bloated JavaScript stacks.
+* Uses {postgresql_link} for the database, {pg_link} for the client, and {rom_link} Ruby object mapper.
 * Uses {rack_link}, specifically: link:https://github.com/rack/rack-attack[Rack::Attack], `Rack::Deflater`, and `Rack::Static`.
-* Uses {puma_link} as the default web server and fully configured for local and production environments.
+* Uses {puma_link} for the web server including being fully configured for local and production environments.
 * Uses {capybara_link} with {cuprite_link} (driver) for full, headless, feature testing.
 * Uses {dotenv_link} for managing your environment configurations.
 * Provides support for Continuous Integration systems like link:https://circleci.com[Circle CI] (default) and link:https://docs.github.com/en/actions[GitHub Actions].
 * Provides the `/up` health check endpoint via the `Health` slice.
 * Configures link:https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md[YJIT] so you can deploy with YJIT disabled (i.e. `RUBYOPT=--yjit-disable --yjit-exec-mem-size=192`) and let the application enable upon boot.
-* Disables link:https://github.com/ruby/irb[IRB] console autocomplete when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
+* Ensures link:https://github.com/ruby/irb[IRB] console autocomplete is disabled when used in production-like environments. You can re-enable IRB autocomplete by setting `IRB_USE_AUTOCOMPLETE=true` before launching your console in non development or test environments.
 
 == Screenshots/Screencasts
 
