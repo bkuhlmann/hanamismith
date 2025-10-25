@@ -27,7 +27,7 @@ RSpec.describe Hanamismith::Builders::Node do
           "keywords": ["hanami", "htmx", "ruby"],
           "dependencies": {
             "hanami-assets": "^2.2.0",
-            "htmx.org": "^2.0.7"
+            "htmx.org": "^2.0.8"
           }
         }
       CONTENT
