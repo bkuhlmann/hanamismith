@@ -8,7 +8,7 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     context "with enabled" do
@@ -20,8 +20,10 @@ RSpec.describe Hanamismith::Builders::Git::Ignore do
         expect(temp_dir.join("test/.gitignore").read).to eq(<<~CONTENT)
           .bundle
           node_modules
-          public/assets
-          public/assets.json
+          public/*
+          !public/.well-known
+          !public/404.html
+          !public/500.html
           tmp
         CONTENT
       end
