@@ -7,6 +7,7 @@ test/Gemfile
 test/Procfile
 test/Procfile.dev
 test/app/action.rb
+test/app/aspects/logging/rack_adapter.rb
 test/app/assets/css/colors.css
 test/app/assets/css/defaults.css
 test/app/assets/css/layout.css
@@ -18,13 +19,17 @@ test/app/assets/pwa/manifest.webmanifest
 test/app/db/relation.rb
 test/app/db/repository.rb
 test/app/db/struct.rb
+test/app/providers/logger.rb
 test/app/templates/layouts/app.html.erb
 test/app/view.rb
 test/bin/hanami
 test/config/app.rb
 test/config/assets.js
 test/config/initializers/rack_attack.rb
+test/config/initializers/rack_logger_patch.rb
+test/config/initializers/sql_logger_patch.rb
 test/config/providers/htmx.rb
+test/config/providers/logger.rb
 test/config/puma.rb
 test/config/routes.rb
 test/config/settings.rb
@@ -49,6 +54,8 @@ test/slices/home/templates/show.html.erb
 test/slices/home/view.rb
 test/slices/home/views/context.rb
 test/slices/home/views/show.rb
+test/spec/app/aspects/logging/rack_adapter_spec.rb
+test/spec/app/providers/logger_spec.rb
 test/spec/features/home_spec.rb
 test/spec/lib/test/refines/actions/response_spec.rb
 test/spec/slices/health/actions/show_spec.rb

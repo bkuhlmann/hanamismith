@@ -14,6 +14,7 @@ module Hanamismith
           Rubysmith::Builders::Init,
           Builders::Core,
           Builders::Providers::HTMX,
+          Builders::Providers::Logger,
           Builders::Refinement,
           Builders::Icon,
           Builders::Stylesheet,
