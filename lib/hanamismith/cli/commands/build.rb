@@ -43,7 +43,7 @@ module Hanamismith
           Rubysmith::Builders::GitHub::Funding,
           Builders::GitHub::CI,
           Builders::Setup,
-          Rubysmith::Builders::Reek,
+          Builders::Reek,
           Rubysmith::Builders::RSpec::Binstub,
           Rubysmith::Builders::RSpec::Context,
           Builders::RSpec::ApplicationSharedContext,
