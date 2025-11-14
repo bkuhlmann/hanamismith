@@ -32,20 +32,20 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "overmind", "~> 2.5"
           gem "puma", "~> 7.0"
           gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.2.0"
-          gem "hanami-assets", "~> 2.2.0"
-          gem "hanami-controller", "~> 2.2.0"
-          gem "hanami-db", "~> 2.2.0"
-          gem "hanami-router", "~> 2.2.0"
-          gem "hanami-validations", "~> 2.2.0"
-          gem "hanami-view", "~> 2.2.0"
+          gem "hanami", "~> 2.3"
+          gem "hanami-assets", "~> 2.3"
+          gem "hanami-controller", "~> 2.3"
+          gem "hanami-db", "~> 2.3"
+          gem "hanami-router", "~> 2.3"
+          gem "hanami-validations", "~> 2.3"
+          gem "hanami-view", "~> 2.3"
 
           group :development, :test do
             gem "dotenv", "~> 3.1"
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.2.0"
+            gem "hanami-webconsole", "~> 2.3"
             gem "localhost", "~> 1.3"
             gem "rerun", "~> 0.14"
           end
@@ -83,13 +83,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "overmind", "~> 2.5"
           gem "puma", "~> 7.0"
           gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.2.0"
-          gem "hanami-assets", "~> 2.2.0"
-          gem "hanami-controller", "~> 2.2.0"
-          gem "hanami-db", "~> 2.2.0"
-          gem "hanami-router", "~> 2.2.0"
-          gem "hanami-validations", "~> 2.2.0"
-          gem "hanami-view", "~> 2.2.0"
+          gem "hanami", "~> 2.3"
+          gem "hanami-assets", "~> 2.3"
+          gem "hanami-controller", "~> 2.3"
+          gem "hanami-db", "~> 2.3"
+          gem "hanami-router", "~> 2.3"
+          gem "hanami-validations", "~> 2.3"
+          gem "hanami-view", "~> 2.3"
           gem "bootsnap", "~> 1.18"
           gem "dry-monads", "~> 1.9"
           gem "refinements", "~> 13.5"
@@ -108,7 +108,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.2.0"
+            gem "hanami-webconsole", "~> 2.3"
             gem "localhost", "~> 1.3"
             gem "rerun", "~> 0.14"
             gem "rake", "~> 13.3"

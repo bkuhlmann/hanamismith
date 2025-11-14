@@ -35,13 +35,13 @@ module Hanamismith
 
       def insert_hanami
         with_template.insert_after "source", <<~CONTENT.strip
-          gem "hanami", "~> 2.2.0"
-          gem "hanami-assets", "~> 2.2.0"
-          gem "hanami-controller", "~> 2.2.0"
-          gem "hanami-db", "~> 2.2.0"
-          gem "hanami-router", "~> 2.2.0"
-          gem "hanami-validations", "~> 2.2.0"
-          gem "hanami-view", "~> 2.2.0"
+          gem "hanami", "~> 2.3"
+          gem "hanami-assets", "~> 2.3"
+          gem "hanami-controller", "~> 2.3"
+          gem "hanami-db", "~> 2.3"
+          gem "hanami-router", "~> 2.3"
+          gem "hanami-validations", "~> 2.3"
+          gem "hanami-view", "~> 2.3"
         CONTENT
       end
 
@@ -83,7 +83,7 @@ module Hanamismith
 
       def insert_development
         with_template.insert_after(/group :development do/, <<~CONTENT.gsub("gem", "  gem"))
-          gem "hanami-webconsole", "~> 2.2.0"
+          gem "hanami-webconsole", "~> 2.3"
           gem "localhost", "~> 1.3"
           gem "rerun", "~> 0.14"
         CONTENT

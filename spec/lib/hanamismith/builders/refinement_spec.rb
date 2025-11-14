@@ -46,7 +46,7 @@ RSpec.describe Hanamismith::Builders::Refinement do
           using described_class
 
           subject :response do
-            config = Class.new(Hanami::Action).config.tap { it.format :json }
+            config = Class.new(Hanami::Action).config.tap { it.formats.accept :json }
             Hanami::Action::Response.new request:, config:
           end
 
