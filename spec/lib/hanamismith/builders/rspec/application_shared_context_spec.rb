@@ -7,10 +7,10 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
-    let(:path) { temp_dir.join "test/spec/support/shared_contexts/application.rb" }
+    let(:path) { temp_dir.join "test/spec/support/shared_contexts/application_dependencies.rb" }
 
     context "when enabled" do
       before { settings.with! settings.minimize.with build_rspec: true }
@@ -19,7 +19,7 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
         builder.call
 
         expect(path.read).to eq(<<~CONTENT)
-          RSpec.shared_context "with application" do
+          RSpec.shared_context "with application dependencies" do
             let(:app) { Hanami.app }
             let(:json_payload) { JSON last_response.body, symbolize_names: true }
             let(:routes) { app[:routes] }

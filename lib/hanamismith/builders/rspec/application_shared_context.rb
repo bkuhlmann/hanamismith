@@ -12,7 +12,7 @@ module Hanamismith
         def call
           return false unless settings.build_rspec
 
-          path = "%project_name%/spec/support/shared_contexts/application.rb.erb"
+          path = "%project_name%/spec/support/shared_contexts/application_dependencies.rb.erb"
           builder.call(settings.with(template_path: path)).render
 
           true

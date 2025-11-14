@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Console do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   let(:build_path) { temp_dir.join "test/bin/console" }
 

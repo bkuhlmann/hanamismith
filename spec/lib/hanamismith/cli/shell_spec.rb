@@ -9,7 +9,7 @@ RSpec.describe Hanamismith::CLI::Shell do
 
   subject(:shell) { described_class.new }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   before { Sod::Container.stub! logger:, io: }
 

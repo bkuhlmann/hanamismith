@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Setup do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     let(:build_path) { temp_dir.join "test/bin/setup" }

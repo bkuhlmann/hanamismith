@@ -1,4 +1,4 @@
-RSpec.shared_context "with application" do
+RSpec.shared_context "with application dependencies" do
   let(:app) { Hanami.app }
   let(:json_payload) { JSON last_response.body, symbolize_names: true }
   let(:routes) { app[:routes] }

@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Environments::All do
 
   subject(:builder) { described_class.new generator:, settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   let(:generator) { class_double SecureRandom }
 

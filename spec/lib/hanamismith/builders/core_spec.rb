@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     it "builds database relation" do

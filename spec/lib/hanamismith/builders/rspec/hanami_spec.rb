@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     context "when enabled" do
@@ -51,8 +51,8 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
             config.define_derived_metadata(file_path: %r(/spec/features/)) { it[:type] = :feature }
             config.define_derived_metadata(file_path: %r(/spec/requests/)) { it[:type] = :request }
 
-            config.include_context "with application", type: :request
-            config.include_context "with application", type: :feature
+            config.include_context "with application dependencies", type: :request
+            config.include_context "with application dependencies", type: :feature
 
             databases = proc do
               Hanami.app.slices.with_nested.prepend(Hanami.app).each.with_object Set.new do |slice, dbs|

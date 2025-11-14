@@ -5,7 +5,7 @@ require "spec_helper"
 RSpec.describe Hanamismith::Extensions::NPM do
   subject(:extension) { described_class.new settings: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   before { temp_dir.join("test").mkpath }
 

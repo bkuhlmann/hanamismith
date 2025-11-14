@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::CLI::Commands::Build do
 
   subject(:command) { described_class.new builders: [Rubysmith::Builders::Version] }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     it "builds skeleton" do

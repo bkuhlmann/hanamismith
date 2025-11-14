@@ -7,7 +7,7 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
 
   subject(:builder) { described_class.new settings:, logger: }
 
-  include_context "with application"
+  include_context "with application dependencies"
 
   describe "#call" do
     before do

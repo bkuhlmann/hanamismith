@@ -84,5 +84,5 @@ test/spec/hanami_helper.rb
 test/spec/lib/test/refines/actions/response_spec.rb
 test/spec/slices/health/actions/show_spec.rb
 test/spec/spec_helper.rb
-test/spec/support/shared_contexts/application.rb
+test/spec/support/shared_contexts/application_dependencies.rb
 test/spec/support/shared_contexts/temp_dir.rb
