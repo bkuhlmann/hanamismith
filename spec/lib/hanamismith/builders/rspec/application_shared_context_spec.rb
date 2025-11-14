@@ -22,6 +22,7 @@ RSpec.describe Hanamismith::Builders::RSpec::ApplicationSharedContext do
           RSpec.shared_context "with application dependencies" do
             let(:app) { Hanami.app }
             let(:json_payload) { JSON last_response.body, symbolize_names: true }
+            let(:logger) { app[:logger] }
             let(:routes) { app[:routes] }
             let(:settings) { app[:settings] }
           end
