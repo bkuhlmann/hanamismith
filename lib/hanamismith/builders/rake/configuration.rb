@@ -16,6 +16,7 @@ module Hanamismith
           builder.call(settings.with(template_path: "%project_name%/Rakefile.erb"))
                  .render
                  .insert_after(%r(bundler/setup), %(require "hanami/rake_tasks"))
+                 .insert_after(/RuboCop::RakeTask/, %(\nRake.add_rakelib "lib/tasks"\n))
 
           true
         end

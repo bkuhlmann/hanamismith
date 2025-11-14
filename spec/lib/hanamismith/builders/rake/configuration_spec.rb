@@ -16,12 +16,26 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
       it "updates file" do
         builder.call
 
-        result = temp_dir.join("test/Rakefile").read.start_with? <<~CONTENT
+        expect(temp_dir.join("test/Rakefile").read).to eq(<<~CONTENT)
           require "bundler/setup"
           require "hanami/rake_tasks"
-        CONTENT
+            require "git/lint/rake/register"
+            require "reek/rake/task"
+            require "rspec/core/rake_task"
+            require "rubocop/rake_task"
 
-        expect(result).to be(true)
+            Git::Lint::Rake::Register.call
+            Reek::Rake::Task.new
+            RSpec::Core::RakeTask.new { |task| task.verbose = false }
+            RuboCop::RakeTask.new
+
+          Rake.add_rakelib "lib/tasks"
+
+          desc "Run code quality checks"
+          task quality: %i[git_lint reek rubocop]
+
+          task default: %i[quality spec]
+        CONTENT
       end
 
       it "answers true" do
