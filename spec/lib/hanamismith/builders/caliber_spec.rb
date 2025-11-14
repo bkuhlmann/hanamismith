@@ -21,6 +21,10 @@ RSpec.describe Hanamismith::Builders::Caliber do
             caliber: config/all.yml
 
           plugins: rubocop-sequel
+
+          RSpec/SpecFilePathFormat:
+            CustomTransform:
+              Test: ""
         CONTENT
       end
 

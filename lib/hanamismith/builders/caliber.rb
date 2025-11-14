@@ -14,7 +14,12 @@ module Hanamismith
         super
         path = "%project_name%/.config/rubocop/config.yml.erb"
         builder.call(settings.with(template_path: path))
-               .append("\nplugins: rubocop-sequel\n")
+               .append("\nplugins: rubocop-sequel\n\n")
+               .append(<<~CONTENT)
+                 RSpec/SpecFilePathFormat:
+                   CustomTransform:
+                     #{settings.project_namespaced_class}: ""
+               CONTENT
 
         true
       end
