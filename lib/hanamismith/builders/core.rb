@@ -53,7 +53,7 @@ module Hanamismith
       end
 
       def add_migrate_directory
-        builder.call(settings.with(template_path: "%project_name%/db/migrate")).make_path
+        builder.call(settings.with(template_path: "%project_name%/config/db/migrate")).make_path
       end
 
       def add_well_known_security_text
@@ -68,6 +68,10 @@ module Hanamismith
           path = "%project_name%/public/#{code}.html.erb"
           builder.call(settings.with(template_path: path)).render
         end
+      end
+
+      def add_log_directory
+        builder.call(settings.with(template_path: "%project_name%/log")).make_path
       end
 
       def add_temp_directory

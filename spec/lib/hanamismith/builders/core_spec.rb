@@ -206,7 +206,7 @@ RSpec.describe Hanamismith::Builders::Core do
 
     it "builds migrate directory" do
       builder.call
-      expect(temp_dir.join("test/db/migrate").exist?).to be(true)
+      expect(temp_dir.join("test/config/db/migrate").exist?).to be(true)
     end
 
     it "builds public HTTP 404 error page" do
@@ -238,6 +238,11 @@ RSpec.describe Hanamismith::Builders::Core do
       builder.call
 
       expect(temp_dir.join("test/public/.well-known/security.txt").exist?).to be(false)
+    end
+
+    it "builds log directory" do
+      builder.call
+      expect(temp_dir.join("test/log").exist?).to be(true)
     end
 
     it "builds temp directory" do
