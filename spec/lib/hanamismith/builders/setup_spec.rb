@@ -22,7 +22,6 @@ RSpec.describe Hanamismith::Builders::Setup do
           #! /usr/bin/env ruby
 
           require "fileutils"
-          require "pathname"
 
           APP_ROOT = Pathname(__dir__).join("..").expand_path
 
@@ -62,7 +61,6 @@ RSpec.describe Hanamismith::Builders::Setup do
 
           require "debug"
           require "fileutils"
-          require "pathname"
 
           APP_ROOT = Pathname(__dir__).join("..").expand_path
 
