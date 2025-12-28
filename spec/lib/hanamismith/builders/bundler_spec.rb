@@ -47,7 +47,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :development do
             gem "hanami-webconsole", "~> 2.3"
             gem "localhost", "~> 1.3"
-            gem "rerun", "~> 0.14"
           end
 
           group :test do
@@ -110,7 +109,6 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :development do
             gem "hanami-webconsole", "~> 2.3"
             gem "localhost", "~> 1.3"
-            gem "rerun", "~> 0.14"
             gem "rake", "~> 13.3"
           end
 

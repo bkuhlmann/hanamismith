@@ -1,2 +1,2 @@
-web: rerun --dir app,config,lib,slices --pattern="**/*.{erb,rb}" -- bundle exec puma --config ./config/puma.rb
+web: bundle exec puma --config ./config/puma.rb
 assets: bundle exec hanami assets watch

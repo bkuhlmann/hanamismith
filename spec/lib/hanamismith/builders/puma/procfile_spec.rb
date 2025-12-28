@@ -25,8 +25,7 @@ RSpec.describe Hanamismith::Builders::Puma::Procfile do
 
     it "builds development file" do
       expect(temp_dir.join("test/Procfile.dev").read).to eq(
-        %(web: rerun --dir app,config,lib,slices --pattern="**/*.{erb,rb}" ) \
-        "-- bundle exec puma --config ./config/puma.rb\n" \
+        "web: bundle exec puma --config ./config/puma.rb\n" \
         "assets: bundle exec hanami assets watch\n"
       )
     end
