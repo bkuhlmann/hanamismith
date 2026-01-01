@@ -55,9 +55,6 @@ module Hanamismith
           Builders::Puma::Configuration,
           Builders::Puma::Procfile,
           Builders::Caliber,
-          Rubysmith::Builders::DevContainer::Dockerfile,
-          Rubysmith::Builders::DevContainer::Compose,
-          Rubysmith::Builders::DevContainer::Configuration,
           Rubysmith::Builders::Docker::Build,
           Rubysmith::Builders::Docker::Console,
           Rubysmith::Builders::Docker::Entrypoint,
@@ -92,7 +89,6 @@ module Hanamismith
         on Rubysmith::CLI::Actions::Contributions, settings: Container[:settings]
         on Rubysmith::CLI::Actions::DCOO, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Debug, settings: Container[:settings]
-        on Rubysmith::CLI::Actions::DevContainer, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Docker, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Funding, settings: Container[:settings]
         on Rubysmith::CLI::Actions::Git, settings: Container[:settings]
