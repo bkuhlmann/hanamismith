@@ -49,7 +49,7 @@ module Hanamismith
         with_template.insert_after "source", <<~CONTENT
           gem "dry-schema", "~> 1.15"
           gem "dry-types", "~> 1.9"
-          gem "dry-validation", "~> 1.10"
+          gem "dry-validation", "~> 1.11"
           gem "htmx", "~> 3.0"
           gem "overmind", "~> 2.5"
           gem "puma", "~> 7.0"
