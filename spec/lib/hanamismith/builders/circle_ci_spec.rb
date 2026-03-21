@@ -37,13 +37,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
               steps:
                 - run:
                     name: Chromium Install
-                    command: apk add gcompat glib nss libxcb libgcc chromium
-
-                - run:
-                    name: Chromium Start
-                    command: |
-                      export DISPLAY=:99
-                      chromedriver --url-base=/wd/hub &
+                    command: apk add chromium
 
                 - run:
                     name: Node Install
@@ -85,6 +79,10 @@ RSpec.describe Hanamismith::Builders::CircleCI do
                     key: package-cache-{{.Branch}}-{{checksum "package.json"}}
                     paths:
                       - node_modules
+
+                - run:
+                    name: Project Setup
+                    command: mkdir log
 
                 - run:
                     name: Database Setup
@@ -128,13 +126,7 @@ RSpec.describe Hanamismith::Builders::CircleCI do
               steps:
                 - run:
                     name: Chromium Install
-                    command: apk add gcompat glib nss libxcb libgcc chromium
-
-                - run:
-                    name: Chromium Start
-                    command: |
-                      export DISPLAY=:99
-                      chromedriver --url-base=/wd/hub &
+                    command: apk add chromium
 
                 - run:
                     name: Node Install
@@ -176,6 +168,10 @@ RSpec.describe Hanamismith::Builders::CircleCI do
                     key: package-cache-{{.Branch}}-{{checksum "package.json"}}
                     paths:
                       - node_modules
+
+                - run:
+                    name: Project Setup
+                    command: mkdir log
 
                 - run:
                     name: Database Setup
