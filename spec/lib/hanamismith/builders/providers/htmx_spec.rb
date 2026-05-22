@@ -17,7 +17,15 @@ RSpec.describe Hanamismith::Builders::Providers::HTMX do
         Hanami.app.register_provider :htmx do
           prepare { require "htmx" }
 
-          start { register :htmx, HTMX }
+          start do
+            toggler = lambda do |request, default = "app"|
+              HTMX.request?(request.env, :request, "true") ? false : default
+            end
+
+            register :htmx, HTMX
+            register :htmx_defaults, {"allowScriptTags" => false, "defaultSwapStyle" => "outerHTML"}.freeze
+            register :htmx_layout, toggler
+          end
         end
       CONTENT
     end
