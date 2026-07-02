@@ -16,3 +16,4 @@ Metrics/CollectionLiteralLength:
 Metrics/MethodLength:
   Exclude:
     - "lib/hanamismith/builders/layout.rb"
+    - "lib/hanamismith/builders/bundler.rb"

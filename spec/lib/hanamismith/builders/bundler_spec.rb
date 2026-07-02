@@ -21,38 +21,40 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "pg", "~> 1.5"
+          gem "pg", "~> 1.6", force_ruby_platform: true
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
-          gem "sequel", "~> 5.89"
-          gem "dry-schema", "~> 1.15"
+          gem "sequel", "~> 5.106"
+          gem "cogger", "~> 2.4"
+          gem "core", "~> 3.2"
+          gem "dry-schema", "~> 1.16"
           gem "dry-types", "~> 1.9"
           gem "dry-validation", "~> 1.11"
-          gem "htmx", "~> 3.0"
-          gem "overmind", "~> 2.5"
-          gem "puma", "~> 7.0"
-          gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.3"
-          gem "hanami-assets", "~> 2.3"
-          gem "hanami-controller", "~> 2.3"
-          gem "hanami-db", "~> 2.3"
-          gem "hanami-router", "~> 2.3"
-          gem "hanami-validations", "~> 2.3"
-          gem "hanami-view", "~> 2.3"
+          gem "htmx", "~> 3.2"
+          gem "i18n", "~> 1.15"
+          gem "puma", "~> 8.0"
+          gem "rack-attack", "~> 6.8"
+          gem "hanami", "~> 3.0"
+          gem "hanami-action", "~> 3.0"
+          gem "hanami-assets", "~> 3.0"
+          gem "hanami-db", "~> 3.0"
+          gem "hanami-mailer", "~> 3.0"
+          gem "hanami-router", "~> 3.0"
+          gem "hanami-view", "~> 3.0"
 
           group :development, :test do
-            gem "dotenv", "~> 3.1"
+            gem "dotenv", "~> 3.2"
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.3"
-            gem "localhost", "~> 1.3"
+            gem "hanami-webconsole", "~> 3.0"
+            gem "localhost", "~> 1.8"
           end
 
           group :test do
             gem "capybara", "~> 3.40"
             gem "capybara-validate_html5", "~> 2.1"
-            gem "cuprite", "~> 0.15"
+            gem "cuprite", "~> 0.17"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "launchy", "~> 3.1"
             gem "rack-test", "~> 2.2"
@@ -71,24 +73,26 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
           source "https://rubygems.org"
 
-          gem "pg", "~> 1.5"
+          gem "pg", "~> 1.6", force_ruby_platform: true
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
-          gem "sequel", "~> 5.89"
-          gem "dry-schema", "~> 1.15"
+          gem "sequel", "~> 5.106"
+          gem "cogger", "~> 2.4"
+          gem "core", "~> 3.2"
+          gem "dry-schema", "~> 1.16"
           gem "dry-types", "~> 1.9"
           gem "dry-validation", "~> 1.11"
-          gem "htmx", "~> 3.0"
-          gem "overmind", "~> 2.5"
-          gem "puma", "~> 7.0"
-          gem "rack-attack", "~> 6.7"
-          gem "hanami", "~> 2.3"
-          gem "hanami-assets", "~> 2.3"
-          gem "hanami-controller", "~> 2.3"
-          gem "hanami-db", "~> 2.3"
-          gem "hanami-router", "~> 2.3"
-          gem "hanami-validations", "~> 2.3"
-          gem "hanami-view", "~> 2.3"
+          gem "htmx", "~> 3.2"
+          gem "i18n", "~> 1.15"
+          gem "puma", "~> 8.0"
+          gem "rack-attack", "~> 6.8"
+          gem "hanami", "~> 3.0"
+          gem "hanami-action", "~> 3.0"
+          gem "hanami-assets", "~> 3.0"
+          gem "hanami-db", "~> 3.0"
+          gem "hanami-mailer", "~> 3.0"
+          gem "hanami-router", "~> 3.0"
+          gem "hanami-view", "~> 3.0"
           gem "bootsnap", "~> 1.24"
           gem "dry-monads", "~> 1.10"
           gem "refinements", "~> 14.3"
@@ -103,19 +107,19 @@ RSpec.describe Hanamismith::Builders::Bundler do
 
 
           group :development, :test do
-            gem "dotenv", "~> 3.1"
+            gem "dotenv", "~> 3.2"
           end
 
           group :development do
-            gem "hanami-webconsole", "~> 2.3"
-            gem "localhost", "~> 1.3"
+            gem "hanami-webconsole", "~> 3.0"
+            gem "localhost", "~> 1.8"
             gem "rake", "~> 13.4"
           end
 
           group :test do
             gem "capybara", "~> 3.40"
             gem "capybara-validate_html5", "~> 2.1"
-            gem "cuprite", "~> 0.15"
+            gem "cuprite", "~> 0.17"
             gem "database_cleaner-sequel", "~> 2.0"
             gem "launchy", "~> 3.1"
             gem "rack-test", "~> 2.2"

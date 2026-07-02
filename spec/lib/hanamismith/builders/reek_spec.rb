@@ -31,14 +31,14 @@ RSpec.describe Hanamismith::Builders::Reek do
             - vendor
 
           detectors:
+            DuplicateMethodCall:
+              exclude:
+                - UniversalLoggerPatch#_log_structured
             LongParameterList:
               enabled: false
             TooManyStatements:
               exclude:
-                - RackLoggerPatch#prepare_app_providers
-            UtilityFunction:
-              exclude:
-                - SQLLoggerPatch#log_query
+                - UniversalLoggerPatch#_log_structured
         CONTENT
       end
     end

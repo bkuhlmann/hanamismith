@@ -12,20 +12,29 @@ module Hanamismith
         return false unless settings.build_reek
 
         super
-        add_detectors
+        add_duplicate_exclusion
+        add_too_many_statements_exclusion
         true
       end
 
-      def add_detectors
+      def add_duplicate_exclusion
+        with_template.insert_before(
+          /LongParameterList:\n/,
+          <<~DETECTORS.gsub(/^/, "  ")
+            DuplicateMethodCall:
+              exclude:
+                - UniversalLoggerPatch#_log_structured
+          DETECTORS
+        )
+      end
+
+      def add_too_many_statements_exclusion
         with_template.insert_after(
           /enabled:\sfalse\n/,
           <<~DETECTORS.gsub(/^/, "  ")
             TooManyStatements:
               exclude:
-                - RackLoggerPatch#prepare_app_providers
-            UtilityFunction:
-              exclude:
-                - SQLLoggerPatch#log_query
+                - UniversalLoggerPatch#_log_structured
           DETECTORS
         )
       end

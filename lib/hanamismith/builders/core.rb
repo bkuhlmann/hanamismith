@@ -31,6 +31,10 @@ module Hanamismith
         builder.call(settings.with(template_path: "%project_name%/app/action.rb.erb")).render
       end
 
+      def add_mailer
+        builder.call(settings.with(template_path: "%project_name%/app/mailer.rb.erb")).render
+      end
+
       def add_view
         builder.call(settings.with(template_path: "%project_name%/app/view.rb.erb")).render
       end

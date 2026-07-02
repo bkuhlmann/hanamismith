@@ -17,7 +17,6 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
       expect(temp_dir.join("test/config/puma.rb").read).to eq(<<~CONTENT)
         development = ENV.fetch("HANAMI_ENV", "development") == "development"
 
-        require "concurrent"
         require "localhost" if development
 
         Bundler.require :tools if development
@@ -25,9 +24,10 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
 
         max_threads = ENV.fetch "HANAMI_MAX_THREADS", 5
         min_threads = ENV.fetch "HANAMI_MIN_THREADS", max_threads
-        concurrency = ENV.fetch "HANAMI_WEB_CONCURRENCY", Concurrent.physical_processor_count
+        concurrency = Integer ENV.fetch "HANAMI_WEB_CONCURRENCY", 0
 
         threads min_threads, max_threads
+        max_io_threads 5
         port ENV.fetch("HANAMI_PORT", 2300)
         environment ENV.fetch("HANAMI_ENV", "development")
         workers concurrency
@@ -35,8 +35,7 @@ RSpec.describe Hanamismith::Builders::Puma::Configuration do
         ssl_bind "localhost", 2443 if development
         pidfile ENV.fetch("PIDFILE", "tmp/server.pid")
         plugin :tmp_restart
-
-        preload_app! && before_fork { Hanami.shutdown } if concurrency.to_i.positive?
+        before_fork { Hanami.shutdown } if concurrency > 1
       CONTENT
     end
 
