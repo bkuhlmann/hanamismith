@@ -26,7 +26,7 @@ RSpec.describe Hanamismith::Builders::Rake::Configuration do
 
             Git::Lint::Rake::Register.call
             Reek::Rake::Task.new
-            RSpec::Core::RakeTask.new { |task| task.verbose = false }
+            RSpec::Core::RakeTask.new { it.verbose = false }
             RuboCop::RakeTask.new
 
           Rake.add_rakelib "lib/tasks"

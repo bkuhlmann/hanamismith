@@ -89,13 +89,13 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-router", "~> 2.3"
           gem "hanami-validations", "~> 2.3"
           gem "hanami-view", "~> 2.3"
-          gem "bootsnap", "~> 1.18"
-          gem "dry-monads", "~> 1.9"
-          gem "refinements", "~> 14.0"
+          gem "bootsnap", "~> 1.24"
+          gem "dry-monads", "~> 1.10"
+          gem "refinements", "~> 14.3"
 
           group :quality do
             gem "rubocop-sequel", "~> 0.4"
-            gem "caliber", "~> 0.90"
+            gem "caliber", "~> 0.94"
             gem "git-lint", "~> 11.0"
             gem "reek", "~> 6.5", require: false
             gem "simplecov", "~> 0.22", require: false
@@ -126,7 +126,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           group :tools do
             gem "amazing_print", "~> 2.0"
             gem "debug", "~> 1.11"
-            gem "irb-kit", "~> 2.0"
+            gem "irb-kit", "~> 2.2"
             gem "repl_type_completor", "~> 0.1"
           end
         CONTENT
