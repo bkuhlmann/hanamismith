@@ -3,6 +3,9 @@ exclude_paths:
   - vendor
 
 detectors:
+  TooManyMethods:
+    exclude:
+      - "Hanamismith::Builders::Core"
   TooManyStatements:
     exclude:
       - "Hanamismith::CLI::Shell#cli"

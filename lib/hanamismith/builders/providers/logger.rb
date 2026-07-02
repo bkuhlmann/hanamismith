@@ -22,10 +22,7 @@ module Hanamismith
             %project_name%/app/providers/logger.rb.erb
             %project_name%/spec/app/providers/logger_spec.rb.erb
             %project_name%/config/providers/logger.rb.erb
-            %project_name%/app/aspects/logging/rack_adapter.rb.erb
-            %project_name%/spec/app/aspects/logging/rack_adapter_spec.rb.erb
-            %project_name%/config/initializers/rack_logger_patch.rb.erb
-            %project_name%/config/initializers/sql_logger_patch.rb.erb
+            %project_name%/config/initializers/universal_logger_patch.rb.erb
           ].each { build it }
         end
 
@@ -37,8 +34,7 @@ module Hanamismith
                    /require/,
                    <<~REQUIRES
 
-                     require_relative "initializers/rack_logger_patch"
-                     require_relative "initializers/sql_logger_patch"
+                     require_relative "initializers/universal_logger_patch"
                    REQUIRES
                  )
         end

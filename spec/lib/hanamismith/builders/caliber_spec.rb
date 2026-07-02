@@ -22,6 +22,9 @@ RSpec.describe Hanamismith::Builders::Caliber do
 
           plugins: rubocop-sequel
 
+          Metrics/MethodLength:
+            Exclude:
+              - config/initializers/universal_logger_patch.rb
           RSpec/SpecFilePathFormat:
             CustomTransform:
               Test: ""

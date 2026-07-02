@@ -34,7 +34,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
 
           ENV["LD_PRELOAD"] = nil
           Capybara.app = Hanami.app
-          Capybara.server = :puma, {Silent: true, Threads: "0:1"}
+          Capybara.server = :puma, {Silent: true, Threads: "2:2"}
           Capybara.javascript_driver = :cuprite
           Capybara.save_path = Hanami.app.root.join "tmp/capybara"
           Capybara.register_driver :cuprite do |app|
@@ -72,6 +72,14 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
               databases.call.each do |db|
                 DatabaseCleaner[:sequel, db:].strategy = example.metadata[:js] ? :truncation : :transaction
                 DatabaseCleaner[:sequel, db:].start
+              end
+            end
+
+            config.prepend_before :each, :mailers do
+              Hanami.app.with_slices.each do |slice|
+                next unless slice.key? "mailers.delivery_method"
+
+                slice["mailers.delivery_method"].clear
               end
             end
 

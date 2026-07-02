@@ -35,35 +35,37 @@ module Hanamismith
 
       def insert_hanami
         with_template.insert_after "source", <<~CONTENT.strip
-          gem "hanami", "~> 2.3"
-          gem "hanami-assets", "~> 2.3"
-          gem "hanami-controller", "~> 2.3"
-          gem "hanami-db", "~> 2.3"
-          gem "hanami-router", "~> 2.3"
-          gem "hanami-validations", "~> 2.3"
-          gem "hanami-view", "~> 2.3"
+          gem "hanami", "~> 3.0"
+          gem "hanami-action", "~> 3.0"
+          gem "hanami-assets", "~> 3.0"
+          gem "hanami-db", "~> 3.0"
+          gem "hanami-mailer", "~> 3.0"
+          gem "hanami-router", "~> 3.0"
+          gem "hanami-view", "~> 3.0"
         CONTENT
       end
 
       def insert_main
         with_template.insert_after "source", <<~CONTENT
-          gem "dry-schema", "~> 1.15"
+          gem "cogger", "~> 2.4"
+          gem "core", "~> 3.2"
+          gem "dry-schema", "~> 1.16"
           gem "dry-types", "~> 1.9"
           gem "dry-validation", "~> 1.11"
-          gem "htmx", "~> 3.0"
-          gem "overmind", "~> 2.5"
-          gem "puma", "~> 7.0"
-          gem "rack-attack", "~> 6.7"
+          gem "htmx", "~> 3.2"
+          gem "i18n", "~> 1.15"
+          gem "puma", "~> 8.0"
+          gem "rack-attack", "~> 6.8"
         CONTENT
       end
 
       def insert_persistence
         with_template.insert_after "source", <<~CONTENT
 
-          gem "pg", "~> 1.5"
+          gem "pg", "~> 1.6", force_ruby_platform: true
           gem "rom", "~> 5.4"
           gem "rom-sql", "~> 3.7"
-          gem "sequel", "~> 5.89"
+          gem "sequel", "~> 5.106"
         CONTENT
       end
 
@@ -75,7 +77,7 @@ module Hanamismith
         with_template.insert_before(/group :development/, <<~CONTENT)
 
           group :development, :test do
-            gem "dotenv", "~> 3.1"
+            gem "dotenv", "~> 3.2"
           end
 
         CONTENT
@@ -83,8 +85,8 @@ module Hanamismith
 
       def insert_development
         with_template.insert_after(/group :development do/, <<~CONTENT.gsub("gem", "  gem"))
-          gem "hanami-webconsole", "~> 2.3"
-          gem "localhost", "~> 1.3"
+          gem "hanami-webconsole", "~> 3.0"
+          gem "localhost", "~> 1.8"
         CONTENT
       end
 
@@ -92,7 +94,7 @@ module Hanamismith
         with_template.insert_after(/group :test/, <<~CONTENT.gsub("gem", "  gem"))
           gem "capybara", "~> 3.40"
           gem "capybara-validate_html5", "~> 2.1"
-          gem "cuprite", "~> 0.15"
+          gem "cuprite", "~> 0.17"
           gem "database_cleaner-sequel", "~> 2.0"
           gem "launchy", "~> 3.1"
           gem "rack-test", "~> 2.2"

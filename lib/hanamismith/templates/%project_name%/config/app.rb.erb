@@ -10,12 +10,6 @@ require "hanami"
     Dry::Schema.load_extensions :monads
     Dry::Validation.load_extensions :monads
 
-    prepare_container do |container|
-      container.config.component_dirs.dir "app" do |dir|
-        dir.memoize = -> component { component.key.start_with? "repositories." }
-      end
-    end
-
     config.actions.content_security_policy.then do |csp|
       csp[:manifest_src] = "'self'"
       csp[:script_src] += " 'unsafe-eval' 'unsafe-inline'"
@@ -29,15 +23,5 @@ require "hanami"
                                 expire_after: 3_600 # 1 hour.
                               }
     # rubocop:enable Layout/FirstArrayElementLineBreak
-
-    environment :development do
-      # :nocov:
-      config.logger.options[:colorize] = true
-
-      config.logger = config.logger.instance.add_backend(
-        colorize: false,
-        stream: root.join("log/development.log")
-      )
-    end
   end
 <% end %>

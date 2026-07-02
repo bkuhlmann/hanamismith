@@ -74,6 +74,22 @@ RSpec.describe Hanamismith::Builders::Core do
       CONTENT
     end
 
+    it "builds mailer" do
+      builder.call
+
+      expect(temp_dir.join("test/app/mailer.rb").read).to eq(<<~CONTENT)
+        # auto_register: false
+
+        require "hanami/mailer"
+
+        module Test
+          # The application base mailer.
+          class Mailer < Hanami::Mailer
+          end
+        end
+      CONTENT
+    end
+
     it "builds view" do
       builder.call
 
@@ -106,12 +122,6 @@ RSpec.describe Hanamismith::Builders::Core do
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
 
-            prepare_container do |container|
-              container.config.component_dirs.dir "app" do |dir|
-                dir.memoize = -> component { component.key.start_with? "repositories." }
-              end
-            end
-
             config.actions.content_security_policy.then do |csp|
               csp[:manifest_src] = "'self'"
               csp[:script_src] += " 'unsafe-eval' 'unsafe-inline'"
@@ -125,16 +135,6 @@ RSpec.describe Hanamismith::Builders::Core do
                                         expire_after: 3_600 # 1 hour.
                                       }
             # rubocop:enable Layout/FirstArrayElementLineBreak
-
-            environment :development do
-              # :nocov:
-              config.logger.options[:colorize] = true
-
-              config.logger = config.logger.instance.add_backend(
-                colorize: false,
-                stream: root.join("log/development.log")
-              )
-            end
           end
         end
       CONTENT

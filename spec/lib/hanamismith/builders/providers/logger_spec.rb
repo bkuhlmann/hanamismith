@@ -35,33 +35,9 @@ RSpec.describe Hanamismith::Builders::Providers::Logger do
       CONTENT
     end
 
-    it "builds Rack adapter" do
+    it "builds universal logging patch initializer" do
       builder.call
-
-      expect(temp_dir.join("test/app/aspects/logging/rack_adapter.rb").read).to include(
-        "module Test"
-      )
-    end
-
-    it "builds Rack adapter specification" do
-      builder.call
-
-      expect(temp_dir.join("test/spec/app/aspects/logging/rack_adapter_spec.rb").read).to include(
-        "Test::Aspects::Logging::RackAdapter"
-      )
-    end
-
-    it "builds Rack logger patch initializer" do
-      builder.call
-
-      expect(temp_dir.join("test/config/initializers/rack_logger_patch.rb").read).to include(
-        "Test::Aspects::Logging::RackAdapter"
-      )
-    end
-
-    it "builds SQL logger patch initializer" do
-      builder.call
-      expect(temp_dir.join("test/config/initializers/sql_logger_patch.rb").exist?).to be(true)
+      expect(temp_dir.join("test/config/initializers/universal_logger_patch.rb").exist?).to be(true)
     end
 
     it "add initializers" do
@@ -70,8 +46,7 @@ RSpec.describe Hanamismith::Builders::Providers::Logger do
       expect(temp_dir.join("test/config/app.rb").read).to include(<<~REQUIRES)
         require "hanami"
 
-        require_relative "initializers/rack_logger_patch"
-        require_relative "initializers/sql_logger_patch"
+        require_relative "initializers/universal_logger_patch"
       REQUIRES
     end
 
