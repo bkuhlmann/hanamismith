@@ -26,6 +26,7 @@ RSpec.describe Hanamismith::Builders::Node do
           "type": "module",
           "keywords": ["hanami", "htmx", "ruby"],
           "dependencies": {
+            "esbuild": "^0.28.1",
             "hanami-assets": "^3.0.0",
             "htmx.org": "^2.0.10"
           },
