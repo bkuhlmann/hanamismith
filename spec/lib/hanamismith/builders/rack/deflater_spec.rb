@@ -16,7 +16,7 @@ RSpec.describe Hanamismith::Builders::Rack::Deflater do
       Hanamismith::Builders::Rack::Attack.new(settings:, logger:).call
     end
 
-    it "adds middleware to application configuration" do
+    it "requires initializer" do
       builder.call
 
       included = temp_dir.join("test/config/app.rb").read.start_with?(<<~CONTENT)
@@ -26,6 +26,13 @@ RSpec.describe Hanamismith::Builders::Rack::Deflater do
       CONTENT
 
       expect(included).to be(true)
+    end
+
+    it "uses middleware" do
+      builder.call
+      content = temp_dir.join("test/config/app.rb").read
+
+      expect(content).to include("config.middleware.use Rack::Deflater")
     end
 
     it "answers true" do

@@ -11,8 +11,10 @@ module Hanamismith
 
         def call
           builder.call(settings.with(template_path: "%project_name%/config/app.rb.erb"))
-                 .insert_after(/Rack::Attack/, "    config.middleware.use Rack::Deflater\n")
-
+                 .insert_after(
+                   "rubocop:enable Layout/FirstArrayElementLineBreak\n",
+                   "\n    config.middleware.use Rack::Deflater\n"
+                 )
           true
         end
       end

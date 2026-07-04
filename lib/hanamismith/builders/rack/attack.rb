@@ -25,7 +25,10 @@ module Hanamismith
         def add_middleware
           builder.call(settings.with(template_path: "%project_name%/config/app.rb.erb"))
                  .insert_after(/require/, %(\nrequire_relative "initializers/rack_attack"\n))
-                 .insert_before(/environment/, "    config.middleware.use Rack::Attack\n\n")
+                 .insert_after(
+                   "rubocop:enable Layout/FirstArrayElementLineBreak\n",
+                   "\n    config.middleware.use Rack::Attack\n"
+                 )
         end
       end
     end

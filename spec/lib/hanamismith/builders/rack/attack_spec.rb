@@ -13,14 +13,16 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
     before do
       settings.with! settings.minimize
       Hanamismith::Builders::Core.new(settings:, logger:).call
-      builder.call
     end
 
     it "builds initializer" do
+      builder.call
       expect(temp_dir.join("test/config/initializers/rack_attack.rb").exist?).to be(true)
     end
 
-    it "adds middleware to application configuration" do
+    it "requires initializer" do
+      builder.call
+
       included = temp_dir.join("test/config/app.rb").read.start_with?(<<~CONTENT)
         require "hanami"
 
@@ -28,6 +30,13 @@ RSpec.describe Hanamismith::Builders::Rack::Attack do
       CONTENT
 
       expect(included).to be(true)
+    end
+
+    it "uses middleware" do
+      builder.call
+      content = temp_dir.join("test/config/app.rb").read
+
+      expect(content).to include("config.middleware.use Rack::Attack")
     end
 
     it "answers true" do
