@@ -33,6 +33,7 @@ test/app/assets/css/view_transitions.css
 test/app/assets/images/icon.svg
 test/app/assets/js/app.js
 test/app/assets/pwa/manifest.webmanifest
+test/app/contract.rb
 test/app/db/relation.rb
 test/app/db/repository.rb
 test/app/db/struct.rb
