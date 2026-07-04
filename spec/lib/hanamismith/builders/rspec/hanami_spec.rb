@@ -17,18 +17,17 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
         builder.call
 
         expect(temp_dir.join("test/spec/hanami_helper.rb").read).to eq(<<~CONTENT)
+          ENV["HANAMI_ENV"] = "test"
+
           require "capybara/cuprite"
           require "capybara/rspec"
           require "capybara/validate_html5"
           require "database_cleaner/sequel"
           require "dry/monads"
+          require "hanami/prepare"
           require "rack/test"
           require "rom-factory"
           require "spec_helper"
-
-          ENV["HANAMI_ENV"] = "test"
-
-          require "hanami/prepare"
 
           using Refinements::Pathname
 
@@ -55,10 +54,10 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
             config.include_context "with application dependencies", type: :feature
 
             databases = proc do
-              Hanami.app.slices.with_nested.prepend(Hanami.app).each.with_object Set.new do |slice, dbs|
+              Hanami.app.with_slices.each_with_object Set.new do |slice, databases|
                 next unless slice.key? "db.rom"
 
-                dbs.merge slice["db.rom"].gateways.values.map(&:connection).to_enum
+                databases.merge slice["db.rom"].gateways.values.map(&:connection)
               end
             end
 
@@ -83,9 +82,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Hanami do
               end
             end
 
-            config.append_after :each, :db do
-              databases.call.each { |db| DatabaseCleaner[:sequel, db:].clean }
-            end
+            config.after(:each, :db) { databases.call.each { DatabaseCleaner[:sequel, db: it].clean } }
           end
         CONTENT
       end
