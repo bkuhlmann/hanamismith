@@ -65,14 +65,7 @@ RSpec.describe Hanamismith::Builders::RSpec::Helper do
         <<~BODY
           require "simplecov"
 
-          unless ENV["COVERAGE"] == "no"
-            SimpleCov.start do
-              add_filter %r(^/spec/)
-              enable_coverage :branch
-              minimum_coverage_by_file line: 95, branch: 95
-            end
-          end
-
+          SimpleCov.start :strict unless ENV["COVERAGE"] == "no"
           Bundler.require :tools
 
 

@@ -139,9 +139,7 @@ RSpec.describe Hanamismith::Builders::Core do
         module Test
           # The application base configuration.
           class App < Hanami::App
-            # :nocov:
             RubyVM::YJIT.enable
-            # :nocov:
 
             Dry::Schema.load_extensions :monads
             Dry::Validation.load_extensions :monads
