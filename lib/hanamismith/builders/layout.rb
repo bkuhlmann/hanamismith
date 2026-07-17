@@ -20,8 +20,6 @@ module Hanamismith
                .replace("<!-- stylesheet -->", stylesheet)
                .replace("<!-- javascript -->", javascript)
                .replace("<!-- yield -->", "<%= yield %>")
-               .replace("<!-- flash:alert -->", flash(:alert))
-               .replace("<!-- flash:notice -->", flash(:notice))
 
         true
       end
@@ -51,15 +49,6 @@ module Hanamismith
           %(                 rel: "apple-touch-icon",\n) +
           %(                 href: "#{uri}",\n) +
           %(                 type: "image/png" %>)
-      end
-
-      # :reek:UtilityFunction
-      def flash kind
-        %(<% if flash[:#{kind}] %>\n) +
-          %(      <div class="site-#{kind}">\n) +
-          %(        <p><%= flash[:#{kind}] %></p>\n) +
-          %(      </div>\n) +
-          %(    <% end %>\n)
       end
 
       def manifest
