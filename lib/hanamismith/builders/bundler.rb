@@ -48,7 +48,7 @@ module Hanamismith
       def insert_main
         with_template.insert_after "source", <<~CONTENT
           gem "cogger", "~> 2.4"
-          gem "core", "~> 3.2"
+          gem "core", "~> 3.4"
           gem "dry-schema", "~> 1.16"
           gem "dry-types", "~> 1.9"
           gem "dry-validation", "~> 1.11"
