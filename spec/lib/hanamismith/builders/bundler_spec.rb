@@ -94,7 +94,7 @@ RSpec.describe Hanamismith::Builders::Bundler do
           gem "hanami-router", "~> 3.0"
           gem "hanami-view", "~> 3.0"
           gem "bootsnap", "~> 1.24"
-          gem "dry-monads", "~> 1.10"
+          gem "dry-monads", "~> 1.11"
           gem "refinements", "~> 14.3"
 
           group :quality do
