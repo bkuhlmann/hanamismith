@@ -23,7 +23,7 @@ RSpec.describe Hanamismith::Builders::Providers::HTMX do
             end
 
             register :htmx, HTMX
-            register :htmx_defaults, {"allowScriptTags" => false, "defaultSwapStyle" => "outerHTML"}.freeze
+            register :htmx_defaults, {"defaultSwap" => "outerHTML"}.freeze
             register :htmx_layout, toggler
           end
         end
