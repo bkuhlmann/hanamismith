@@ -39,6 +39,8 @@ RSpec.describe Hanamismith::Builders::Reek do
             TooManyStatements:
               exclude:
                 - UniversalLoggerPatch#_log_structured
+            UnusedParameters:
+              enabled: false
         CONTENT
       end
     end

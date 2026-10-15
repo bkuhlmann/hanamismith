@@ -3,9 +3,13 @@ exclude_paths:
   - vendor
 
 detectors:
+  LongParameterList:
+    enabled: false
   TooManyMethods:
     exclude:
       - "Hanamismith::Builders::Core"
   TooManyStatements:
     exclude:
       - "Hanamismith::CLI::Shell#cli"
+  UnusedParameters:
+    enabled: false
