@@ -7,8 +7,6 @@ module Hanamismith
     module Commands
       # Handles the build command.
       class Build < Sod::Command
-        include Dependencies[:settings, :logger]
-
         # Order matters.
         BUILDERS = [
           Rubysmith::Builders::Init,
@@ -73,6 +71,8 @@ module Hanamismith
           Builders::Environments::Test,
           Builders::Git::Commit
         ].freeze
+
+        include Dependencies[:settings, :logger]
 
         handle "build"
 
